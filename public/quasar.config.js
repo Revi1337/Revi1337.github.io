@@ -19,7 +19,7 @@ module.exports = configure(function (ctx) {
 
     build: {
       vueRouterMode: 'history',
-      distDir: '../test',
+      distDir: '../../test',
       chainWebpack(chain) {
         chain
           .plugin('eslint-webpack-plugin')
