@@ -266,8 +266,7 @@ const particlesLoaded = async container => {
 };
 
 const router = useRouter();
-const goIndex = () =>
-  router.push({ name: 'Main', params: { category: 'dev' } });
+const goIndex = () => router.push({ name: 'Index' });
 const goRoot = () => router.push({ name: 'Intro' });
 const goTarget = url => window.open(url, '_blank');
 </script>

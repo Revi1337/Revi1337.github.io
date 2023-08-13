@@ -29,7 +29,7 @@
             :name="value"
             :label="value === 'cheet_sheet' ? 'cheet sheet' : value"
             :ripple="false"
-            :to="{ name: 'Main', params: { category: value } }"
+            :to="{ name: 'Index', query: { category: value } }"
             exact
           />
         </q-tabs>
@@ -112,13 +112,13 @@ const tab = ref('all');
 const categoryList = ['all', 'dev', 'ctf', 'writeup', 'cs', 'cheet_sheet'];
 const router = useRouter();
 
-watch(tab, () => {
-  console.log('tab changed');
-});
+// watch(tab, () => {
+//   console.log('tab changed');
+// });
 
 // goHome
 const goHome = () => {
-  router.push({ name: 'Main' });
+  router.push({ name: 'Index' });
 };
 
 // configure layout

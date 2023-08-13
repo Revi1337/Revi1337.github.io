@@ -1,4 +1,38 @@
 <template>
+  <div>
+    <template v-if="choiceComp">
+      <CategoryPage :category="$route.query.category" />
+    </template>
+    <template v-else>
+      <MainPage />
+    </template>
+  </div>
+</template>
+
+<script setup>
+import CategoryPage from './CategoryPage.vue';
+import MainPage from './MainPage.vue';
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
+const choiceComp = computed(() =>
+  ['all', 'dev', 'ctf', 'writeup', 'cs', 'cheet_sheet'].includes(
+    route.query.category
+  )
+);
+</script>
+
+<style lang="scss" scoped>
+.carousel {
+  color: $font-color;
+}
+.text-table {
+  color: $font-color !important;
+}
+</style>
+
+<!-- <template>
   <p class="text-h5 text-weight-bold">Recent Post</p>
   <q-carousel
     class="carousel"
@@ -68,9 +102,6 @@
     </template>
   </q-carousel>
 
-  <!-- <p class="col-6 text-h5 text-weight-bold">Development Log</p>
-  <p class="col-6 text-h5 text-weight-bold">TryHackMe Log</p> -->
-
   <div class="row items-center justify-center" :style="{ height: '400px' }">
     <div class="col-12 row items-center justify-center no-wrap q-px-lg">
       <p class="col-6 text-h5 text-weight-bold q-mr-md">DEVLOG</p>
@@ -109,7 +140,6 @@
               :chart-data="chartData"
               :chart-options="config"
             />
-            <!-- <Radar v-if="loaded" :data="chartData" :options="config" /> -->
           </div>
 
           <div class="column justify-center items-center">
@@ -177,7 +207,6 @@ import {
   Tooltip,
   Legend
 } from 'chart.js';
-import { Radar } from 'vue-chartjs';
 
 // request Recent post
 const posts = ref([]);
@@ -369,33 +398,4 @@ onMounted(async () => {
 .text-table {
   color: $font-color !important;
 }
-</style>
-<!-- // const fetchTryHackMeSkillSetRequest = async () => {
-  //   loaded.value = false;
-  //   // const { data } = await fetchTryHackMeSkillSet();
-  //   chartData.value = {
-  //     labels: Object.keys(tryHackMeSkillSet.value),
-  //     datasets: [
-  //       {
-  //         label: 'Skill Score',
-  //         // data: filteringMaximumValue([
-  //         //   data.skills.fundamentals.score,
-  //         //   data.skills.linux.score,
-  //         //   data.skills.network.score,
-  //         //   data.skills.privesc.score,
-  //         //   data.skills.web.score,
-  //         //   data.skills.windows.score
-  //         // ]),
-  //         data: [100, 85, 81, 70, 93, 38],
-  //         fill: true,
-  //         backgroundColor: 'rgba(54, 162, 235, 0.2)',
-  //         borderColor: 'rgb(54, 162, 235)',
-  //         pointBackgroundColor: 'rgb(54, 162, 235)',
-  //         pointBorderColor: '#fff',
-  //         pointHoverBackgroundColor: '#fff',
-  //         pointHoverBorderColor: 'rgb(54, 162, 235)'
-  //       }
-  //     ]
-  //   };
-  //   loaded.value = true;
-  // }; -->
+</style> -->
