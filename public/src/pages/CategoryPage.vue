@@ -6,7 +6,7 @@
     <PostComponent
       v-if="isLoaded"
       :id="index"
-      :title="value"
+      :title="title"
       content="content"
       hashtag="hashtag"
       created-at="created-at"
@@ -20,6 +20,7 @@
 import { onMounted, watchEffect, computed, ref } from 'vue';
 import PostComponent from 'src/components/PostComponent.vue';
 import SummaryComponent from 'src/components/SummaryComponent.vue';
+import { getMarkDown } from 'src/api/posts';
 
 onMounted(() => {
   console.log('Category Page Mounted');
@@ -33,11 +34,13 @@ const props = defineProps({
 });
 
 const currentPath = computed(() => props.category);
-
 const isLoaded = ref(false);
-const fetchData = () => {
+const title = ref('');
+const fetchData = async () => {
   try {
     isLoaded.value = false;
+    const { data } = await getMarkDown('/socket/Socket.md');
+    title.value = data.split('\n').filter(line => line.startsWith('#'))[0];
     isLoaded.value = true;
   } catch (error) {
     console.log(error);
