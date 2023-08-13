@@ -1,0 +1,1 @@
+"use strict";(globalThis["webpackChunkr3vi1e37"]=globalThis["webpackChunkr3vi1e37"]||[]).push([[308],{6308:(u,e,r)=>{r.r(e),r.d(e,{default:()=>n});var t=r(9835);r(9404),r(1815);const a={__name:"AuthLayout",setup(u){return(u,e)=>{const r=(0,t.up)("router-view");return(0,t.wg)(),(0,t.iD)("div",null,[(0,t.Wm)(r)])}}},i=a,n=i}}]);
