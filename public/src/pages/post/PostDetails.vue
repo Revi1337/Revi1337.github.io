@@ -8,12 +8,11 @@
 
 <script setup>
 import { useRoute } from 'vue-router';
-import { getMarkDown, getImageData } from 'src/api/posts';
+import { getMarkDown } from 'src/api/posts';
 import { ref, onMounted, computed } from 'vue';
 import { marked } from 'marked';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/atom-one-dark.css';
-import axios from 'src/boot/axios';
 
 const props = defineProps({
   path: {
