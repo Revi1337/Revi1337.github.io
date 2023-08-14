@@ -110,7 +110,7 @@ const props = defineProps({
   },
   createdBy: {
     type: String,
-    required: true
+    required: false
   },
   category: {
     type: String,

@@ -1,17 +1,17 @@
 <template>
   <div>CATEGORY PAGE</div>
-  <div>{{ category }}</div>
+  <!-- <div>{{ category }}</div> -->
 
-  <template v-for="(value, index) in category.length" :key="index">
+  <template v-for="(value, index) in postData" :key="index">
     <PostComponent
       v-if="isLoaded"
       :id="index"
-      :title="title"
+      :title="value.title"
+      :hashtag="value.hashtags"
+      :category="value.category"
+      :created-at="value.createdAt"
+      created-by="Revi1337"
       content="content"
-      hashtag="hashtag"
-      created-at="created-at"
-      created-by="created-by"
-      category="category"
     />
   </template>
 </template>
@@ -20,7 +20,7 @@
 import { onMounted, watchEffect, computed, ref } from 'vue';
 import PostComponent from 'src/components/PostComponent.vue';
 import SummaryComponent from 'src/components/SummaryComponent.vue';
-import { getMarkDown, getSeed, getProcessedData } from 'src/api/posts';
+import { getProcessedData } from 'src/api/posts';
 
 onMounted(() => {
   console.log('Category Page Mounted');
@@ -36,14 +36,16 @@ const props = defineProps({
 const currentPath = computed(() => props.category);
 const isLoaded = ref(false);
 const title = ref('');
+const postData = ref([]);
 
 const fetchData = async () => {
   try {
     isLoaded.value = false;
     const data = await getProcessedData(props.category);
-    console.log(data);
+    postData.value = data;
     isLoaded.value = true;
   } catch (error) {
+    isLoaded.value = false;
     console.error(error);
   }
 };

@@ -2,17 +2,17 @@
   {
     "id": 1,
     "title": "Socket",
-    "category": "ctf",
+    "category": "writeup",
     "hashtags": ["HackTheBox"],
-    "date": "2023-4-10",
+    "createdAt": "2023-4-10",
     "path": "/socket/Socket.md"
   },
   {
     "id": 2,
     "title": "agile",
-    "category": "ctf",
+    "category": "writeup",
     "hashtags": ["HackTheBox"],
-    "date": "2023-4-11",
+    "createdAt": "2023-4-11",
     "path": "/agile/agile.md"
   },
   {
@@ -20,7 +20,7 @@
     "title": "Authorization",
     "category": "dev",
     "hashtags": ["Spring"],
-    "date": "2023-4-12",
+    "createdAt": "2023-4-12",
     "path": "/Authorization/Authorization.md"
   },
   {
@@ -28,7 +28,7 @@
     "title": "ExceptionTranslationFilter",
     "category": "dev",
     "hashtags": ["Spring"],
-    "date": "2023-4-10",
+    "createdAt": "2023-4-10",
     "path": "/ExceptionTranslationFilter/ExceptionTranslationFilter.md"
   }
   

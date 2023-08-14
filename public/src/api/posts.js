@@ -8,16 +8,13 @@ export async function getSeed() {
   return github.get('/seed.json');
 }
 
-export async function getProcessedData(category) {
-  const filteredData = [];
-  getSeed()
-    .then(({ data }) => {
-      data
-        .filter(post => post.category === category)
-        .forEach(data => filteredData.push(data));
-    })
-    .catch(error => {
-      console.log(error);
-    });
-  return filteredData;
+export function getProcessedData(category) {
+  return getSeed()
+    .then(response => filterData(response, category))
+    .catch(error => console.log(error));
+}
+
+function filterData(response, category) {
+  if (category === 'all') return response.data;
+  return response.data.filter(res => res.category === category);
 }
