@@ -1,8 +1,16 @@
 <template>
   <div>POSTDETAILS</div>
+  <div>{{ $route.query.post }}</div>
 </template>
 
-<script setup></script>
+<script setup>
+const props = defineProps({
+  path: {
+    type: String,
+    required: true
+  }
+});
+</script>
 
 <style lang="scss" scoped></style>
 

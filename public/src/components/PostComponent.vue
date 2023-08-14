@@ -125,13 +125,19 @@ const props = defineProps({
     type: Boolean,
     required: false,
     default: true
+  },
+  path: {
+    type: String,
+    required: true
   }
 });
 
 // GotoPostDetails
 const router = useRouter();
+// const goPostDetails = () =>
+//   router.push({ name: 'PostDetails', params: { id: props.id } });
 const goPostDetails = () =>
-  router.push({ name: 'PostDetails', params: { id: props.id } });
+  router.push({ name: 'Index', query: { post: props.path } });
 
 // Parsing Datetime
 const date = new Date(props.createdAt);

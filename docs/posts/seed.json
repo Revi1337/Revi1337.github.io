@@ -5,7 +5,8 @@
     "category": "writeup",
     "hashtags": ["HackTheBox"],
     "createdAt": "2023-4-10",
-    "path": "/socket/Socket.md"
+    "folder": "/socket",
+    "filename": "/Socket"
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "category": "writeup",
     "hashtags": ["HackTheBox"],
     "createdAt": "2023-4-11",
-    "path": "/agile/agile.md"
+    "folder": "/agile",
+    "filename": "/agile"
   },
   {
     "id": 3,
@@ -21,7 +23,8 @@
     "category": "dev",
     "hashtags": ["Spring"],
     "createdAt": "2023-4-12",
-    "path": "/Authorization/Authorization.md"
+    "folder": "/Authorization",
+    "filename": "/Authorization"
   },
   {
     "id": 4,
@@ -29,8 +32,8 @@
     "category": "dev",
     "hashtags": ["Spring"],
     "createdAt": "2023-4-10",
-    "path": "/ExceptionTranslationFilter/ExceptionTranslationFilter.md"
+    "folder": "/ExceptionTranslationFilter",
+    "filename": "/ExceptionTranslationFilter"
   }
-  
 ]
 
