@@ -1,6 +1,6 @@
-## ExceptionTranslationFilter
+# [SpringSecurity] ExceptionTranslationFilter 프로세스 분석 및 동작 원리
 
-### ExceptionTranslationFilter 는 뭐하는 놈인가?
+## ExceptionTranslationFilter 는 뭐하는 놈인가?
 
 * ExceptionTranslationFilter 는 말그대로 `Exception` 을 번역 및 해석하는 역할을 수행한다.
 * ExceptionTranslationFilter 는 `SecurityFilterChain` 에서 마지막 두번째에 위치해 있다.
@@ -18,7 +18,7 @@
 
 > 여기서 알 수 있는 것은 `ExceptionTranslationFilter` 는 SecurityFilterChain 의 말전에 위치하고, `AuthorizationFilter` 는 바로 뒤에 위치하니까, `AuthorizationFilter` 는 SecurityFilterChain 의 맨 마지막에 위치하게 된다.
 
-#### ExceptionTranslationFilter 는 뭐하는 놈인가? [증명]
+### ExceptionTranslationFilter 는 뭐하는 놈인가? [증명]
 
 *ExceptionTranslationFilter 의 doFilter 메서드가 try catch 문으로 감싸져 있다는 증명* 
 ![img.png](https://revi1337.github.io/posts/ExceptionTranslationFilter/img.png)
@@ -30,7 +30,7 @@
 *ExceptionTranslationFilter 는 SecurityFilterChain 에서 말전에 위치해있고, AuthorizationFilter 는 마지막에 위치해있다는 증명.*
 ![img_3.png](https://revi1337.github.io/posts/ExceptionTranslationFilter/img_3.png)
 
-### ExceptionTranslationFilter 의 핵심 역할.
+## ExceptionTranslationFilter 의 핵심 역할.
 
 일단 Spring Security 공식문서에 나와있는 인증,인가 Exception Flow 는 아래와 같다.
 
@@ -61,7 +61,7 @@
    1. 인가 예외처리때의 흐름은 매우 간단하다. `AccessDeniedHandler` 를 호출하여 예외처리를 수행한다.
    조심해야할 것은 `AccessDeniedHandler` 가 호출됬다는 것은, **권한이 부족하다는 의미이지. 인증되지 않은 사용자가 아니라는 것**이다.
 
-#### ExceptionTranslationFilter 의 핵심 역할. [DEBUGGING]
+### ExceptionTranslationFilter 의 핵심 역할. [DEBUGGING]
 
 `AuthenticationException`  `AccessDeniedException` 가 발생했을떄 `ExceptionTranslationFilter` 의 흐름을 분석해보자.
 
@@ -77,7 +77,7 @@
 
 ![img_5.png](https://revi1337.github.io/posts/ExceptionTranslationFilter/img_5.png)
 
-##### AuthenticationException 이 발생했을 경우.
+#### AuthenticationException 이 발생했을 경우.
 
 우선 permitAll() 인 `index` 에서 `/user` 경로로 요청을 보낸다.
 
@@ -154,7 +154,7 @@ if (isAnonymous) 로 인해 익명 사용자임이 확정되었기때문에 Auth
 
 ![img_23.png](https://revi1337.github.io/posts/ExceptionTranslationFilter/img_23.png)
 
-##### AccessDeniedException 이 발생했을 경우.
+#### AccessDeniedException 이 발생했을 경우.
 
 AccessDeniedException 이 발생하는 경우는 사실 볼게 정말없다.. 그냥 `AccessDeniedHandler` 를호출하는 것이 전부이기때문.. 
 
@@ -192,10 +192,10 @@ response 에 `403(Forbidden) Status Code` 를 달아주는것을 볼 수 있다
 
 ![img_29.png](https://revi1337.github.io/posts/ExceptionTranslationFilter/img_29.png)
 
-### 그렇다면 AuthenticationEntryPoint 와 AccessDeniedHandler 를 커스터마이징하는 방법
+## 그렇다면 AuthenticationEntryPoint 와 AccessDeniedHandler 를 커스터마이징하는 방법
 
 
-### 참고한 문서 및 링크
+## 참고한 문서 및 링크
 https://docs.spring.io/spring-security/reference/servlet/architecture.html#servlet-exceptiontranslationfilter
 https://www.inflearn.com/course/%EC%BD%94%EC%96%B4-%EC%8A%A4%ED%94%84%EB%A7%81-%EC%8B%9C%ED%81%90%EB%A6%AC%ED%8B%B0/dashboard
 

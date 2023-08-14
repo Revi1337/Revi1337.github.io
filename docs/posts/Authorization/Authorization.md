@@ -1,6 +1,6 @@
-## [SpringSecurity] Authorization 프로세스 분석 및 동작 원리
+# [SpringSecurity] Authorization 프로세스 분석 및 동작 원리
 
-### AuthorizationFilter 는 뭐하는 놈인가?
+## AuthorizationFilter 는 뭐하는 놈인가?
 
 `Spring Security` 에서 `FormLogin` 을 사용하면 `UsernamePasswordAuthenticationFilter` 가 로그인 요청에 대해 인증프로세스를 진행하게 된다.
 
@@ -12,7 +12,7 @@
 
 > 해당 포스팅에서는 이러한 인가 프로세스의 흐름을 공식문서를 참고하며 코드레벨에서 분석할 것이다.
 
-### 공식문서에서 말하는 AuthorizationFilter 의 큰 흐름
+## 공식문서에서 말하는 AuthorizationFilter 의 큰 흐름
 
 우선 아래의 사진을 보자. SpringSecurity 는 `AuthorizationFilter` 에서 수행하는 인가프로세스의 흐름을 크게 4가지로 표현하고있는 사진이다.
 
@@ -40,6 +40,6 @@
 ![img.png](https://revi1337.github.io/posts/Authorization/img.png)
 
 
-### 코드레벨에서 AuthorizationFilter 동작 분석.
+## 코드레벨에서 AuthorizationFilter 동작 분석.
 
 
