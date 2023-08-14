@@ -147,6 +147,7 @@ version 정보를 얻는 함수들을 모조리 입력해본다. 결과적으로
 여기서 또 겁나웃긴건 `ssh` 에 입력할떄 username 도 `tkeller` 라는 것이다. 
 
 ![img_18.png](https://revi1337.github.io/posts/socket/img_18.png)
+
 <br><br>
 
 ### Initial Access
@@ -155,6 +156,7 @@ version 정보를 얻는 함수들을 모조리 입력해본다. 결과적으로
 sudo 로 passwd 없이`build-installer.sh` 를 실행할 수 있다고 나와있다. 
 
 ![img_19.png](https://revi1337.github.io/posts/socket/img_19.png)
+
 <br><br>
 
 ### Privilege Escalation
@@ -169,14 +171,17 @@ CommandLine 에서 매개변수를 받는데, (Ex. `./executable argv[1] argv[2]
 루트권한으로 특정 커맨드를 실행할 수 있단는 얘기가된다.
 
 ![img_22.png](https://revi1337.github.io/posts/socket/img_22.png)
+
 <br><br>
 
 따라서 간단하게 exploit 코드를 작성해주고 sudo 로 스크립트를 실행해주면 Root 쉘을 따낼 수 있다.
 
 ![img_20.png](https://revi1337.github.io/posts/socket/img_20.png)
+
 <br><br>
 
 ![img_21.png](https://revi1337.github.io/posts/socket/img_21.png)
+
 <br><br>
 
 
