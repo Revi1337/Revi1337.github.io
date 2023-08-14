@@ -1,7 +1,7 @@
 import { github } from '.';
 
 export async function getMarkDown(markDownPath) {
-  return github.get(markDownPath);
+  return github.get(`${markDownPath}.md`);
 }
 
 export async function getSeed() {

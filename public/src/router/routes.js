@@ -33,9 +33,9 @@ export default routes;
 //     component: () => import('layouts/MainLayout.vue'),
 //     children: [
 //       {
-//         path: ':category',
-//         name: 'Main',
-//         component: () => import('pages/TestPage.vue')
+//         path: 'index',
+//         name: 'Index',
+//         component: () => import('pages/IndexPage.vue')
 //       }
 //     ]
 //   },

@@ -1,4 +1,12 @@
 <template>
+  <div>POSTDETAILS</div>
+</template>
+
+<script setup></script>
+
+<style lang="scss" scoped></style>
+
+<!-- <template>
   <div class="q-mt-xl mark-down" :style="{ oveflow: 'hidden' }">
     <p class="q-mb-lg text-h3 text-weight-bold">{{ articleData.title }}</p>
 
@@ -84,7 +92,9 @@ const searchSummaryTitle = () => {
   const parentElement = document.querySelector('.markdown-container');
   const childElements = parentElement.querySelectorAll('*');
   return Array.from(childElements).filter(childElement =>
-    ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(childElement.tagName.toLowerCase())
+    ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(
+      childElement.tagName.toLowerCase()
+    )
   );
 };
 
@@ -132,4 +142,4 @@ const calcMargin = hashCount => {
   hashCount = parseInt(hashCount.toLowerCase().replace('h', ''));
   return { marginLeft: 10 * (hashCount - 1) + 'px' };
 };
-</script>
+</script> -->
