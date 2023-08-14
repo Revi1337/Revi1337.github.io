@@ -10,7 +10,8 @@
       :hashtag="value.hashtags"
       :category="value.category"
       :created-at="value.createdAt"
-      :path="value.path"
+      :folder="value.folder"
+      :filename="value.filename"
       created-by="Revi1337"
       content="content"
     />

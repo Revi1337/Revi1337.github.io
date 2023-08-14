@@ -4,7 +4,9 @@
     :style="{ minHeight: '62px', position: $props.pos }"
   >
     <p class="footer-content policy cursor-pointer">Privacy Policy</p>
-    <p class="footer-content">Copyright (&COPY;) {{ new Date().getFullYear() }} R3VI1E37</p>
+    <p class="footer-content">
+      Copyright (&COPY;) {{ new Date().getFullYear() }} R3VI1E37
+    </p>
   </footer>
 </template>
 
@@ -24,7 +26,7 @@ const props = defineProps({
 footer,
 .q-footer {
   // position: absolute;
-  background-color: #22272e;
+  background-color: #0d1117;
   bottom: 0;
   left: 0;
   width: 100%;

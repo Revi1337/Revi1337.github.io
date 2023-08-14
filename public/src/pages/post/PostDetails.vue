@@ -1,18 +1,71 @@
 <template>
-  <div>POSTDETAILS</div>
-  <div>{{ $route.query.post }}</div>
+  <div class="row justify-center">
+    <div class="mark-down" style="width: 800px">
+      <div class="markdown-container" v-html="markdownToHtml"></div>
+    </div>
+  </div>
 </template>
 
 <script setup>
+import { useRoute } from 'vue-router';
+import { getMarkDown, getImageData } from 'src/api/posts';
+import { ref, onMounted, computed } from 'vue';
+import { marked } from 'marked';
+import hljs from 'highlight.js';
+import 'highlight.js/styles/atom-one-dark.css';
+import axios from 'src/boot/axios';
+
 const props = defineProps({
   path: {
     type: String,
     required: true
   }
 });
-</script>
 
-<style lang="scss" scoped></style>
+onMounted(() => {
+  console.log('PostDetails mounted');
+  fetchMarkDown();
+});
+
+const route = useRoute();
+const currentMarkdown = `/${route.query.post}/${route.query.markdown}`;
+const findImagesRegex = /!\[\S*]\(\S*\.\S*\)/g;
+const regex = /\(([^)]+)\)/;
+
+const isReady = ref();
+const content = ref('');
+const imageData = ref([]);
+
+const fetchMarkDown = async () => {
+  try {
+    isReady.value = false;
+    ({ data: content.value } = await getMarkDown(currentMarkdown));
+    const images = content.value.match(findImagesRegex);
+    // imageData.value = images.map(item => {
+    //   const match = regex.exec(item);
+    //   return match ? match[1] : null;
+    // });
+    isReady.value = true;
+  } catch (error) {
+    console.error(error);
+    isReady.value = false;
+  }
+};
+
+// MarkDown
+const renderer = new marked.Renderer();
+renderer.code = (code, language) => {
+  const validLanguage = hljs.getLanguage(language) ? language : 'plaintext';
+  const highlightedCode = hljs.highlight(code, { language }).value;
+  return `<pre><code class="hljs ${validLanguage}">${highlightedCode}</code></pre>`;
+};
+marked.setOptions({
+  renderer,
+  mangle: false,
+  headerIds: false
+});
+const markdownToHtml = computed(() => marked.parse(content.value));
+</script>
 
 <!-- <template>
   <div class="q-mt-xl mark-down" :style="{ oveflow: 'hidden' }">

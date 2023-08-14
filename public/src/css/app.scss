@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
-
 ::-webkit-scrollbar {
   width: 10px;
   background: #3a4149;
@@ -8,7 +6,6 @@
 
 ::-webkit-scrollbar-thumb {
   width: 10px;
-  // background-color: rgba(255, 255, 255, 0.3);
   background-color: $font-color;
   border-radius: 20px;
 }
@@ -30,30 +27,37 @@ body {
 }
 
 .mark-down {
-  font-size: 21px;
+  font-size: 16px;
+  color: #d5d9e0;
   line-height: 1.7;
   h6 {
+    color: $font-color;
     font-size: 23px;
     font-weight: 900;
   }
   h5 {
+    color: $font-color;
     font-size: 26px;
     font-weight: 900;
   }
   h4 {
+    color: $font-color;
     font-size: 29px;
     font-weight: 900;
   }
   h3 {
+    color: $font-color;
     font-size: 31px;
     font-weight: 900;
   }
   h2 {
+    color: $font-color;
     font-size: 34px;
     font-weight: 900;
   }
   h1 {
-    font-size: 36px;
+    color: $font-color;
+    font-size: 25px;
     font-weight: 900;
   }
 }
@@ -65,15 +69,19 @@ body {
 
 // markdown >
 .mark-down blockquote {
-  padding-left: 20px;
   margin-left: 5px;
-  border-left: 3px solid $light-green-12;
+  border-left: 3px solid #2b90ca;
+  background-color: #2b313a;
+  padding: 20px;
+  & p {
+    margin: 0;
+  }
 }
+
 // markdown Single code block
 .mark-down code {
   padding: 0 6px 2px;
-  color: #88b0c4;
-  background-color: #2b313a;
+  background-color: #282c34;
   font-family: RoobertPRO, RoobertPRO override, sans-serif;
   border-radius: 3px;
 }
@@ -83,13 +91,8 @@ body {
   font-family: RoobertPRO, RoobertPRO override, sans-serif;
   background-color: #282c34;
   font-size: 16px;
-  border: 1px solid #88b0c4;
 }
-// .mark-down code.hljs::before {
-//   content: 'CODE\A \A';
-//   white-space: pre;
-//   color: $light-green-12;
-// }
+
 #text {
   color: white;
 }

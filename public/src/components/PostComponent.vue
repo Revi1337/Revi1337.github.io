@@ -126,9 +126,13 @@ const props = defineProps({
     required: false,
     default: true
   },
-  path: {
+  folder: {
     type: String,
     required: true
+  },
+  filename: {
+    type: String,
+    requried: true
   }
 });
 
@@ -137,7 +141,13 @@ const router = useRouter();
 // const goPostDetails = () =>
 //   router.push({ name: 'PostDetails', params: { id: props.id } });
 const goPostDetails = () =>
-  router.push({ name: 'Index', query: { post: props.path } });
+  router.push({
+    name: 'Index',
+    query: {
+      post: props.folder.replace('/', ''),
+      markdown: props.filename.replace('/', '')
+    }
+  });
 
 // Parsing Datetime
 const date = new Date(props.createdAt);

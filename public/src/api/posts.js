@@ -14,6 +14,10 @@ export function getProcessedData(category) {
     .catch(error => console.log(error));
 }
 
+export async function getImageData(img) {
+  return github.get(img);
+}
+
 function filterData(response, category) {
   if (category === 'all') return response.data;
   return response.data.filter(res => res.category === category);
