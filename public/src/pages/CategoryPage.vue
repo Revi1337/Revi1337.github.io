@@ -20,7 +20,7 @@
 import { onMounted, watchEffect, computed, ref } from 'vue';
 import PostComponent from 'src/components/PostComponent.vue';
 import SummaryComponent from 'src/components/SummaryComponent.vue';
-import { getMarkDown } from 'src/api/posts';
+import { getMarkDown, getSeed, getProcessedData } from 'src/api/posts';
 
 onMounted(() => {
   console.log('Category Page Mounted');
@@ -36,14 +36,15 @@ const props = defineProps({
 const currentPath = computed(() => props.category);
 const isLoaded = ref(false);
 const title = ref('');
+
 const fetchData = async () => {
   try {
     isLoaded.value = false;
-    const { data } = await getMarkDown('/socket/Socket.md');
-    title.value = data.split('\n').filter(line => line.startsWith('#'))[0];
+    const data = await getProcessedData(props.category);
+    console.log(data);
     isLoaded.value = true;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
 
