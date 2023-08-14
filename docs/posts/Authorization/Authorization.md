@@ -17,7 +17,6 @@
 우선 아래의 사진을 보자. SpringSecurity 는 `AuthorizationFilter` 에서 수행하는 인가프로세스의 흐름을 크게 4가지로 표현하고있는 사진이다.
 
 ![img_1.png](https://revi1337.github.io/posts/Authorization/img_1.png)
-![https://revi1337.github.io/posts/Authorization/img_1.png](img_1.png)
 
 각 단계들의 의미는 아래와 같다.
 
@@ -39,7 +38,7 @@
 아래 사진은 SpringSecurity 에서 지원하는 `AuthorizationManager` 들의 구현체들이다. 별다른 의미는 없고 한번 보기만해보자.
 
 ![img.png](https://revi1337.github.io/posts/Authorization/img.png)
-![https://revi1337.github.io/posts/Authorization/img.png](img.png)
+
 
 ### 코드레벨에서 AuthorizationFilter 동작 분석.
 
