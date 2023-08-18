@@ -16,24 +16,6 @@
     "createdAt": "2023-4-11",
     "folder": "/agile",
     "filename": "/agile"
-  },
-  {
-    "id": 3,
-    "title": "[SpringSecurity] Authorization 프로세스 분석 및 동작 원리",
-    "category": "dev",
-    "hashtags": ["Spring"],
-    "createdAt": "2023-4-12",
-    "folder": "/Authorization",
-    "filename": "/Authorization"
-  },
-  {
-    "id": 4,
-    "title": "[SpringSecurity] ExceptionTranslationFilter 분석 및 동작 원리",
-    "category": "dev",
-    "hashtags": ["Spring"],
-    "createdAt": "2023-4-10",
-    "folder": "/ExceptionTranslationFilter",
-    "filename": "/ExceptionTranslationFilter"
   }
 ]
 
