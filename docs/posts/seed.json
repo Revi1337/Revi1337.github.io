@@ -3,7 +3,7 @@
     "id": 1,
     "title": "[HackTheBox] Socket",
     "category": "writeup",
-    "hashtags": ["HackTheBox"],
+    "hashtags": ["HackTheBox", "Remote Code Excecution", "Process Enumeration"],
     "createdAt": "2023-4-10",
     "folder": "/socket",
     "filename": "/Socket"
@@ -12,7 +12,7 @@
     "id": 2,
     "title": "[HackTheBox] Agile",
     "category": "writeup",
-    "hashtags": ["HackTheBox"],
+    "hashtags": ["HackTheBox", "SSTI", "SSRF", "RCE"],
     "createdAt": "2023-4-11",
     "folder": "/agile",
     "filename": "/agile"
@@ -20,7 +20,7 @@
   {
     "id": 3,
     "title": "[Spring] Interceptor",
-    "category": "writeup",
+    "category": "dev",
     "hashtags": ["Spring", "Java"],
     "createdAt": "2023-4-11",
     "folder": "/agile",
@@ -29,7 +29,7 @@
   {
     "id": 4,
     "title": "[Spring] Filter",
-    "category": "writeup",
+    "category": "dev",
     "hashtags": ["Spring", "Java"],
     "createdAt": "2023-4-11",
     "folder": "/agile",
@@ -37,8 +37,8 @@
   },
   {
     "id": 5,
-    "title": "[Spring Security] Auorization 흐름 분석",
-    "category": "writeup",
+    "title": "[Spring Security] Authorization 흐름 분석",
+    "category": "dev",
     "hashtags": ["Spring", "Java"],
     "createdAt": "2023-4-11",
     "folder": "/agile",
@@ -47,7 +47,7 @@
   {
     "id": 6,
     "title": "[Spring Security] Exception Handling",
-    "category": "writeup",
+    "category": "dev",
     "hashtags": ["Spring", "Java"],
     "createdAt": "2023-4-11",
     "folder": "/agile",
@@ -56,7 +56,7 @@
   {
     "id": 7,
     "title": "[Spring Security] Authentication 흐름 분석",
-    "category": "writeup",
+    "category": "dev",
     "hashtags": ["Spring", "Java"],
     "createdAt": "2023-4-11",
     "folder": "/agile",
@@ -65,7 +65,7 @@
   {
     "id": 8,
     "title": "[VueJS] Ref, ShallowRef 차이",
-    "category": "writeup",
+    "category": "dev",
     "hashtags": ["Vue", "JavaScript"],
     "createdAt": "2023-4-11",
     "folder": "/agile",
