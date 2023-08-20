@@ -1,5 +1,7 @@
 <template>
-  <div>Main Page</div>
+  <q-page>
+    <div>Main Page</div>
+  </q-page>
 </template>
 
 <script setup>
@@ -9,5 +11,3 @@ onMounted(() => {
   console.log('Main Page Mounted');
 });
 </script>
-
-<style lang="scss" scoped></style>
