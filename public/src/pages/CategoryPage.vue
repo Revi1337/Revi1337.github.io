@@ -1,5 +1,20 @@
 <template>
   <q-page>
+    <div class="row justify-end items-center q-mb-xl">
+      <q-input
+        dense
+        dark
+        :spellcheck="false"
+        type="text"
+        v-model="titleContains"
+        :style="{ width: '300px' }"
+      >
+        <template #append>
+          <q-icon name="search" />
+        </template>
+      </q-input>
+    </div>
+
     <div class="flex flex-center">
       <template v-for="(value, index) in postData" :key="index">
         <PostComponent
@@ -38,15 +53,21 @@ const props = defineProps({
 
 const currentPath = computed(() => props.category);
 const isLoaded = ref(false);
-const title = ref('');
 const postData = ref([]);
+const titleContains = ref('');
 
 const fetchData = async () => {
   try {
     isLoaded.value = false;
+
     const data = await getProcessedData(props.category);
-    postData.value = data;
+    postData.value = data
+      .filter(json =>
+        json.title.toLowerCase().includes(titleContains.value.toLowerCase())
+      )
+      .map(json => json);
     console.log(postData.value);
+
     isLoaded.value = true;
   } catch (error) {
     isLoaded.value = false;
@@ -56,8 +77,24 @@ const fetchData = async () => {
 
 watchEffect(() => {
   currentPath.value;
+  titleContains.value;
   fetchData();
 });
+
+// const searchData = async () => {
+//   try {
+//     const data = await getProcessedData(props.category, titleContains.value);
+//     const assembledArray = data
+//       .filter(json => json.title.includes(titleContains.value))
+//       .map(json => json);
+//     console.log(assembledArray);
+//   } catch (error) {}
+// };
+
+// watchEffect(() => {
+//   titleContains.value;
+//   searchData();
+// });
 </script>
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
