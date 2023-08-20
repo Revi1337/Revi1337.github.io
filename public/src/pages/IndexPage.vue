@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="q-mt-xl">
     <template v-if="isPostValid">
       <PostDetails />
     </template>

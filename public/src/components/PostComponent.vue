@@ -1,10 +1,11 @@
 <template>
-  <!-- :class="{ hovered: isHovered }"
-    :style="{ boxShadow: getBoxShadowColor, minHeight: '100px', padding: '15px'}" -->
-  <!-- boxShadow: shadow ? getBoxShadowColor : 'none', -->
-  <article
-    :class="{ hovered: isHovered }"
+  <q-card
+    dark
+    :class="['card', 'q-ma-sm', isHovered ? 'hovered' : '']"
     :style="{
+      width: '270px',
+      height: '270px',
+      borderRadius: '7px',
       boxShadow: shadow ? postData.shadow : 'none',
       minHeight: '100px',
       padding: '15px',
@@ -19,58 +20,60 @@
       :time-to-read="getPredictedTimeToRead"
       :content="getContent"
     >
-      <div class="row q-gutter-lg">
-        <div>
+      <div class="column" style="height: 100%">
+        <div class="col-auto">
           <div class="flex flex-center">
-            <q-avatar size="64px">
-              <q-img width="48px" :src="postData.link" />
+            <span class="text-overline text-red">
+              {{ category.toUpperCase() }}
+            </span>
+            <span>&nbsp;·&nbsp;</span>
+            <span :class="`text-${postData.label}`">
+              {{ postData.label }}
+            </span>
+          </div>
+
+          <!-- <span class="text-center">
+            <q-badge
+              :text-color="postData.color"
+              :label="postData.label"
+              :style="{ fontSize: '16px', padding: '7px' }"
+            />
+          </span> -->
+
+          <div class="text-center">
+            <q-avatar size="60px">
+              <q-img width="45px" :src="postData.link" />
             </q-avatar>
           </div>
-          <span class="text-center">
-            <q-badge
-              rounded
-              outline
-              :color="postData.color"
-              :label="postData.label"
-            />
-          </span>
         </div>
 
         <div class="col">
-          <div
-            class="row items-center no-wrap"
-            :style="{
-              height: props.hashtag.slice(1).length > 0 ? '64px' : '100%'
-            }"
-          >
-            <span class="title">{{ title }}</span>
+          <div class="row items-center justify-center no-wrap">
+            <div style="height: 80px">
+              <div class="title text-center">
+                {{ title.match(/\[([^\]]+)\]/)[0] }}
+              </div>
+              <div class="title text-center">
+                {{ title.replace(title.match(/\[([^\]]+)\]/)[0] + ' ', '') }}
+              </div>
+            </div>
           </div>
-          <div class="row q-gutter-sm">
-            <span v-for="tag in props.hashtag.slice(1)" :key="tag">
+
+          <div class="row justify-center items-center">
+            <span v-for="tag in props.hashtag" :key="tag" class="q-mx-xs">
               <q-badge rounded outline :color="calcColor(tag)" :label="tag" />
             </span>
           </div>
         </div>
-
-        <div class="col-3">
-          <div class="row no-wrap items-center">
-            <span class="text-overline text-red">{{
-              category.toUpperCase()
-            }}</span>
-            <span class="text-bold">&nbsp;·&nbsp;</span>
-            <span class="text-caption">{{ getPredictedTimeToRead }}</span>
-          </div>
-          <div>
-            <span>Created : {{ formattedDateTime }}</span>
-            <span>Written By : {{ createdBy }}</span>
-          </div>
+        <div class="vertical-text q-pa-sm absolute-bottom-right">
+          {{ props.createdAt }}
         </div>
       </div>
     </slot>
-  </article>
+  </q-card>
 
   <Transition name="articleSlider">
-    <div v-if="swch" class="q-ml-lg">
+    <div v-if="swch">
       <slot name="slide"></slot>
     </div>
   </Transition>
@@ -287,29 +290,19 @@ const postData = computed(() => {
 .text-TryHackMe {
   color: #ff0000 !important;
 }
+
 span {
   display: block;
 }
 
-.articleSlider-enter-from {
-  opacity: 0;
-}
-.articleSlider-enter-active {
-  transition: opacity 0.5s ease;
-}
-.articleSlider-enter-to {
-  opacity: 1;
+.vertical-text {
+  // writing-mode: vertical-rl;
+  writing-mode: horizontal-tb;
+  text-orientation: mixed;
+  font-size: 1px;
 }
 
-article {
-  // border: 1px solid $font-color;
-  border-radius: 7px;
-  margin: 20px 5px 20px 5px;
-  position: relative;
-  display: flex;
-  flex-wrap: nowrap;
-  flex-direction: column;
-  justify-content: center;
+.card {
   cursor: pointer;
   transition: all 0.2s ease;
 
@@ -318,7 +311,7 @@ article {
   }
 }
 .title {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 900;
 }
 </style>
