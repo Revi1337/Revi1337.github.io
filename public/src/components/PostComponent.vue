@@ -3,13 +3,12 @@
     dark
     :class="['card', 'q-ma-sm', isHovered ? 'hovered' : '']"
     :style="{
-      width: '270px',
-      height: '270px',
+      width: width,
+      height: height,
       borderRadius: '7px',
       boxShadow: shadow ? postData.shadow : 'none',
-      minHeight: '100px',
       padding: '15px',
-      border: border ? '1px solid' : 'none'
+      border: border ? `1px solid grey` : 'none'
     }"
     @click="goPostDetails()"
     @mouseenter="slideSwitch()"
@@ -31,14 +30,6 @@
               {{ postData.label }}
             </span>
           </div>
-
-          <!-- <span class="text-center">
-            <q-badge
-              :text-color="postData.color"
-              :label="postData.label"
-              :style="{ fontSize: '16px', padding: '7px' }"
-            />
-          </span> -->
 
           <div class="text-center">
             <q-avatar size="60px">
@@ -136,6 +127,16 @@ const props = defineProps({
   filename: {
     type: String,
     requried: true
+  },
+  width: {
+    type: String,
+    required: false,
+    default: '270px'
+  },
+  height: {
+    type: String,
+    required: false,
+    default: '270px'
   }
 });
 
@@ -263,34 +264,6 @@ const postData = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-.text-Spring {
-  color: #6cb52d !important;
-}
-.text-Vue {
-  color: #42b883 !important;
-}
-.text-Python {
-  color: #3d7daf !important;
-}
-.text-Bash {
-  color: #fefefe !important;
-}
-.text-Java {
-  color: #b07219 !important;
-}
-.text-JavaScript {
-  color: #f1e05a !important;
-}
-.text-Quasar {
-  color: #00b4ff !important;
-}
-.text-HackTheBox {
-  color: #9fef00 !important;
-}
-.text-TryHackMe {
-  color: #ff0000 !important;
-}
-
 span {
   display: block;
 }

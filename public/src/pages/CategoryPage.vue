@@ -66,7 +66,6 @@ const fetchData = async () => {
         json.title.toLowerCase().includes(titleContains.value.toLowerCase())
       )
       .map(json => json);
-    console.log(postData.value);
 
     isLoaded.value = true;
   } catch (error) {

@@ -8,7 +8,7 @@ export async function getSeed() {
   return github.get('/seed.json');
 }
 
-export function getProcessedData(category) {
+export function getProcessedData(category = 'all') {
   return getSeed()
     .then(response => filterData(response, category))
     .catch(error => console.log(error));
