@@ -9,7 +9,7 @@
     </div>
   </div>
 
-  <q-page-sticky position="top-right" :offset="[42, 140]" class="summary row">
+  <q-page-sticky position="top-right" :offset="[240, 140]" class="summary row">
     <div class="row no-wrap">
       <p class="col-auto"></p>
       <q-separator vertical color="grey-9" />
@@ -32,7 +32,14 @@
 <script setup>
 import { useRoute } from 'vue-router';
 import { getMarkDown } from 'src/api/posts';
-import { ref, onMounted, computed, onUpdated } from 'vue';
+import {
+  ref,
+  onMounted,
+  computed,
+  onUpdated,
+  onBeforeUnmount,
+  onBeforeMount
+} from 'vue';
 import { marked } from 'marked';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/atom-one-dark.css';
@@ -57,15 +64,27 @@ const summary = ref([]);
 /**
  * Life Cycle Hook Section
  */
+
+onBeforeMount(() => {
+  console.log('onBeforeMount()');
+});
+
 onMounted(() => {
-  // console.log('PostDetails mounted');
-  listenScrollingMouseEvent();
+  console.log('onMounted()');
+  fetchMarkDown();
 });
 
 onUpdated(() => {
+  console.log('onUpdated()');
   summary.value = Array.from(markdownHtml.value.children).filter(child =>
     ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(child.tagName.toLowerCase())
   );
+  window.addEventListener('scroll', scrollHandler);
+});
+
+onBeforeUnmount(() => {
+  console.log('onBeforeUnmount()');
+  window.removeEventListener('scroll', scrollHandler);
 });
 
 /**
@@ -81,7 +100,6 @@ const fetchMarkDown = async () => {
     isReady.value = false;
   }
 };
-fetchMarkDown();
 
 /**
  * Summary Click Event Section
@@ -108,52 +126,48 @@ const calcMargin = hashCount => {
  * Summary Mouse Scroll Event Section
  */
 const currentActiveElement = ref(null);
-function listenScrollingMouseEvent() {
-  window.addEventListener('scroll', function () {
-    const currentYPosition = window.scrollY;
+function scrollHandler() {
+  const currentYPosition = window.scrollY;
 
-    const elements = summary.value.filter(element => {
-      const styles = window.getComputedStyle(element);
-      const marginBottom = parseInt(styles.marginBottom.replace('px', ''), 10);
+  const elements = summary.value.filter(element => {
+    const styles = window.getComputedStyle(element);
+    const marginBottom = parseInt(styles.marginBottom.replace('px', ''), 10);
 
-      const elementYPosition =
-        element.offsetTop - marginBottom - element.clientHeight;
-      if (currentYPosition >= elementYPosition) return true;
-      return false;
-    });
+    const elementYPosition =
+      element.offsetTop - marginBottom - element.clientHeight;
+    if (currentYPosition >= elementYPosition) return true;
+    return false;
+  });
 
-    if (currentActiveElement.value === null) {
-      Array.from(this.document.getElementsByClassName('summary-title')).forEach(
-        value => value.classList.remove('active')
+  if (currentActiveElement.value === null) {
+    Array.from(this.document.getElementsByClassName('summary-title')).forEach(
+      value => value.classList.remove('active')
+    );
+  }
+
+  if (elements.length !== 0) {
+    if (currentActiveElement.value !== elements[elements.length - 1]) {
+      currentActiveElement.value = elements[elements.length - 1];
+
+      const summarys = Array.from(
+        this.document.getElementsByClassName('summary-title')
       );
-    }
 
-    if (elements.length !== 0) {
-      if (currentActiveElement.value !== elements[elements.length - 1]) {
-        currentActiveElement.value = elements[elements.length - 1];
+      for (const summary of summarys) {
+        if (summary.innerText === currentActiveElement.value.innerText) {
+          summarys
+            .filter(
+              value => value.innerText !== currentActiveElement.value.innerText
+            )
+            .forEach(value => value.classList.remove('active'));
 
-        // consoe.sd
-        const summarys = Array.from(
-          this.document.getElementsByClassName('summary-title')
-        );
-
-        for (const summary of summarys) {
-          if (summary.innerText === currentActiveElement.value.innerText) {
-            summarys
-              .filter(
-                value =>
-                  value.innerText !== currentActiveElement.value.innerText
-              )
-              .forEach(value => value.classList.remove('active'));
-
-            summary.classList.add('active');
-          }
+          summary.classList.add('active');
         }
       }
-    } else {
-      currentActiveElement.value = null;
     }
-  });
+  } else {
+    currentActiveElement.value = null;
+  }
 }
 
 /**

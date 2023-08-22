@@ -41,7 +41,7 @@ import SummaryComponent from 'src/components/SummaryComponent.vue';
 import { getProcessedData } from 'src/api/posts';
 
 onMounted(() => {
-  console.log('Category Page Mounted');
+  // console.log('Category Page Mounted');
 });
 
 const props = defineProps({
