@@ -12,7 +12,7 @@
     }"
     @mouseenter="slideSwitch()"
     @mouseleave="slideSwitch()"
-    @click="$emit('forwardPost', folder, filename)"
+    @click="goPostDetails"
   >
     <slot
       :svg-link="postData.link"
@@ -65,9 +65,10 @@
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router';
 import { computed, ref } from 'vue';
+import { useQuasar } from 'quasar';
 
+const $q = useQuasar();
 const isHovered = ref(false);
 const slideSwitch = () => {
   isHovered.value = !isHovered.value;
@@ -135,15 +136,18 @@ const props = defineProps({
 });
 
 // GotoPostDetails
-const router = useRouter();
-const goPostDetails = () =>
-  router.push({
-    name: 'Index',
-    query: {
-      post: props.folder.replace('/', ''),
-      markdown: props.filename.replace('/', '')
-    }
+const goPostDetails = () => {
+  const hashtagData = {};
+  props.hashtag.forEach((value, index) => {
+    hashtagData[index] = { tag: value, tagColor: calcColor(value) };
   });
+  console.log(hashtagData);
+
+  $q.localStorage.set('title', props.title);
+  $q.localStorage.set('hashtag', hashtagData);
+  $q.localStorage.set('createdAt', props.createdAt);
+  emit('forwardPost', props.folder, props.filename);
+};
 
 // Parsing Datetime
 const date = new Date(props.createdAt);

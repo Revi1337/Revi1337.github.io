@@ -1,6 +1,19 @@
 <template>
   <div class="row justify-center">
     <div class="mark-down" style="width: 800px">
+      <!-- 2.5em -->
+      <div class="text-center">
+        <h2>{{ title }}</h2>
+        <p class="text-grey-7">{{ createdAt }}</p>
+
+        <p class="row justify-center items-center q-mb-xl">
+          <span v-for="{ tag, tagColor } in hashtag" :key="tag" class="q-mx-xs">
+            <q-badge rounded outline :color="tagColor" :label="tag" />
+          </span>
+        </p>
+        <q-separator spaced dark />
+      </div>
+
       <div
         ref="markdownHtml"
         class="markdown-container"
@@ -43,6 +56,7 @@ import {
 import { marked } from 'marked';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/atom-one-dark.css';
+import { useQuasar } from 'quasar';
 
 const props = defineProps({
   path: {
@@ -54,17 +68,20 @@ const props = defineProps({
 /**
  * Initialize Section
  */
+const $q = useQuasar();
 const route = useRoute();
 const currentMarkdown = `/${route.query.post}/${route.query.markdown}`;
 const isReady = ref();
 const content = ref('');
 const markdownHtml = ref(null);
 const summary = ref([]);
+const title = $q.localStorage.getItem('title');
+const hashtag = $q.localStorage.getItem('hashtag');
+const createdAt = $q.localStorage.getItem('createdAt');
 
 /**
  * Life Cycle Hook Section
  */
-
 onBeforeMount(() => {
   console.log('onBeforeMount()');
 });
