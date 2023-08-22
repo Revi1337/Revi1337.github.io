@@ -1,80 +1,12 @@
 <template>
   <div class="row justify-center">
     <div class="mark-down" style="width: 800px">
-      <div class="markdown-container" v-html="markdownToHtml"></div>
+      <div
+        ref="markdownHtml"
+        class="markdown-container"
+        v-html="markdownToHtml"
+      ></div>
     </div>
-  </div>
-</template>
-
-<script setup>
-import { useRoute } from 'vue-router';
-import { getMarkDown } from 'src/api/posts';
-import { ref, onMounted, computed } from 'vue';
-import { marked } from 'marked';
-import hljs from 'highlight.js';
-import 'highlight.js/styles/atom-one-dark.css';
-
-const props = defineProps({
-  path: {
-    type: String,
-    required: true
-  }
-});
-
-onMounted(() => {
-  console.log('PostDetails mounted');
-  fetchMarkDown();
-});
-
-const route = useRoute();
-const currentMarkdown = `/${route.query.post}/${route.query.markdown}`;
-const findImagesRegex = /!\[\S*]\(\S*\.\S*\)/g;
-const regex = /\(([^)]+)\)/;
-
-const isReady = ref();
-const content = ref('');
-const imageData = ref([]);
-
-const fetchMarkDown = async () => {
-  try {
-    isReady.value = false;
-    ({ data: content.value } = await getMarkDown(currentMarkdown));
-    const images = content.value.match(findImagesRegex);
-    // imageData.value = images.map(item => {
-    //   const match = regex.exec(item);
-    //   return match ? match[1] : null;
-    // });
-    isReady.value = true;
-  } catch (error) {
-    console.error(error);
-    isReady.value = false;
-  }
-};
-
-// MarkDown
-const renderer = new marked.Renderer();
-renderer.code = (code, language) => {
-  const validLanguage = hljs.getLanguage(language) ? language : 'plaintext';
-  const highlightedCode = hljs.highlight(code, { language }).value;
-  return `<pre><code class="hljs ${validLanguage}">${highlightedCode}</code></pre>`;
-};
-marked.setOptions({
-  renderer,
-  mangle: false,
-  headerIds: false
-});
-const markdownToHtml = computed(() => marked.parse(content.value));
-</script>
-
-<!-- <template>
-  <div class="q-mt-xl mark-down" :style="{ oveflow: 'hidden' }">
-    <p class="q-mb-lg text-h3 text-weight-bold">{{ articleData.title }}</p>
-
-    <div>
-      <q-separator dark spaced />
-    </div>
-
-    <div class="markdown-container q-mt-xl" v-html="markdownToHtml"></div>
   </div>
 
   <q-page-sticky position="top-right" :offset="[42, 140]" class="summary row">
@@ -82,7 +14,6 @@ const markdownToHtml = computed(() => marked.parse(content.value));
       <p class="col-auto"></p>
       <q-separator vertical color="grey-9" />
       <div class="col q-ml-md">
-        <p class="text-weight-bold">Summary</p>
         <p
           ref="summaryReferences"
           v-for="{ textContent, tagName } in summary"
@@ -99,37 +30,51 @@ const markdownToHtml = computed(() => marked.parse(content.value));
 </template>
 
 <script setup>
+import { useRoute } from 'vue-router';
+import { getMarkDown } from 'src/api/posts';
+import { ref, onMounted, computed, onUpdated } from 'vue';
 import { marked } from 'marked';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/atom-one-dark.css';
-import { findPostById } from 'src/api/posts';
-import { onUpdated, watchEffect, computed, ref, onMounted } from 'vue';
 
-// Initialize
 const props = defineProps({
-  id: String
+  path: {
+    type: String,
+    required: true
+  }
 });
-const articleId = parseInt(props.id);
 
-// Article Data
-const articleData = ref({
-  id: '',
-  title: '',
-  content: ''
+const route = useRoute();
+const currentMarkdown = `/${route.query.post}/${route.query.markdown}`;
+
+const isReady = ref();
+const content = ref('');
+const markdownHtml = ref(null);
+const summary = ref([]);
+
+// Life Cycle Hook
+onMounted(() => {
+  console.log('PostDetails mounted');
 });
-const findPostByIdRequest = async articleId => {
+
+onUpdated(() => {
+  summary.value = Array.from(markdownHtml.value.children).filter(child =>
+    ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(child.tagName.toLowerCase())
+  );
+});
+
+// Fetching
+const fetchMarkDown = async () => {
   try {
-    const { data } = await findPostById(articleId);
-    const { id, title, content } = data;
-    articleData.value.id = id;
-    articleData.value.title = title;
-    articleData.value.content = content;
-    // console.log(data);
-  } catch (err) {
-    console.error(err);
+    isReady.value = false;
+    ({ data: content.value } = await getMarkDown(currentMarkdown));
+    isReady.value = true;
+  } catch (error) {
+    console.error(error);
+    isReady.value = false;
   }
 };
-findPostByIdRequest(articleId);
+fetchMarkDown();
 
 // MarkDown
 const renderer = new marked.Renderer();
@@ -143,63 +88,23 @@ marked.setOptions({
   mangle: false,
   headerIds: false
 });
-const markdownToHtml = computed(() => marked.parse(articleData.value.content));
+const markdownToHtml = computed(() => marked.parse(content.value));
 
-// handling summary
-const summaryReferences = ref([]);
-
-const searchSummaryTitle = () => {
-  const parentElement = document.querySelector('.markdown-container');
-  const childElements = parentElement.querySelectorAll('*');
-  return Array.from(childElements).filter(childElement =>
-    ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(
-      childElement.tagName.toLowerCase()
-    )
-  );
-};
-
-const summary = ref([]);
-onUpdated(() => {
-  const summaryTitleElements = searchSummaryTitle();
-  summaryTitleElements.forEach(summaryTitle => {
-    console.log(summaryTitle);
-    summary.value.push(summaryTitle);
-  });
-  handleViewportTop(summaryTitleElements, 'active');
-});
-
-watchEffect(() => {
-  // summaryReferences.value.forEach(summaryRef => console.log(summaryRef.textContent));
-});
-
-function handleViewportTop(elements, activeClass) {
-  let activeElement = null;
-  function checkViewportTop() {
-    elements.forEach(element => {
-      const rect = element.getBoundingClientRect();
-      const isTopInView = rect.top <= 15;
-      if (isTopInView) {
-        if (element !== activeElement) {
-          if (activeElement) {
-            activeElement.classList.remove(activeClass);
-          }
-          element.classList.add(activeClass);
-          activeElement = element;
-        }
-      }
-    });
-  }
-  window.addEventListener('scroll', checkViewportTop);
-}
-
+// Summary
 const moveToSummaryTitle = title => {
   summary.value
     .filter(element => element.textContent === title)
-    .map(element => element.scrollIntoView({ behavior: 'smooth' }));
+    .map(element => {
+      const styles = window.getComputedStyle(element);
+      const marginBottom = parseInt(styles.marginBottom.replace('px', ''), 10);
+      window.scrollTo({
+        top: element.offsetTop - marginBottom - element.clientHeight,
+        behavior: 'auto'
+      });
+    });
 };
-
 const calcMargin = hashCount => {
   hashCount = parseInt(hashCount.toLowerCase().replace('h', ''));
   return { marginLeft: 10 * (hashCount - 1) + 'px' };
 };
-</script> -->
+</script>
