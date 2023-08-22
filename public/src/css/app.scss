@@ -108,14 +108,14 @@ body {
 }
 .summary-title,
 .hashtag-title {
-  color: $grey-5;
+  color: #61656c;
   line-height: 1.3;
   cursor: pointer;
   transition: all;
 }
 .summary-title:hover,
 .hashtag-title:hover {
-  color: $font-color;
+  color: $grey-9;
 }
 
 .text-Spring,

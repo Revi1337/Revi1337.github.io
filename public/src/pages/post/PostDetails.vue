@@ -13,7 +13,7 @@
     <div class="row no-wrap">
       <p class="col-auto"></p>
       <q-separator vertical color="grey-9" />
-      <div class="col q-ml-md">
+      <div class="summary-container col q-ml-md">
         <p
           ref="summaryReferences"
           v-for="{ textContent, tagName } in summary"
@@ -44,17 +44,22 @@ const props = defineProps({
   }
 });
 
+/**
+ * Initialize Section
+ */
 const route = useRoute();
 const currentMarkdown = `/${route.query.post}/${route.query.markdown}`;
-
 const isReady = ref();
 const content = ref('');
 const markdownHtml = ref(null);
 const summary = ref([]);
 
-// Life Cycle Hook
+/**
+ * Life Cycle Hook Section
+ */
 onMounted(() => {
-  console.log('PostDetails mounted');
+  // console.log('PostDetails mounted');
+  listenScrollingMouseEvent();
 });
 
 onUpdated(() => {
@@ -63,7 +68,9 @@ onUpdated(() => {
   );
 });
 
-// Fetching
+/**
+ * Data Fetch Section
+ */
 const fetchMarkDown = async () => {
   try {
     isReady.value = false;
@@ -76,7 +83,82 @@ const fetchMarkDown = async () => {
 };
 fetchMarkDown();
 
-// MarkDown
+/**
+ * Summary Click Event Section
+ */
+const moveToSummaryTitle = title => {
+  summary.value
+    .filter(element => element.textContent === title)
+    .map(element => {
+      const styles = window.getComputedStyle(element);
+      const marginBottom = parseInt(styles.marginBottom.replace('px', ''), 10);
+      // console.log(element.offsetTop - marginBottom - element.clientHeight);
+      window.scrollTo({
+        top: element.offsetTop - marginBottom - element.clientHeight,
+        behavior: 'auto'
+      });
+    });
+};
+const calcMargin = hashCount => {
+  hashCount = parseInt(hashCount.toLowerCase().replace('h', ''));
+  return { marginLeft: 10 * (hashCount - 1) + 'px' };
+};
+
+/**
+ * Summary Mouse Scroll Event Section
+ */
+const currentActiveElement = ref(null);
+function listenScrollingMouseEvent() {
+  window.addEventListener('scroll', function () {
+    const currentYPosition = window.scrollY;
+
+    const elements = summary.value.filter(element => {
+      const styles = window.getComputedStyle(element);
+      const marginBottom = parseInt(styles.marginBottom.replace('px', ''), 10);
+
+      const elementYPosition =
+        element.offsetTop - marginBottom - element.clientHeight;
+      if (currentYPosition >= elementYPosition) return true;
+      return false;
+    });
+
+    if (currentActiveElement.value === null) {
+      Array.from(this.document.getElementsByClassName('summary-title')).forEach(
+        value => value.classList.remove('active')
+      );
+    }
+
+    if (elements.length !== 0) {
+      if (currentActiveElement.value !== elements[elements.length - 1]) {
+        currentActiveElement.value = elements[elements.length - 1];
+
+        // consoe.sd
+        const summarys = Array.from(
+          this.document.getElementsByClassName('summary-title')
+        );
+
+        for (const summary of summarys) {
+          if (summary.innerText === currentActiveElement.value.innerText) {
+            summarys
+              .filter(
+                value =>
+                  value.innerText !== currentActiveElement.value.innerText
+              )
+              .forEach(value => value.classList.remove('active'));
+
+            summary.classList.add('active');
+          }
+        }
+      }
+    } else {
+      currentActiveElement.value = null;
+    }
+  });
+}
+
+/**
+ * MarkDown Section
+ */
 const renderer = new marked.Renderer();
 renderer.code = (code, language) => {
   const validLanguage = hljs.getLanguage(language) ? language : 'plaintext';
@@ -89,22 +171,15 @@ marked.setOptions({
   headerIds: false
 });
 const markdownToHtml = computed(() => marked.parse(content.value));
-
-// Summary
-const moveToSummaryTitle = title => {
-  summary.value
-    .filter(element => element.textContent === title)
-    .map(element => {
-      const styles = window.getComputedStyle(element);
-      const marginBottom = parseInt(styles.marginBottom.replace('px', ''), 10);
-      window.scrollTo({
-        top: element.offsetTop - marginBottom - element.clientHeight,
-        behavior: 'auto'
-      });
-    });
-};
-const calcMargin = hashCount => {
-  hashCount = parseInt(hashCount.toLowerCase().replace('h', ''));
-  return { marginLeft: 10 * (hashCount - 1) + 'px' };
-};
 </script>
+
+<style lang="scss" scoped>
+.summary-title {
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+  &.active {
+    color: $font-color;
+  }
+}
+</style>
