@@ -8,6 +8,7 @@
           :key="summary"
           :style="[calcMargin(summary), `color: ${color}`]"
           class="summary-title"
+          @click="$emit('click', 1, 2, 3)"
         >
           {{ summary.replaceAll('#', '') }}
         </li>
@@ -19,6 +20,8 @@
 <script setup>
 import { onMounted } from 'vue';
 import 'highlight.js/styles/atom-one-dark.css';
+
+const emit = defineEmits(['click']);
 
 const props = defineProps({
   summarys: {
@@ -50,7 +53,7 @@ const calcMargin = summary => {
 <style lang="scss" scoped>
 .vertical-line {
   height: auto;
-  border-color: $grey-9;
+  border-color: $font-color;
 }
 ul.summary-container {
   list-style: none;
