@@ -200,63 +200,63 @@ const postData = computed(() => {
     returnObject.shadow = isHovered.value
       ? '0 0 3px #6cb52d, 0 0 11px #6cb52d, 0 0 25px #6cb52d, 0 0 45px #6cb52d'
       : 'none';
-    returnObject.link = 'Spring.svg';
+    returnObject.link = 'assets/Spring.svg';
     returnObject.color = 'Spring';
     returnObject.label = 'Spring';
   } else if (props.hashtag[0] === 'Vue') {
     returnObject.shadow = isHovered.value
       ? '0 0 3px #42b883, 0 0 11px #42b883, 0 0 25px #42b883, 0 0 45px #42b883'
       : 'none';
-    returnObject.link = 'Vue.svg';
+    returnObject.link = 'assets/Vue.svg';
     returnObject.color = 'Vue';
     returnObject.label = 'Vue';
   } else if (props.hashtag[0] === 'Python') {
     returnObject.shadow = isHovered.value
       ? '0 0 3px #3d7daf, 0 0 11px #3d7daf, 0 0 25px #3d7daf, 0 0 45px #3d7daf'
       : 'none';
-    returnObject.link = 'Python.svg';
+    returnObject.link = 'assets/Python.svg';
     returnObject.color = 'Python';
     returnObject.label = 'Python';
   } else if (props.hashtag[0] === 'Bash') {
     returnObject.shadow = isHovered.value
       ? '0 0 3px #fefefe, 0 0 11px #fefefe, 0 0 25px #fefefe, 0 0 45px #fefefe'
       : 'none';
-    returnObject.link = 'Bash.svg';
+    returnObject.link = 'assets/Bash.svg';
     returnObject.color = 'Bash';
     returnObject.label = 'Bash';
   } else if (props.hashtag[0] === 'Java') {
     returnObject.shadow = isHovered.value
       ? '0 0 3px #b07219, 0 0 11px #b07219, 0 0 25px #b07219, 0 0 45px #b07219'
       : 'none';
-    returnObject.link = 'Java.svg';
+    returnObject.link = 'assets/Java.svg';
     returnObject.color = 'Java';
     returnObject.label = 'Java';
   } else if (props.hashtag[0] === 'JavaScript') {
     returnObject.shadow = isHovered.value
       ? '0 0 3px #f1e05a, 0 0 11px #f1e05a, 0 0 25px #f1e05a, 0 0 45px #f1e05a'
       : 'none';
-    returnObject.link = 'JavaScript.svg';
+    returnObject.link = 'assets/JavaScript.svg';
     returnObject.color = 'JavaScript';
     returnObject.label = 'JavaScript';
   } else if (props.hashtag[0] === 'Quasar') {
     returnObject.shadow = isHovered.value
       ? '0 0 3px #00b4ff, 0 0 11px #00b4ff, 0 0 25px #00b4ff, 0 0 45px #00b4ff'
       : 'none';
-    returnObject.link = 'Quasar.svg';
+    returnObject.link = 'assets/Quasar.svg';
     returnObject.color = 'Quasar';
     returnObject.label = 'Quasar';
   } else if (props.hashtag[0] === 'HackTheBox') {
     returnObject.shadow = isHovered.value
       ? '0 0 3px #9fef00, 0 0 11px #9fef00, 0 0 25px #9fef00, 0 0 45px #9fef00'
       : 'none';
-    returnObject.link = 'HackTheBox.svg';
+    returnObject.link = 'assets/HackTheBox.svg';
     returnObject.color = 'HackTheBox';
     returnObject.label = 'HackTheBox';
   } else if (props.hashtag[0] === 'TryHackMe') {
     returnObject.shadow = isHovered.value
       ? '0 0 3px #ff0000, 0 0 11px #ff0000, 0 0 25px #ff0000, 0 0 45px #ff0000'
       : 'none';
-    returnObject.link = 'TryHackMe.svg';
+    returnObject.link = 'assets/TryHackMe.svg';
     returnObject.color = 'TryHackMe';
     returnObject.label = 'TryHackMe';
   }

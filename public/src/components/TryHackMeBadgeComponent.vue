@@ -36,9 +36,13 @@
           "
         >
           <p class="thm_line" style="margin-bottom: 3px">
-            <span class="thm_nickname">revi1337</span> <span class="thm_rank">[0xA][Wizard]</span><br />
+            <span class="thm_nickname">revi1337</span>
+            <span class="thm_rank">[0xA][Wizard]</span><br />
           </p>
-          <p class="thm_line" style="margin-bottom: 1px; display: flex; align-items: center">
+          <p
+            class="thm_line"
+            style="margin-bottom: 1px; display: flex; align-items: center"
+          >
             <img
               class="thm_icon thm_mr"
               src="https://assets.tryhackme.com/img/badges/trophy.png"
@@ -46,7 +50,11 @@
             />
             <!-- <span class="thm_stat thm_mr">18685</span> -->
             <span class="thm_stat thm_mr">{{ userRank }}</span>
-            <img class="thm_icon thm_mr" src="https://assets.tryhackme.com/img/badges/door.png" alt="door" />
+            <img
+              class="thm_icon thm_mr"
+              src="https://assets.tryhackme.com/img/badges/door.png"
+              alt="door"
+            />
             <span class="thm_stat thm_mr">110</span>
             <img
               class="thm_icon thm_mr"
@@ -56,7 +64,9 @@
             <span class="thm_stat">16</span><br />
           </p>
           <p class="thm_line">
-            <a href="https://www.tryhackme.com" target="_blank" class="thm_link">tryhackme.com</a>
+            <a href="https://www.tryhackme.com" target="_blank" class="thm_link"
+              >tryhackme.com</a
+            >
           </p>
         </div>
       </div>
@@ -65,7 +75,8 @@
 </template>
 
 <script setup>
-const openTryHackMe = () => window.open('https://tryhackme.com/p/revi1337', '_blank');
+const openTryHackMe = () =>
+  window.open('https://tryhackme.com/p/revi1337', '_blank');
 const props = defineProps({
   userRank: {
     type: Number,
@@ -143,9 +154,10 @@ const props = defineProps({
   70%,
   100% {
     opacity: 0.99;
-    text-shadow: -1px -1px 0 var(--box-shadow-color), 1px -1px 0 var(--box-shadow-color),
-      -1px 1px 0 var(--box-shadow-color), 1px 1px 0 var(--box-shadow-color),
-      0 -2px 8px var(--box-shadow-color), 0 0 2px, 0 0 5px #ff7e00, 0 0 15px #ff4444, 0 0 2px #ff7e00,
+    text-shadow: -1px -1px 0 var(--box-shadow-color),
+      1px -1px 0 var(--box-shadow-color), -1px 1px 0 var(--box-shadow-color),
+      1px 1px 0 var(--box-shadow-color), 0 -2px 8px var(--box-shadow-color),
+      0 0 2px, 0 0 5px #ff7e00, 0 0 15px #ff4444, 0 0 2px #ff7e00,
       0 2px 3px #000;
   }
   20%,
