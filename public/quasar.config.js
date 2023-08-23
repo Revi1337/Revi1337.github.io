@@ -5,7 +5,7 @@ const { configure } = require('quasar/wrappers');
 module.exports = configure(function (ctx) {
   return {
     supportTS: false,
-    boot: ['axios', 'loading', 'particles', 'vmdeditor'],
+    boot: ['axios', 'loading', 'particles', 'vmdeditor', 'heatmap'],
     css: ['app.scss'],
     extras: [
       'fontawesome-v6',
