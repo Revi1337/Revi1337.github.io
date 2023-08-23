@@ -10,8 +10,8 @@
       padding: '15px',
       border: border ? `1px solid grey` : 'none'
     }"
-    @mouseenter="slideSwitch()"
-    @mouseleave="slideSwitch()"
+    @mouseenter="mouseEnter()"
+    @mouseleave="mouseLeave()"
     @click="goPostDetails"
   >
     <slot
@@ -70,11 +70,15 @@ import { useQuasar } from 'quasar';
 
 const $q = useQuasar();
 const isHovered = ref(false);
-const slideSwitch = () => {
+const mouseEnter = () => {
+  isHovered.value = !isHovered.value;
+  emit('sendData', props.folder, props.filename);
+};
+const mouseLeave = () => {
   isHovered.value = !isHovered.value;
 };
 
-const emit = defineEmits(['forwardPost']);
+const emit = defineEmits(['forwardPost', 'sendData']);
 
 const props = defineProps({
   id: {

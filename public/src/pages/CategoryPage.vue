@@ -29,6 +29,7 @@
           created-by="Revi1337"
           content="content"
           @forward-post="goPostDetails"
+          @send-data="fetchSummary"
         />
       </template>
     </div>
@@ -38,7 +39,7 @@
 <script setup>
 import { onMounted, watchEffect, computed, ref } from 'vue';
 import PostComponent from 'src/components/PostComponent.vue';
-import { getProcessedData } from 'src/api/posts';
+import { getProcessedData, getMarkDown } from 'src/api/posts';
 import { useRouter } from 'vue-router';
 
 onMounted(() => {});
@@ -55,6 +56,7 @@ const currentPath = computed(() => props.category);
 const isLoaded = ref(false);
 const postData = ref([]);
 const titleContains = ref('');
+const postHoverData = ref([]);
 
 const fetchData = async () => {
   try {
@@ -70,6 +72,17 @@ const fetchData = async () => {
     isLoaded.value = true;
   } catch (error) {
     isLoaded.value = false;
+    console.error(error);
+  }
+};
+
+const fetchSummary = async (folder, filename) => {
+  try {
+    const realPath = `${folder}${filename}`;
+    const { data } = await getMarkDown(realPath);
+    postHoverData.value = data.split('\n').filter(line => line.startsWith('#'));
+    console.log(postHoverData.value);
+  } catch (error) {
     console.error(error);
   }
 };
