@@ -35,11 +35,13 @@
       </template>
     </div>
   </q-page>
-  <SummaryComponent
-    v-if="isFocusOnPost"
-    :summarys="postHoverData"
-    :offset="[80, 140]"
-  />
+  <transition appear enter-active-class="animated fadeIn ">
+    <SummaryComponent
+      v-if="isFocusOnPost"
+      :summarys="postHoverData"
+      :offset="[80, 140]"
+    />
+  </transition>
 </template>
 
 <script setup>
