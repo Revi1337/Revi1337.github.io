@@ -29,20 +29,29 @@
           created-by="Revi1337"
           content="content"
           @forward-post="goPostDetails"
-          @send-data="fetchSummary"
+          @mouse-enter="focusSummary"
+          @mouse-leave="blurSummary"
         />
       </template>
     </div>
   </q-page>
+  <SummaryComponent
+    v-if="isFocusOnPost"
+    :summarys="postHoverData"
+    :offset="[80, 140]"
+  />
 </template>
 
 <script setup>
 import { onMounted, watchEffect, computed, ref } from 'vue';
 import PostComponent from 'src/components/PostComponent.vue';
+import SummaryComponent from 'src/components/SummaryComponent.vue';
 import { getProcessedData, getMarkDown } from 'src/api/posts';
 import { useRouter } from 'vue-router';
 
-onMounted(() => {});
+onMounted(() => {
+  console.log('CategoryPage onMounted()');
+});
 
 const props = defineProps({
   category: {
@@ -57,6 +66,7 @@ const isLoaded = ref(false);
 const postData = ref([]);
 const titleContains = ref('');
 const postHoverData = ref([]);
+const isFocusOnPost = ref(false);
 
 const fetchData = async () => {
   try {
@@ -76,15 +86,21 @@ const fetchData = async () => {
   }
 };
 
-const fetchSummary = async (folder, filename) => {
+const focusSummary = async (folder, filename) => {
   try {
+    isFocusOnPost.value = false;
     const realPath = `${folder}${filename}`;
     const { data } = await getMarkDown(realPath);
     postHoverData.value = data.split('\n').filter(line => line.startsWith('#'));
-    console.log(postHoverData.value);
+    isFocusOnPost.value = true;
   } catch (error) {
     console.error(error);
+    isFocusOnPost.value = false;
   }
+};
+
+const blurSummary = () => {
+  isFocusOnPost.value = false;
 };
 
 watchEffect(() => {

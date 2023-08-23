@@ -72,13 +72,14 @@ const $q = useQuasar();
 const isHovered = ref(false);
 const mouseEnter = () => {
   isHovered.value = !isHovered.value;
-  emit('sendData', props.folder, props.filename);
+  emit('mouseEnter', props.folder, props.filename);
 };
 const mouseLeave = () => {
   isHovered.value = !isHovered.value;
+  emit('mouseLeave');
 };
 
-const emit = defineEmits(['forwardPost', 'sendData']);
+const emit = defineEmits(['forwardPost', 'mouseEnter', 'mouseLeave']);
 
 const props = defineProps({
   id: {
