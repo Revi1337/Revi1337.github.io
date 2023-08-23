@@ -1,5 +1,5 @@
 <template>
-  <div class="row justify-center">
+  <div v-if="isReady" class="row justify-center">
     <div class="mark-down" style="width: 800px">
       <!-- 2.5em -->
       <div class="text-center">
@@ -23,11 +23,11 @@
   </div>
 
   <q-page-sticky position="top-right" :offset="[240, 140]" class="summary row">
-    <div class="row no-wrap">
-      <p class="col-auto"></p>
-      <q-separator vertical color="grey-9" />
-      <div class="summary-container col q-ml-md">
-        <p
+    <!-- <q-separator class="separator" vertical color="grey-9" /> -->
+    <div class="row">
+      <hr class="vertical-line" />
+      <ul class="summary-container">
+        <li
           ref="summaryReferences"
           v-for="{ textContent, tagName } in summary"
           :key="textContent"
@@ -36,8 +36,8 @@
           class="summary-title"
         >
           {{ textContent }}
-        </p>
-      </div>
+        </li>
+      </ul>
     </div>
   </q-page-sticky>
 </template>
@@ -84,11 +84,11 @@ const createdAt = $q.localStorage.getItem('createdAt');
  */
 onBeforeMount(() => {
   console.log('onBeforeMount()');
+  fetchMarkDown();
 });
 
 onMounted(() => {
   console.log('onMounted()');
-  fetchMarkDown();
 });
 
 onUpdated(() => {
@@ -205,6 +205,18 @@ const markdownToHtml = computed(() => marked.parse(content.value));
 </script>
 
 <style lang="scss" scoped>
+.vertical-line {
+  height: auto;
+  border-color: $grey-9;
+}
+ul.summary-container {
+  list-style: none;
+  padding-left: 0;
+  margin: 2px;
+  li {
+    margin: 9px 0 9px;
+  }
+}
 .summary-title {
   cursor: pointer;
   transition: all 0.3s ease-in-out;
