@@ -18,7 +18,7 @@
         :key="index"
       >
         <PostComponent
-          v-if="isLoaded && isGithubDataLoaded"
+          v-if="isLoaded"
           width="100%"
           height="250px"
           :border="false"
@@ -81,7 +81,7 @@
     </q-carousel>
 
     <CalendarHeatmap
-      v-if="isGithubDataLoaded && isLoaded"
+      v-if="isGithubDataLoaded"
       style="width: 50%"
       dark-mode
       :values="contributeObjects"
@@ -107,6 +107,7 @@ import { getProcessedData } from 'src/api/posts';
 import { useRouter } from 'vue-router';
 import { CalendarHeatmap } from 'vue3-calendar-heatmap';
 import { getRecentGitContribution } from 'src/api/git';
+import { getTryhackmeContribution } from 'src/api/tryhackme';
 
 const router = useRouter();
 const slide = ref(1);
@@ -191,6 +192,11 @@ const fetchGitGraphQL = async () => {
   }
 };
 
+const fetchTryhackmeContribution = async () => {
+  const { data } = await getTryhackmeContribution();
+  console.log(data);
+};
+
 const goPostDetails = (folder, filename) => {
   router.push({
     name: 'Index',
@@ -211,6 +217,7 @@ const changeGitColor = () => {
 onMounted(() => {});
 fetchData();
 fetchGitGraphQL();
+fetchTryhackmeContribution();
 </script>
 
 <style lang="scss" scoped>
