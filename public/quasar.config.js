@@ -37,11 +37,17 @@ module.exports = configure(function (ctx) {
       port: 8081,
       open: true,
       proxy: {
-        '/api': 'http://localhost:8080',
-        changeOrigin: true
-        // pathRewrite: {
-        //   '^/api': ''
-        // }
+        '/api': {
+          target: 'http://localhost:8080',
+          changeOrigin: true,
+          pathRewrite: {
+            '^/api': ''
+          }
+        },
+        '/activity-events': {
+          target: 'https://tryhackme.com/api/user',
+          changeOrigin: true
+        }
       }
     },
 
