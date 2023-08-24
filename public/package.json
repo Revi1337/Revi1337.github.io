@@ -16,6 +16,7 @@
   "dependencies": {
     "@kangc/v-md-editor": "^2.3.15",
     "@octokit/core": "^5.0.0",
+    "@octokit/graphql": "^7.0.1",
     "@quasar/extras": "^1.0.0",
     "@tiptap/extension-code-block-lowlight": "^2.0.3",
     "@tiptap/extension-image": "^2.0.3",
@@ -39,18 +40,20 @@
     "vue": "^3.0.0",
     "vue-chartjs": "^5.2.0",
     "vue-router": "^4.0.0",
+    "vue3-calendar-heatmap": "^2.0.5",
     "vue3-particles": "^2.9.3"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.13.14",
     "@quasar/app-webpack": "^3.0.0",
+    "@quasar/quasar-app-extension-qenv": "^1.1.0",
+    "dotenv": "^16.3.1",
     "eslint": "^8.10.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-vue": "^9.0.0",
     "eslint-webpack-plugin": "^3.1.1",
     "prettier": "^2.5.1",
-    "tippy.js": "^6.3.7",
-    "vue3-calendar-heatmap": "^2.0.5"
+    "tippy.js": "^6.3.7"
   },
   "browserslist": [
     "last 10 Chrome versions",

@@ -2,6 +2,8 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 
 const { configure } = require('quasar/wrappers');
 
+const envparser = require('./config/envparser');
+
 module.exports = configure(function (ctx) {
   return {
     supportTS: false,
@@ -24,7 +26,8 @@ module.exports = configure(function (ctx) {
         chain
           .plugin('eslint-webpack-plugin')
           .use(ESLintPlugin, [{ extensions: ['js', 'vue'] }]);
-      }
+      },
+      env: require('dotenv').config().parsed
     },
 
     devServer: {

@@ -6,6 +6,7 @@
 .eslintrc.js
 .prettierrc.json
 package-lock.json
+.env
 
 .DS_Store
 .thumbs.db
