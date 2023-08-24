@@ -2,8 +2,6 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 
 const { configure } = require('quasar/wrappers');
 
-const envparser = require('./config/envparser');
-
 module.exports = configure(function (ctx) {
   return {
     supportTS: false,
