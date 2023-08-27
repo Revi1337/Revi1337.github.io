@@ -81,7 +81,7 @@
     </q-carousel>
 
     <CalendarHeatmap
-      v-if="isGithubDataLoaded"
+      v-if="isGithubDataLoaded && isTryhackmeDataLoaded"
       style="width: 50%"
       dark-mode
       :values="contributeObjects"
@@ -95,7 +95,25 @@
             monthNames[v.date.getMonth()]
           } ${v.date.getDate()}, ${v.date.getFullYear()}`
       "
-      @vue:mounted="changeGitColor"
+      @vue:mounted="changeLegendColor"
+    />
+
+    <CalendarHeatmap
+      v-if="isTryhackmeDataLoaded && isGithubDataLoaded"
+      style="width: 50%"
+      dark-mode
+      :values="tryHackMeContributeObjects"
+      :end-date="new Date()"
+      :tooltip-unit="Interaction"
+      :round="2"
+      :max="6"
+      :tooltip-formatter="
+        v =>
+          `${v.count ? v.count : 'No'} contributions on ${
+            monthNames[v.date.getMonth()]
+          } ${v.date.getDate()}, ${v.date.getFullYear()}`
+      "
+      @vue:mounted="changeLegendColor"
     />
   </q-page>
 </template>
@@ -115,11 +133,17 @@ const autoplay = ref(4200);
 const posts = ref([]);
 const isLoaded = ref(false);
 const isGithubDataLoaded = ref(false);
+const contributeObjects = ref([]);
 const githubData = ref({
-  startDate: 'null',
+  startDate: '',
   endDate: ''
 });
-const contributeObjects = ref([]);
+const isTryhackmeDataLoaded = ref(false);
+const tryHackMeContributeObjects = ref([]);
+const tryhackmeData = ref({
+  startDate: '',
+  endDate: ''
+});
 const monthNames = [
   'January',
   'February',
@@ -193,8 +217,54 @@ const fetchGitGraphQL = async () => {
 };
 
 const fetchTryhackmeContribution = async () => {
-  const { data } = await getTryhackmeContribution();
-  console.log(data);
+  try {
+    isTryhackmeDataLoaded.value = false;
+
+    const { data } = await getTryhackmeContribution();
+    let preResults = data.data;
+    preResults.sort(
+      (a, b) =>
+        new Date(`${a._id.year}-${a._id.month}-${a._id.day}`) -
+        new Date(`${b._id.year}-${b._id.month}-${b._id.day}`)
+    );
+    const objectLength = preResults.length;
+    const startDate = `${preResults[0]._id.year}-${preResults[0]._id.month}-${preResults[0]._id.day}`;
+    const endDate = `${preResults[objectLength - 1]._id.year}-${
+      preResults[objectLength - 1]._id.month
+    }-${preResults[objectLength - 1]._id.day}`;
+
+    tryhackmeData.value.startDate = startDate;
+    tryhackmeData.value.endDate = endDate;
+
+    for (const preResult of preResults) {
+      const day = `${preResult._id.year}-${preResult._id.month}-${preResult._id.day}`;
+      const event = preResult.events;
+      const contributeObject = {};
+      contributeObject['date'] = day;
+      contributeObject['count'] = event;
+      tryHackMeContributeObjects.value.push(contributeObject);
+    }
+    const resultObjects = tryHackMeContributeObjects.value.reduce(
+      (accumulator, current) => {
+        const existingItem = accumulator.find(
+          item => item.date === current.date
+        );
+        if (existingItem) {
+          existingItem.count += current.count;
+        } else {
+          accumulator.push({ date: current.date, count: current.count });
+        }
+        return accumulator;
+      },
+      []
+    );
+    console.log(resultObjects);
+
+    isTryhackmeDataLoaded.value = true;
+  } catch (error) {
+    isTryhackmeDataLoaded.value = false;
+    console.error(error);
+  }
 };
 
 const goPostDetails = (folder, filename) => {
@@ -207,7 +277,7 @@ const goPostDetails = (folder, filename) => {
   });
 };
 
-const changeGitColor = () => {
+const changeLegendColor = () => {
   let elements = document.querySelectorAll('.vch__wrapper text, .vch__legend');
   elements.forEach(element => {
     element.setAttribute('style', 'fill: white; font-size: 10px;');
