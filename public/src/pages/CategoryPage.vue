@@ -1,5 +1,9 @@
 <template>
   <q-page>
+    <HashTagsComponent
+      :hashtags-objects-array="hashtagCounts"
+      @click-hastag="clickHashTag"
+    />
     <div class="row justify-end items-center q-mb-xl">
       <q-input
         dense
@@ -48,8 +52,10 @@
 import { onMounted, watchEffect, computed, ref } from 'vue';
 import PostComponent from 'src/components/PostComponent.vue';
 import SummaryComponent from 'src/components/SummaryComponent.vue';
+import HashTagsComponent from 'src/components/HashTagsComponent.vue';
 import { getProcessedData, getMarkDown } from 'src/api/posts';
 import { useRouter } from 'vue-router';
+import { TouchRepeat } from 'quasar';
 
 onMounted(() => {
   console.log('CategoryPage onMounted()');
@@ -67,19 +73,45 @@ const currentPath = computed(() => props.category);
 const isLoaded = ref(false);
 const postData = ref([]);
 const titleContains = ref('');
+const hashtagContains = ref('');
 const postHoverData = ref([]);
 const isFocusOnPost = ref(false);
+const hashtagCounts = ref({});
 
 const fetchData = async () => {
   try {
     isLoaded.value = false;
 
     const data = await getProcessedData(props.category);
+    console.log(data);
     postData.value = data
-      .filter(json =>
-        json.title.toLowerCase().includes(titleContains.value.toLowerCase())
-      )
+      .filter(json => {
+        const isTitleContains = json.title
+          .toLowerCase()
+          .includes(titleContains.value.toLowerCase());
+        let preHashTags = json.hashtags.map(val => val.toLowerCase());
+        const isHashTagContains =
+          preHashTags.includes(hashtagContains.value.toLowerCase()) ||
+          hashtagContains.value === '';
+        return isTitleContains && isHashTagContains;
+      })
       .map(json => json);
+
+    const result = {};
+    for (const item of postData.value) {
+      for (const hashtag of item.hashtags) {
+        if (!result[hashtag]) {
+          result[hashtag] = 0;
+        }
+        result[hashtag]++;
+      }
+    }
+    const resultArray = Object.keys(result).map(hashtag => ({
+      hashtag: hashtag,
+      count: result[hashtag]
+    }));
+    hashtagCounts.value = resultArray;
+    // console.log(hashtagCounts.value);
 
     isLoaded.value = true;
   } catch (error) {
@@ -105,9 +137,15 @@ const blurSummary = () => {
   isFocusOnPost.value = false;
 };
 
+const clickHashTag = (hashtag, count) => {
+  hashtagContains.value = hashtag;
+  console.log(hashtagContains.value);
+};
+
 watchEffect(() => {
   currentPath.value;
   titleContains.value;
+  hashtagContains.value;
   fetchData();
 });
 
@@ -121,84 +159,3 @@ const goPostDetails = (folder, filename) => {
   });
 };
 </script>
-<!-- <template>
-
-
-  <q-page>
-    <div class="row justify-end items-center q-mb-xl">
-      <q-input
-        dense
-        dark
-        :spellcheck="false"
-        type="text"
-        v-model="titleContains"
-        :style="{ width: '300px' }"
-      >
-        <template #append>
-          <q-icon name="search" />
-        </template>
-      </q-input>
-    </div>
-
-    <div class="flex flex-center">
-      <template v-for="(value, index) in postData" :key="index">
-        <PostComponent
-          v-if="isLoaded"
-          :id="index"
-          :title="value.title"
-          :hashtag="value.hashtags"
-          :category="value.category"
-          :created-at="value.createdAt"
-          :folder="value.folder"
-          :filename="value.filename"
-          created-by="Revi1337"
-          content="content"
-        />
-      </template>
-    </div>
-  </q-page>
-</template>
-
-<script setup>
-import { onMounted, watchEffect, computed, ref } from 'vue';
-import PostComponent from 'src/components/PostComponent.vue';
-import { getProcessedData } from 'src/api/posts';
-
-onMounted(() => {});
-
-const props = defineProps({
-  category: {
-    type: String,
-    required: true
-  }
-});
-
-const currentPath = computed(() => props.category);
-const isLoaded = ref(false);
-const postData = ref([]);
-const titleContains = ref('');
-
-const fetchData = async () => {
-  try {
-    isLoaded.value = false;
-
-    const data = await getProcessedData(props.category);
-    postData.value = data
-      .filter(json =>
-        json.title.toLowerCase().includes(titleContains.value.toLowerCase())
-      )
-      .map(json => json);
-
-    isLoaded.value = true;
-  } catch (error) {
-    isLoaded.value = false;
-    console.error(error);
-  }
-};
-
-watchEffect(() => {
-  currentPath.value;
-  titleContains.value;
-  fetchData();
-});
-</script> -->

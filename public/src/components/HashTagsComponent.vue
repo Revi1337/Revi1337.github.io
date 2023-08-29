@@ -1,76 +1,67 @@
 <template>
-  <q-page-sticky position="top-left" :offset="[42, 140]" class="hashtag row">
-    <div class="row no-wrap">
-      <p class="col-auto"></p>
+  <q-page-sticky position="top-left" :offset="[42, 140]" class="row">
+    <div class="row">
       <q-separator vertical color="grey-9" />
-      <div class="col q-ml-md">
-        <p class="text-weight-bold">HashTags</p>
-        <p class="hashtag-title" @click="$emit('clickHashTag', '')">All</p>
-        <!-- <p v-for="(value, index) in value" :key="index" class="hashtag-title">{{ value }}</p> -->
-        <p
-          v-for="({ hashtag, count }, index) in getHashTagInfo"
-          :key="index"
-          class="hashtag-title"
-          @click="$emit('clickHashTag', hashtag)"
-        >
-          {{ hashtag }} ({{ count }})
+      <div class="q-ml-md hashtag-container">
+        <p class="text-weight-bold">
+          <span>HashTags</span>
         </p>
-        <p></p>
+
+        <p class="hashtag">
+          <span class="hashtag-title">All</span>
+        </p>
+
+        <p
+          v-for="({ hashtag, count }, index) in hashtagsObjectsArray"
+          :key="index"
+          class="hashtag"
+          @click="emit('clickHastag', hashtag, count)"
+        >
+          <span class="hashtag-title">{{ `${hashtag} (${count})` }}</span>
+        </p>
       </div>
     </div>
   </q-page-sticky>
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue';
-
-onMounted(() => {
-  console.log(props.value);
-});
+const emit = defineEmits(['clickHastag']);
 
 const props = defineProps({
-  value: {
+  hashtagsObjectsArray: {
     type: Array,
     required: true
   }
 });
-
-// Hashtag Navigate Handler
-const getHashTagInfo = computed(() => {
-  const result = countHashtagOccurrences(props.value);
-  return result;
-});
-
-// Calculate Occurrences
-function countHashtagOccurrences(array) {
-  const hashtagCounts = {};
-  for (let i = 0; i < array.length; i++) {
-    let obj = array[i];
-    if (obj.hasOwnProperty('hashtag')) {
-      obj.hashtag.forEach(tag => {
-        // console.log(tag);
-        let hashtag = tag;
-        if (hashtagCounts[hashtag]) {
-          hashtagCounts[hashtag]++;
-        } else {
-          hashtagCounts[hashtag] = 1;
-        }
-      });
-      // let hashtag = obj.hashtag;
-      // if (hashtagCounts[hashtag]) {
-      //   hashtagCounts[hashtag]++;
-      // } else {
-      //   hashtagCounts[hashtag] = 1;
-      // }
-    }
-  }
-
-  const result = [];
-  for (const key in hashtagCounts) {
-    if (hashtagCounts.hasOwnProperty(key)) {
-      result.push({ hashtag: key, count: hashtagCounts[key] });
-    }
-  }
-  return result;
-}
 </script>
+
+<style lang="scss" scoped>
+.hashtag-container {
+  max-width: 250px;
+  overflow-wrap: break-word;
+  .hashtag {
+    margin: 10px 0 10px;
+    .hashtag-title {
+      position: relative;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all;
+
+      &:before {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: $font-color;
+        transition: width 0.3s ease-in-out;
+      }
+
+      &:hover:before {
+        width: 100%;
+      }
+    }
+  }
+}
+</style>
