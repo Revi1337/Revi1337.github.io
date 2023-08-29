@@ -8,16 +8,26 @@
         </p>
 
         <p class="hashtag">
-          <span class="hashtag-title">All</span>
+          <span
+            ref="hashtagElements"
+            @click="emit('clickHastag')"
+            class="hashtag-title"
+          >
+            All
+          </span>
         </p>
 
         <p
           v-for="({ hashtag, count }, index) in hashtagsObjectsArray"
           :key="index"
           class="hashtag"
-          @click="emit('clickHastag', hashtag, count)"
         >
-          <span class="hashtag-title">{{ `${hashtag} (${count})` }}</span>
+          <span
+            ref="hashtagElements"
+            @click="emit('clickHastag', hashtag, count, hashtagElements)"
+            class="hashtag-title"
+            >{{ `${hashtag} (${count})` }}</span
+          >
         </p>
       </div>
     </div>
@@ -25,6 +35,8 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
+
 const emit = defineEmits(['clickHastag']);
 
 const props = defineProps({
@@ -33,9 +45,11 @@ const props = defineProps({
     required: true
   }
 });
+
+const hashtagElements = ref([]);
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .hashtag-container {
   max-width: 250px;
   overflow-wrap: break-word;

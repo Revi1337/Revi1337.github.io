@@ -4,6 +4,7 @@
       :hashtags-objects-array="hashtagCounts"
       @click-hastag="clickHashTag"
     />
+
     <div class="row justify-end items-center q-mb-xl">
       <q-input
         dense
@@ -39,13 +40,14 @@
       </template>
     </div>
   </q-page>
-  <transition appear enter-active-class="animated fadeIn ">
+
+  <Transition appear enter-active-class="animated fadeIn ">
     <SummaryComponent
       v-if="isFocusOnPost"
       :summarys="postHoverData"
       :offset="[80, 140]"
     />
-  </transition>
+  </Transition>
 </template>
 
 <script setup>
@@ -55,7 +57,6 @@ import SummaryComponent from 'src/components/SummaryComponent.vue';
 import HashTagsComponent from 'src/components/HashTagsComponent.vue';
 import { getProcessedData, getMarkDown } from 'src/api/posts';
 import { useRouter } from 'vue-router';
-import { TouchRepeat } from 'quasar';
 
 onMounted(() => {
   console.log('CategoryPage onMounted()');
@@ -83,7 +84,6 @@ const fetchData = async () => {
     isLoaded.value = false;
 
     const data = await getProcessedData(props.category);
-    console.log(data);
     postData.value = data
       .filter(json => {
         const isTitleContains = json.title
@@ -137,9 +137,26 @@ const blurSummary = () => {
   isFocusOnPost.value = false;
 };
 
-const clickHashTag = (hashtag, count) => {
+const currentElement = ref(null);
+const clickHashTag = (hashtag = null, count, elements) => {
+  if (hashtag === null) {
+    hashtagContains.value = '';
+    return;
+  }
+  const selectedElement = elements.filter(
+    element =>
+      element.textContent.slice(0, element.textContent.lastIndexOf(' ')) ===
+      hashtag
+  );
+
+  if (currentElement.value !== null) {
+    currentElement.value.classList.remove('clicked');
+    currentElement.value = selectedElement[0];
+  }
+  currentElement.value = selectedElement[0];
+  selectedElement[0].classList.add('clicked');
+
   hashtagContains.value = hashtag;
-  console.log(hashtagContains.value);
 };
 
 watchEffect(() => {
