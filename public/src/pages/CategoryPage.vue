@@ -1,6 +1,8 @@
 <template>
-  <q-page>
+  <q-page class="page-container">
     <HashTagsComponent
+      style="width: 250px"
+      class="navigation"
       :hashtags-objects-array="hashtagCounts"
       @click-hastag="clickHashTag"
     />
@@ -39,15 +41,19 @@
         />
       </template>
     </div>
-  </q-page>
 
-  <Transition appear enter-active-class="animated fadeIn">
-    <SummaryComponent
-      v-if="isFocusOnPost"
-      :summarys="postHoverData"
-      :offset="[80, 140]"
-    />
-  </Transition>
+    <div class="부모">
+      <nav class="네비게이션">Navigation</nav>
+    </div>
+
+    <Transition appear enter-active-class="animated fadeIn">
+      <SummaryComponent
+        v-if="isFocusOnPost"
+        class="slider"
+        :summarys="postHoverData"
+      />
+    </Transition>
+  </q-page>
 </template>
 
 <script setup>
@@ -176,3 +182,27 @@ const goPostDetails = (folder, filename) => {
   });
 };
 </script>
+
+<style lang="scss" scoped>
+.page-container {
+  position: relative; /* 특정 요소를 기준으로 설정 */
+  height: 2000px; /* 스크롤 가능한 높이를 가진 컨테이너 */
+}
+.navigation {
+  position: fixed; /* 요소를 고정 위치로 설정 */
+  margin-left: -250px; /* 왼쪽으로 150px만큼 떨어지게 함 */
+  top: 250px; /* 화면 높이의 중간에 위치 */
+  padding: 10px;
+  width: 200px;
+  // top: 50%; /* 화면 높이의 중간에 위치 */
+  // transform: translateY(
+  //   -50%
+  // ); /* 요소의 중심이 화면 높이의 중간에 오도록 조정 */
+}
+.slider {
+  position: absolute;
+  top: 0;
+  right: 0; /* 왼쪽 상단에 배치 */
+  margin-left: -250px; /* 왼쪽으로 150px만큼 떨어지게 함 */
+}
+</style>
