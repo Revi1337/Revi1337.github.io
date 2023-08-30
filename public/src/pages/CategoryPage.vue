@@ -1,5 +1,5 @@
 <template>
-  <q-page class="page-container">
+  <q-page class="page-container bg-red">
     <HashTagsComponent
       style="width: 250px"
       class="navigation"
@@ -7,7 +7,7 @@
       @click-hastag="clickHashTag"
     />
 
-    <div class="row justify-end items-center q-mb-xl">
+    <div class="row justify-start items-center q-mb-xl">
       <q-input
         dense
         dark
@@ -40,10 +40,6 @@
           @mouse-leave="blurSummary"
         />
       </template>
-    </div>
-
-    <div class="부모">
-      <nav class="네비게이션">Navigation</nav>
     </div>
 
     <Transition appear enter-active-class="animated fadeIn">
@@ -191,17 +187,20 @@ const goPostDetails = (folder, filename) => {
 .navigation {
   position: fixed; /* 요소를 고정 위치로 설정 */
   margin-left: -250px; /* 왼쪽으로 150px만큼 떨어지게 함 */
-  top: 250px; /* 화면 높이의 중간에 위치 */
+  top: 235px; /* 화면 높이의 중간에 위치 */
   width: 200px;
   // top: 50%; /* 화면 높이의 중간에 위치 */
   // transform: translateY(
   //   -50%
   // ); /* 요소의 중심이 화면 높이의 중간에 오도록 조정 */
 }
+
 .slider {
-  position: absolute;
-  top: 0;
-  right: 0; /* 왼쪽 상단에 배치 */
-  margin-left: -250px; /* 왼쪽으로 150px만큼 떨어지게 함 */
+  $top: 130px;
+  overflow-y: auto;
+  position: fixed;
+  top: $top;
+  left: calc(50% + (1310px / 2) + 20px);
+  max-height: calc(100vh - $top - 35px);
 }
 </style>

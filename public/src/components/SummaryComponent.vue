@@ -1,19 +1,17 @@
 <template>
-  <q-page-sticky position="top-right" :offset="offset" class="summary row">
-    <div class="container">
-      <ul class="summary-container">
-        <li
-          v-for="summary in summarys"
-          :key="summary"
-          :style="[calcMargin(summary), `color: ${color}`]"
-          class="summary-title"
-          @click="$emit('click', 1, 2, 3)"
-        >
-          {{ summary.replaceAll('#', '') }}
-        </li>
-      </ul>
-    </div>
-  </q-page-sticky>
+  <div class="s-container">
+    <ul class="summary-container">
+      <li
+        v-for="summary in summarys"
+        :key="summary"
+        :style="[calcMargin(summary), `color: ${color}`]"
+        class="summary-title"
+        @click="$emit('click', 1, 2, 3)"
+      >
+        {{ summary.replaceAll('#', '') }}
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script setup>
@@ -29,7 +27,7 @@ const props = defineProps({
   },
   offset: {
     type: Array[(Number, Number)],
-    required: true
+    required: false
   },
   color: {
     type: String,
@@ -50,7 +48,8 @@ const calcMargin = summary => {
 </script>
 
 <style lang="scss" scoped>
-.container {
+.s-container {
+  width: 250px;
   padding-left: 5px;
   border-left: 1px solid $font-color;
 }
@@ -58,8 +57,15 @@ ul.summary-container {
   list-style: none;
   padding-left: 0;
   margin: 2px;
+  margin-top: 0;
   li {
     margin: 9px 0 9px;
+    &:first-child {
+      margin-top: 0;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }
 .summary-title {
