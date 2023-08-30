@@ -192,7 +192,6 @@ const goPostDetails = (folder, filename) => {
   position: fixed; /* 요소를 고정 위치로 설정 */
   margin-left: -250px; /* 왼쪽으로 150px만큼 떨어지게 함 */
   top: 250px; /* 화면 높이의 중간에 위치 */
-  padding: 10px;
   width: 200px;
   // top: 50%; /* 화면 높이의 중간에 위치 */
   // transform: translateY(
