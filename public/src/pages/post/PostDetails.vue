@@ -5,7 +5,7 @@
         <h2>{{ title }}</h2>
         <p class="text-grey-7">{{ createdAt }}</p>
 
-        <p class="row justify-center items-center q-mb-xl">
+        <p class="row justify-center items-center q-mb-lg">
           <span v-for="{ tag, tagColor } in hashtag" :key="tag" class="q-mx-xs">
             <q-badge rounded outline :color="tagColor" :label="tag" />
           </span>
@@ -21,7 +21,7 @@
     </div>
   </div>
 
-  <q-page-sticky position="top-right" :offset="[240, 140]" class="summary row">
+  <div class="slider">
     <div class="container">
       <ul class="summary-container">
         <li
@@ -36,7 +36,7 @@
         </li>
       </ul>
     </div>
-  </q-page-sticky>
+  </div>
 </template>
 
 <script setup>
@@ -202,6 +202,14 @@ const markdownToHtml = computed(() => marked.parse(content.value));
 </script>
 
 <style lang="scss" scoped>
+.slider {
+  $top: 130px;
+  overflow-y: auto;
+  position: fixed;
+  top: $top;
+  left: calc(50% + (950px / 2) + 20px);
+  max-height: calc(100vh - $top - 35px);
+}
 .container {
   padding-left: 5px;
   border-left: 1px solid $grey-9;

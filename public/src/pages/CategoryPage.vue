@@ -1,5 +1,5 @@
 <template>
-  <q-page class="page-container bg-red">
+  <q-page class="page-container">
     <HashTagsComponent
       style="width: 250px"
       class="navigation"
