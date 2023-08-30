@@ -22,8 +22,7 @@
   </div>
 
   <q-page-sticky position="top-right" :offset="[240, 140]" class="summary row">
-    <div class="row">
-      <hr class="vertical-line" />
+    <div class="container">
       <ul class="summary-container">
         <li
           ref="summaryReferences"
@@ -203,9 +202,9 @@ const markdownToHtml = computed(() => marked.parse(content.value));
 </script>
 
 <style lang="scss" scoped>
-.vertical-line {
-  height: auto;
-  border-color: $grey-9;
+.container {
+  padding-left: 5px;
+  border-left: 1px solid $grey-9;
 }
 ul.summary-container {
   list-style: none;

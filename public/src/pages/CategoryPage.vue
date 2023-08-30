@@ -41,7 +41,7 @@
     </div>
   </q-page>
 
-  <Transition appear enter-active-class="animated fadeIn ">
+  <Transition appear enter-active-class="animated fadeIn">
     <SummaryComponent
       v-if="isFocusOnPost"
       :summarys="postHoverData"

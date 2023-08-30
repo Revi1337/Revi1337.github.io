@@ -1,7 +1,6 @@
 <template>
   <q-page-sticky position="top-right" :offset="offset" class="summary row">
-    <div class="row">
-      <hr class="vertical-line" />
+    <div class="container">
       <ul class="summary-container">
         <li
           v-for="summary in summarys"
@@ -51,9 +50,9 @@ const calcMargin = summary => {
 </script>
 
 <style lang="scss" scoped>
-.vertical-line {
-  height: auto;
-  border-color: $font-color;
+.container {
+  padding-left: 5px;
+  border-left: 1px solid $font-color;
 }
 ul.summary-container {
   list-style: none;
