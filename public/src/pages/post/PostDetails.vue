@@ -202,32 +202,66 @@ const markdownToHtml = computed(() => marked.parse(content.value));
 </script>
 
 <style lang="scss" scoped>
+$top: 130px;
 .slider {
-  $top: 130px;
   overflow-y: auto;
   position: fixed;
   top: $top;
   left: calc(50% + (950px / 2) + 20px);
   max-height: calc(100vh - $top - 35px);
-}
-.container {
-  padding-left: 5px;
-  border-left: 1px solid $grey-9;
-}
-ul.summary-container {
-  list-style: none;
-  padding-left: 0;
-  margin: 2px;
-  li {
-    margin: 9px 0 9px;
-  }
-}
-.summary-title {
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
 
-  &.active {
-    color: $font-color;
+  .container {
+    padding-left: 5px;
+    border-left: 1px solid $grey-9;
+
+    .summary-container {
+      list-style: none;
+      padding-left: 0;
+      margin: 2px;
+
+      li {
+        margin: 9px 0 9px;
+      }
+      .summary-title {
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        &.active {
+          color: $font-color;
+        }
+      }
+    }
   }
 }
+
+// .slider {
+//   $top: 130px;
+//   overflow-y: auto;
+//   position: fixed;
+//   top: $top;
+//   left: calc(50% + (950px / 2) + 20px);
+//   max-height: calc(100vh - $top - 35px);
+// }
+
+// .container {
+//   padding-left: 5px;
+//   border-left: 1px solid $grey-9;
+// }
+
+// ul.summary-container {
+//   list-style: none;
+//   padding-left: 0;
+//   margin: 2px;
+//   li {
+//     margin: 9px 0 9px;
+//   }
+// }
+
+// .summary-title {
+//   cursor: pointer;
+//   transition: all 0.3s ease-in-out;
+
+//   &.active {
+//     color: $font-color;
+//   }
+// }
 </style>
