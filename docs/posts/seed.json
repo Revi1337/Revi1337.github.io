@@ -88,6 +88,15 @@
     "createdAt": "2023-08-30",
     "folder": "/external-config-profile",
     "filename": "/external-config-profile"
+  },
+  {
+    "id": 11,
+    "title": "[AWS] S3 Bucket 을 통한 정적 웹 호스팅",
+    "category": "dev",
+    "hashtags": ["Vue", "JavaScript"],
+    "createdAt": "2023-08-31",
+    "folder": "/s3-web-host",
+    "filename": "/s3-web-host"
   }
 ]
 
