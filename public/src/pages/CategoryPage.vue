@@ -7,7 +7,7 @@
       @click-hastag="clickHashTag"
     />
 
-    <div class="row justify-start items-center q-mb-xl">
+    <div class="row justify-end items-center q-mb-xl">
       <q-input
         dense
         dark
@@ -15,6 +15,7 @@
         type="text"
         v-model="titleContains"
         :style="{ width: '300px' }"
+        class="q-mr-lg"
       >
         <template #append>
           <q-icon name="search" />

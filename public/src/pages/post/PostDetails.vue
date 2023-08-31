@@ -25,12 +25,13 @@
     <div class="container">
       <ul class="summary-container">
         <li
+          v-for="({ textContent, tagName, id }, index) in summary"
+          :key="index"
           ref="summaryReferences"
-          v-for="{ textContent, tagName } in summary"
-          :key="textContent"
-          @click="moveToSummaryTitle(textContent)"
+          :id="id"
+          :class="['summary-title']"
           :style="calcMargin(tagName)"
-          class="summary-title"
+          @click="moveToSummaryTitle(id)"
         >
           {{ textContent }}
         </li>
@@ -89,7 +90,6 @@ onMounted(() => {
 });
 
 onUpdated(() => {
-  console.log('onUpdated()');
   summary.value = Array.from(markdownHtml.value.children).filter(child =>
     ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(child.tagName.toLowerCase())
   );
@@ -118,9 +118,9 @@ const fetchMarkDown = async () => {
 /**
  * Summary Click Event Section
  */
-const moveToSummaryTitle = title => {
+const moveToSummaryTitle = id => {
   summary.value
-    .filter(element => element.textContent === title)
+    .filter(element => element.id === id)
     .map(element => {
       const styles = window.getComputedStyle(element);
       const marginBottom = parseInt(styles.marginBottom.replace('px', ''), 10);
@@ -168,13 +168,11 @@ function scrollHandler() {
       );
 
       for (const summary of summarys) {
-        if (summary.innerText === currentActiveElement.value.innerText) {
+        if (summary.id === currentActiveElement.value.id) {
           summarys
-            .filter(
-              value => value.innerText !== currentActiveElement.value.innerText
-            )
+            .filter(value => value.id !== currentActiveElement.value.id)
             .forEach(value => value.classList.remove('active'));
-
+          // console.log(summary.getAttribute('id'));
           summary.classList.add('active');
         }
       }
@@ -196,7 +194,9 @@ renderer.code = (code, language) => {
 marked.setOptions({
   renderer,
   mangle: false,
-  headerIds: false
+  headerIds: true,
+  silent: true,
+  break: true
 });
 const markdownToHtml = computed(() => marked.parse(content.value));
 </script>
