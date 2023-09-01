@@ -187,6 +187,9 @@ const calcColor = tags => {
   else if (tags === 'HackTheBox') return 'HackTheBox';
   else if (tags === 'TryHackMe') return 'TryHackMe';
   else if (tags === 'AWS') return 'AWS';
+  else if (tags === 'Docker') return 'Docker';
+  else if (tags === 'Jenkins') return 'Jenkins';
+  else if (tags === 'Git') return 'Git';
   else return 'Unknown';
 };
 
@@ -267,6 +270,27 @@ const postData = computed(() => {
     returnObject.link = 'assets/AWS.svg';
     returnObject.color = 'AWS';
     returnObject.label = 'AWS';
+  } else if (props.hashtag[0] === 'Docker') {
+    returnObject.shadow = isHovered.value
+      ? '0 0 3px #2291E6, 0 0 11px #2291E6, 0 0 25px #2291E6, 0 0 45px #2291E6'
+      : 'none';
+    returnObject.link = 'assets/Docker.svg';
+    returnObject.color = 'Docker';
+    returnObject.label = 'Docker';
+  } else if (props.hashtag[0] === 'Jenkins') {
+    returnObject.shadow = isHovered.value
+      ? '0 0 3px #2F4F61, 0 0 11px #2F4F61, 0 0 25px #2F4F61, 0 0 45px #2F4F61'
+      : 'none';
+    returnObject.link = 'assets/Jenkins.svg';
+    returnObject.color = 'Jenkins';
+    returnObject.label = 'Jenkins';
+  } else if (props.hashtag[0] === 'Git') {
+    returnObject.shadow = isHovered.value
+      ? '0 0 3px #F05030, 0 0 11px #F05030, 0 0 25px #F05030, 0 0 45px #F05030'
+      : 'none';
+    returnObject.link = 'assets/Git.svg';
+    returnObject.color = 'Git';
+    returnObject.label = 'Git';
   }
   return returnObject;
 });
