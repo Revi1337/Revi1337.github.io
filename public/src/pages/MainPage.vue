@@ -241,12 +241,14 @@ import PostComponent from 'components/PostComponent.vue';
 import { getProcessedData } from 'src/api/posts';
 import { useRouter } from 'vue-router';
 import { CalendarHeatmap } from 'vue3-calendar-heatmap';
-import { getRecentGitContribution } from 'src/api/git';
-import { getTryhackmeContribution } from 'src/api/tryhackme';
-import { getHackTheBoxContribution } from 'src/api/hackthebox';
-import { getInflearnContribution } from 'src/api/inflearn';
 import { Chart, registerables } from 'chart.js';
 import { LineChart } from 'vue-chart-3';
+import {
+  fetchGitContributeInfo,
+  fetchInflearnContributeInfo,
+  fetchHackTheBoxContributeInfo,
+  fetchTryHackMeContributeInfo
+} from 'src/api/fetchapi';
 
 const githubHeatmap = ref(null);
 const inflearnHeatmap = ref(null);
@@ -344,7 +346,7 @@ const fetchGitGraphQL = async () => {
   try {
     isGithubDataLoaded.value = false;
 
-    const { data } = await getRecentGitContribution();
+    const { data } = await fetchGitContributeInfo();
 
     const totalContributions =
       data.data.user.contributionsCollection.contributionCalendar
@@ -411,7 +413,8 @@ const fetchTryhackmeContribution = async () => {
   try {
     isTryhackmeDataLoaded.value = false;
 
-    const { data } = await getTryhackmeContribution();
+    const { data } = await fetchTryHackMeContributeInfo();
+
     let preResults = data.data;
     preResults.sort(
       (a, b) =>
@@ -487,7 +490,8 @@ const fetchHackTheBoxContribution = async () => {
   try {
     isHackTheBoxDataLoaded.value = false;
 
-    const { data } = await getHackTheBoxContribution();
+    const { data } = await fetchHackTheBoxContributeInfo();
+
     let preDatas = data.profile.activity;
 
     const dateGroups = preDatas.reduce((groupMap, obj) => {
@@ -538,8 +542,9 @@ const fetchInflearnContribution = async () => {
   try {
     isInflearnDataLoaded.value = false;
 
-    const previousYear = await getInflearnContribution(2022);
-    const currentYear = await getInflearnContribution();
+    const previousYear = await fetchInflearnContributeInfo(2022);
+    const currentYear = await fetchInflearnContributeInfo();
+
     let previousPreResults = previousYear.data.data.heatMap;
     let currentPreResults = currentYear.data.data.heatMap;
     const totalPreResults = previousPreResults.concat(currentPreResults);
@@ -645,6 +650,7 @@ function createChartInstance(
 onMounted(() => {
   console.log('MainPage Mounted()');
 });
+
 fetchData();
 fetchGitGraphQL();
 fetchTryhackmeContribution();
@@ -654,25 +660,6 @@ fetchInflearnContribution();
 watch(isReadyToRenderContributeInfo, () => {
   console.log('Ready to Render ChartJS');
 });
-
-// inflearnChartData.value = {
-//   labels: chartMonthNameValues.value,
-//   datasets: [
-//     {
-//       data: inflearnChartMonthDatas.value,
-//       fill: false,
-//       borderColor: 'rgb(75, 192, 192)',
-//       tension: 0.1
-//     }
-//   ]
-// };
-// inflearnChartOptions.value = {
-//   plugins: {
-//     legend: {
-//       display: false
-//     }
-//   }
-// };
 </script>
 
 <style lang="scss" scoped>

@@ -5,7 +5,7 @@ const { configure } = require('quasar/wrappers');
 module.exports = configure(function (ctx) {
   return {
     supportTS: false,
-    boot: ['axios', 'loading', 'particles', 'vmdeditor', 'heatmap'],
+    boot: ['axios', 'particles', 'heatmap'],
     css: ['app.scss'],
     extras: [
       'fontawesome-v6',
@@ -33,20 +33,33 @@ module.exports = configure(function (ctx) {
         type: 'http'
       },
       port: 8081,
-      open: true,
-      proxy: {
-        '/api': {
-          target: 'http://localhost:8080',
-          changeOrigin: true,
-          pathRewrite: {
-            '^/api': ''
-          }
-        },
-        '/activity-events': {
-          target: 'https://tryhackme.com/api/user',
-          changeOrigin: true
-        }
-      }
+      open: true
+      // proxy: {
+      //   '/api': {
+      //     target: 'http://localhost:8080',
+      //     changeOrigin: true,
+      //     pathRewrite: {
+      //       '^/api': ''
+      //     }
+      //   },
+      //   '/activity-events': {
+      //     target: 'https://tryhackme.com/api/user',
+      //     changeOrigin: true
+      //   },
+      //   '/1002993': {
+      //     target: 'https://www.hackthebox.com/api/v4/profile/activity',
+      //     changeOrigin: true
+      //   },
+      //   '/annual-learning': {
+      //     target: 'https://account.inflearn.com/api/v2/dashboard',
+      //     changeOrigin: true,
+      //     headers: {
+      //       Cookie: `SECRET_COOKIE`
+      //     }
+      //     // https://stackoverflow.com/questions/56377371/webpack-dev-server-set-cookie-via-proxy
+      //     // https://stackoverflow.com/questions/50256737/cookie-in-header-javascript-error-refused-to-set-unsafe-header-cookie
+      //   }
+      // }
     },
 
     framework: {
