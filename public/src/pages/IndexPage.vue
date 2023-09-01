@@ -25,7 +25,7 @@ const route = useRoute();
 const currentCategory = computed(() => route.query.category);
 const isPostValid = computed(() => !currentCategory.value && route.query.post);
 const isCategoryValid = computed(() =>
-  ['all', 'dev', 'ctf', 'writeup', 'cs', 'cheet_sheet'].includes(
+  ['all', 'dev', 'ctf', 'writeup', 'cs', 'cheet_sheet', 'devops'].includes(
     route.query.category
   )
 );

@@ -62,7 +62,15 @@ const goHome = () => router.push({ name: 'Index' });
 const headerContainerStyle = { height: '82px' };
 const headerStyle = { width: '1350px' };
 const tab = ref('all');
-const categoryList = ['all', 'dev', 'ctf', 'writeup', 'cs', 'cheet_sheet'];
+const categoryList = [
+  'all',
+  'dev',
+  'ctf',
+  'writeup',
+  'cs',
+  'cheet_sheet',
+  'devops'
+];
 </script>
 
 <style lang="scss" scoped></style>
