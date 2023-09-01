@@ -186,6 +186,7 @@ const calcColor = tags => {
   else if (tags === 'Quasar') return 'Quasar';
   else if (tags === 'HackTheBox') return 'HackTheBox';
   else if (tags === 'TryHackMe') return 'TryHackMe';
+  else if (tags === 'AWS') return 'AWS';
   else return 'Unknown';
 };
 
@@ -259,6 +260,13 @@ const postData = computed(() => {
     returnObject.link = 'assets/TryHackMe.svg';
     returnObject.color = 'TryHackMe';
     returnObject.label = 'TryHackMe';
+  } else if (props.hashtag[0] === 'AWS') {
+    returnObject.shadow = isHovered.value
+      ? '0 0 3px #ff9a00, 0 0 11px #ff9a00, 0 0 25px #ff9a00, 0 0 45px #ff9a00'
+      : 'none';
+    returnObject.link = 'assets/AWS.svg';
+    returnObject.color = 'AWS';
+    returnObject.label = 'AWS';
   }
   return returnObject;
 });
