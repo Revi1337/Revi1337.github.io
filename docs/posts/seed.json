@@ -91,9 +91,9 @@
   },
   {
     "id": 11,
-    "title": "[AWS] S3 Bucket 을 통한 정적 웹 호스팅",
-    "category": "dev",
-    "hashtags": ["Vue", "JavaScript"],
+    "title": "[AWS] S3 Bucket 을 통한 웹 호스팅",
+    "category": "devops",
+    "hashtags": ["AWS" , "Vue", "JavaScript"],
     "createdAt": "2023-08-31",
     "folder": "/s3-web-host",
     "filename": "/s3-web-host"
