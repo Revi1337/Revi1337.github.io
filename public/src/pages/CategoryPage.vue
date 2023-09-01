@@ -196,12 +196,12 @@ const goPostDetails = (folder, filename) => {
   // ); /* 요소의 중심이 화면 높이의 중간에 오도록 조정 */
 }
 
+// $top: 130px;
 .slider {
-  $top: 130px;
   overflow-y: auto;
   position: fixed;
-  top: $top;
+  top: 130px;
   left: calc(50% + (1310px / 2) + 20px);
-  max-height: calc(100vh - $top - 35px);
+  max-height: calc(100vh - 130px - 35px);
 }
 </style>
