@@ -89,16 +89,17 @@ onMounted(() => {
   console.log('onMounted()');
 });
 
-const preventCallStack = ref('');
-onUpdated(() => {
-  if (preventCallStack.value === '') {
-    summary.value = Array.from(markdownHtml.value.children).filter(child =>
-      ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(child.tagName.toLowerCase())
-    );
-    window.addEventListener('scroll', scrollHandler);
-    preventCallStack.value === true;
-  }
-});
+// const preventCallStack = ref(false);
+// onUpdated(() => {
+//   if (preventCallStack.value === false) {
+//     console.log('onUpdated');
+//     summary.value = Array.from(markdownHtml.value.children).filter(child =>
+//       ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(child.tagName.toLowerCase())
+//     );
+//     window.addEventListener('scroll', scrollHandler);
+//     preventCallStack.value === true;
+//   }
+// });
 
 onBeforeUnmount(() => {
   console.log('onBeforeUnmount()');
