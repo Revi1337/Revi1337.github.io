@@ -52,7 +52,7 @@
 
           <div class="row justify-center items-center">
             <span v-for="tag in props.hashtag" :key="tag" class="q-mx-xs">
-              <q-badge rounded outline :color="calcColor(tag)" :label="tag" />
+              <q-badge rounded outline :color="tag" :label="tag" />
             </span>
           </div>
         </div>
@@ -144,7 +144,7 @@ const props = defineProps({
 const goPostDetails = () => {
   const hashtagData = {};
   props.hashtag.forEach((value, index) => {
-    hashtagData[index] = { tag: value, tagColor: calcColor(value) };
+    hashtagData[index] = { tag: value, tagColor: value };
   });
   console.log(hashtagData);
 
@@ -175,23 +175,6 @@ const getPredictedTimeToRead = computed({
       : `${predictedTime} min to read`;
   }
 });
-
-const calcColor = tags => {
-  if (tags === 'Spring') return 'Spring';
-  else if (tags === 'Vue') return 'Vue';
-  else if (tags === 'Python') return 'Python';
-  else if (tags === 'Bash') return 'Bash';
-  else if (tags === 'Java') return 'Java';
-  else if (tags === 'JavaScript') return 'JavaScript';
-  else if (tags === 'Quasar') return 'Quasar';
-  else if (tags === 'HackTheBox') return 'HackTheBox';
-  else if (tags === 'TryHackMe') return 'TryHackMe';
-  else if (tags === 'AWS') return 'AWS';
-  else if (tags === 'Docker') return 'Docker';
-  else if (tags === 'Jenkins') return 'Jenkins';
-  else if (tags === 'Git') return 'Git';
-  else return 'Unknown';
-};
 
 const postData = computed(() => {
   const returnObject = {

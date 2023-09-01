@@ -202,13 +202,13 @@ const markdownToHtml = computed(() => marked.parse(content.value));
 </script>
 
 <style lang="scss" scoped>
-$top: 130px;
+// $tp: 130px;
 .slider {
   overflow-y: auto;
   position: fixed;
-  top: $top;
+  top: 130px;
   left: calc(50% + (950px / 2) + 20px);
-  max-height: calc(100vh - $top - 35px);
+  max-height: calc(100vh - 130px - 35px);
 
   .container {
     padding-left: 5px;
