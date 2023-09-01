@@ -89,17 +89,18 @@ onMounted(() => {
   console.log('onMounted()');
 });
 
-// const preventCallStack = ref(false);
-// onUpdated(() => {
-//   if (preventCallStack.value === false) {
-//     console.log('onUpdated');
-//     summary.value = Array.from(markdownHtml.value.children).filter(child =>
-//       ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(child.tagName.toLowerCase())
-//     );
-//     window.addEventListener('scroll', scrollHandler);
-//     preventCallStack.value === true;
-//   }
-// });
+const callStackPrevent = ref(false);
+onUpdated(() => {
+  if (callStackPrevent.value === false) {
+    console.log('onUpdated');
+    summary.value = Array.from(markdownHtml.value.children).filter(child =>
+      ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(child.tagName.toLowerCase())
+    );
+    window.addEventListener('scroll', scrollHandler);
+    callStackPrevent.value = true;
+  }
+  console.log('done()');
+});
 
 onBeforeUnmount(() => {
   console.log('onBeforeUnmount()');
