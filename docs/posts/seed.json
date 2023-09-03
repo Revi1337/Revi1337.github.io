@@ -3,76 +3,13 @@
     "id": 1,
     "title": "[HackTheBox] Socket",
     "category": "writeup",
-    "hashtags": ["HackTheBox", "Remote Code Excecution", "Process Enumeration"],
+    "hashtags": ["HackTheBox", "WebSocket", "SQLite3 SQLI", "SourceCode Analyze"],
     "createdAt": "2023-04-10",
     "folder": "/socket",
     "filename": "/Socket"
   },
   {
     "id": 2,
-    "title": "[HackTheBox] Agile",
-    "category": "writeup",
-    "hashtags": ["HackTheBox", "SSTI", "SSRF", "RCE"],
-    "createdAt": "2023-04-11",
-    "folder": "/agile",
-    "filename": "/agile"
-  },
-  {
-    "id": 3,
-    "title": "[Spring] Interceptor",
-    "category": "dev",
-    "hashtags": ["Spring", "Java"],
-    "createdAt": "2023-04-11",
-    "folder": "/agile",
-    "filename": "/agile"
-  },
-  {
-    "id": 4,
-    "title": "[Spring] Filter",
-    "category": "dev",
-    "hashtags": ["Spring", "Java"],
-    "createdAt": "2023-04-11",
-    "folder": "/agile",
-    "filename": "/agile"
-  },
-  {
-    "id": 5,
-    "title": "[Spring Security] Authorization 흐름 분석",
-    "category": "dev",
-    "hashtags": ["Spring", "Java"],
-    "createdAt": "2023-04-11",
-    "folder": "/agile",
-    "filename": "/agile"
-  },
-  {
-    "id": 6,
-    "title": "[Spring Security] Exception Handling",
-    "category": "dev",
-    "hashtags": ["Spring", "Java"],
-    "createdAt": "2023-04-11",
-    "folder": "/agile",
-    "filename": "/agile"
-  },
-  {
-    "id": 7,
-    "title": "[Spring Security] Authentication 흐름 분석",
-    "category": "dev",
-    "hashtags": ["Spring", "Java"],
-    "createdAt": "2023-04-11",
-    "folder": "/agile",
-    "filename": "/agile"
-  },
-  {
-    "id": 8,
-    "title": "[VueJS] Ref, ShallowRef 차이",
-    "category": "dev",
-    "hashtags": ["Vue", "JavaScript"],
-    "createdAt": "2023-04-11",
-    "folder": "/agile",
-    "filename": "/agile"
-  },
-  {
-    "id": 9,
     "title": "[Quasar] 환경변수(.env) 등록",
     "category": "dev",
     "hashtags": ["Quasar", "Vue", "JavaScript"],
@@ -81,7 +18,7 @@
     "filename": "/quasar-environment"
   },
   {
-    "id": 10,
+    "id": 3,
     "title": "[Spring] Spring 외부설정과 Profile 설정",
     "category": "dev",
     "hashtags": ["Spring", "Java"],
@@ -90,13 +27,22 @@
     "filename": "/external-config-profile"
   },
   {
-    "id": 11,
+    "id": 4,
     "title": "[AWS] S3 Bucket 을 통한 웹 호스팅",
     "category": "devops",
     "hashtags": ["AWS" , "Vue", "JavaScript"],
     "createdAt": "2023-08-31",
     "folder": "/s3-web-host",
     "filename": "/s3-web-host"
+  },
+  {
+    "id": 5,
+    "title": "[Spring] Environment 를 통한 외부설정 사용",
+    "category": "dev",
+    "hashtags": ["Spring", "Java"],
+    "createdAt": "2023-09-03",
+    "folder": "/environment",
+    "filename": "/environment"
   }
 ]
 
