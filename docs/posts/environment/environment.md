@@ -13,12 +13,12 @@
 
 ### 1. properties 혹은 yml 에 외부설정 셋팅
 
-* 아래 사진과 같이 `yml` 에 외부설정값을 셋팅해준다.
+* 아래 사진과 같이 `yml` 에 외부설정값을 셋팅해준다. (properties 도 가능)
 * 설정한 값들은 `env.values.environment` 라는 `prefix` 를 갖고있음을 확인해 두자.  
 
 ![img_2.png](https://revi1337.github.io/posts/environment/img_2.png)
 
-### 2. 셋팅한 외부설정과 대응하는 클래스 파일 생성
+### 2. 외부설정과 대응하는 클래스 파일 생성
 
 * 이제 `yml` 에 셋팅한 설정과 대응하는 클래스인 `SqlConfigData` 를 생성해준다. 생성한 클래스의 `Field` 에는
 `yml` 에 설정하였던 prefix 를 제외한 `key` 들을 따라 생성해주면 된다.
@@ -28,7 +28,7 @@
 
 ![img.png](https://revi1337.github.io/posts/environment/img.png)
 
-### 3. Environment 통해 생성한 클래스를 Bean 으로 등록 
+### 3. Environment 를 사용해 생성한 클래스를 Bean 으로 등록 
 
 * 설정파일을 만들어준 후, 스프링이 자동으로 등록해주는 `Environment` 타입의 `Bean` 을 주입받는다.
 `Environment` Bean 에는 `yml` 에 설정했던 외부설정값들이 들어있다.
