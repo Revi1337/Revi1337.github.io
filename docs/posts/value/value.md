@@ -15,14 +15,14 @@
 따라서 해당 포스팅에서는
 `@Value` 어노테이션을 통해 이러한 외부설정들을 더욱 편리하게 조회하고 사용하는 방법을 소개하고자 한다.
 
-### 1. yml 에 외부설정 셋팅
+### 1. yml 에 외부설정 세팅
 
 * 아래 사진과 같이 `yml` 에 외부설정값을 셋팅해준다.
 * 설정한 값들은 `env.values` 라는 `prefix` 를 갖고있음을 확인해 두자.
 
 ![img.png](https://revi1337.github.io/posts/value/img.png)
 
-### 2. 외부설정과 대응하는 클래스 파일 생성
+### 2. 외부설정에 대응하는 클래스 생성
 
 * 이제 `yml` 에 셋팅한 설정과 대응하는 클래스인 `SqlConfigData` 를 생성해준다. 생성한 클래스의 `Field` 에는
   `yml` 에 설정하였던 prefix 를 제외한 `key` 들을 따라 생성해주면 된다.
@@ -31,7 +31,7 @@
 
 ![img_1.png](https://revi1337.github.io/posts/value/img_1.png)
 
-### 3. @Value 를 통해 외부설정을 주입하고 클래스 파일을 Bean 으로 등록 
+### 3. @Value 를 통해 외부설정을 주입받고 클래스 파일을 Bean 으로 등록 
 
 * 이제 `SqlConfigData` 를 Bean 으로 만들어주기위해 설정파일을 만들어준다.
 
