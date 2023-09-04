@@ -32,7 +32,7 @@
 
 4. Bean Validation 을 적용할 수 있다.
 
-## @ConfigurationProperties 관련 Annotation
+### @ConfigurationProperties 관련 Annotation
 
 ConfigurationProperties 를 이해하기전에 숙지하고 있어야할 `Annotation` 들을 간단히 알아보자.
 
