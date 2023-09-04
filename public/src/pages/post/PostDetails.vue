@@ -216,6 +216,18 @@ const markdownToHtml = computed(() => marked.parse(content.value));
   left: calc(50% + (950px / 2) + 20px);
   max-height: calc(100vh - 130px - 35px);
 
+  &::-webkit-scrollbar {
+    width: 5px;
+    background: $dark;
+    overflow: auto;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    width: 5px;
+    background-color: $grey-10;
+    border-radius: 20px;
+  }
+
   .container {
     padding-left: 5px;
     border-left: 1px solid $grey-9;
