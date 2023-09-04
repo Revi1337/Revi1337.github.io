@@ -88,10 +88,21 @@ body {
       Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo',
       'Noto Sans KR', 'Malgun Gothic', sans-serif;
     border-radius: 3px;
+    &::-webkit-scrollbar {
+      height: 6px;
+      background: $grey-10;
+      overflow: auto;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      height: 6px;
+      background-color: $grey;
+      border-radius: 20px;
+    }
   }
 
   code.hljs {
-    border-radius: 8px;
+    border-radius: 6px;
     color: $font-color;
   }
 }
