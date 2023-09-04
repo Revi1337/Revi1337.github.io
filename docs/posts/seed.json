@@ -52,6 +52,15 @@
     "createdAt": "2023-09-03",
     "folder": "/value",
     "filename": "/value"
+  },
+  {
+    "id": 7,
+    "title": "[Spring] @ConfigurationProperties 를 통한 외부설정 사용",
+    "category": "dev",
+    "hashtags": ["Spring", "Java"],
+    "createdAt": "2023-09-04",
+    "folder": "/configurationproperties",
+    "filename": "/configurationproperties"
   }
 ]
 
