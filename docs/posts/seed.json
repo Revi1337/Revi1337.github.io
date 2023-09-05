@@ -65,7 +65,7 @@
   {
     "id": 8,
     "title": "[Docker] Docker CheetSheet",
-    "category": "devops",
+    "category": "cheetsheet",
     "hashtags": ["Docker"],
     "createdAt": "2023-09-05",
     "folder": "/docker-cheetsheet",
