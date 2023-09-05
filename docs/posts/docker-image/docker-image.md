@@ -106,7 +106,7 @@ $docker run -it --name=NEW_CONTAINER ubuntu:java-17 bash
 * RUN : `ubuntu image` 로 인해 생성된 컨테이너에서 실행한 `쉘 명령어` 를 의미한다.
 이전과 동일하게 최신 패키지를 업데이트받고,  java 17 을 설치하는 커맨드를 의미한다.
 
-```
+```txt
 FROM ubuntu:latest
 
 RUN apt-get update
