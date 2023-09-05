@@ -70,6 +70,15 @@
     "createdAt": "2023-09-05",
     "folder": "/docker-cheetsheet",
     "filename": "/docker-cheetsheet"
+  },
+  {
+    "id": 9,
+    "title": "[Docker] Docker Image 생성",
+    "category": "devops",
+    "hashtags": ["Docker"],
+    "createdAt": "2023-09-05",
+    "folder": "/docker-image",
+    "filename": "/docker-image"
   }
 ]
 
