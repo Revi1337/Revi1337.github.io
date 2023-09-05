@@ -8,7 +8,8 @@
 
 <script setup>
 import { ref } from 'vue';
-const contentStyle = ref(['width: 1350px', 'height: 1500px']);
+// const contentStyle = ref(['width: 1350px', 'height: 1500px']);
+const contentStyle = ref(['width: 1350px']);
 </script>
 
 <style lang="scss" scoped></style>
