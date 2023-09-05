@@ -4,7 +4,7 @@
 이렇게 새로운 상태의 `Image` 를 만드는 방법에는 `docker commit` 을 이용한 방법과 `Dockerfile` 를 이용하여 `docker build` 를 실행하여 생성하는 방법이 있는데,
 이 두가지 방법의 차이점이 무엇이고 어떠한 방법으로 새로운 `Image` 를 만드는지 알아보도록 하자.
 
-### docker commit 을 이용한 방법
+### I. docker commit 을 이용한 방법
 
 > * 해당 예에서는 아무것도 없는 상태의 ubuntu 에서 Java 를 설치하여 새로운상태의 ubuntu 이미지를 만들 것이다.
 
@@ -65,7 +65,7 @@ $docker run -it --name=NEW_CONTAINER ubuntu:java-17 bash
 
 ![img_5.png](https://revi1337.github.io/posts/docker-image/img_5.png)
 
-### docker build 을 이용한 방법
+### II. docker build 을 이용한 방법
 
 앞서 설명하였던 `docker commit` 를 통해 새로운 Image 를 만드는 방법은
 직접 `Image` 를 pull 받고, 컨테이너 내부에서 직접 `java` 를 설치해주는 과정을 거쳤다.
