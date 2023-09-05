@@ -105,6 +105,19 @@ body {
     border-radius: 6px;
     color: $font-color;
   }
+
+  table {
+    border-collapse: collapse;
+    th,
+    td {
+      border: 1px;
+      border-color: $font-color;
+      border-style: solid;
+    }
+    td {
+      padding: 2px 8px 2px;
+    }
+  }
 }
 
 #text {
