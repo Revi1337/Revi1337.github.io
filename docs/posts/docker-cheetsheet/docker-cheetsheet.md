@@ -53,7 +53,7 @@ $docker run -d -p 3306:3306 -e MYSQL_ALLOW_EMPTY_PASSWORD=true --name mysql mysq
 ```shell 
 $docker exec -it mysql mysql
 ```
-```mysql
+```txt
 create database wp CHARACTER SET utf8;
 grant all privileges on wp.* to wp@'%' identified by 'wp';
 flush privileges;
