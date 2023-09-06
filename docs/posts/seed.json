@@ -79,6 +79,15 @@
     "createdAt": "2023-09-05",
     "folder": "/docker-image",
     "filename": "/docker-image"
+  },
+  {
+    "id": 10,
+    "title": "[AWS] IAM 과 Policy Simulator 를 통한 정책 테스트",
+    "category": "devops",
+    "hashtags": ["AWS"],
+    "createdAt": "2023-09-06",
+    "folder": "/iam",
+    "filename": "/iam"
   }
 ]
 
