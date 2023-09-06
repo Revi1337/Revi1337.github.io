@@ -78,22 +78,24 @@ $docker run -it --name=NEW_CONTAINER ubuntu:java-17 bash
 
 #### Dockerfile 명령어 종류
 
-| Command | description |
-|-------|-------------|
-|`FROM`| 기본 이미지 (Base Image)|
-|`RUN`| 쉘 명령어 실행|
-|`CMD`| 컨테이너가 생성시 실행되는 기본 명령어(Entrypoint 의 인자로 사용)|
-|`EXPOSE`| 오픈되는 포트 정보|
-|`ENV`| 환경변수 설정|
-|`ADD`| 파일 또는 디렉터리 추가. URL/ZIP 사용 가능|
-|`COPY`| 파일 또는 디렉토리 추가 (로컬의 파일을 image 로 복사해주는 역할)|
-|`ENTRYPOINT`| 컨테이너 기본 실행 명령어|
-|`VOLUME`| 외부 마운트 포인트 생성|
-|`USER`| RUN, CMD, ENTRYPOINT 를 실행하는 사용자|  
-|`WORKDIR`| 작업 디렉터리 설정|
-|`ARGS`| 빌드타임 환경변수 설정|
-|`LABEL`| key - value 데이터|
-|`ONBUILD`| 다른 빌드의 베이스로 사용될때 사용하는 명령어|
+| Command      | description                                                      |
+|--------------|------------------------------------------------------------------|
+| `FROM`       | 기본 이미지 (Base Image)                                              |
+| `RUN`        | Image 가 생성되기 전에 수행 할 쉘 명령어                                       |
+| `CMD`        | 컨테이너가 시작되었을때 실행할 명령어 및 Shell Script 를 명시(Entrypoint 의 인자로 사용된다.) |
+| `ENTRYPOINT` | 컨테이너가 시작될었을떄 실행할 명령어 및 Shell Script 를 명시                         |
+| `EXPOSE`     | 오픈되는 포트 정보. 컨테이너가 실행중에 외부에 노출되는 포트를 의미한다.                        |
+| `ENV`        | Dockerfile 안에서 사용할 환경변수를 지정한다.                                   |
+| `ADD`        | 파일 또는 디렉터리 추가. URL/ZIP 사용 가능                                     |
+| `COPY`       | 파일 또는 디렉토리 추가 (로컬의 파일을 image 로 복사해주는 역할)                         |
+| `VOLUME`     | 외부 마운트 포인트 생성. 디렉터리의 내용을 컨테이너에 저장하지 않고 호스트에 저장하도록 설정한다.          |
+| `USER`       | RUN, CMD, ENTRYPOINT 를 실행하는 사용자                                  |  
+| `WORKDIR`    | 작업 디렉터리를 설정. 여러번 사용되면 직전에 사용됐던 WORKDIR 을 기준으로 상대경로로 이동한다.        |
+| `ARGS`       | 빌드타임 환경변수 설정                                                     |
+| `LABEL`      | key - value 데이터. Image 에 Metadata를 추가 할 경우에 사용한다.                |
+| `ONBUILD`    | 다른 빌드의 베이스로 사용될때 사용하는 명령어                                        |
+| `MAINTAINER` | image 를 만든 사람에 대한 정보를 기입.                                        |
+| `FROM`       | 기본 이미지 (Base Image)                                              |
 
 거두절미하고 미리 작성된 스크립트로 `Dockerfile` 에 대해 알아보도록하자.
 
@@ -160,6 +162,87 @@ $docker build -t ubuntu:java-17-2 .
 기본으로 설치되어있는것을 확인할 수 있다.
 
 ![img_8.png](https://revi1337.github.io/posts/docker-image/img_8.png)
+
+#### 예제
+
+앞서 사용했던 `Dockerfile` 은 너무 간단했다. 이번에는 아래의 조건을 만족하는 `Image` 를 만들어보자.
+
+##### 1. 요구사항 
+
+1. Node.js 기반의 웹서비스를 빌드하여 Image 를 실행한다.
+2. 이 때 Image 이름과 태그는 hellonode:latest 이어야 한다.
+3. 또한, Image 를 실행할때 로컬 60000 포트로 오픈한다.
+4. Container 가 실행되면 아래와 같은 글자가 떠야한다.
+
+![img_10.png](img_10.png)
+
+5. 상단의 글자가 출력되기 위한 `server.js` 는 아래와 같다.
+
+```javascript
+const http = require('http');
+const os = require('os');
+
+const port = process.env.PORT || 8080;
+
+process.on('SIGINT', function() {
+  console.log('shutting down...');
+  process.exit(1);
+});
+
+var handleRequest = function(request, response) {
+  console.log(`Received request for URL: ${request.url}`);
+  response.writeHead(200);
+  response.end(`Hello, World!\nHostname: ${os.hostname()}\n`);
+};
+
+var www = http.createServer(handleRequest);
+www.listen(port, () => {
+  console.log(`server listening on port ${port}`);
+});
+```
+
+##### 2. Dockerfile 작성
+
+자 이제 아래와 같이 `Dockerfile` 를 작성한다.
+
+![img_11.png](img_11.png)
+
+상단의 코드의 의미는 아래와 같다.
+
+`FROM node:12-alpine` : Base Image 를 node:12-alpine 을 사용한다. (node:12-alpine 는 기본적으로 npm 과 node 가 설치되어있다.)
+
+`RUN mkdir -p /tmp/simple/dummy` : node:12-alpine 에는 /tmp/simple/dummy 경로가 없기때문에 해당 경로를 만들어준다.
+
+`WORKDIR /tmp/simple/dummy` : 작업디렉터리를 이전에 만든 경로인 /tmp/simple/dummy 로 설정해준다.
+
+`RUN npm i` : npm 으로 프로젝트를 초기화한다.
+
+`COPY server.js /tmp/simple/dummy/` : 로컬에서 현재 위치에있는 server.js 파일을 /tmp/simple/dummy/ 로 복사한다.
+
+`EXPOSE 8080` : 컨테이너가 외부로 노출될 포트를 8080 으로 지정한다.
+
+`CMD ["node", "server.js"]` : 컨테이너가 실행될떄 사용할 명령어를 지정했다. 여기서 node 가 실행된다.
+
+##### 3. build 후 실행
+
+* 아래의 명령어로 build 하여 생성되는 Image 의 이름과 태그를 hellonode:latest 로 설정한다.  
+
+```bash
+$ docker build -t hellonode .
+```
+
+* 생성된 이미지를 확인해보면 hellonode:latest 인것을 확인할 수 있다.
+
+![img_13.png](img_13.png)
+
+* 이제 해당 이미지를 로컬의 60000 포트로 연결하여 실행해준다.
+
+![img_14.png](img_14.png)
+
+* Hello, World! 라는 글자가 잘 뜨는 것을 확인할 수 있다.
+
+![img_15.png](img_15.png)
+
 
 ### 정리
 
