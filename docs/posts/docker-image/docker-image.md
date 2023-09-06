@@ -174,7 +174,7 @@ $docker build -t ubuntu:java-17-2 .
 3. 또한, Image 를 실행할때 로컬 60000 포트로 오픈한다.
 4. Container 가 실행되면 아래와 같은 글자가 떠야한다.
 
-![img_10.png](img_10.png)
+![img_10.png](https://revi1337.github.io/posts/docker-image/img_10.png)
 
 5. 상단의 글자가 출력되기 위한 `server.js` 는 아래와 같다.
 
@@ -205,7 +205,7 @@ www.listen(port, () => {
 
 자 이제 아래와 같이 `Dockerfile` 를 작성한다.
 
-![img_11.png](img_11.png)
+![img_11.png](https://revi1337.github.io/posts/docker-image/img_11.png)
 
 상단의 코드의 의미는 아래와 같다.
 
@@ -233,15 +233,15 @@ $ docker build -t hellonode .
 
 * 생성된 이미지를 확인해보면 hellonode:latest 인것을 확인할 수 있다.
 
-![img_13.png](img_13.png)
+![img_13.png](https://revi1337.github.io/posts/docker-image/img_13.png)
 
 * 이제 해당 이미지를 로컬의 60000 포트로 연결하여 실행해준다.
 
-![img_14.png](img_14.png)
+![img_14.png](https://revi1337.github.io/posts/docker-image/img_14.png)
 
 * Hello, World! 라는 글자가 잘 뜨는 것을 확인할 수 있다.
 
-![img_15.png](img_15.png)
+![img_15.png](https://revi1337.github.io/posts/docker-image/img_15.png)
 
 
 ### 정리
