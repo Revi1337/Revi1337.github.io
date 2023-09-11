@@ -97,6 +97,15 @@
     "createdAt": "2023-09-08",
     "folder": "/ec2",
     "filename": "/ec2"
+  },
+  {
+    "id": 12,
+    "title": "[AWS] RDS 생성과 Spring 연동",
+    "category": "devops",
+    "hashtags": ["AWS", "Spring"],
+    "createdAt": "2023-09-11",
+    "folder": "/rds",
+    "filename": "/rds"
   }
 ]
 
