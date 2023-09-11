@@ -130,7 +130,7 @@ time_zone
 
 또한, 아래의 파라미터들을 `utf8` 과 `utf8_general_ci` 로 변경해준다.
 
-```
+```text
 // utf8 로 변경
 character_set_client
 character_set_database
