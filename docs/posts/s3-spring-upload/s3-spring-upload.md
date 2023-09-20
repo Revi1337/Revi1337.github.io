@@ -35,7 +35,7 @@ AWS 콘솔에서 IAM 서비스로 들어와 `IAM > 액세스 관리 > 사용자`
 
 ![img_6.png](https://revi1337.github.io/posts/s3-spring-upload/img_6.png)
 
-#### IAM 에서 사용자 AccessKey 생성
+#### 3. IAM 에서 사용자 AccessKey 생성
 
 이제 생성한 사용자의 AccessKey 및 Secret Key 를 발급받아야 한다.
 
@@ -57,7 +57,7 @@ AWS 콘솔에서 IAM 서비스로 들어와 `IAM > 액세스 관리 > 사용자`
 
 ![img_11.png](https://revi1337.github.io/posts/s3-spring-upload/img_11.png)
 
-#### S3 정책 설정
+#### 4. S3 정책 설정
 
 이제 다시 생성했단 S3 Bucket 을 선택하여 `권한 > 버킷 정책 > 편집` 을 눌러준다.
 그리고 아래와같이 정책을 설정해주자.
@@ -90,7 +90,7 @@ AWS 콘솔에서 IAM 서비스로 들어와 `IAM > 액세스 관리 > 사용자`
 
 자 여기부터는 Spring 의 영역이다.
 
-#### build.gradle 에 의존성 추가
+#### 1. build.gradle 에 의존성 추가
 
 첫번째로 `build.gradle` 에 해당 아래의 의존성을 추가해준다.
 
@@ -100,7 +100,7 @@ implementation 'org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE
 
 ![img_12.png](https://revi1337.github.io/posts/s3-spring-upload/img_12.png)
 
-#### yml 에 aws 설정 추가
+#### 2. yml 에 aws 설정 추가
 
 아래와같이 aws `Bucket` 에 대한 설정을 작성해준다.
 이전에 발급받은 사용자의 `access_key`, `secret-key` 는 민감정보이기 때문에`Environment` 로 뺴준다.
@@ -121,14 +121,14 @@ cloud:
       auto: false
 ```
 
-#### S3 Bucket 설정 파일 작성
+#### 3. S3 Bucket 설정 파일 작성
 
 이제 아래와같이 설정파일을 작성해준다. 각 `Environment` 외부설정값을 주입받고 그 값들을 토대로
 `AmazonS3Client` 설정을 해준다.
 
 ![img_13.png](https://revi1337.github.io/posts/s3-spring-upload/img_13.png)
 
-#### 파일 업로드 로직 작성
+#### 4. 파일 업로드 로직 작성
 
 아래와같이 `S3` 에 업로드할 수 있는 로직을 작성해준다.
 `AmazonS3` 타입의 Bean 을 주입받아, `.putObject()` 메서드로 파일을 버킷에 업로드시킬 수 있다.
@@ -138,7 +138,7 @@ cloud:
 
 ![img_14.png](https://revi1337.github.io/posts/s3-spring-upload/img_14.png)
 
-#### 동작 확인
+#### 5. 동작 확인
 
 이제 아래의 컨트롤러를 토대로 API 요청을 날려보자.
 
