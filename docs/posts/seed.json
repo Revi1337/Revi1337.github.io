@@ -110,7 +110,7 @@
   {
     "id": 13,
     "title": "[AWS] Spring 을 통해 S3 Bucket 에 파일 업로드",
-    "category": "AWS",
+    "category": "devops",
     "hashtags": ["AWS", "Spring"],
     "createdAt": "2023-09-20",
     "folder": "/s3-spring-upload",
