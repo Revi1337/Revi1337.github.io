@@ -109,12 +109,21 @@
   },
   {
     "id": 13,
-    "title": "[AWS] Spring 을 통해 S3 Bucket 에 파일 업로드",
+    "title": "[AWS] Spring 을 통한 S3 Bucket 에 파일 업로드",
     "category": "devops",
     "hashtags": ["AWS", "Spring"],
     "createdAt": "2023-09-20",
     "folder": "/s3-spring-upload",
     "filename": "/s3-spring-upload"
+  },
+  {
+    "id": 14,
+    "title": "[AWS] EC2 와 RDS 연동",
+    "category": "devops",
+    "hashtags": ["AWS"],
+    "createdAt": "2023-09-21",
+    "folder": "/ec2-rds",
+    "filename": "/ec2-rds"
   }
 ]
 
