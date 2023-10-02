@@ -124,6 +124,15 @@
     "createdAt": "2023-09-21",
     "folder": "/ec2-rds",
     "filename": "/ec2-rds"
+  },
+  {
+    "id": 15,
+    "title": "[AWS] CloudWatch 와 Alarm",
+    "category": "devops",
+    "hashtags": ["AWS"],
+    "createdAt": "2023-10-02",
+    "folder": "/aws-cloudwatch",
+    "filename": "/aws-cloudwatch"
   }
 ]
 
