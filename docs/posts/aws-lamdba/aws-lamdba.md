@@ -55,7 +55,7 @@ AWS Lambda 를 사용하게 되면 아래와 같은 일련의 Flow 를 가능하
 
 ![img_1.png](https://revi1337.github.io/posts/aws-lamdba/img_1.png)
 
-#### 람다함수 생성
+#### Lambda 함수 생성
 
  `새로 작성`, `블루프린트 사용`, `컨테이너 이미지` 라는 옵션을 선택해줄 수 있다. 여기서 각 항목에 대한 기능은 아래와 같다.
 
@@ -79,7 +79,7 @@ AWS Lambda 를 사용하게 되면 아래와 같은 일련의 Flow 를 가능하
 
 ![img_4.png](https://revi1337.github.io/posts/aws-lamdba/img_4.png)
 
-#### AWS Lambda 테스트
+#### Lambda 함수 테스트
 
 람다함수를 정상적으로 생성하게되면 아래와같은 사진을 만나볼 수 있다.
 
@@ -114,7 +114,7 @@ AWS Lambda 를 사용하게 되면 아래와 같은 일련의 Flow 를 가능하
 자 이제 `S3` 에 `json` 파일이 업로드 되었을 때, 그 json 파일의 특정 `key` 값을 읽어
 특정 메시지를 출력하는 예제를 실습해보자.
 
-### Lambda 생성
+#### Lambda 함수 생성
 
 lambda 함수를 만들어주는데 이름과 파이썬 버전은 재량껏 선택해 준다. 
 
