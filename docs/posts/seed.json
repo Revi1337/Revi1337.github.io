@@ -133,6 +133,15 @@
     "createdAt": "2023-10-02",
     "folder": "/aws-cloudwatch",
     "filename": "/aws-cloudwatch"
+  },
+  {
+    "id": 16,
+    "title": "[AWS] Lambda",
+    "category": "devops",
+    "hashtags": ["AWS"],
+    "createdAt": "2023-10-02",
+    "folder": "/aws-lamdba",
+    "filename": "/aws-lamdba"
   }
 ]
 
