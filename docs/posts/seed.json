@@ -142,6 +142,15 @@
     "createdAt": "2023-10-02",
     "folder": "/aws-lamdba",
     "filename": "/aws-lamdba"
+  },
+  {
+    "id": 17,
+    "title": "[AWS] CloudFront",
+    "category": "devops",
+    "hashtags": ["AWS"],
+    "createdAt": "2023-10-04",
+    "folder": "/aws-cloudwatch",
+    "filename": "/aws-cloudwatch"
   }
 ]
 
