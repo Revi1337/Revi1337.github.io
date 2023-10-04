@@ -1,4 +1,5 @@
-해당 글은 인프런의 `AWS(Amazon Web Service) 입문자를 위한 강의` 를 보며 작성한 포스팅입니다.
+해당 글은 인프런 `Simon Kim` 님의 `AWS(Amazon Web Service) 입문자를 위한 강의` 를 보며 작성한 글입니다.
+https://www.inflearn.com/course/aws-%EC%9E%85%EB%AC%B8
 
 ### AWS Lambda 의 기능과 역할
 
