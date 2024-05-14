@@ -13,6 +13,17 @@ document.addEventListener("nav", () => {
   const switchTheme = (e: Event) => {
     const newTheme = (e.target as HTMLInputElement)?.checked ? "dark" : "light"
     document.documentElement.setAttribute("saved-theme", newTheme)
+    const iframe = document.querySelector<HTMLIFrameElement>('iframe.giscus-frame');
+    iframe?.contentWindow?.postMessage(
+      {
+        giscus: {
+          setConfig: {
+            theme: newTheme,
+          },
+        },
+      },
+      'https://giscus.app',
+    );
     localStorage.setItem("theme", newTheme)
     emitThemeChangeEvent(newTheme)
   }
