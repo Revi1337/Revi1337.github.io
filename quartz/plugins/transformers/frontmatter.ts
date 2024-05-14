@@ -62,6 +62,7 @@ export const FrontMatter: QuartzTransformerPlugin<Partial<Options> | undefined> 
             } else {
               data.title = file.stem ?? i18n(cfg.configuration.locale).propertyDefaults.title
             }
+            // data.title = '- ' + data.title
 
             const tags = coerceToArray(coalesceAliases(data, ["tags", "tag"]))
             if (tags) data.tags = [...new Set(tags.map((tag: string) => slugTag(tag)))]
