@@ -1,3 +1,14 @@
+@function str-repeat($string, $times) {
+  @if $times == 0 {
+    @return $string;
+  }
+  $result: "";
+  @for $i from 1 through $times {
+    $result: $result + $string;
+  }
+  @return $result;
+}
+
 button#toc {
   background-color: transparent;
   border: none;
@@ -54,7 +65,7 @@ button#toc {
 
   @for $i from 0 through 6 {
     & .depth-#{$i} {
-      padding-left: calc(1rem * #{$i});
+      padding-left: calc(1.35rem * #{$i});
     }
   }
 }
