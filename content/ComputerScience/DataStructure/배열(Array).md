@@ -43,6 +43,7 @@ title: 배열
 
 ![](https://raw.githubusercontent.com/Revi1337/BlogImageFactory/main/algorithm/3_array/Pasted%20image%2020240112225515.png)
 
+> [!note]
 > 새로운 값을 배열의 가운데에 넣어도 똑같다.
 
 ## 정리
@@ -70,11 +71,11 @@ print(solution(datas))
 
 ## 배열 제어하기
 
-```python  
-from random import randrange, randint  
+```python {6-7, 15-16}
 # 배열의 중복값을 제거하고 배열 데이터를 내림차순으로 정렬.  
-  
-def solution_book(lst):  
+from random import randrange, randint
+
+def solution_book(lst):
     """ 교재에서 나온 답 """    
     unique_lst = list(set(lst))
     unique_lst.sort(reverse=True)
@@ -164,9 +165,9 @@ def solution(dirs):
 		elif dir == 'D':            
 			dr = r + row[2]            
 			dc = c + col[2]        
-		elif dir == 'L':            
-			dr = r + row[3]            
-			dc = c + col[3]  
+		elif dir == 'L':
+			dr = r + row[3]
+			dc = c + col[3]
 			
         if not ((-5 <= dr <= 5) and (-5 <= dc <= 5)):            
 	        continue  

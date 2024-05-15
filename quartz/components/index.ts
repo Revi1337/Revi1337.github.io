@@ -20,6 +20,7 @@ import MobileOnly from "./MobileOnly"
 import RecentNotes from "./RecentNotes"
 import Breadcrumbs from "./Breadcrumbs"
 import NavBar from "./NavBar"
+import GithubComment from "./GithubComment"
 
 export {
   ArticleTitle,
@@ -43,5 +44,6 @@ export {
   RecentNotes,
   NotFound,
   Breadcrumbs,
-  NavBar
+  NavBar,
+  GithubComment,
 }

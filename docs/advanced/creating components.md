@@ -41,7 +41,7 @@ const defaultOptions: Options = {
 
 export default ((userOpts?: Options) => {
   const opts = { ...userOpts, ...defaultOpts }
-  function YourComponent(props: QuartzComponentProps) {
+  function GithubComment(props: QuartzComponentProps) {
     if (opts.favouriteNumber < 0) {
       return null
     }
@@ -49,7 +49,7 @@ export default ((userOpts?: Options) => {
     return <p>My favourite number is {opts.favouriteNumber}</p>
   }
 
-  return YourComponent
+  return GithubComment
 }) satisfies QuartzComponentConstructor
 ```
 
@@ -84,35 +84,35 @@ Quartz components can also define a `.css` property on the actual function compo
 
 Note that inlined styles **must** be plain vanilla CSS:
 
-```tsx {6-10} title="quartz/components/YourComponent.tsx"
+```tsx {6-10} title="quartz/components/GithubComment.tsx"
 export default (() => {
-  function YourComponent() {
+  function GithubComment() {
     return <p class="red-text">Example Component</p>
   }
 
-  YourComponent.css = `
+  GithubComment.css = `
   p.red-text {
     color: red;
   }
   `
 
-  return YourComponent
+  return GithubComment
 }) satisfies QuartzComponentConstructor
 ```
 
 Imported styles, however, can be from SCSS files:
 
-```tsx {1-2,9} title="quartz/components/YourComponent.tsx"
-// assuming your stylesheet is in quartz/components/styles/YourComponent.scss
-import styles from "./styles/YourComponent.scss"
+```tsx {1-2,9} title="quartz/components/GithubComment.tsx"
+// assuming your stylesheet is in quartz/components/styles/GithubComment.scss
+import styles from "./styles/GithubComment.scss"
 
 export default (() => {
-  function YourComponent() {
+  function GithubComment() {
     return <p>Example Component</p>
   }
 
-  YourComponent.css = styles
-  return YourComponent
+  GithubComment.css = styles
+  return GithubComment
 }) satisfies QuartzComponentConstructor
 ```
 
@@ -123,22 +123,22 @@ export default (() => {
 
 What about interactivity? Suppose you want to add an-click handler for example. Like the `.css` property on the component, you can also declare `.beforeDOMLoaded` and `.afterDOMLoaded` properties that are strings that contain the script.
 
-```tsx title="quartz/components/YourComponent.tsx"
+```tsx title="quartz/components/GithubComment.tsx"
 export default (() => {
-  function YourComponent() {
+  function GithubComment() {
     return <button id="btn">Click me</button>
   }
 
-  YourComponent.beforeDOM = `
+  GithubComment.beforeDOM = `
   console.log("hello from before the page loads!")
   `
 
-  YourComponent.afterDOM = `
+  GithubComment.afterDOM = `
   document.getElementById('btn').onclick = () => {
     alert('button clicked!')
   }
   `
-  return YourComponent
+  return GithubComment
 }) satisfies QuartzComponentConstructor
 ```
 
@@ -170,18 +170,18 @@ Of course, it isn't always practical (nor desired!) to write your code as a stri
 
 Quartz supports importing component code through `.inline.ts` files.
 
-```tsx title="quartz/components/YourComponent.tsx"
+```tsx title="quartz/components/GithubComment.tsx"
 // @ts-ignore: typescript doesn't know about our inline bundling system
 // so we need to silence the error
 import script from "./scripts/graph.inline"
 
 export default (() => {
-  function YourComponent() {
+  function GithubComment() {
     return <button id="btn">Click me</button>
   }
 
-  YourComponent.afterDOM = script
-  return YourComponent
+  GithubComment.afterDOM = script
+  return GithubComment
 }) satisfies QuartzComponentConstructor
 ```
 
@@ -204,24 +204,24 @@ After creating your custom component, re-export it in `quartz/components/index.t
 import ArticleTitle from "./ArticleTitle"
 import Content from "./pages/Content"
 import Darkmode from "./Darkmode"
-import YourComponent from "./YourComponent"
+import GithubComment from "./GithubComment"
 
-export { ArticleTitle, Content, Darkmode, YourComponent }
+export { ArticleTitle, Content, Darkmode, GithubComment }
 ```
 
-Then, you can use it like any other component in `quartz.layout.ts` via `Component.YourComponent()`. See the [[configuration#Layout|layout]] section for more details.
+Then, you can use it like any other component in `quartz.layout.ts` via `Component.GithubComment()`. See the [[configuration#Layout|layout]] section for more details.
 
 As Quartz components are just functions that return React components, you can compositionally use them in other Quartz components.
 
 ```tsx title="quartz/components/AnotherComponent.tsx"
-import YourComponent from "./YourComponent"
+import GithubComment from "./GithubComment"
 
 export default (() => {
   function AnotherComponent(props: QuartzComponentProps) {
     return (
       <div>
         <p>It's nested!</p>
-        <YourComponent {...props} />
+        <GithubComment {...props} />
       </div>
     )
   }

@@ -9,21 +9,24 @@ const emitThemeChangeEvent = (theme: "light" | "dark") => {
   document.dispatchEvent(event)
 }
 
+document.addEventListener("themechange", (e) => {
+  const iframe = document.querySelector<HTMLIFrameElement>('iframe.giscus-frame');
+  iframe?.contentWindow?.postMessage(
+    {
+      giscus: {
+        setConfig: {
+          theme: e.detail.theme,
+        },
+      },
+    },
+    'https://giscus.app',
+  );
+})
+
 document.addEventListener("nav", () => {
   const switchTheme = (e: Event) => {
     const newTheme = (e.target as HTMLInputElement)?.checked ? "dark" : "light"
     document.documentElement.setAttribute("saved-theme", newTheme)
-    const iframe = document.querySelector<HTMLIFrameElement>('iframe.giscus-frame');
-    iframe?.contentWindow?.postMessage(
-      {
-        giscus: {
-          setConfig: {
-            theme: newTheme,
-          },
-        },
-      },
-      'https://giscus.app',
-    );
     localStorage.setItem("theme", newTheme)
     emitThemeChangeEvent(newTheme)
   }
@@ -43,6 +46,7 @@ document.addEventListener("nav", () => {
   if (currentTheme === "dark") {
     toggleSwitch.checked = true
   }
+  // console.log(currentTheme)
 
   // Listen for changes in prefers-color-scheme
   const colorSchemeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)")
