@@ -56,8 +56,12 @@ title: 배열(Array)
 
 # 배열 관련 테크닉
 ## 1차원 배열
-### Duplicate 제거
-입력값이 `모두 숫자인 경우` 에는 빈도수를 나타내는 배열을 만들어 중복을 제거할 수 있다. 하지만 해당 방법은 가장 큰수의 값만큼 배열을 초기화해야하기 때문에 `메모리의 낭비`가 굉장히 심하다.
+### Duplicate 제거
+입력값이 `모두 숫자인 경우` 에는 빈도수를 나타내는 배열을 만들어 중복을 제거할 수 있다.
+
+> [!note]
+>  해당 방법은 배열의 크기를 입력값의 최대값만큼 초기화해야하기 때문에 메모리 낭비가 심하다.
+
 
 ```python {2,3}
 def solution(datas):  
@@ -76,7 +80,7 @@ def solution(datas):
 # output : [19, 78, 123, 234, 456, 567, 789, 6786]
 ```
 
-입력값이 `모두 문자` 혹은 `모두 숫자` 혹은 `문자 + 숫자`인 경우에는 입력값을 먼저 정렬해준 후, 이전 index 값과 비교해가며 중복값을 제거할 수 있다.
+입력값이 `모두 문자` 혹은 `모두 숫자` 인 경우에는 입력값을 먼저 정렬해준 후, 이전 index 값과 비교해가며 중복값을 제거할 수 있다.
 
 ```python {2}
 def solution(datas):  
@@ -85,23 +89,61 @@ def solution(datas):
     for idx in range(1, len(datas)):  
         if datas[idx] != datas[idx - 1]:  
             answer.append(datas[idx])  
-    return answer
+    return answer  
   
-# input : [123, 78, 234, 567, 6786, 19, 789, 123, 234, 456, 6786, 78]
+# input : ['dummy4', 'dummy2', 'dummy2', 'dummy1', 'dummy4', 'dummy1', 'dummy3']  
 # output : [19, 78, 123, 234, 456, 567, 789, 6786]
 ```
 
-하지만 사실 중복을 제거하는 가장 간단한 방법은 set 를 사용하는 것이다.
+하지만 `입력값의 타입에 상관없이` 중복을 제거하는 가장 간단한 방법은 set 를 사용하는 것이다.
 
 ```python
 def solution(datas):  
-    return list(set(datas))
+    return list(set(datas))  
   
-# input : [123, 78, 234, 567, 6786, 19, 789, 123, 234, 456, 6786, 78]
-# output : [6786, 456, 234, 78, 19, 789, 567, 123]
+# input : [123, 'dummy2', 123, 'dummy2', 'dummy1', 'dummy4', 456, 'dummy1', 'dummy3']  
+# output : ['dummy2', 'dummy4', 456, 'dummy3', 'dummy1', 123]
 ```
-###  Uniq 값 추출
 
+### Uniq 값 추출
+입력값이 `모두 숫자`일때 앞서 소개한 [Duplicate 제거](배열(Array)#Duplicate%20제거) 과 비슷한 방법으로 유일값을 추출할 수 있다. 
+
+```python {9}
+def solution(datas):  
+    length = max(datas) + 1  
+    frequency = [0] * length  
+    for integer in datas:  
+        frequency[integer] += 1  
+  
+    answer = []  
+    for integer in range(length):  
+        if frequency[integer] == 1:  
+            answer.append(integer)  
+    return answer  
+  
+# input : [123, 78, 234, 567, 6786, 19, 789, 123, 234, 456, 6786, 78]  
+# output : [19, 78, 123, 234, 456, 567, 789, 6786]
+```
+
+입력값이 `모두 문자` 혹은 `숫자 + 문자` 이면 배열을 사용하지 않고 `Dictionary` 를 사용하면 된다. 혹은 collections 의 Counter 를 사용할 수 있다.
+
+```python
+def solution(datas):  
+    frequency = {}  
+    for data in datas:  
+        frequency[data] = frequency.get(data, 0) + 1  
+    answer = []  
+    for key, counter in frequency.items():  
+        if counter == 1:  
+            answer.append(key)  
+    return answer  
+  
+# input : ['dummy4', 'dummy2', 'dummy2', 'dummy1', 'dummy4', 'dummy1', 'dummy3']  
+# output : ['dummy3']  
+  
+# input : [123, 'dummy2', 123, 'dummy2', 'dummy1', 'dummy4', 456, 'dummy1', 'dummy3']  
+# output : ['dummy4', 456, 'dummy3']
+```
 
 ## 2차원 배열
 ### 각 row 만 순회
