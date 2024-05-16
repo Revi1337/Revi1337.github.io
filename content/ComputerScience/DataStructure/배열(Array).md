@@ -1,5 +1,5 @@
 ---
-title: 배열
+title: 배열(Array)
 ---
 # 배열
 
@@ -55,23 +55,53 @@ title: 배열
 5. 하지만 배려의 마지막 데이터가 아닌 `배열 사이의 데이터를 뻇다 추가`하는 등의 연산이 많은 경우에는 적합하지 않으며 `연결 리스트` 가 권장 된다.
 
 # 배열 관련 테크닉
-
 ## 1차원 배열
-### 중복 제거
+### Duplicate 제거
+입력값이 `모두 숫자인 경우` 에는 빈도수를 나타내는 배열을 만들어 중복을 제거할 수 있다. 하지만 해당 방법은 가장 큰수의 값만큼 배열을 초기화해야하기 때문에 `메모리의 낭비`가 굉장히 심하다.
+
+```python {2,3}
+def solution(datas):  
+    length = max(datas) + 1  
+    frequency = [0] * length  
+    for integer in datas:  
+        frequency[integer] += 1  
+  
+    answer = []  
+    for integer in range(length):  
+        if frequency[integer]:  
+            answer.append(integer)  
+    return answer  
+  
+# input : [123, 78, 234, 567, 6786, 19, 789, 123, 234, 456, 6786, 78]
+# output : [19, 78, 123, 234, 456, 567, 789, 6786]
+```
+
+입력값이 `모두 문자` 혹은 `모두 숫자` 혹은 `문자 + 숫자`인 경우에는 입력값을 먼저 정렬해준 후, 이전 index 값과 비교해가며 중복값을 제거할 수 있다.
+
+```python {2}
+def solution(datas):  
+    datas.sort()  
+    answer = [datas[0]]  
+    for idx in range(1, len(datas)):  
+        if datas[idx] != datas[idx - 1]:  
+            answer.append(datas[idx])  
+    return answer
+  
+# input : [123, 78, 234, 567, 6786, 19, 789, 123, 234, 456, 6786, 78]
+# output : [19, 78, 123, 234, 456, 567, 789, 6786]
+```
+
+하지만 사실 중복을 제거하는 가장 간단한 방법은 set 를 사용하는 것이다.
 
 ```python
 def solution(datas):  
-    length = len(datas)  
-    datas.sort()  
-    answer = [datas[0]]  
-    for idx in range(1, length):  
-        if datas[idx] != datas[idx - 1]:  
-            answer.append(datas[idx])  
-    return answer  
+    return list(set(datas))
   
-  
-print(solution([123, 78, 234, 567, 6786, 19, 789, 123, 234, 456, 6786, 78]))
+# input : [123, 78, 234, 567, 6786, 19, 789, 123, 234, 456, 6786, 78]
+# output : [6786, 456, 234, 78, 19, 789, 567, 123]
 ```
+###  Uniq 값 추출
+
 
 ## 2차원 배열
 ### 각 row 만 순회
