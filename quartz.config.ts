@@ -70,7 +70,7 @@ const config: QuartzConfig = {
       Plugin.TableOfContents(),
       Plugin.CrawlLinks({
         markdownLinkResolution: "relative",
-        openLinksInNewTab: true,
+        openLinksInNewTab: false,
         lazyLoad: true,
         externalLinkIcon: true
       }),
