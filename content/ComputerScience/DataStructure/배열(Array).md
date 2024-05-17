@@ -147,6 +147,8 @@ def solution(datas):
 
 ## 2차원 배열
 ### 각 row 만 순회
+![](Pasted%20image%2020240517145820.png)
+
 ```python
 def solution(board):  
     answer = []  
@@ -154,10 +156,13 @@ def solution(board):
         answer.append(row)  
     return answer
 ```
+
 ### 각 col 만 순회
+![](Pasted%20image%2020240517145947.png)
+
 ```python {5}
 def solution(board):  
-    size = 10  
+    size = 5
     answer = []  
     for col in range(size):  
         answer.append([row[col] for row in board])  
@@ -165,9 +170,11 @@ def solution(board):
 ```
 
 ### 좌에서 우 대각선
+![](Pasted%20image%2020240517150027.png)
+
 ```python
 def solution(board):  
-    size = 10  
+    size = 5  
     answer = []  
     for idx in range(size):  
         answer.append(board[idx][idx])  
@@ -175,9 +182,11 @@ def solution(board):
 ```
 
 ### 우에서 좌 대각선
+![](Pasted%20image%2020240517150052.png)
+
 ```python
 def solution(board):  
-    size = 10  
+    size = 5  
     answer = []  
     for idx in range(size):  
         answer.append(board[idx][size - idx - 1])  
