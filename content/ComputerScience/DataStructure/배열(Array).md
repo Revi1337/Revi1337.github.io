@@ -164,7 +164,7 @@ def solution(board):
     return answer
 ```
 
-### 좌 -> 우 대각선
+### 좌에서 우 대각선
 ```python
 def solution(board):  
     size = 10  
@@ -174,7 +174,7 @@ def solution(board):
     return answer
 ```
 
-### 우 -> 좌 대각선
+### 우에서 좌 대각선
 ```python
 def solution(board):  
     size = 10  
