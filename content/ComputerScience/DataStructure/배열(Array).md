@@ -147,4 +147,39 @@ def solution(datas):
 
 ## 2차원 배열
 ### 각 row 만 순회
-### 각 col 들만 순회
+```python
+def solution(board):  
+    answer = []  
+    for row in board:  
+        answer.append(row)  
+    return answer
+```
+### 각 col 만 순회
+```python {5}
+def solution(board):  
+    size = 10  
+    answer = []  
+    for col in range(size):  
+        answer.append([row[col] for row in board])  
+    return answer
+```
+
+### 좌 -> 우 대각선
+```python
+def solution(board):  
+    size = 10  
+    answer = []  
+    for idx in range(size):  
+        answer.append(board[idx][idx])  
+    return answer
+```
+
+### 우 -> 좌 대각선
+```python
+def solution(board):  
+    size = 10  
+    answer = []  
+    for idx in range(size):  
+        answer.append(board[idx][size - idx - 1])  
+    return answer
+```
