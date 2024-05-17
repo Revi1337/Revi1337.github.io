@@ -1,7 +1,7 @@
 ---
 title: ArgumentResolver
 ---
-# Java
+# Python
 
 아니 그렇다면 이게 가능한 것인가..
 

@@ -107,6 +107,10 @@ def solution(datas):
 
 ### Uniq 값 추출
 입력값이 `모두 숫자`일때 앞서 소개한 [[배열(Array)#Duplicate 제거]] 과 비슷한 방법으로 유일값을 추출할 수 있다. 
+입력값이 `모두 숫자`일때 앞서 소개한 [[ReturnValueHandler]] 과 비슷한 방법으로 유일값을 추출할 수 있다. 
+입력값이 `모두 숫자`일때 앞서 소개한 [[ArgumentResolver]] 과 비슷한 방법으로 유일값을 추출할 수 있다. 
+입력값이 `모두 숫자`일때 앞서 소개한 [[/Language/Java/ArgumentResolver]] 과 비슷한 방법으로 유일값을 추출할 수 있다.
+입력값이 `모두 숫자`일때 앞서 소개한 [[/Language/Python/ArgumentResolver]] 과 비슷한 방법으로 유일값을 추출할 수 있다.
 
 ```python {9}
 def solution(datas):  
