@@ -106,11 +106,11 @@ def solution(datas):
 ```
 
 ### Uniq 값 추출
-입력값이 `모두 숫자`일때 앞서 소개한 [[배열(Array)#Duplicate 제거]] 과 비슷한 방법으로 유일값을 추출할 수 있다. 
-입력값이 `모두 숫자`일때 앞서 소개한 [[ReturnValueHandler]] 과 비슷한 방법으로 유일값을 추출할 수 있다. 
-입력값이 `모두 숫자`일때 앞서 소개한 [[ArgumentResolver]] 과 비슷한 방법으로 유일값을 추출할 수 있다. 
-입력값이 `모두 숫자`일때 앞서 소개한 [[/Language/Java/ArgumentResolver]] 과 비슷한 방법으로 유일값을 추출할 수 있다.
-입력값이 `모두 숫자`일때 앞서 소개한 [[/Language/Python/ArgumentResolver]] 과 비슷한 방법으로 유일값을 추출할 수 있다.
+입력값이 `모두 숫자`일때 앞서 소개한 [[Language/Shell/ReturnValueHandler|Shell ReturnValueHandler]] 과 비슷한 방법으로 유일값을 추출할 수 있다. 
+입력값이 `모두 숫자`일때 앞서 소개한 [[Language/Python/ArgumentResolver|Python ArgumentResolver]] 과 비슷한 방법으로 유일값을 추출할 수 있다.
+입력값이 `모두 숫자`일때 앞서 소개한 [[ComputerScience/DataStructure/ArgumentResolver|자료구조 ArgumentResolver]] 과 비슷한 방법으로 유일값을 추출할 수 있다.
+입력값이 `모두 숫자`일때 앞서 소개한 [[Language/Java/ArgumentResolver#Garbage Collector|자바 가비지 컬렉터 헤딩]] 과 비슷한 방법으로 유일값을 추출할 수 있다.
+입력값이 `모두 숫자`일때 앞서 소개한 [[Language/Java/Filter#Java 컴파일 과정|자바 Filter 헤딩]] 과 비슷한 방법으로 유일값을 추출할 수 있다.
 
 ```python {9}
 def solution(datas):  
@@ -151,7 +151,7 @@ def solution(datas):
 
 ## 2차원 배열
 ### 각 row 만 순회
-![](Pasted%20image%2020240517145820.png)
+![](ComputerScience/DataStructure/images/Pasted%20image%2020240517145820.png)
 
 ```python
 def solution(board):  
@@ -162,7 +162,7 @@ def solution(board):
 ```
 
 ### 각 col 만 순회
-![](Pasted%20image%2020240517145947.png)
+![](ComputerScience/DataStructure/images/Pasted%20image%2020240517145947.png)
 
 ```python {5}
 def solution(board):  
@@ -174,7 +174,7 @@ def solution(board):
 ```
 
 ### 좌에서 우 대각선
-![](Pasted%20image%2020240517150027.png)
+![](ComputerScience/DataStructure/images/Pasted%20image%2020240517150027.png)
 
 ```python
 def solution(board):  
@@ -186,7 +186,7 @@ def solution(board):
 ```
 
 ### 우에서 좌 대각선
-![](Pasted%20image%2020240517150052.png)
+![](ComputerScience/DataStructure/images/Pasted%20image%2020240517174441.png)
 
 ```python
 def solution(board):  
@@ -194,5 +194,50 @@ def solution(board):
     answer = []  
     for idx in range(size):  
         answer.append(board[idx][size - idx - 1])  
+    return answer
+```
+
+### 90 도 회전
+![](ComputerScience/DataStructure/images/Pasted%20image%2020240517192733.png)
+
+![](ComputerScience/DataStructure/images/Pasted%20image%2020240517193131.png)
+
+```python {6}
+def solution(board):  
+    N = 5  
+    answer = [[0] * N for _ in range(N)]  
+    for row in range(N):  
+        for col in range(N):  
+            answer[col][N - row - 1] = board[row][col]  
+    return answer
+```
+
+### 180 도 회전
+![](ComputerScience/DataStructure/images/Pasted%20image%2020240517195205.png)
+
+![](ComputerScience/DataStructure/images/Pasted%20image%2020240517195237.png)
+
+```python {6}
+def solution(board):  
+    N = 5  
+    answer = [[0] * N for _ in range(N)]  
+    for row in range(N):  
+        for col in range(N):  
+            answer[N - row - 1][N - col - 1] = board[row][col]  
+    return answer
+```
+
+### 270 도 회전
+![](ComputerScience/DataStructure/images/Pasted%20image%2020240517200223.png)
+
+![](ComputerScience/DataStructure/images/Pasted%20image%2020240517200237.png)
+
+```python {6}
+def solution(board):  
+    N = 5  
+    answer = [[0] * N for _ in range(N)]  
+    for row in range(N):  
+        for col in range(N):  
+            answer[N - col - 1][row] = board[row][col]  
     return answer
 ```
