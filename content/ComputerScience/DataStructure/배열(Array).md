@@ -277,13 +277,13 @@ def solution(board):
 ```
 
 #### version 2
-1. 2차원 배열로 정사각형을 생성한 모양.
-2. 정사각형에서 마름모 모양의 인덱스를 (row, col) 순으로 나타낸 것.
+정사각형에서 마름모 모양에 포함된 원소들의 인덱스 row, col 은 아래와 같이 나타낼 수 있다.
 
 ![](ComputerScience/DataStructure/images/Pasted%20image%2020240520204657.png)
 
-3. 인덱스 row 와 col 을 `row - (전체 row 길이 // 2), col - (전체 col 길이 // 2)` 로 나타낸 것.
-4. 3 번 상황에서 마름모 모양에 놓여있는 값들의 인덱스 row, col 이 모두 `|row| + |col| <= (전체 row 길이 // 2)` 를 만족하는 것을 알 수 있다.
+`3 번`의 그림은 인덱스 row 와 col 을 `row - (전체 row 길이 // 2), col - (전체 col 길이 // 2)` 로 나타낸 것이다. 또한, `4번` 그림을 통해 마름모 모양에 포함된 원소들의 인덱스 row, col 이 모두 `|row| + |col| <= (전체 row 길이 // 2)` 를 만족하는 것을 알 수 있다.
+
+
 
 ![](ComputerScience/DataStructure/images/Pasted%20image%2020240520211106.png)
 
