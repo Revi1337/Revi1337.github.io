@@ -304,7 +304,6 @@ def solution(board):
 
 ![](ComputerScience/DataStructure/images/Pasted%20image%2020240520224141.png)
 
-2차원 배열이 정사각형일때 `현재 자신이 위치한` 인덱스 row, col 의 차과 `자신을 왼쪽상단에서 오른쪽하단`으로 가로지르는 원소들의 `row, col 의 차`가 모두 일정하다. 해당 규칙도 백트래킹 대표 문제 `NQueen` 에서 사용된다.
+2차원 배열이 정사각형일때 `현재 자신이 위치한` 인덱스 row, col 의 차와 `자신을 왼쪽상단에서 오른쪽하단`으로 가로지르는 원소들의 `row, col 의 차`가 모두 일정하다. 해당 규칙도 백트래킹 대표 문제 `NQueen` 에서 사용된다.
 
 ![](ComputerScience/DataStructure/images/Pasted%20image%2020240520224541.png)
-
