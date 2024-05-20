@@ -296,7 +296,7 @@ def solution(board):
     return answer
 ```
 
-### 알아차리기 힘든 규칙들
+### 알아채기 힘든 규칙들
 2차원 배열이 정사각형일때 `현재 자신이 위치한` 인덱스 row, col 의 합과 `자신을 왼쪽하단에서 오른쪽상단`으로 가로지르는원소들의 `row, col 의 합`이 모두 일정하다. 해당 규칙은 백트래킹 대표 문제 `NQueen` 에서 사용된다.
 
 ![](ComputerScience/DataStructure/images/Pasted%20image%2020240520224141.png)
