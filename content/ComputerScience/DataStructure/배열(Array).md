@@ -50,12 +50,12 @@ title: 배열(Array)
 
 1. `Index` 로 배열의 값에 접근하는 것은 `O(1)` 의 시간 복잡도.
 3. 배열의 맨 뒤에 새로운 값을 삽입하는 경우에는 `O(1)` 의 시간 복잡도.
-4. 배열의 맨 앞이나 중간에 새로운 값을 삽입하는 경우엔는 `O(N)` 의 시간 복잡도.
+4. 배열의 맨 앞이나 중간에 새로운 값을 삽입하는 경우에는 `O(N)` 의 시간 복잡도.
 5. 데이터에 자주 접근하거나 값을 읽어야하는 경우에 배열을 사용하면 좋은 성능을 낼 수 있다.
 6. 하지만 배려의 마지막 데이터가 아닌 `배열 사이의 데이터를 뻇다 추가`하는 등의 연산이 많은 경우에는 적합하지 않으며 `연결 리스트` 가 권장 된다.
 7. 연속적인 메모리 공간을 차지하기 때문에 저장공간의 낭비가 발생할 수 있다.
 
-# 배열 관련 테크닉
+# 배열 활용 기술
 ## 1차원 배열
 ### Duplicate 제거
 입력값이 `모두 숫자인 경우` 에는 빈도수를 나타내는 배열을 만들어 중복을 제거할 수 있다.
@@ -151,6 +151,8 @@ def solution(datas):
 
 ## 2차원 배열
 ### 각 row 만 순회
+정사각형, 직사각형 모두 가능
+
 ![](ComputerScience/DataStructure/images/Pasted%20image%2020240517145820.png)
 
 ```python
@@ -162,6 +164,8 @@ def solution(board):
 ```
 
 ### 각 col 만 순회
+정사각형, 직사각형 모두 가능
+
 ![](ComputerScience/DataStructure/images/Pasted%20image%2020240517145947.png)
 
 ```python {5}
@@ -174,6 +178,8 @@ def solution(board):
 ```
 
 ### 좌에서 우 대각선
+정사각형만 가능
+
 ![](ComputerScience/DataStructure/images/Pasted%20image%2020240517150027.png)
 
 ```python
@@ -186,6 +192,8 @@ def solution(board):
 ```
 
 ### 우에서 좌 대각선
+정사각형만 가능
+
 ![](ComputerScience/DataStructure/images/Pasted%20image%2020240517174441.png)
 
 ```python
@@ -198,6 +206,7 @@ def solution(board):
 ```
 
 ### 90 도 회전
+정사각형만 가능
 ![](ComputerScience/DataStructure/images/Pasted%20image%2020240517192733.png)
 
 ![](ComputerScience/DataStructure/images/Pasted%20image%2020240517193131.png)
@@ -213,6 +222,7 @@ def solution(board):
 ```
 
 ### 180 도 회전
+정사각형만 가능
 ![](ComputerScience/DataStructure/images/Pasted%20image%2020240517195205.png)
 
 ![](ComputerScience/DataStructure/images/Pasted%20image%2020240517195237.png)
@@ -228,6 +238,7 @@ def solution(board):
 ```
 
 ### 270 도 회전
+정사각형만 가능
 ![](ComputerScience/DataStructure/images/Pasted%20image%2020240517200223.png)
 
 ![](ComputerScience/DataStructure/images/Pasted%20image%2020240517200237.png)
@@ -241,3 +252,56 @@ def solution(board):
             answer[N - col - 1][row] = board[row][col]  
     return answer
 ```
+
+### 마름모 순회
+정사각형만 가능
+#### version 1
+가운데 row 의 합을 초기값으로 세팅하고, 해당 row 를 기준으로 위, 아래를 나누지 않고 한번에 처리할 수 있다.
+
+![](ComputerScience/DataStructure/images/Pasted%20image%2020240520185011.png)
+
+```python {7-8}
+def solution(board):  
+    size = 5  
+    step = int(size // 2)  
+    init = [*board[step]]  
+    i = 0  
+    while step > i:  
+        init.extend(board[i][step - i:step + i + 1])  
+        init.extend(board[size - i - 1][step - i:step + i + 1])  
+        i += 1 
+    return init
+```
+
+#### version 2
+1. 2차원 배열로 정사각형을 생성한 모양.
+2. 정사각형에서 마름모 모양의 인덱스를 (row, col) 순으로 나타낸 것.
+
+![](ComputerScience/DataStructure/images/Pasted%20image%2020240520204657.png)
+
+3. 인덱스 row 와 col 을 `row - (전체 row 길이 // 2), col - (전체 col 길이 // 2)` 로 나타낸 것.
+4. 3 번 상황에서 마름모 모양에 놓여있는 값들의 인덱스 row, col 이 모두 `|row| + |col| <= (전체 row 길이 // 2)` 를 만족하는 것을 알 수 있다.
+
+![](ComputerScience/DataStructure/images/Pasted%20image%2020240520211106.png)
+
+```python {7}
+def solution(board):  
+    rows, cols = len(board), len(board[0])  
+    row_center, col_center = rows // 2, cols // 2  
+    answer = []  
+    for row in range(rows):  
+        for col in range(cols):  
+            if abs(row - row_center) + abs(col - col_center) <= row_center:  
+                answer.append(board[row][col])  
+    return answer
+```
+
+### 알아차리기 힘든 규칙들
+2차원 배열이 정사각형일때 `현재 자신이 위치한` 인덱스 row, col 의 합과 `자신을 왼쪽하단에서 오른쪽상단`으로 가로지르는원소들의 `row, col 의 합`이 모두 일정하다. 해당 규칙은 백트래킹 대표 문제 `NQueen` 에서 사용된다.
+
+![](ComputerScience/DataStructure/images/Pasted%20image%2020240520224141.png)
+
+2차원 배열이 정사각형일때 `현재 자신이 위치한` 인덱스 row, col 의 합과 `자신을 왼쪽상단에서 오른쪽하단`으로 가로지르는원소들의 `row, col 의 차`가 모두 일정하다. 해당 규칙도 백트래킹 대표 문제 `NQueen` 에서 사용된다.
+
+![](ComputerScience/DataStructure/images/Pasted%20image%2020240520224541.png)
+
