@@ -207,6 +207,7 @@ def solution(board):
 
 ### 90 도 회전
 정사각형만 가능
+
 ![](ComputerScience/DataStructure/images/Pasted%20image%2020240517192733.png)
 
 ![](ComputerScience/DataStructure/images/Pasted%20image%2020240517193131.png)
@@ -223,6 +224,7 @@ def solution(board):
 
 ### 180 도 회전
 정사각형만 가능
+
 ![](ComputerScience/DataStructure/images/Pasted%20image%2020240517195205.png)
 
 ![](ComputerScience/DataStructure/images/Pasted%20image%2020240517195237.png)
@@ -239,6 +241,7 @@ def solution(board):
 
 ### 270 도 회전
 정사각형만 가능
+
 ![](ComputerScience/DataStructure/images/Pasted%20image%2020240517200223.png)
 
 ![](ComputerScience/DataStructure/images/Pasted%20image%2020240517200237.png)
