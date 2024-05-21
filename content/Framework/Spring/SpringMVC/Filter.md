@@ -5,13 +5,15 @@ title: Filter
 Filter 는 Servlet 에서 제공하는 기능이며 Servlet 보다 먼저 호출된다. 이 뜻은 당연하게도 Controller(Handler) 보다도 먼저 동작한다는 의미와 같기 때문에  `접근제어, 로깅, 악성문자 필터링` 과 같은 공통 관심사를 효과적으로 분리하여 처리할 수 있다.
 
 ### Filter 의 특징
+Filter 의 위치 및 Request 의 생명주기는  [[Framework/Spring/SpringMVC/Analyze/Spring MVC Architecture|Spring MVC 아키텍쳐]]  에서 볼 수 있다.
 
 1. Servlet(DispatcherServlet) 보다 먼저 호출된다.
 2. 자신이 호출될 `URL Pattern` 및 `Filter 들의 순서` 를 지정해줄 수 있다.
 3. Servlet 을 호출할지 호출하지 않을지 결정할 수 있다. (뒤에 Filter 가 더 존재하면 Filter 가 호출되고, 존재하지 않으면 Servlet 이 호출되는 구조이다)
 4. 요청 처리가 완료되어 응답이 나갈때도 실행되었던 Filter 를 타고 나간다.
 
-Filter 의 위치 및 Request 의 생명주기는  [[Framework/Spring/SpringMVC/Analyze/Spring MVC Architecture|Spring MVC 아키텍쳐]]  에서 볼 수 있다.
+> [!note] Filter 의 URL 패턴 매핑은 그리 강력하지 않다
+> Servlet 이 제공하는 Filter 의 URL 패턴 매칭은 세밀하게 설정할 수 없다. 하지만 Spring 이 제공하는 Interceptor 에서는 AntPathMatcher 라는 객체가 URL 의 패턴을 검증하는데, 해당 기능으로 URL 패턴을 굉장히 세밀하게 설정할 수 있다.
 
 ### Filter 의 구조
 아래 코드는 Filter 인터페이스의 메서드들이다. 기본적으로 3개의 메서드가 존재하지만 2개는 default 메서드이므로 꼭 오버라이딩 해야하는 메서드는 `doFilter` 메서드가 된다.
