@@ -1,5 +1,6 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
+import { ComponentProps } from "preact/compat"
 
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
@@ -47,40 +48,37 @@ export const defaultContentPageLayout: PageLayout = {
             node.displayName = "● " + node.displayName
           }
         }
-      }
+      },
+      sortFn: (a, b) => {
+        const nameOrderMap: Record<string, number> = {
+          "Language": 100,
+          "Algorithm": 101,
+          "ComputerScience": 102,
+          "Framework": 103
+        }
+
+        let orderA = 0
+        let orderB = 0
+
+        if (a.file && a.file.slug) {
+          orderA = nameOrderMap[a.file.slug] || 0
+        } else if (a.name) {
+          orderA = nameOrderMap[a.name] || 0
+        }
+
+        if (b.file && b.file.slug) {
+          orderB = nameOrderMap[b.file.slug] || 0
+        } else if (b.name) {
+          orderB = nameOrderMap[b.name] || 0
+        }
+
+        return orderA - orderB
+      },
     }))
   ],
   right: [
     Component.DesktopOnly(Component.TableOfContents()),
-    Component.Backlinks(),
-    // Component.Graph({
-    //   localGraph: {
-    //     drag: true,
-    //     zoom: true,
-    //     depth: 1,
-    //     scale: 1.1,
-    //     repelForce: 0.5,
-    //     centerForce: 0.3,
-    //     linkDistance: 40,
-    //     fontSize: 0.2,
-    //     opacityScale: 1,
-    //     removeTags: [],
-    //     showTags: true,
-    //   },
-    //   globalGraph: {
-    //     drag: true,
-    //     zoom: true,
-    //     depth: -1,
-    //     scale: 0.9,
-    //     repelForce: 0.5,
-    //     centerForce: 0.3,
-    //     linkDistance: 40,
-    //     fontSize: 0.2,
-    //     opacityScale: 1,
-    //     removeTags: [],
-    //     showTags: true,
-    //   },
-    // }),
+    Component.Backlinks()
   ],
 }
 
