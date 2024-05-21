@@ -1,6 +1,3 @@
----
-title: 배열(Array)
----
 # 배열
 
 배열 또는 순차 리스트는 `Index`  와 `Value` 의 쌍으로 구현된 데이터 타입이다.  이러한 배열은 `연속적인 메모리 공간` 을 차지하기 때문에 저장 공간의 낭비가 발생할 수 있는 단점이 있다.
@@ -107,10 +104,7 @@ def solution(datas):
 ```
 
 ### Uniq 값 추출
-입력값이 `모두 숫자`일때 앞서 소개한 [[Language/Shell/ReturnValueHandler|Shell ReturnValueHandler]] 과 비슷한 방법으로 유일값을 추출할 수 있다. 
-입력값이 `모두 숫자`일때 앞서 소개한 [[Language/Python/ArgumentResolver|Python ArgumentResolver]] 과 비슷한 방법으로 유일값을 추출할 수 있다.
-입력값이 `모두 숫자`일때 앞서 소개한 [[Language/Java/ArgumentResolver#Garbage Collector|자바 가비지 컬렉터 헤딩]] 과 비슷한 방법으로 유일값을 추출할 수 있다.
-입력값이 `모두 숫자`일때 앞서 소개한 [[Language/Java/Filter#Java 컴파일 과정|자바 Filter 헤딩]] 과 비슷한 방법으로 유일값을 추출할 수 있다.
+ 입력값이 `모두 숫자`일때 앞서 소개한 [Duplicate 제거](ComputerScience/DataStructure/배열(Array)#Duplicate%20제거) 와 비슷한 방법으로 유일값을 추출할 수 있다.
 
 ```python {9}
 def solution(datas):  
