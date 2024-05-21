@@ -12,8 +12,8 @@ Filter 의 위치 및 Request 의 생명주기는  [[Framework/Spring/SpringMVC/
 3. Servlet 을 호출할지 호출하지 않을지 결정할 수 있다. (뒤에 Filter 가 더 존재하면 Filter 가 호출되고, 존재하지 않으면 Servlet 이 호출되는 구조이다)
 4. 요청 처리가 완료되어 응답이 나갈때도 실행되었던 Filter 를 타고 나간다.
 
-> [!note] Filter 의 URL 패턴 매핑은 그리 강력하지 않다
-> Servlet 이 제공하는 Filter 의 URL 패턴 매칭은 세밀하게 설정할 수 없다. 하지만 Spring 이 제공하는 Interceptor 에서는 AntPathMatcher 라는 객체가 URL 의 패턴을 검증하는데, 해당 기능으로 URL 패턴을 굉장히 세밀하게 설정할 수 있다.
+> [!note] Filter 의 URL 패턴 매칭은 그리 강력하지 않다
+> Servlet 이 제공하는 Filter 에서는 URL 패턴을 세밀하게 매핑할 수 없다. 하지만 Spring 이 제공하는 Interceptor 에서는 AntPathMatcher 라는 객체가 URL 의 패턴을 검증하는데, 해당 객체로 URL 패턴을 굉장히 세밀하게 매핑할 수 있다.
 
 ### Filter 의 구조
 아래 코드는 Filter 인터페이스의 메서드들이다. 기본적으로 3개의 메서드가 존재하지만 2개는 default 메서드이므로 꼭 오버라이딩 해야하는 메서드는 `doFilter` 메서드가 된다.
