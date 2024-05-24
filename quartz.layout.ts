@@ -37,9 +37,8 @@ export const defaultContentPageLayout: PageLayout = {
     Component.Darkmode(),
     Component.DesktopOnly(Component.Explorer({
       filterFn: (node) => {
-        // set containing names of everything you want to filter out
-        const omit = new Set(["excalidraw"])
-        return !omit.has(node.name.toLowerCase())
+        // exclude files with the tag "explorerexclude"
+        return node.file?.frontmatter?.tags?.includes("excalidraw") !== true
       },
       mapFn: (node) => {
         // dont change name of root node
