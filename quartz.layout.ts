@@ -36,6 +36,11 @@ export const defaultContentPageLayout: PageLayout = {
     Component.Search(),
     Component.Darkmode(),
     Component.DesktopOnly(Component.Explorer({
+      filterFn: (node) => {
+        // set containing names of everything you want to filter out
+        const omit = new Set(["excalidraw"])
+        return !omit.has(node.name.toLowerCase())
+      },
       mapFn: (node) => {
         // dont change name of root node
         if (node.depth > 0) {
