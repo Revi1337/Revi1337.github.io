@@ -5,6 +5,21 @@ title: Welcome to REVI1337's Blog
 
 <div class="container"> <div class="image-container"> <img src="https://revi1337.com/static/icon.png" alt="이미지 설명"> </div> <div class="list-container"> <ul> <li>개인소개 1</li> <li>개인소개 2</li> <li>개인소개 3</li> <li>개인소개 3</li> <li>개인소개 3</li> <li>개인소개 3</li> <li>개인소개 3</li> <li>개인소개 3</li> </ul> </div> </div> <style> .container { display: flex; padding: 30px } .image-container { width: 280px; display: flex; justify-content: center; align-items: center; } .list-container { width: 600px; display: flex; flex-direction: column; justify-content: space-around; } img { width: 100%; height: auto; margin-bottom: 0 !important;} </style>
 
+# Social Activities
+
+## Github
+
+![Revi1337's github activity graph](https://github-readme-activity-graph.vercel.app/graph?username=Revi1337&theme=github-compact&hide_border=true&days=40&hide_title=true)
+
+|                                     Alogorithm                                      |                                                                                                 Cyber Security                                                                                                 |
+| :---------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| <br>![Solved.ac프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=revi1337)<br> | <br>![revi1337's tryhackme stats](https://raw.githubusercontent.com/Revi1337/Revi1337/main/assets/thm_propic.png)<br><br><img src="https://www.hackthebox.com/badge/image/1002993" width="248.01" height="57"> |
+|                                                                                     |                                                                                                                                                                                                                |
+
+[website]: https://revi1337.com
+[tryhackme]: https://tryhackme.com/p/revi1337
+[hackthebox]: https://app.hackthebox.com/profile/1002993
+
 # Introduction
 
 Introduce yourself
@@ -102,19 +117,3 @@ Description
 # About Me
 
 안녕하세요. 백엔드 개발자 *** 입니다. etc.. Description
-
-
-# Social Activities
-
-## Github
-
-![Revi1337's github activity graph](https://github-readme-activity-graph.vercel.app/graph?username=Revi1337&theme=github-compact&hide_border=true&days=40&hide_title=true)
-
-|                                     Alogorithm                                      |                                                                                                 Cyber Security                                                                                                 |
-| :---------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| <br>![Solved.ac프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=revi1337)<br> | <br>![revi1337's tryhackme stats](https://raw.githubusercontent.com/Revi1337/Revi1337/main/assets/thm_propic.png)<br><br><img src="https://www.hackthebox.com/badge/image/1002993" width="248.01" height="57"> |
-|                                                                                     |                                                                                                                                                                                                                |
-
-[website]: https://revi1337.com
-[tryhackme]: https://tryhackme.com/p/revi1337
-[hackthebox]: https://app.hackthebox.com/profile/1002993
