@@ -99,7 +99,7 @@ public abstract class Soldier {
 }
 ```
 
-### 동적으로 행동을 지정있게 한다
+### 동적으로 행동을 지정할 수 있게 한다
 `setter` 를 통해 행동을 동적으로 변경할 수 있도록 경로를 뚫어준다. 이를 통해 Soldier 를 확장하는 클래스들은 AttackStrategy 와 MoveStrategy 를 유동적으로 변경할 수 있다.
 
 ```java {12, 16}
