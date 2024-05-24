@@ -65,7 +65,7 @@ print(solution([13, 19, 28, 23, 11, 25, 10, 20, 12, 24], 3, 5))
 ```
 
 ## 2차원 배열 누적합
-우선 2차원 배열의 누적합을 모두 구하게되면 아래와 같이 나오게 된다. row 와 col padding 이 1개 씩 들어가있는것을 볼 수 있는데, 경계값에 대한 예외를 처리하지 않게 하기 위함이다.
+우선 2차원 배열의 누적합을 모두 구하게되면 아래와 같이 나오게 된다. row 와 col padding 이 1개 씩 들어가있는것을 볼 수 있는데, 경계값에 대한 예외를 처리하지 않게하기 위함이다.
 
 ![](Algorithm/Prefixsum/images/Pasted%20image%2020240524203942.png)
 
@@ -85,7 +85,7 @@ psum[row][col] = psum[row - 1][col] + psum[row][col - 1] - psum[row - 1][col - 1
 
 ![](Algorithm/Prefixsum/images/Pasted%20image%2020240524224127.png)
 
-좀 더 보기 쉽게 그려보자면 아래와 같다. `psum[4 - 1][3]` 와 `psum[4][3 - 1]` 을 더하면 `psum[4 - 1][3 - 1]` 부분이 한번 더 더해지기 때문에 갈색 부분을 한번 빼주는 것이다. 여기까지가 `psum[row - 1][col - 1]` 값고 원본 배열의 `arr[row - 1][col - 1]` 위치의 원소를 `psum[row][col]` 이 완성되는 것이다.
+좀 더 보기 쉽게 그려보자면 아래와 같다. `psum[4 - 1][3]` 와 `psum[4][3 - 1]` 을 더하면 `psum[4 - 1][3 - 1]` 부분이 한번 더 더해지기 때문에 갈색 부분을 한번 빼주는 것이다. 여기까지가 `psum[row - 1][col - 1]` 값이고, 이제 원본 배열의 `arr[row - 1][col - 1]` 위치의 원소를 더하면 `psum[row][col]` 이 완성되는 것이다.
 
 ![](Algorithm/Prefixsum/images/Pasted%20image%2020240524205341.png)
 
