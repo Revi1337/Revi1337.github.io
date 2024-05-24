@@ -54,7 +54,8 @@ export const defaultContentPageLayout: PageLayout = {
           "Language": 100,
           "Algorithm": 101,
           "ComputerScience": 102,
-          "Framework": 103
+          "Framework": 103,
+          "DesignPattern": 104
         }
 
         let orderA = 0
