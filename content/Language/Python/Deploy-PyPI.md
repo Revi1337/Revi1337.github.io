@@ -80,7 +80,7 @@ $ pip freeze > requirements.txt
 
 > requirements.txt 는 단순히 우리의 프로젝트가 어떠한 의존성을 갖고 있는지를 나타내는 파일이다.
 
-### MANIFEST.in 작
+### MANIFEST.in 작성
 
 `MANIFEST.in` 파일은 우리의 코드를 패키지화할때 어떤 파일을 함께 패키지화할지 명시해주는 파일이다. 
 
