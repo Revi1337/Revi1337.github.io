@@ -37,26 +37,6 @@ public interface HandlerInterceptor {
 }
 ```
 
-
-```java
-public interface HandlerInterceptor {  
-  
-     default boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)  
-          throws Exception {  
-  
-       return true;  
-    }  
-  
-    default void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,  
-          @Nullable ModelAndView modelAndView) throws Exception {  
-    }  
-    
-    default void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler,  
-          @Nullable Exception ex) throws Exception {  
-    }  
-}
-```
-
 ### preHandle()
 - Controller(Handler) 가 실행되기 직전에 호출되는 메서드이다.
 - 해당 메서드는 Interceptor 를 구현하면 `무조건 호출되는 것을 보장한다.`
