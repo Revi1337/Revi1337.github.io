@@ -1,6 +1,9 @@
 ---
 title: Interceptor
 ---
+---
+title: Interceptor
+---
 
 # Interceptor
 Interceptor 는 Servlet 에서 제공하는 Filter 와 달리 SpringMVC 에서 제공하는 기능이다. 그렇기 때문에 Interceptor 는 스프링 MVC 구조에 특화된 Filter 기능을 제공하며 `서블릿에서 제공하는 Filter 보다 늦게 호출`된다. Filter 와 비슷하게 공통 관심사를 효과적으로 처리 및 분리시킬 수 있고 웹과 관련된 공통 관심사를 처리할 수 있지만 순서와 범위, 그리고 사용법이 다르다. Spring MVC 를 사용하고 특별히 Filter 를 꼭 사용해야 하는 상황이 아니라면 Interceptor 를 사용하는 것이 더 편리하다고 볼 수 있다. 추가적으로 Interceptor 의 위치 및 Request 의 생명주기는 [[Framework/Spring/SpringMVC/Analyze/Spring MVC Architecture|Spring MVC 아키텍쳐]]  에서 볼 수 있다.
@@ -23,7 +26,7 @@ Interceptor 는 Servlet 에서 제공하는 Filter 와 달리 SpringMVC 에서 �
 public interface HandlerInterceptor {
 
 	default boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {  
-	return true;  
+		return true;  
 	}
 	
 	default void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, @Nullable ModelAndView modelAndView) throws Exception {  
