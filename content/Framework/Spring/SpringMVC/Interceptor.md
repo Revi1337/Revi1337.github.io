@@ -26,7 +26,7 @@ Interceptor 는 Servlet 에서 제공하는 Filter 와 달리 SpringMVC 에서 �
 public interface HandlerInterceptor {
 
 	default boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {  
-		return true;  
+	   return true;
 	}
 	
 	default void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, @Nullable ModelAndView modelAndView) throws Exception {  
