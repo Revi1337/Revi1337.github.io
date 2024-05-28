@@ -102,17 +102,20 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
                 .addPathPatterns(  
                         "/test/*/interceptor",  
                         "/path/pattern/*",  
-                        "/path2/pattern2/**"  
+                        "/path2/pattern2/**",  
+                        "/*.ico"  
                 )  
                 .excludePathPatterns(  
-                        "/test/admin/interceptor"  
+                        "/test/admin/interceptor",  
+                        "/error",  
+                        "/favi*.ico"  
                 );  
     }  
 }
 ```
 
 > [!note] PathPattern 객체를 확인하자.
-> Interceptor 는 URL 패턴 매칭을 할 때  PathPattern 객체를 사용한다. 해당 객체를 통해 Filter 보다 강력한 URL 패턴 매칭을 지정할 수 있는 것이다. 요점만 말하면 /\*\* 는 모든 하위 모든 경로를 의미하고, /* 는 하나의 단일 경로를 의미한다. PathPattern 에 관한 내용은 Interceptor 인터페이스의 주석에 달려있으니 이를 확인하자.
+> Interceptor 는 URL 패턴 매칭을 할 때  PathPattern 객체를 사용한다. 해당 객체를 통해 Filter 보다 강력한 URL 패턴 매칭을 지정할 수 있는 것이다. 요점만 말하면 /\*\* 는 모든 하위 모든 경로를 의미하고, /* 는 하나의 단일 경로 혹은 정규식 (아스타리스크)를 의미한다. PathPattern 에 관한 내용은 Interceptor 인터페이스의 주석에 달려있으니 이를 확인하자.
 
 # 정리
 1. Interceptor 는 Spring MVC 에서 제공하는 기능이다.
