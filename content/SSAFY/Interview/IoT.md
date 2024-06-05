@@ -98,3 +98,8 @@ https://www.oracle.com/kr/internet-of-things/what-is-iot/
 https://kixxf.tistory.com/99
 
 
+
+https://www.digitalbizon.com/news/articleView.html?idxno=2331900
+https://www.kca.kr/hot_clips/vol70/sub01.html?lang=ko
+https://www.digitalbizon.com/news/articleView.html?idxno=2334287
+https://www.aitimes.kr/news/articleView.html?idxno=28469
