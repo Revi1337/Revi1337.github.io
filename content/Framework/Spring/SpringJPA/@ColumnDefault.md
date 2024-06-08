@@ -90,7 +90,7 @@ insert into member(email, nickname, user_type) values ('revi1337@naver.com', '�
 > @ColumnDefault 를 통해 DDL 에서 default 제약조건을 걸어주어도, insert 쿼리를 통해 null 이 직접적으로 들어오면 default 값으로 바꿔지지 않는다.
 
 
-해결방법은 간단하다. 영속성 객체의 클래스단에 [[@DynamicInsert_@DynamicUpdate|@DynamicInsert]] 를 명시해주면 된다.
+해결방법은 간단하다. 영속성 객체의 클래스단에 [[Framework/Spring/SpringJPA/@DynamicInsert_@DynamicUpdate|@DynamicInsert]] 를 명시해주면 된다.
 
 ```java {1}
 @DynamicInsert  
