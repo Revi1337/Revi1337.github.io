@@ -63,7 +63,7 @@ export const defaultContentPageLayout: PageLayout = {
           "Settings": 105,
           "SSAFY": 106,
           "interview": 107,
-          "Redis": 108
+          "Redis": 100
         }
 
         let orderA = 0
