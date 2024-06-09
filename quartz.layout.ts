@@ -59,7 +59,10 @@ export const defaultContentPageLayout: PageLayout = {
           "Algorithm": 101,
           "ComputerScience": 102,
           "Framework": 103,
-          "DesignPattern": 104
+          "DesignPattern": 104,
+          "Settings": 105,
+          "SSAFY": 106,
+          "interview": 107
         }
 
         let orderA = 0
