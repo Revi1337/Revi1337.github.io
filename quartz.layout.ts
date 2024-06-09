@@ -53,35 +53,35 @@ export const defaultContentPageLayout: PageLayout = {
           }
         }
       },
-      sortFn: (a, b) => {
-        const nameOrderMap: Record<string, number> = {
-          "Language": 100,
-          "Algorithm": 101,
-          "ComputerScience": 102,
-          "Framework": 103,
-          "DesignPattern": 104,
-          "Settings": 105,
-          "SSAFY": 106,
-          "interview": 107
-        }
-
-        let orderA = 0
-        let orderB = 0
-
-        if (a.file && a.file.slug) {
-          orderA = nameOrderMap[a.file.slug] || 0
-        } else if (a.name) {
-          orderA = nameOrderMap[a.name] || 0
-        }
-
-        if (b.file && b.file.slug) {
-          orderB = nameOrderMap[b.file.slug] || 0
-        } else if (b.name) {
-          orderB = nameOrderMap[b.name] || 0
-        }
-
-        return orderA - orderB
-      },
+      // sortFn: (a, b) => {
+      //   const nameOrderMap: Record<string, number> = {
+      //     "Language": 100,
+      //     "Algorithm": 101,
+      //     "ComputerScience": 102,
+      //     "Framework": 103,
+      //     "DesignPattern": 104,
+      //     "Settings": 105,
+      //     "SSAFY": 106,
+      //     "interview": 107
+      //   }
+      //
+      //   let orderA = 0
+      //   let orderB = 0
+      //
+      //   if (a.file && a.file.slug) {
+      //     orderA = nameOrderMap[a.file.slug] || 0
+      //   } else if (a.name) {
+      //     orderA = nameOrderMap[a.name] || 0
+      //   }
+      //
+      //   if (b.file && b.file.slug) {
+      //     orderB = nameOrderMap[b.file.slug] || 0
+      //   } else if (b.name) {
+      //     orderB = nameOrderMap[b.name] || 0
+      //   }
+      //
+      //   return orderA - orderB
+      // },
     }))
   ],
   right: [
