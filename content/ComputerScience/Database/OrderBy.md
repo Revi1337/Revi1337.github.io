@@ -1,5 +1,5 @@
 ---
-title: Order By
+title: Order
 ---
 
 ## Order By
@@ -54,5 +54,5 @@ WHERE
 GROUP BY
 	trainer_id
 ORDER BY
-	2 DESC;      # 2를 기준으로 내림차순하겠다는 의미
+	2 DESC;      # counter 를 기준으로 내림차순하겠다는 의미
 ```

@@ -51,3 +51,4 @@ FROM
 WHERE
 	kor_name = '피카츄'
 ```
+
