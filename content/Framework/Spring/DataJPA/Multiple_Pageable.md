@@ -16,8 +16,8 @@ public ResponseEntity<RestResponse<List<CommentsResponse>>> findComments(
 
 위와같이 HandlerMethod 에서 @PageableDefault 를 사용하여 Pageable 인스턴스의 디폴트값을 변경할 수 있는 이유는 내부적으로 @PageableDefault 를 해석하기 위한 `PageableHandlerMethodArgumentResolver` 가 사용되기 때문이다.
 
-### Classes 의존관계도
-PageableHandlerMethodArgumentResolver 와 관련된 클래스에는`PageableHandlerMethodArgumentResolverSupport`, `PageableHandlerMethodArgumentResolverCustomizer`, `SortHandlerMethodArgumentResolver` 가 있다. 하지만 SortHandlerMethodArgumentResolver 는 범위를 벗어나므로 나중에 다뤄보기로 한다.
+## Classes 의존관계도
+PageableHandlerMethodArgumentResolver 와 관련된 클래스에는 `PageableArgumentResolver`, `PageableHandlerMethodArgumentResolverSupport`, `PageableHandlerMethodArgumentResolverCustomizer`, `SortHandlerMethodArgumentResolver` 가 있다. 하지만 SortHandlerMethodArgumentResolver 는 범위를 벗어나므로 나중에 다뤄보기로 한다.
 
 **PageableHandlerMethodArgumentResolverSupport**
 
@@ -31,23 +31,23 @@ PageableHandlerMethodArgumentResolver 와 관련된 클래스에는`PageableHand
 
 - PageableHandlerMethodArgumentResolver 를 마음대로 커스터마이징 할 수 있게 제공하는 Functional Interface 이다. 해당 설정을 통해 @PageableDefault 의 정보를 커스터마이징 할 수 있다.
 
-![](SpringTip/DataJPA/images/Pasted%20image%2020240628223106.png)
+![](Spring/DataJPA/images/Pasted%20image%2020240628223106.png)
 
 ## @PageableDefault 원리
 PageableHandlerMethodArgumentResolver 에서는 WebRequest 로부터 Page 파라미터와 Size 파라미터를 통해 page 와 pageSize 를 가져오고  SortHandlerMethodArgumentResolver 를 통해 정렬조건을 가져온 후, Pageable 인스턴스를 만들어서 리턴하게 된다.
 
-![](SpringTip/DataJPA/images/Pasted%20image%2020240628221747.png)
+![](Spring/DataJPA/images/Pasted%20image%2020240628221747.png)
 
 
 하지만 WebRequest 로부터 Page 파라미터와 Size 파라미터를 통해 page 와 pageSize 를 가져오는 작업은  
 `PageableHandlerMethodArgumentResolverSupport` 가 수행한다.  기본적으로 Page 파라미터와 Size 파라미터 값이 page, size 로 정해져있고, HandlerMethod 에서 다중 Pageable 를 사용할 때 이를 구분하기 위한 Qualifier 구분자도 _ 로 설정되어 있다.
 
-![](SpringTip/DataJPA/images/Pasted%20image%2020240628235324.png)
+![](Spring/DataJPA/images/Pasted%20image%2020240628235324.png)
 
 
 하지만 이러한 디폴트 값도 구현되어있는 setter 를 오버라이딩하면 커스터마이징 할 수 있다.
 
-![](SpringTip/DataJPA/images/Pasted%20image%2020240628235436.png)
+![](Spring/DataJPA/images/Pasted%20image%2020240628235436.png)
 
 ## Multiple Pageable
 HandlerMethod 에서 다중 `Pageable` 를 사용하기 위해서는 `@Qualifier` 를 통해 각각의 Pageable 인스턴스를 구별할 수 있다.
@@ -97,7 +97,7 @@ public class JpaConfig {
 $curl -G "localhost:8083/api/v1/crew/comments" --data-urlencode "crewName=크루 1" --data "parentPage=1&parentSize=2&childPage=2&childSize=3" -H 'Authorization: Bearer TOKEN'
 ```
 
-![](SpringTip/DataJPA/images/Pasted%20image%2020240629000113.png)
+![](Spring/DataJPA/images/Pasted%20image%2020240629000113.png)
 
 
 ## Reference
