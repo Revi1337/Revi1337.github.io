@@ -142,7 +142,7 @@ public class Member {
 ```sql
 insert into member(email, nickname) values ('revi1337@naver.com', '넥네임4')
 ```
-![](Pasted%20image%2020240608030442.png)
+![](Framework/Spring/JPA/images/Pasted%20image%2020240608030442.png)
 
 
 테스트 코드는 아래와 같이 짜볼 수 있다. 코드 Hightlight 된 부분을 보면, EntityManger 로 영속성 컨텍스트를 한번 비워주고 있다. 잘 생각해보면 객체에서는 UserType 을 비웠기 때문에 Null 인 상태이다. 하지만 DB 에서는 default 제약조건으로 인해 GENERAL 인 상태이다. 결과적으로 객체와 `DB 와 Sync 가 맞지 않는 문제`가 발생한다. 이를 해결하기 위해 ID 로 멤버를 찾아오는 쿼리가 한번 더 나가게 된다. (불필요한 쿼리)
