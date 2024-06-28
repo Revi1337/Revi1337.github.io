@@ -17,7 +17,12 @@ public ResponseEntity<RestResponse<List<CommentsResponse>>> findComments(
 위와같이 HandlerMethod 에서 @PageableDefault 를 사용하여 Pageable 인스턴스의 디폴트값을 변경할 수 있는 이유는 내부적으로 @PageableDefault 를 해석하기 위한 `PageableHandlerMethodArgumentResolver` 가 사용되기 때문이다.
 
 ## Classes 의존관계도
-PageableHandlerMethodArgumentResolver 와 관련된 클래스에는 `PageableArgumentResolver`, `PageableHandlerMethodArgumentResolverSupport`, `PageableHandlerMethodArgumentResolverCustomizer`, `SortHandlerMethodArgumentResolver` 가 있다. 하지만 SortHandlerMethodArgumentResolver 는 범위를 벗어나므로 나중에 다뤄보기로 한다.
+PageableHandlerMethodArgumentResolver 와 관련된 클래스에는 아래와 같다.
+
+1. PageableArgumentResolver, 
+2. PageableHandlerMethodArgumentResolverSupport
+3. PageableHandlerMethodArgumentResolverCustomizer
+4. SortHandlerMethodArgumentResolver  (범위 밖이므로 나중에 다뤄보기로 한다.)
 
 **PageableHandlerMethodArgumentResolverSupport**
 
