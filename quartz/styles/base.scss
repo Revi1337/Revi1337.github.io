@@ -297,18 +297,21 @@ h6 {
 
 // typography improvements
 h1 {
+  color: rgb(255, 177, 61) !important;
   font-size: 1.75rem;
   margin-top: 2.25rem;
   margin-bottom: 1rem;
 }
 
 h2 {
+  color: rgb(255, 177, 61) !important;
   font-size: 1.4rem;
   margin-top: 1.9rem;
   margin-bottom: 1rem;
 }
 
 h3 {
+  color: rgb(87, 214, 161) !important;
   font-size: 1.12rem;
   margin-top: 1.62rem;
   margin-bottom: 1rem;
@@ -317,6 +320,7 @@ h3 {
 h4,
 h5,
 h6 {
+  color: rgb(0,128,128) !important;
   font-size: 1rem;
   margin-top: 1.5rem;
   margin-bottom: 1rem;
