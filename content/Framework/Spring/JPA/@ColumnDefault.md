@@ -1,5 +1,5 @@
 ---
-title: 컬럼의 디폴트값 설정
+title: "@ColumnDefault"
 ---
 
 ## @ColumnDefault
