@@ -1,5 +1,5 @@
 ---
-title: "@DynamicInsert, @DynamicUpdate"
+title: 동적 insert, update
 ---
 
 JPA 는 기본적으로 Insert 나 Update 쿼리를 날릴 때, 해당 Table 의 모든 Column 을 포함시킨다. 하지만 Table 이 커져 Column 이 많아지면 이는 성능에 문제가 있을 수 있다. 하지만 JPA 의 구현체인 Hibernate 에서는 이를 해결하기 위해 `@DynamicInsert` 와 `@DynamicUpdate` 라는 것을 제공한다.

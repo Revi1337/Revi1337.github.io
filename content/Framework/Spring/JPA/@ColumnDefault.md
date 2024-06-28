@@ -1,5 +1,5 @@
 ---
-title: "@ColumnDefault"
+title: Column 디폴트값
 ---
 
 ## @ColumnDefault
