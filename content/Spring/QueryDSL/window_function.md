@@ -264,7 +264,7 @@ public class JpaQueryFactoryConfig {
 
 이제  SQLExpressions 가 아니라 `JPQLNextExpressions` 를 사용하여 쿼리를 작성해주면 된다. 이것이 좋은점은 Order By 를 사용할 수 있다는 것이다.
 
-```java {3,5}
+```java {3,6}
 List<Tuple> rn = jpaQueryFactory  
 		.select(comment,  
 				JPQLNextExpressions.rowNumber()  
