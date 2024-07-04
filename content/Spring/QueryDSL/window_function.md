@@ -289,7 +289,7 @@ for (Tuple tuple : rn) {
 ```
 
 
-이것이 가능한 이유는 `blaze-persistence-integration` 를 설치하고나서 생기는 `JPQLNextTemplates` 때문이다. JPQLNextTemplates 는 JPQLTemplates 를 확장한 클래스이기 때문에, JPQLTemplates 이 갖고있는 Template 도 갖고있고, JPQLNextTemplates 만이 갖고 있는 Template 들이 생성자에서 초기화 되기 떄문이다. 
+이것이 가능한 이유는 `blaze-persistence-integration` 를 설치하고나서 생기는 `JPQLNextTemplates` 때문이다. JPQLNextTemplates 는 JPQLTemplates 를 확장한 클래스이기 때문에, JPQLTemplates 이 갖고있는 Template 도 갖고있고, JPQLNextTemplates 만이 갖고 있는 Template 들이 생성자에서 초기화 되기 때문이다. 
 
 
 ROW_NUMBER 에 대한 템플릿이 추가되어있는 것을 볼 수 있으며
@@ -313,7 +313,7 @@ public class JpaQueryFactoryConfig {
   
     @Bean  
     public JPAQueryFactory jpaQueryFactory() {  
-        return new JPAQueryFactory(JPQLNextTemplates.DEFAULT, entityManager);
+        return new JPAQueryFactory(new CustomJPQLTemplates(), entityManager);
     }
 
 	static class CustomJPQLTemplates extends JPQLNextTemplates {  
