@@ -249,7 +249,7 @@ class ParentRepositoryTest {
 ```
 
 
-생성된 쿼리를 보면, 앞서 Cascade.ALL 를 달아주고 부모 자체를 delete 한 경우와 동일한 것을 볼 수 있다. 이 뜻은 고아객체 제거옵션을 의미하는 `orphanRemoval 가 Cascade.REMOVE 의 역할도 하는 것`을 알 수 있다.
+생성된 쿼리를 보면, 앞서 CascadeType.ALL 를 달아주고 부모 자체를 delete 한 경우와 동일한 것을 볼 수 있다. 이 뜻은 고아객체 제거옵션을 의미하는 `orphanRemoval 가 Cascade.REMOVE 의 역할도 하는 것`을 알 수 있다.
 
 ```text
     delete     # 자식
@@ -314,7 +314,7 @@ class ParentRepositoryTest {
 ```
 
 
-이번에는 약간 다른 것을 볼 수 있다. 앞서 Cascade.ALL 만 설정했을때는 Parent 에서 끊어진 Child (고아객체) 가 지워지지 않았지만, Cascade.PERSIST, orphanRemoval = true 를 설정했을 때는 고아객체까지 지워주는 것을 확인할 수 있다.
+이번에는 약간 다른 것을 볼 수 있다. 앞서 CascadeType.ALL 만 설정했을때는 Parent 에서 끊어진 Child (고아객체) 가 지워지지 않았지만, CascadeType.PERSIST, orphanRemoval = true 를 설정했을 때는 고아객체까지 지워주는 것을 확인할 수 있다.
 
 ```text
 	... 생략
@@ -336,15 +336,15 @@ class ParentRepositoryTest {
 ```
 
 ## 비교 결과
-Cascade.ALL 과 Cascade.PERSIST, orphanRemoval = true 를 비교해본 결과를 테이블로 나타내자면 아래와 같이 나타낼 수 있다.
+CascadeType.ALL 과 CascadeType.PERSIST, orphanRemoval = true 를 비교해본 결과를 테이블로 나타내자면 아래와 같이 나타낼 수 있다.
 
-|                                       | 부모 삭제 시 | 부모를 통한 자식을 제거 (고아 객체 제거) |
-| ------------------------------------- | :-----: | :----------------------: |
-| Cascade.ALL                           |    O    |            X             |
-| Cascade.PERSIST, orphanRemoval = true |    O    |            O             |
+|                                           | 부모 삭제 시 | 부모를 통한 자식을 제거 (고아 객체 제거) |
+| ----------------------------------------- | :-----: | :----------------------: |
+| CascadeType.ALL                           |    O    |            X             |
+| CascadeType.PERSIST, orphanRemoval = true |    O    |            O             |
 
 ## 주의점
-Cascade.PERSIST 는 몰라도, 영속성 전이 옵션중 하나인 Cascade.REMOVE 와 Cascade.REMOVE, 고아객체 제거 기능을 담당하는 orphanRemoval 옵션을 사용할 때는 주의해야할 것이 있다. 
+CascadeType.PERSIST 는 몰라도, 영속성 전이 옵션중 하나인 CascadeType.REMOVE 와 CascadeType.REMOVE, 고아객체 제거 기능을 담당하는 orphanRemoval 옵션을 사용할 때는 주의해야할 것이 있다. 
 
 - Parent 와 Child 가 있다고 했을 때, Child 에 단 하나의 Parent 가 연관되어 있어야 한다는 것이다. (Parent 가 Child 를 단일 소유)
 
@@ -355,7 +355,7 @@ Cascade.PERSIST 는 몰라도, 영속성 전이 옵션중 하나인 Cascade.REMO
 - orphanRemoval 은 Cascade.REMOVE 기능 + 고아객체의 제거까지 수행한다.
 
 ## 내 생각
-Cascade.ALL 을 사용하든 Cascade.PERSIST, orphanRemoval = true 을 사용하든, Parent 에 속하거나 연관된 Child 들의 개수만큼 delete 쿼리가 나가는 것은 똑같다고 생각한다. Parent 에 속한 Chld 의 개수가 많으면 많을 수록 delete 쿼리는 많아질것이고, 이로 인해 네트워크 IO 비용이 매우 커져 언젠가 성능에 이슈가 있을거라고 생각한다.
+CascadeType.ALL 을 사용하든 CascadeType.PERSIST, orphanRemoval = true 을 사용하든, Parent 에 속하거나 연관된 Child 들의 개수만큼 delete 쿼리가 나가는 것은 똑같다고 생각한다. Parent 에 속한 Chld 의 개수가 많으면 많을 수록 delete 쿼리는 많아질것이고, 이로 인해 네트워크 IO 비용이 매우 커져 언젠가 성능에 이슈가 있을거라고 생각한다.
 
 
 뭐 상황에 따라 다르긴 하겠지만, 나였으면 영속성 전이 옵션인 Cascade 를 사용한다면 PERSIST 까지만 사용하고, REMOVE 와 같은 경우에는 DB 내부에서 delete cascade 를 걸어주는 `@OnDelete` 를 사용할 것 같다. 또한, orphanRemoval 기능은 따로 구현할 것 같다.
