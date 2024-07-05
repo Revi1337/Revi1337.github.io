@@ -339,9 +339,9 @@ class ParentRepositoryTest {
 Cascade.ALL 과 Cascade.PERSIST, orphanRemoval = true 를 비교해본 결과를 테이블로 나타내자면 아래와 같이 나타낼 수 있다.
 
 |                                       | 부모 삭제 시 | 부모를 통한 자식을 제거 (고아 객체 제거) |
-| ------------------------------------- | ------- | ------------------------ |
-| Cascade.ALL                           | O       | X                        |
-| Cascade.PERSIST, orphanRemoval = true | O       | O                        |
+| ------------------------------------- | :-----: | :----------------------: |
+| Cascade.ALL                           |    O    |            X             |
+| Cascade.PERSIST, orphanRemoval = true |    O    |            O             |
 
 ## 주의점
 Cascade.PERSIST 는 몰라도, 영속성 전이 옵션중 하나인 Cascade.REMOVE 와 Cascade.REMOVE, 고아객체 제거 기능을 담당하는 orphanRemoval 옵션을 사용할 때는 주의해야할 것이 있다. 
