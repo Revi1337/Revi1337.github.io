@@ -4,7 +4,7 @@ title: Docker Network
 
 각각의 `Docker Container`  독립적인 공간을 갖기 때문에 `Container 끼리의 통신`은 불가능하다. 하지만, `Docker Nework` 를 사용하여 통신하고자 하는 Container 들을 동일한 Network 에 연결해주면 Container 끼리 통신이 가능하게 된다.  해당 포스팅에서는 Docker Nework 명령어의 사용법과 Container 들을 연결하여 서로 통신하는 방법에 대해 다룬다.
 
-## Network 조회
+## Network 조회 
 ```bash
 $ docker network ls
 NETWORK ID     NAME      DRIVER    SCOPE
@@ -19,6 +19,7 @@ $ docker network create test-network
 ```
 
 ## Container 에 Network 연결
+
 ### Network 연결 확인
 ## Container 에 Network 해제
 ### Network 해제 확인

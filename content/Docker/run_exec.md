@@ -3,7 +3,11 @@ title: run, exec
 ---
 
 ## run
- Image 를 통해 Container 실행할 수 있는 명령어이다. Image 가 존재하지 않으면 자동으로 latest 한 버전의 image 를 pull 하고, 랜던한 이름의 컨테이너를 실행하게 된다.
+ Image 를 통해 Container 실행할 수 있는 명령어이다. Image 가 존재하지 않으면 자동으로 latest 한 버전의 image 를 pull 하고, 랜덤한 이름의 컨테이너를 실행하게 된다.
+
+```bash
+$docker run [OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]
+```
 
 |  flag  |            description             |
 | :----: | :--------------------------------: |
@@ -14,12 +18,6 @@ title: run, exec
 | --name |             컨테이너 이름 설정             |
 |  --rm  |        프로세시 종료시 컨테이너 자동 제거         |
 |  --it  | -i, -t 를 동시에 사용한 것으로 터미널 입력을 위한 옵션 |
-
-```bash
-$docker run [OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]
-```
-
-### Example
 
 ubuntu:20.04 이미지를 사용하여 랜덤한 이름의 컨테이를 실행한다. 하지만 -it 옵션을 입력하지 않았기 때문에 바로 실행이 종료된다.
 
@@ -57,3 +55,4 @@ exec 는 이미 실행 중인 컨테이너 내에서 새로운 명령을 실행�
 ```bash 
 $docker exec -it mysql mysql
 ```
+
