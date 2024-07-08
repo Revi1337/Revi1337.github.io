@@ -49,7 +49,8 @@ export const defaultContentPageLayout: PageLayout = {
           } else if (node.depth === 1) {
             node.displayName = "📌 " + node.displayName
           } else {
-            node.displayName = "● " + node.displayName
+            // node.displayName = "● " + node.displayName
+            node.displayName = "🏷️ " + node.displayName
           }
         }
       },
