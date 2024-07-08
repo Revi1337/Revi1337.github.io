@@ -1,10 +1,11 @@
 ---
-title: Column 디폴트값
+title: 컬럼의 디폴트값 설정
 ---
 
 ## @ColumnDefault
 JPA 의 구현체인 Hibernate 에서 제공하는 `@ColumnDefault` 어노테이션은 스키마를 생성할 때 `default 값을 설정해주는 역할`을 한다. 사용방법은 매우 간단한데 default 값을 지정해주고 싶은 컬럼에 Literal 값을 적어주면 된다.
 
+Ligteralodad
 
 ```java {10-11}
 @Getter  
@@ -90,7 +91,7 @@ insert into member(email, nickname, user_type) values ('revi1337@naver.com', '�
 > @ColumnDefault 를 통해 DDL 에서 default 제약조건을 걸어주어도, insert 쿼리를 통해 null 이 직접적으로 들어오면 default 값으로 바꿔지지 않는다.
 
 
-해결방법은 간단하다. 영속성 객체의 클래스단에 [[@DynamicInsert_@DynamicUpdate|@DynamicInsert]] 를 명시해주면 된다.
+해결방법은 간단하다. 영속성 객체의 클래스단에 [[Spring/JPA/@DynamicInsert_@DynamicUpdate|@DynamicInsert]] 를 명시해주면 된다.
 
 ```java {1}
 @DynamicInsert  
@@ -142,6 +143,7 @@ public class Member {
 ```sql
 insert into member(email, nickname) values ('revi1337@naver.com', '넥네임4')
 ```
+
 ![](Spring/JPA/images/Pasted%20image%2020240608030442.png)
 
 
@@ -169,6 +171,7 @@ public void columnDefaultTest() {
 
 
 이 Sync 가 맞지않는 해결방법으로는 `@ColumnDafault` 를 통해 default 값을 설정하되, 객체에도 default 값이 셋팅될 수 있도록 코드를 만들어주면 된다. 이렇게 만들어주면, 영속성컨텍트스틀 비우고 추가적인 불필요한 쿼리 필요없이 `DB 와 객체의 Sync` 를 맞출 수 있다.
+
 
 ```java {32}
 @DynamicInsert  

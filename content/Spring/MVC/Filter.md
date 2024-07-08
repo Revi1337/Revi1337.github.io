@@ -1,12 +1,11 @@
 ---
 title: Filter
 ---
-
 ## Filter
 Filter 는 Servlet 에서 제공하는 기능이며 Servlet 보다 먼저 호출된다. 이 뜻은 당연하게도 Controller(Handler) 보다도 먼저 동작한다는 의미와 같기 때문에  `접근제어, 로깅, 악성문자 필터링` 과 같은 공통 관심사를 효과적으로 분리하여 처리할 수 있다.
 
 ### Filter 의 특징
-Filter 의 위치 및 Request 의 생명주기는  [[Spring MVC Architecture|Spring MVC 아키텍쳐]]  에서 볼 수 있다.
+Filter 의 위치 및 Request 의 생명주기는  [[Spring/MVC/Analyze/Spring MVC Architecture|Spring MVC 아키텍쳐]]  에서 볼 수 있다.
 
 1. Servlet(DispatcherServlet) 보다 먼저 호출된다.
 2. 자신이 호출될 `URL Pattern` 및 `Filter 들의 순서` 를 지정해줄 수 있다.

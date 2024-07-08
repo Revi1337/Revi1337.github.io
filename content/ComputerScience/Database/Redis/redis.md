@@ -102,13 +102,13 @@ $ docker exec -it redis redis-cli
 ### Lists
 String 을 `LinkedList` 로 저장하는 데이터타입이다. `이중연결 리스트` 라고 보면 되며 `push/pop` 에 최적화 되어있어, Queue 나 Stack 을 구현할 수 있다.
 
-| Syntax                          | Description                                                                                              |
-| ------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `lpush` NAME VALUE VALUE VALUE ... | NAME 이라는 이중연결 리스트에 왼쪽부터 VALUE 들을 삽입한다.                                                                                     |
-| `rpop` NAME                        | Queue (FIFO) NAME 이라는 이중연결 리스트의 맨오른쪽 값을 꺼낸다.                                                                      |
-| `lpop` NAME                        | Stack (LIFO) NAME 이라는 이중연결 리스트의 맨왼쪽 값을 꺼낸다.                                                                                             |
+| Syntax                             | Description                                                       |
+| ---------------------------------- | ----------------------------------------------------------------- |
+| `lpush` NAME VALUE VALUE VALUE ... | NAME 이라는 이중연결 리스트에 왼쪽부터 VALUE 들을 삽입한다.                            |
+| `rpop` NAME                        | Queue (FIFO) NAME 이라는 이중연결 리스트의 맨오른쪽 값을 꺼낸다.                      |
+| `lpop` NAME                        | Stack (LIFO) NAME 이라는 이중연결 리스트의 맨왼쪽 값을 꺼낸다.                       |
 | `lrange` NAME -2 -1                | Index 를 이용해 다수개의 값을 출력. 오른쪽에서 세면 0 부터 증가하며 왼쪽에서 세면 -1 부터 점차 감소한다. |
-| `ltrim` NAME 0 0                   | 가장 마지막에 추가된 item 만 남기고 나머지는 모두 삭제한다.                                                                                                         |
+| `ltrim` NAME 0 0                   | 가장 마지막에 추가된 item 만 남기고 나머지는 모두 삭제한다.                              |
 
 > List 의 모든 값 출력은 `lrange NAME 0 -1` 이 된다.
 

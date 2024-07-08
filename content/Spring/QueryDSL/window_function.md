@@ -1,5 +1,5 @@
 ---
-title: window function
+title: 윈도우 함수 사용
 ---
 
 프로젝트를 하면서 Window Function 의 `row_number()` 을 사용하게 될 일이 생겼다. 해당 포스팅에서는 QueryDSL 에서 Window Function 의 row_number() 을 사용하는 법에 대해 소개하려 한다.
@@ -44,7 +44,7 @@ Template 은 Ops 를 통해 어떠한 Query 로 변경시킬 것인가에 대한
 ![](Spring/QueryDSL/images/Pasted%20image%2020240704180231.png)
 
 
-또한, 이 Template 이 초기화 될 때, add 연사를 통해 `IdentityHashMap<Operator, Template>` 에 저장되게 된다.
+또한, 이 Template 이 초기화 될 때, add 연산을 통해 `IdentityHashMap<Operator, Template>` 에 저장되게 된다.
 
 ![](Spring/QueryDSL/images/Pasted%20image%2020240704180254.png)
 
@@ -92,6 +92,8 @@ public class JpaQueryFactoryConfig {
 ![](Spring/QueryDSL/images/Pasted%20image%2020240704182950.png)
 
 ## QueryDSL 설정 (방법 1) 
+아 이제 윈도우 함수중 하나인 row_number 함수를 사용하기 위한 방법을 알아보자. 
+
 ### 의존성 설치
 우선 QueryDSL 에서 Window Function 을 사용하려면 Gradle 에 아래의 의존성을 설치해주어야 한다.
 
@@ -262,7 +264,7 @@ public class JpaQueryFactoryConfig {
 ```
 
 
-이제  SQLExpressions 가 아니라 `JPQLNextExpressions` 를 사용하여 쿼리를 작성해주면 된다. 이것이 좋은점은 Order By 를 사용할 수 있다는 것이다.
+이제  SQLExpressions 가 아니라 `JPQLNextExpressions` 를 사용하여 쿼리를 작성해주면 된다. Blaze  Expressions 가 좋은점은 Order By 를 사용할 수 있다는 것이다.
 
 ```java {3,6}
 List<Tuple> rn = jpaQueryFactory  

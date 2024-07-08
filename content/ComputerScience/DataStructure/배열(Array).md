@@ -301,3 +301,117 @@ def solution(board):
 2차원 배열이 정사각형일때 `현재 자신이 위치한` 인덱스 row, col 의 차와 `자신을 왼쪽상단에서 오른쪽하단`으로 가로지르는 원소들의 `row, col 의 차`가 모두 일정하다. 해당 규칙도 백트래킹 대표 문제 `NQueen` 에서 사용된다.
 
 ![](ComputerScience/DataStructure/images/Pasted%20image%2020240520224541.png)
+
+
+## 코딩테스트 합격자 되기 문제풀이
+### 배열 정렬하기
+```python  
+from random import randrange, randint  
+def solution(datas):  
+    datas.sort()  
+    return datas  
+  
+datas = [randint(-100_000, 100_100) for _ in range(randrange(2,106))]  
+print(solution(datas))  
+```
+
+### 배열 제어하기
+```python  
+from random import randrange, randint  
+# 배열의 중복값을 제거하고 배열 데이터를 내림차순으로 정렬.  
+  
+def solution_book(lst):  
+    """ 교재에서 나온 답 """    
+    unique_lst = list(set(lst))
+    unique_lst.sort(reverse=True)
+    return unique_lst  
+  
+def solution_self(datas: list[int]) -> list[int]:
+    """ 개인적으로 푼 답 """
+    datas.sort(reverse=True)
+    answer = [datas[0]]  
+    for idx in range(1, len(datas)):
+        if datas[idx] != datas[idx - 1]:  
+            answer.append(datas[idx])  
+  
+    return answer  
+datas = [randint(-100_000, 100_000) for _ in range(randrange(2, 1001))]  
+print(solution_self(datas))  
+# print(solution_book(datas))  
+```
+
+### 두 개 뽑아서 더하기
+```python  
+from random import randrange, randint  
+def solution(datas):  
+    answer = []  
+    length = len(datas)  
+    for idx in range(length):  
+        for i in range(idx + 1, length):  
+            answer.append(datas[idx] + datas[i])  
+    return sorted(set(answer))  
+  
+datas = [randint(0, 100) for _ in range(randrange(2,101))]  
+print(solution(datas))  
+```
+
+### 모의고사
+```python  
+def solution(answers):  
+    patterns = [
+	    [1, 2, 3, 4, 5],
+	    [2, 1, 2, 3, 2, 4, 2, 5],
+	    [3, 3, 1, 1, 2, 2, 4, 4, 5, 5]
+    ]    
+    scores = [0] * 3    
+    for idx, answer in enumerate(answers):        
+	    for i, pattern in enumerate(patterns):           
+		    if answer == pattern[idx % len(pattern)]:                
+			    scores[i] += 1    
+			                   
+	max_score = max(scores)  
+    highest_scores = []    
+    for i, score in enumerate(scores):        
+	    if score == max_score:            
+		    highest_scores.append(i + 1)    
+	return highest_scores  
+  
+print(solution([1,2,3,4,5]))  
+print(solution([1,3,2,4,2]))  
+```
+
+### 방문 길이
+```python  
+row = [1, 0, -1, 0]  
+col = [0, 1, 0, -1]  
+  
+def solution(dirs):  
+    r = c = 0
+    dr = dc = 0    
+    answer = set()    
+    for dir in dirs:        
+	    if dir == 'U':            
+		    dr = r + row[0]            
+		    dc = c + col[0]        
+		elif dir == 'R':            
+			dr = r + row[1]            
+			dc = c + col[1]        
+		elif dir == 'D':            
+			dr = r + row[2]            
+			dc = c + col[2]        
+		elif dir == 'L':            
+			dr = r + row[3]            
+			dc = c + col[3]  
+			
+        if not ((-5 <= dr <= 5) and (-5 <= dc <= 5)):            
+	        continue  
+	        
+        answer.add((c, r, dc, dr))        
+        answer.add((dc, dr, c, r))  
+        c, r = dc, dr  
+        
+    return len(answer) // 2 
+     
+print(solution('ULURRDLLU'))  
+print(solution('LULLLLLLU'))
+```
