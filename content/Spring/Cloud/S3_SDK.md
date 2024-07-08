@@ -99,7 +99,7 @@ public class S3BucketUploader {
     private final S3BucketProperties s3BucketProperties;  
     private final S3Client s3Client;  
   
-    public String uploadCrew(byte[] content, String originalFileName) { // TODO 확장할 여지가 있을 때 객체지향적으로 해결하여 OCP 를 지켜야 한다.ㄴ  
+    public String uploadCrew(byte[] content, String originalFileName) { // TODO 확장할 여지가 있을 때 객체지향적으로 해결하여 OCP 를 지켜야 한다.
         Directories directories = s3BucketProperties.s3().directory().directories();  
         return uploadImage(directories.crewDirectory(), content, originalFileName);  
     }  
@@ -212,9 +212,6 @@ public class S3BucketUploader {
     ]
 }
 ```
-
-AKIATCKAPLB53NKIZ4G7
-ZNwXCGkbzxCVIJh4e+Yzo/5F3nJKDkY1pJ+2HKtK
 
 
 https://docs.aws.amazon.com/ko_kr/sdk-for-java/latest/developer-guide/java_s3_code_examples.html
