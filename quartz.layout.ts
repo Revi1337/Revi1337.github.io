@@ -38,7 +38,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.DesktopOnly(Component.Explorer({
       filterFn: (node) => {
         // exclude files with the tag "explorerexclude"
-        return node.file?.frontmatter?.tags?.includes("excalidraw") !== true
+        return node.file?.frontmatter?.tags?.includes("excalidraw.md") !== true
       },
       mapFn: (node) => {
         // dont change name of root node
