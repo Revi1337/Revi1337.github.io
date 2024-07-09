@@ -1,5 +1,5 @@
 ---
-title: PyCharm 에서 기존 프로젝트 Anaconda 환경 변경
+title: 기존 프로젝트의 Anaconda 환경 변경
 tags: ["pycharm"]
 ---
 
