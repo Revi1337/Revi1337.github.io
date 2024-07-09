@@ -69,23 +69,31 @@ export const defaultContentPageLayout: PageLayout = {
       // }
       sortFn: (a, b) => {
         const nameOrderMap: Record<string, number> = {
-          "Language": 100,
-          "Algorithm": 200,
-          "ComputerScience": 300,
-          "DesignPattern": 400,
-          "Spring": 500,
+          "Language": 1000,
+          "Algorithm": 2000,
+          "ComputerScience": 3000,
+          "DesignPattern": 4000,
 
-          "Docker": 600,
-          "Docker/Docker": 601,
-          "Docker/DockerImage": 602,
-          "Docker/DockerVolume": 603,
-          "Docker/DockerNetwork": 604,
-          "Docker/DockerCompose": 605,
-          "Docker/run_exec": 606,
-          "Docker/ps,stop,rm,rmi,logs,images": 607,
-          "Docker/DockerCheetSheet": 608,
+          "Spring": 5000,
+          "Spring/MVC": 5100,
+          "Spring/JPA": 5200,
+          "Spring/DataJPA": 5300,
+          "Spring/QueryDSL": 5400,
+          "Spring/Cloud": 5500,
 
-          "Settings": 800,
+          "Docker": 6000,
+          "Docker/Docker": 6100,
+          "Docker/DockerImage": 6200,
+          "Docker/DockerVolume": 6300,
+          "Docker/DockerNetwork": 6400,
+          "Docker/DockerCompose": 6500,
+          "Docker/run_exec": 6600,
+          "Docker/ps,stop,rm,rmi,logs,images": 6700,
+          "Docker/DockerCheetSheet": 6800,
+          "Docker/Trouble Shooting": 6900,
+          "Docker/forbidden_access_permission": 6901,
+
+          "Settings": 7000,
         }
 
         let orderA = 0
