@@ -113,8 +113,14 @@ export const defaultContentPageLayout: PageLayout = {
           "Docker/DockerCheetSheet": 9800,
           "Docker/forbidden_access_permission": 9901,
 
+          // Tools
+          "Tools": 10000,
+          "Intellij": 11000,
+          "PyCharm": 12000,
+          "Tools/PyCharm/PycharmChangeAnaconda": 12001,
+
           // Settings
-          "Settings": 10000,
+          "Settings": 11000,
         }
 
         let orderA = 0
