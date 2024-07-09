@@ -104,9 +104,9 @@ export const defaultContentPageLayout: PageLayout = {
           // (Root) Docker
           "Docker": 9000,
           "Docker/Docker": 9100,
-          "Docker/DockerImage": 9200,
-          "Docker/DockerVolume": 9300,
-          "Docker/DockerNetwork": 9400,
+          "Docker/DockerVolume": 9200,
+          "Docker/DockerNetwork": 9300,
+          "Docker/DockerImage": 9400,
           "Docker/DockerCompose": 9500,
           "Docker/run_exec": 9600,
           "Docker/ps,stop,rm,rmi,logs,images": 9700,
