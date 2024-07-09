@@ -64,9 +64,9 @@ export const defaultContentPageLayout: PageLayout = {
           "Language": 1000,
           "Java": 1100,
           "Python": 1200,
+          "Bash": 1300,
           "Language/Python/PyInstaller": 1298,
           "Language/Python/Deploy-PyPI": 1299,
-          "Bash": 1300,
 
           // (Root) Algorithm
           "Algorithm": 2000,
@@ -92,14 +92,14 @@ export const defaultContentPageLayout: PageLayout = {
           // (Root) Spring
           "Spring": 8000,
           "MVC": 8100,
-          "Spring/MVC/Filter": 8102,
-          "Spring/MVC/Interceptor": 8103,
-          "Spring/MVC/@RequestPart": 8104,
           "JPA": 8200,
           "DataJPA": 8300,
           "QueryDSL": 8400,
           "Cloud": 8500,
           "Spring/docker-local-config": 8601,
+          "Spring/MVC/Filter": 8102,
+          "Spring/MVC/Interceptor": 8103,
+          "Spring/MVC/@RequestPart": 8104,
 
           // (Root) Docker
           "Docker": 9000,
