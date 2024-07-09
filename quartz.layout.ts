@@ -115,7 +115,7 @@ export const defaultContentPageLayout: PageLayout = {
 
           // Tools
           "Tools": 10000,
-          "Intellij": 11000,
+          "IntelliJ": 11000,
           "PyCharm": 12000,
           "Tools/PyCharm/PycharmChangeAnaconda": 12001,
 
