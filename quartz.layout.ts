@@ -54,46 +54,67 @@ export const defaultContentPageLayout: PageLayout = {
           }
         }
       },
-      // sortFn: (a, b) => {
-      //   if ((!a.file && !b.file) || (a.file && b.file)) {
-      //     return a.displayName.localeCompare(b.displayName, undefined, {
-      //       numeric: true,
-      //       sensitivity: "base",
-      //     })
-      //   }
-      //   if (a.file && !b.file) {
-      //     return 1
-      //   } else {
-      //     return -1
-      //   }
-      // }
       sortFn: (a, b) => {
         const nameOrderMap: Record<string, number> = {
+          // 겹치는 디렉터리의 우선순위
+          "Analyze": -2,
+          "TroubleShooting": -1,
+
+          // (Root) Language
           "Language": 1000,
+          "Java": 1100,
+          "Python": 1200,
+          "Language/Python/PyInstaller": 1298,
+          "Language/Python/Deploy-PyPI": 1299,
+          "Bash": 1300,
+
+          // (Root) Algorithm
           "Algorithm": 2000,
-          "ComputerScience": 3000,
-          "DesignPattern": 4000,
+          "PrefixSum": 2100,
+          "BackTracking": 2200,
 
-          "Spring": 5000,
-          "Spring/MVC": 5100,
-          "Spring/JPA": 5200,
-          "Spring/DataJPA": 5300,
-          "Spring/QueryDSL": 5400,
-          "Spring/Cloud": 5500,
+          // (Root) ComputerScience
+          "ComputerScience": 5000,
+          "DataStructure": 5100,
+          "Network": 5200,
+          "Database": 5300,
+          "Redis": 5301,
+          "ComputerScience/Database/SQLEngine": 5302,
+          "ComputerScience/Database/Select": 5303,
+          "ComputerScience/Database/Like": 5304,
+          "ComputerScience/Database/OrderBy": 5305,
+          "ComputerScience/Database/Grouping_Aggregate": 5306,
+          "ComputerScience/Database/Join": 5307,
 
-          "Docker": 6000,
-          "Docker/Docker": 6100,
-          "Docker/DockerImage": 6200,
-          "Docker/DockerVolume": 6300,
-          "Docker/DockerNetwork": 6400,
-          "Docker/DockerCompose": 6500,
-          "Docker/run_exec": 6600,
-          "Docker/ps,stop,rm,rmi,logs,images": 6700,
-          "Docker/DockerCheetSheet": 6800,
-          "Docker/Trouble Shooting": 6900,
-          "Docker/forbidden_access_permission": 6901,
+          // (Root) DesignPattern
+          "DesignPattern": 7000,
 
-          "Settings": 7000,
+          // (Root) Spring
+          "Spring": 8000,
+          "MVC": 8100,
+          "Spring/MVC/Filter": 8102,
+          "Spring/MVC/Interceptor": 8103,
+          "Spring/MVC/@RequestPart": 8104,
+          "JPA": 8200,
+          "DataJPA": 8300,
+          "QueryDSL": 8400,
+          "Cloud": 8500,
+          "Spring/docker-local-config": 8601,
+
+          // (Root) Docker
+          "Docker": 9000,
+          "Docker/Docker": 9100,
+          "Docker/DockerImage": 9200,
+          "Docker/DockerVolume": 9300,
+          "Docker/DockerNetwork": 9400,
+          "Docker/DockerCompose": 9500,
+          "Docker/run_exec": 9600,
+          "Docker/ps,stop,rm,rmi,logs,images": 9700,
+          "Docker/DockerCheetSheet": 9800,
+          "Docker/forbidden_access_permission": 9901,
+
+          // Settings
+          "Settings": 10000,
         }
 
         let orderA = 0

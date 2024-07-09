@@ -1,3 +1,3 @@
 ---
-title: Data JPA
+title: DataJPA
 ---
