@@ -71,6 +71,8 @@ export const defaultContentPageLayout: PageLayout = {
           // (Root) Algorithm
           "Algorithm": 2000,
           "Mathematics": 2100,
+          "Algorithm/Mathematics/Euclidean": 2101,
+          "Algorithm/Mathematics/SieveOfEratosthenes": 2102,
           "Prefixsum": 2200,
           "BackTracking": 2300,
 
