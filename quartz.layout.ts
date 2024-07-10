@@ -70,8 +70,8 @@ export const defaultContentPageLayout: PageLayout = {
 
           // (Root) Algorithm
           "Algorithm": 2000,
-          "Math": 2100,
-          "PrefixSum": 2200,
+          "Mathematics": 2100,
+          "Prefixsum": 2200,
           "BackTracking": 2300,
 
           // (Root) ComputerScience
