@@ -30,7 +30,7 @@ tags:
 
 이렇게 15 까지의 수들 중 소수를 찾는 과정은 여기서 마무리 된다.
 
-![](Algorithm/Math/images/Pasted%20image%2020240710161423.png)
+![](Algorithm/Math/images/Pasted%20image%2020240710165442.png)
 
 > [!note]
 > 4 와 그 배수는 소수 2 의 배수 에서 이미 지웠졌다.
