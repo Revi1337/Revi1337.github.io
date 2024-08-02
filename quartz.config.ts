@@ -16,7 +16,7 @@ const config: QuartzConfig = {
     },
     locale: "ko-KR",
     baseUrl: "Revi1337.github.io",
-    ignorePatterns: ["private", "templates", ".obsidian", "**.excalidraw.md", "SSAFY", "interview"],
+    ignorePatterns: ["private", "templates", ".obsidian", "**.excalidraw.md", "SSAFY", "interview", 'Excalidraw'],
     defaultDateType: "created",
     theme: {
       fontOrigin: "googleFonts",

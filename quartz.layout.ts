@@ -77,17 +77,22 @@ export const defaultContentPageLayout: PageLayout = {
           "BackTracking": 2300,
 
           // (Root) ComputerScience
-          "ComputerScience": 5000,
-          "DataStructure": 5100,
-          "Network": 5200,
-          "Database": 5300,
-          "Redis": 5301,
+          "ComputerScience": 5000, // EntryPoint
+          "DataStructure": 5100, // EntryPoint
+          "ComputerScience/DataStructure/Array": 5101,
+          "ComputerScience/DataStructure/Graph": 5102,
+          "ComputerScience/DataStructure/Tree": 5103,
+          "ComputerScience/DataStructure/SpanningTree": 5104,
+          "ComputerScience/DataStructure/MinimumCostTree": 5105,
+          "Network": 5200, // EntryPoint
+          "Database": 5300, // EntryPoint
           "ComputerScience/Database/SQLEngine": 5302,
           "ComputerScience/Database/Select": 5303,
           "ComputerScience/Database/Like": 5304,
           "ComputerScience/Database/OrderBy": 5305,
           "ComputerScience/Database/Grouping_Aggregate": 5306,
           "ComputerScience/Database/Join": 5307,
+          "Redis": 5301,
 
           // (Root) DesignPattern
           "DesignPattern": 7000,
