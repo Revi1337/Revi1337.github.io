@@ -80,17 +80,24 @@ Bipartite Graph(이분그래프) 는 `인접한 정점끼리 서로 다른 그�
 
 ![](ComputerScience/DataStructure/images/Pasted%20image%2020240802020809.png)
 
-## MST
-MST 는 최소비용 신장트리이며 Minimum Cost Spanning Tree 의 약자이다.
-
 ## Reference
 [그래프](https://yejin72.tistory.com/70)
+
 [그래프](https://velog.io/@tomato2532/%EA%B7%B8%EB%9E%98%ED%94%84#%EA%B7%B8%EB%9E%98%ED%94%84-%EC%9C%A0%ED%98%95)
+
 [Graph 란 with MST](https://gmlwjd9405.github.io/2018/08/28/algorithm-mst.html)
+
 [유향 비순환 그래프](https://algorfati.tistory.com/145#%EC%9C%A0%ED%96%A5%20%EB%B9%84%EC%88%9C%ED%99%98%20%EA%B7%B8%EB%9E%98%ED%94%84-1)
+
 [방향 비순환 그래프](https://jackpot53.tistory.com/84)
+
 [Graph - Directed Acyclic Graphs(DAG)](https://velog.io/@claude_ssim/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-Graph-Directed-Acyclic-GraphsDAG)
+
 [그래프 쉽게 이해하기](https://rosweet-ai.tistory.com/61)
+
 [이분그래프란?](https://didu-story.tistory.com/271)
+
 [이분 그래프 Bipartite Graph 란?](https://gmlwjd9405.github.io/2018/08/23/algorithm-bipartite-graph.html)
+
 [자료구조 - 이분그래프(Bipartite Graph)](https://hongjw1938.tistory.com/117)
+
