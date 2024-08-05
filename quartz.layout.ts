@@ -89,7 +89,7 @@ export const defaultContentPageLayout: PageLayout = {
           "ComputerScience/ComputerArchitecture/Compiler_Interpreter": 5204,
           "ComputerScience/ComputerArchitecture/Data": 5205,
           "ComputerScience/ComputerArchitecture/Cpu": 5206,
-          "ComputerScience/ComputerArchitecture/Memory": 5276,
+          "ComputerScience/ComputerArchitecture/Memory": 5207,
           "ComputerScience/ComputerArchitecture/LittleEndian_BigEndian": 5208,
           "Network": 5300, // EntryPoint
           "Database": 5400, // EntryPoint
