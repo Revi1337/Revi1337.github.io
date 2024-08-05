@@ -86,10 +86,11 @@ export const defaultContentPageLayout: PageLayout = {
           "ComputerScience/DataStructure/MinimumCostTree": 5105,
           "ComputerArchitecture": 5200, // EntryPoint
           "ComputerScience/ComputerArchitecture/Roadmap": 5201,
-          "ComputerScience/ComputerArchitecture/Data": 5202,
-          "ComputerScience/ComputerArchitecture/Cpu": 5205,
-          "ComputerScience/ComputerArchitecture/Memory": 5206,
-          "ComputerScience/ComputerArchitecture/ByteOrder": 5207,
+          "ComputerScience/ComputerArchitecture/Compiler_Interpreter": 5204,
+          "ComputerScience/ComputerArchitecture/Data": 5205,
+          "ComputerScience/ComputerArchitecture/Cpu": 5206,
+          "ComputerScience/ComputerArchitecture/Memory": 5276,
+          "ComputerScience/ComputerArchitecture/ByteOrder": 5208,
           "Network": 5300, // EntryPoint
           "Database": 5400, // EntryPoint
           "ComputerScience/Database/SQLEngine": 5402,

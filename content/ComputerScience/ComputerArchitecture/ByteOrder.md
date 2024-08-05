@@ -1,6 +1,8 @@
 ---
 title: Byte Order
+tags: ["computer_architecture"]
 ---
+
 ## Little Endian
 리틀 엔디언은  저장할 데이터를 `LSB 부터 MSB (오른쪽에서 왼쪽) 순서`로 `주기억장치의 낮은 주소에 저장` 하는 방법이며 Linux, Intel 과 AMD 계열의 CPU 가 사용하는 바이트 정렬 방식이다.
 

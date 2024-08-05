@@ -1,5 +1,6 @@
 ---
 title: CPU
+tags: ["computer_architecture"]
 ---
 
 ## CPU

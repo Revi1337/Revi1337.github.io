@@ -1,5 +1,6 @@
 ---
 title: Roadmap
+tags: ["computer_architecture"]
 ---
 
 ## 컴퓨터가 이해하는 정보

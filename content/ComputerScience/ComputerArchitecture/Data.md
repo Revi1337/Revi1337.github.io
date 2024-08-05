@@ -1,5 +1,6 @@
 ---
 Title: Data
+tags: ["computer_architecture"]
 ---
 
 ## 데이터

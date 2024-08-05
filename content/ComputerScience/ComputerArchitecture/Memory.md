@@ -1,5 +1,6 @@
 ---
 title: Memory
+tags: ["computer_architecture"]
 ---
 
 ## 메모리
