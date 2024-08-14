@@ -5,8 +5,6 @@ title: 컬럼의 디폴트값 설정
 ## @ColumnDefault
 JPA 의 구현체인 Hibernate 에서 제공하는 `@ColumnDefault` 어노테이션은 스키마를 생성할 때 `default 값을 설정해주는 역할`을 한다. 사용방법은 매우 간단한데 default 값을 지정해주고 싶은 컬럼에 Literal 값을 적어주면 된다.
 
-Ligteralodad
-
 ```java {10-11}
 @Getter  
 @NoArgsConstructor(access = AccessLevel.PROTECTED)  

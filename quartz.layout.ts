@@ -106,15 +106,22 @@ export const defaultContentPageLayout: PageLayout = {
 
           // (Root) Spring
           "Spring": 8000,
+          "Spring/docker-local-config": 8001,
           "MVC": 8100,
-          "JPA": 8200,
-          "DataJPA": 8300,
-          "QueryDSL": 8400,
-          "Cloud": 8500,
-          "Spring/docker-local-config": 8601,
           "Spring/MVC/Filter": 8102,
           "Spring/MVC/Interceptor": 8103,
           "Spring/MVC/@RequestPart": 8104,
+          "DataAccess": 8200,
+          "Spring/DataAccess/Connection": 8201,
+          "Spring/DataAccess/Connection_Pool": 8202,
+          "JPA": 8300,
+          "Spring/JPA/@ColumnDefault": 8304,
+          "Spring/JPA/@DynamicInsert_@DynamicUpdate": 8305,
+          "Spring/JPA/CascadeRemove_OrphanRemoval": 8306,
+          "DataJPA": 8400,
+          "Spring/DataJPA/Multiple_Pageable": 8401,
+          "QueryDSL": 8500,
+          "Cloud": 8600,
 
           // (Root) Docker
           "Docker": 9000,
