@@ -106,7 +106,6 @@ export const defaultContentPageLayout: PageLayout = {
 
           // (Root) Spring
           "Spring": 8000,
-          "Spring/docker-local-config": 8001,
           "MVC": 8100,
           "Spring/MVC/Filter": 8102,
           "Spring/MVC/Interceptor": 8103,
@@ -122,6 +121,7 @@ export const defaultContentPageLayout: PageLayout = {
           "Spring/DataJPA/Multiple_Pageable": 8401,
           "QueryDSL": 8500,
           "Cloud": 8600,
+          "Spring/docker-local-config": 8801,
 
           // (Root) Docker
           "Docker": 9000,
