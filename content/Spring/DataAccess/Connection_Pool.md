@@ -1,6 +1,6 @@
 ---
 title: Connection Pool
-tags: ['data_access', 'connection', 'connection-pool', 'drivermanager', 'datasource', 'hikaridatasource', 'drivermanagerdatasource']
+tags: ['data_access', 'connection', 'connection-pool', 'DriverManager', 'DataSource', 'HikariDataSource', 'DriverManagerDataSource']
 ---
 
 SQL 을 날리기 위해 DriverManager 로 매번 Connection 을 얻어오는 것은 성능상 이슈가 있을 수 있다. 왜냐하면 Connection 을 얻어오기 위해서는 TCP 연결 하고, DB 에 한번은 갔다와야하기 때문이다. 때문에 일반적인 경우에는 미리 여러개의 Connection 들을 얻어와 이들을 모아둔 `Connection Pool` 이라는 개념을 사용한다. 
