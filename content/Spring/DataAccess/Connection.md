@@ -1,5 +1,6 @@
 ---
 title: Connection
+tags: ['data_access', 'connection', 'drivermanager']
 ---
 
 Database 에 SQL 을 전송하기 위해서는 먼저 Database 에 접근하여 Connection 을 얻어와야한다. Connection 연결에 성공한 데이터베이스에서는 해당 커넥션에 맞는 Session 을 생성하여 보관하게 된다.
@@ -154,3 +155,4 @@ class DBConnectionUtilTest {
 1. DriverManager 는 DB 와 커넥션을 맺고 Connection 인스턴스를 반환한다.
 	- DriverManager 는 내부적으로 Driver 구현체(H2 Driver, MySQL Driver) 들을 사용하여 Driver 에 맞는 Connection 구현체를 반환한다. 
 2. DriverManager 를 통해 매번 Connection 을 얻어오는 방법보다는 미리 Connection 들을 연결하고, 이들을 모아둔 Connection Pool 이라는 개념을 사용하여 성능 저하 문제를 예방한다.
+
