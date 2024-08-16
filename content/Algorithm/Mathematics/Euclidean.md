@@ -1,6 +1,6 @@
 ---
 title: 유클리드 호제법
-tags: ["알고리즘", "수학", "유클리드-호제법"]
+tags: ["algorithm", "math", "euclidean"]
 ---
 
 ### 유클리드 호제법

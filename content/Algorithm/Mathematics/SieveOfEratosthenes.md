@@ -1,9 +1,6 @@
 ---
 title: 에라토스테네스의 체
-tags:
-  - 알고리즘
-  - 수학
-  - 에라토스테네스의-체
+tags: ["algorithm", "math", "eratosthenes"]
 ---
 
 ### 에라토스테네스의 체

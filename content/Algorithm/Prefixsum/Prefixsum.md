@@ -1,5 +1,6 @@
 ---
-title: Prefix sum (누적합)
+title: Prefix Sum
+tags: ['algorithm', 'prefix-sum']
 ---
 
 ## 누적합이란

@@ -1,6 +1,6 @@
 ---
 title: 행렬 덧셈,뺼셈,곱셈
-tags: ["알고리즘", "수학", "행렬"]
+tags: ["algorithm", "math", "matrix"]
 ---
 
 
@@ -106,3 +106,4 @@ solution(
     ]
 )
 ```
+

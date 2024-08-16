@@ -1,5 +1,6 @@
 ---
 title: BackTracking
+tags: ['algorithm', 'backtracking']
 ---
 
 ### 특정한 수의 부분집합
