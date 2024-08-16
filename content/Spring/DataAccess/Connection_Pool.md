@@ -5,7 +5,7 @@ tags: ['data_access', 'connection', 'connection-pool', 'drivermanager', 'datasou
 
 SQL 을 날리기 위해 DriverManager 로 매번 Connection 을 얻어오는 것은 성능상 이슈가 있을 수 있다. 왜냐하면 Connection 을 얻어오기 위해서는 TCP 연결 하고, DB 에 한번은 갔다와야하기 때문이다. 때문에 일반적인 경우에는 미리 여러개의 Connection 들을 얻어와 이들을 모아둔 `Connection Pool` 이라는 개념을 사용한다. 
 
-따라서 SQL 을 날릴때마다 매번 Connection 을 얻어오지 않고, Connection Pool 에서 관리되는 Connection 을 가져와 즉시 SQL 을 날릴 수 있게 된다. 이렇게 사용된 `Connection 은 종료되지 않은 상태` 로 Connection Pool 로 다시 반환되게 되는데, 이 반한된 커넥션은 Connection Pooling(커넥션 재사용) 된다.
+따라서 SQL 을 날릴때마다 매번 Connection 을 얻어오지 않고, Connection Pool 에서 관리되는 Connection 을 가져와 즉시 SQL 을 날릴 수 있게 된다. 이렇게 사용된 `Connection 은 종료되지 않은 상태` 로 Connection Pool 로 다시 반환되게 되는데, 이 반환된 커넥션은 Connection Pooling(재사용) 된다.
 
 ## 오픈소스 Connection Pool
 대표적인 오픈소스 Connection Pool 에는 `commons-dbcp2`, `tomcat-jdbc pool`, `HikariCP` 가 있다. 하지만 Spring 에서는 `HikariCP` 를 디폴트로 사용하고 있다.
