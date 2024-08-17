@@ -12,22 +12,22 @@ tags: ["algorithm", "math", "eratosthenes"]
 > [!note] \+ 1 를 해주는 이유
 > 배열은 index 가 0 부터 시작하기 때문이다. 따라서 index 가 15 까지 있게 하려면 0 을 포함한 배열의 크기는 16 이 된다.
 
-![](Algorithm/Mathematics/images/Pasted%20image%2020240710161339.png)
+![](Algorithm/images/Pasted%20image%2020240710161339.png)
 
 
 소수는 2부터 시작하기 때문에 순회를 number = 2 부터 시작한다. 그리고 자기 자신(소수 2) 를 제외한 소수의 배수(2,4,6,8,10,12) 를 0 으로 바꾸어 준다.
 
-![](Algorithm/Mathematics/images/Pasted%20image%2020240710161354.png)
+![](Algorithm/images/Pasted%20image%2020240710161354.png)
 
 
 마찬가지로 number = 3 일때도 마찬가지이다.
 
-![](Algorithm/Mathematics/images/Pasted%20image%2020240710161409.png)
+![](Algorithm/images/Pasted%20image%2020240710161409.png)
 
 
 이렇게 15 까지의 수들 중 소수를 찾는 과정은 여기서 마무리 된다.
 
-![](Algorithm/Mathematics/images/Pasted%20image%2020240710165442.png)
+![](Algorithm/images/Pasted%20image%2020240710165442.png)
 
 > [!note]
 > 4 와 그 배수는 소수 2 의 배수 에서 이미 지웠졌다.

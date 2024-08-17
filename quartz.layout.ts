@@ -69,12 +69,21 @@ export const defaultContentPageLayout: PageLayout = {
           "Language/Python/Deploy-PyPI": 1299,
 
           // (Root) Algorithm
+          // "Algorithm": 2000,
+          // "Mathematics": 2100,
+          // "Algorithm/Mathematics/Euclidean": 2101,
+          // "Algorithm/Mathematics/SieveOfEratosthenes": 2102,
+          // "Prefixsum": 2200,
+          // "BackTracking": 2300,
           "Algorithm": 2000,
-          "Mathematics": 2100,
-          "Algorithm/Mathematics/Euclidean": 2101,
-          "Algorithm/Mathematics/SieveOfEratosthenes": 2102,
-          "Prefixsum": 2200,
-          "BackTracking": 2300,
+          "Algorithm/Matrix": 2101,
+          "Algorithm/Euclidean": 2102,
+          "Algorithm/Eratosthenes": 2103,
+          "Algorithm/Prefixsum": 2104,
+          "Algorithm/TwoPointer": 2105,
+          "Algorithm/SlidingWindow": 2104,
+          "Algorithm/BackTracking": 2105,
+          "Algorithm/Dijkstra": 2106,
 
           // (Root) ComputerScience
           "ComputerScience": 5000, // EntryPoint

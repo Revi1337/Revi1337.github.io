@@ -1,6 +1,6 @@
 ---
 title: Dijkstra
-tags: ['algorithm', 'shortest-path', 'dijkstra']
+tags: ['algorithm', 'shortest-distance', 'dijkstra']
 ---
 
 ## Dijkstra  Algorithm
@@ -22,7 +22,7 @@ tags: ['algorithm', 'shortest-path', 'dijkstra']
 ## Dijkstra 흐름
 아래의 그래프가 있을 때 시작 Node 인 `A` 로부터 다른 모든 Node 까지의 최소비용을 구해보자.
 
-![](Algorithm/ShortestPath/images/Pasted%20image%2020240727021653.png)
+![](Algorithm/images/Pasted%20image%2020240727021653.png)
 
 ### 초기화
 1. 시작 Node 로부터 특정 Node 까지의 최소 비용을 저장할 공간을 생성한다.
@@ -30,7 +30,7 @@ tags: ['algorithm', 'shortest-path', 'dijkstra']
 2. 시작 Node 인 A 의 최소비용을 0 으로 갱신시킨다.
 	- 초기화 단계에서는 가장 비용이 적은 Node 를 선택하는 기준이 없기 때문에 시작 Node 인 A 의 비용을 0 으로 갱신하는 것이다.
 
-![](Algorithm/ShortestPath/images/Pasted%20image%2020240727023529.png)
+![](Algorithm/images/Pasted%20image%2020240727023529.png)
 
 ### 방문 및 갱신 (반복)
 
@@ -40,28 +40,28 @@ tags: ['algorithm', 'shortest-path', 'dijkstra']
 - C 의 경우, `A --> C 까지의 비용 0 + 4` 이 `cost 테이블의 노드 C 의 최소비용 INF` 보다 작기 때문에 값을 4 로 갱신한다.
 - E 의 경우, `A --> E 까지의 비용 0 + 1` 이 `cost 테이블의 노드 E 의 최소비용 INF` 보다 작기 때문에 값을 1 로 갱신한다.
 
-![](Algorithm/ShortestPath/images/Pasted%20image%2020240727025520.png)
+![](Algorithm/images/Pasted%20image%2020240727025520.png)
 
 
 위의 상태에서 방문하지 않은 Node 들 중 최소비용인 노드 E 를 선택하여 방문한다. 그리고 E 를 거쳐갈 수 있는 인접 노드들의 최소 비용을 갱신해준다. 위의 상태에서 방문하지 않은 Node 들 중 최소비용인 노드 E 를 선택하여 방문한다.
 
 - C 의 경우, `E --> C 까지의 비용 1 + 2` 이 `기존 cost 테이블의 노드 C 의 최소비용 4` 보다 작기 때문에 값을 3 로 갱신한다.
 
-![](Algorithm/ShortestPath/images/Pasted%20image%2020240727030252.png)
+![](Algorithm/images/Pasted%20image%2020240727030252.png)
 
 
 위의 상태에서 방문하지 않은 Node 들 중 최소비용인 노드 C 를 선택하여 방문한다. 그리고 C 를 거쳐갈 수 있는 인접 노드들의 최소 비용을 갱신해준다.
 
 - D 의 경우, `C --> D 까지의 비용 3 + 8` 이 `기존 cost 테이블의 노드 D 의 최소비용 INF` 보다 작기 때문에 값을 11 로 갱신한다.
 
-![](Algorithm/ShortestPath/images/Pasted%20image%2020240727030939.png)
+![](Algorithm/images/Pasted%20image%2020240727030939.png)
 
 
 위의 상태에서 방문하지 않은 Node 들 중 최소비용인 노드 B 를 선택하여 방문한다. 그리고 B 를 거쳐갈 수 있는 인접 노드들의 최소 비용을 갱신해준다.
 
 - C 의 경우, `B --> C 까지의 비용 4 + 6` 이 `기존 cost 테이블의 노드 C 의 최소비용 3` 보다 크기 때문에 최소비용을 갱신하지 않는다.
 
-![](Algorithm/ShortestPath/images/Pasted%20image%2020240727031405.png)
+![](Algorithm/images/Pasted%20image%2020240727031405.png)
 
 
 위의 상태에서 방문하지 않은 Node 들 중 최소비용인 노드 D 를 선택하여 방문한다. 그리고 D 를 거쳐갈 수 있는 인접 노드들의 최소 비용을 갱신해준다.
@@ -69,7 +69,7 @@ tags: ['algorithm', 'shortest-path', 'dijkstra']
 - B 의 경우, `D --> B 까지의 비용 11 + 2` 이 `기존 cost 테이블의 노드 B 의 최소비용 4` 보다 크기 때문에 최소비용을 갱신하지 않는다.
 - A 의 경우, `D --> A 까지의 비용 11 + 5` 이 `기존 cost 테이블의 노드 A 의 최소비용 0` 보다 크기 때문에 최소비용을 갱신하지 않는다.
 
-![](Algorithm/ShortestPath/images/Pasted%20image%2020240727031845.png)
+![](Algorithm/images/Pasted%20image%2020240727031845.png)
 
 
 이렇게 모든 Node 의 방문이 끝나 다익스트라가 종료되게 된다. 따라서 시작노드 A 부터 다른 모든 노드까지의 최소비용은 위와 같다.

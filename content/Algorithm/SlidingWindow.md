@@ -31,7 +31,7 @@ Two Pointer 알고리즘과 Sliding Window 알고리즘은 선형 자료구조�
 **Step N**
 - 이전 Step 의 부분배열의 `맨 앞 원소를 Window 에서 제거` 하고, `맨 뒤 원소의 다음 요소를 Window 에 추가`시켜주면 된다.
 
-![](Algorithm/SlidingWindow/images/Pasted%20image%2020240817012435.png)
+![](Algorithm/images/Pasted%20image%2020240817012435.png)
 
 ## 백준 수열
 [백준 수열](https://www.acmicpc.net/problem/2559) 문제가 Sliding Window 로 풀 수 있는 대표적인 문제다. 코드를 구현하면 아래와 같이 구현할 수 있다.
@@ -55,20 +55,21 @@ print(solution(N, K, temps))
 
 구현한 코드의 모든 Process 를 아래와 같이 그려볼 수 있다.
 
-![](Algorithm/SlidingWindow/images/Pasted%20image%2020240817020527.png)
+![](Algorithm/images/Pasted%20image%2020240817020527.png)
 
 
-![](Algorithm/SlidingWindow/images/Pasted%20image%2020240817015536.png)
+![](Algorithm/images/Pasted%20image%2020240817015536.png)
 
-![](Algorithm/SlidingWindow/images/Pasted%20image%2020240817015707.png)
-
-
-![](Algorithm/SlidingWindow/images/Pasted%20image%2020240817015642.png)
+![](Algorithm/images/Pasted%20image%2020240817015707.png)
 
 
-![](Algorithm/SlidingWindow/images/Pasted%20image%2020240817015754.png)
+![](Algorithm/images/Pasted%20image%2020240817015642.png)
 
 
-![](Algorithm/SlidingWindow/images/Pasted%20image%2020240817015811.png)
+![](Algorithm/images/Pasted%20image%2020240817015754.png)
+
+
+
+![](Algorithm/images/Pasted%20image%2020240817015811.png)
 
 
