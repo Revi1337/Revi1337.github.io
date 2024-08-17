@@ -1,5 +1,5 @@
 ---
-title: 에라토스테네스의 체
+title: Sieve of Eratosthenes
 tags: ["algorithm", "math", "eratosthenes"]
 ---
 

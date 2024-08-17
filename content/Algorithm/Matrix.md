@@ -1,5 +1,5 @@
 ---
-title: 행렬 덧셈,뺼셈,곱셈
+title: Matrix
 tags: ["algorithm", "math", "matrix"]
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: 유클리드 호제법
+title: Euclidean
 tags: ["algorithm", "math", "euclidean"]
 ---
 
