@@ -76,14 +76,14 @@ export const defaultContentPageLayout: PageLayout = {
           // "Prefixsum": 2200,
           // "BackTracking": 2300,
           "Algorithm": 2000,
-          "Algorithm/Matrix": 2101,
-          "Algorithm/Euclidean": 2102,
-          "Algorithm/Eratosthenes": 2103,
-          "Algorithm/Prefixsum": 2104,
-          "Algorithm/TwoPointer": 2105,
-          "Algorithm/SlidingWindow": 2106,
-          "Algorithm/BackTracking": 2107,
-          "Algorithm/Dijkstra": 2108,
+          "Algorithm/Matrix": 2001,
+          "Algorithm/Euclidean": 2002,
+          "Algorithm/Eratosthenes": 2003,
+          "Algorithm/Prefixsum": 2004,
+          "Algorithm/TwoPointer": 2005,
+          "Algorithm/SlidingWindow": 2006,
+          "Algorithm/BackTracking": 2007,
+          "Algorithm/Dijkstra": 2008,
 
           // (Root) ComputerScience
           "ComputerScience": 5000, // EntryPoint
