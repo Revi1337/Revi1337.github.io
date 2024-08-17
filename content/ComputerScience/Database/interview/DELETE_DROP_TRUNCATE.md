@@ -39,6 +39,6 @@ title: DELETE vs DROP vs TRUNCATE
 [김희성님 유튜브 DB 파트](https://www.youtube.com/watch?app=desktop&v=syDPRdaxme0&list=PLHOy1E8axXrfJJtDIXIOQBmWRPwM-GxSf&index=4)
 
 ## Link 
-[DDL & DML & DCL & TCL](ComputerScience/Database/interview/DDL_DML_DCL.md)
+[DDL & DML & DCL & TCL](ComputerScience/Database/interview/DDL_DML_DCL_TCL.md)
 [Transaction](ComputerScience/Database/interview/Transaction.md)
 
