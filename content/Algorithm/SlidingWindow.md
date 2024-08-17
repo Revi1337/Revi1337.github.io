@@ -10,10 +10,10 @@ Sliding Window 알고리즘은 배열이나 리스트와 같은 연속된 데이
 
 ## Two Pointer 와의 관계
 
-|   Algorithm    | 탐색 구간 (Window 크기) |           Pointer 이동 (Left, Right)            |
-| :------------: | :---------------: | :-------------------------------------------: |
-|  Two Pointer   |        가변         | 독립적 (Left 는 커지는데 Right 는 작아져 탐색구간이 넓어질 수 있다.) |
-| Sliding Window |        불변         |         공통 (Left 가 커지면 Right 도 커진다.)          |
+|   Algorithm    | 탐색 구간 |           Pointer 이동 (Left, Right)            |
+| :------------: | :---: | :-------------------------------------------: |
+|  Two Pointer   |  가변   | 독립적 (Left 는 커지는데 Right 는 작아져 탐색구간이 넓어질 수 있다.) |
+| Sliding Window |  불변   |         공통 (Left 가 커지면 Right 도 커진다.)          |
 
 ### 공통점
 Two Pointer 알고리즘과 Sliding Window 알고리즘은 선형 자료구조를 2회 이상 반복적으로 탐색해야 할 경우 `O(N²)` 이상 걸릴 시간 복잡도를 부분 배열을 활용하여 `O(N)` 으로 줄일 수 있다는 공통점이 있다.
