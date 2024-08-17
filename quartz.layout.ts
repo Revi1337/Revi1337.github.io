@@ -82,8 +82,8 @@ export const defaultContentPageLayout: PageLayout = {
           "Algorithm/Prefixsum": 2004,
           "Algorithm/TwoPointer": 2005,
           "Algorithm/SlidingWindow": 2006,
-          "Algorithm/BackTracking": 2007,
-          "Algorithm/Dijkstra": 2008,
+          "Algorithm/BackTracking": 2008,
+          "Algorithm/Dijkstra": 2009,
 
           // (Root) ComputerScience
           "ComputerScience": 5000, // EntryPoint
