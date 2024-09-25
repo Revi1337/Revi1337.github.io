@@ -104,21 +104,21 @@ docker run [OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]
 ubuntu:20.04 이미지를 사용하여 랜덤한 이름의 Container 를 실행한다. 하지만 `-it` 옵션을 입력하지 않았기 때문에 바로 실행이 종료된다.
 
 ```bash
-$docker run ubuntu:20.04 
+docker run ubuntu:20.04 
 ```
 
 
 Container 내부에 들어가기 위해 sh를 실행하고 키보드 입력을 위해 `-it` 옵션을 주고 `/bin/sh` 명령을 매개변수로 전달한다. 따라서 생성된 Container 내부 쉘에 들어가게 된다. 추가적으로 프로세스가 종료되면 컨테이너가 자동으로 삭제되도록 `--rm` 옵션도 추가했다.
 
 ```bash 
-$docker run --rm -it ubuntu:20.04 /bin/sh
+docker run --rm -it ubuntu:20.04 /bin/sh
 ```
 
 
 redis Image를 사용하여 랜덤한 이름의 Container 를 실행하고 -p 옵션으로 Local 의 3456 포트와 Container 의 6379 포트와 연결한다.
 
 ````bash
-$docker run -p 3456:6379 redis
+docker run -p 3456:6379 redis
 ````
 
 
@@ -128,13 +128,13 @@ mysql 이미지와 `--name` 옵션으로 mysql 이라는 이름의 Container 를
 > 여러개의 환경변수를 사용하려면 -e 옵션을 여러번 사용하면 된다.
 
 ```bash  
-$docker run -d -p 3306:3306 -e MYSQL_ALLOW_EMPTY_PASSWORD=true --name mysql mysql:5.7
+docker run -d -p 3306:3306 -e MYSQL_ALLOW_EMPTY_PASSWORD=true --name mysql mysql:5.7
 ```
 
 ## exec
 exec 는 `이미 실행 중인 컨테이너 내에서 새로운 명령을 실행하는 데 사용`된다. 아래 명령어는 이미 실행중인 mysql Container 에 mysql 이라는 Binary 를 실행하라는 의미이다. 여기서 -it 옵션을 사용했기 때문에 mysql Binary 를 실행헀을때 출력되는 Command Line Prompt 받아올 수 있다.
 
 ```bash 
-$docker exec -it mysql mysql
+docker exec -it mysql mysql
 ```
 

@@ -12,7 +12,7 @@ tags: ['docker']
 우선 가장 latest 한 버전의 Ubuntu 이미지를 `pull` 받고 컨테이너를 생성 및 실행해준다. 여기서 방금 설치한 이미지가 `Base Image` 가 된다. 이 때 실행될 컨테이너 이름을 지정해준다.
 
 ```bash
-$ docker run --name test_new_image -it ubuntu:20.04 bash
+docker run --name test_new_image -it ubuntu:20.04 bash
 ```
 
 ![](Docker/images/Pasted%20image%2020240108004409.png)
@@ -26,7 +26,7 @@ $ docker run --name test_new_image -it ubuntu:20.04 bash
 일반적인 `ubuntu`  이미지는 어떠한 바이너리도 설치되어있지 않기 때문에 `Java` 를 설치해주어야 한다. 아래 코드블럭을 통해 최신상태의 패키지들을 불러오고 `Java 17`  를 설치할 수 있다.
 
 ```bash
-$ apt-get update && apt-get install -y openjdk-17-jdk
+apt-get update && apt-get install -y openjdk-17-jdk
 ```
 
 ![](Docker/images/Pasted%20image%2020240108004732.png)
@@ -40,7 +40,7 @@ $ apt-get update && apt-get install -y openjdk-17-jdk
 이제 `docker commit` 으로 새로운 Image 를 만들어줄 수 있다. 컨테이너에서 나와준 후, `docker commit` 커맨드를 통해 새로운 상태의 `Image` 를 만들어준다. 아래 코드블럭은 `test_new_image`  이름의 컨테이너를 `ubuntu:java-17` 이라는 `Tag` 로 커밋하여 새로운 Image 를 만들어주겠다는 의미이다.
 
 ```bash
-$ docker commit test_new_image ubuntu:java-17
+docker commit test_new_image ubuntu:java-17
 ```
 
 ![](Docker/images/Pasted%20image%2020240108010403.png)
@@ -54,7 +54,7 @@ $ docker commit test_new_image ubuntu:java-17
 앞서 생성한 새로운 Image 로 Container 를 생성하여 실행해보면 별도의 설치없이 `Java` 가 설치되어 있는것을 확인할 수 있다.
 
 ```bash
-$ docker run --name new_java_image -it ubuntu:java-17 bash
+docker run --name new_java_image -it ubuntu:java-17 bash
 ```
 
 ![](Docker/images/Pasted%20image%2020240108011225.png)
@@ -124,7 +124,7 @@ Dockerfile 에서 사용되는 명령어는 아래와 같다.
 docker build 의 기본적인 Syntax 는 아래와 같다. `-t` 옵션으로 생성할 이미지명과 태그를 명시해주고 `빌드 컨텍스트`를 명시해주면 된다. 빌드 컨텍스트는 이미지를 생성하는 데 필요한 각종 파일, 소스코드, 메타데이터 등을 담고 있는 디렉터리를 의미한다. 한마디로 `Image 를 Build 할 기준 디렉터리를 명시` 하는 것이다.
 
 ```bash
-$ docker build -t {생성할_이미지명:이미지태그} {빌드 컨텍스트}
+docker build -t {생성할_이미지명:이미지태그} {빌드 컨텍스트}
 ```
 
 > [!note]
@@ -134,21 +134,21 @@ $ docker build -t {생성할_이미지명:이미지태그} {빌드 컨텍스트}
 또한, Docker 는 기본적으로 Image 를 빌드할 때 빌드 컨텍스트 경로에서 `Dockerfile` 이라는 이름을 갖는 파일을 찾아 실행하게 된다. 그렇기 때문에 빌드 컨텍스트 경로에 Dockerfile 이 존재한다면 따로 Dockerfile 의 경로를 명시할 필요가 없다.
 
 ```bash
-$ docker build -t test:v1 .
+docker build -t test:v1 .
 ```
 
 #### Dockerfile, Build Context 의 위치를 다르게
 하지만 가끔은 `빌드 컨텍스트` 경로와 `Dockerfile` 이 위치하는 경로를 다르게 주고싶을 때가 있다. 이럴때는 `-f` 옵션으로 `Dockerfile` 이 있는 위치를 지정해주어야 한다. 따라서 아래의 커맨드를 해석하면 Docker Build 를 수행할때 현재경로의 `./docker/Dockerfile` 을 수행하되 Image 가 빌드되는 폴더는 `현재 위치` 로 지정해주겠다는 의미가 된다.
 
 ```bash
-$ docker build -f ./docker/Dockerfile -t test:v1 .
+docker build -f ./docker/Dockerfile -t test:v1 .
 ```
 
 
 본론으로 돌아와 `docker build` 를 실행주어 새로운 Image 를 생성해준다. 아래의 코드블럭은  `docker build` 를 실행할때 새롭게 생성될 이미지의 이름을 `ubuntu:java-17-2` 로 지정하고 빌드 컨텍스트는 현재 위치로 지정하겠다는 의미가 된다. 따로 `-f`  옵션을 통해 Dockerfile 의 경로를 설정해주지 않았기 때문에 docker build 를 수행하면 docker 는 자동으로 빌드 컨텍스트의 경로인 `현재 위치 (.)` 에서 Dockerfile 을 찾아 Image 빌드를 시작하게 된다.
 
 ```bash
-$ docker build -t ubuntu:java-17-2 .
+docker build -t ubuntu:java-17-2 .
 ```
 
 

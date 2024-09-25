@@ -11,7 +11,7 @@ tags: ['docker']
 로컬의 /my/own/datadir 와 도커의 /var/dir/mysql 를 mount 하겠다.
 
 ```bash
-$docker run -d -p 3306:3306 -e MYSQL_ALLOW_EMPTY_PASSWORD=true --network=app-network --name mysql -v /my/own/datadir:/var/dir/mysql mysql:5.7
+docker run -d -p 3306:3306 -e MYSQL_ALLOW_EMPTY_PASSWORD=true --network=app-network --name mysql -v /my/own/datadir:/var/dir/mysql mysql:5.7
 ```
 
 * 가상의 MySQL 컨테이너를 지우게 되면, 데이터가 다 날라게됨. 따라서 `-v` 옵션을 통해 `로컬`과 `컨테이너 내부의 경로`를 `연결`시켜주겠다는 의미이다. 
@@ -29,11 +29,11 @@ $docker run -d -p 3306:3306 -e MYSQL_ALLOW_EMPTY_PASSWORD=true --network=app-net
 **(2)**
 
 ```bash
-$docker run --rm -p 50000:80  -v "D:\docker-prac\dummy\index.html:/usr/share/nginx/html/index.html" nginx:latest
+docker run --rm -p 50000:80  -v "D:\docker-prac\dummy\index.html:/usr/share/nginx/html/index.html" nginx:latest
 
 OR
 
-$docker run -p 50000:80  -v "D:\docker-prac\dummy:/usr/share/nginx/html" nginx:latest
+docker run -p 50000:80  -v "D:\docker-prac\dummy:/usr/share/nginx/html" nginx:latest
 ```
 
 * 80 포트에서 실행되는 nginx 컨테이너를 로컬 50000 포트로 연결하여 실행
@@ -48,7 +48,7 @@ $docker run -p 50000:80  -v "D:\docker-prac\dummy:/usr/share/nginx/html" nginx:l
 * 따라서 php:7 컨테이너가 실행될때 로컬의 `D:\docker-prac\dummy\hello.php` 이 실행된다.
 
 ```bash
-$docker run --rm -v D:\docker-prac\dummy\hello.php:/app/hello.php php:7 php /app/hello.php
+docker run --rm -v D:\docker-prac\dummy\hello.php:/app/hello.php php:7 php /app/hello.php
 ```
 
 Escape 시켜서 ㅇㅁ

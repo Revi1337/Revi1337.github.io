@@ -7,7 +7,7 @@ tags: ['docker']
 
 ## Network 조회 
 ```bash
-$ docker network ls
+docker network ls
 NETWORK ID     NAME      DRIVER    SCOPE
 ae07710dabe6   bridge    bridge    local
 232402bf2ad3   host      host      local
@@ -16,7 +16,7 @@ ae07710dabe6   bridge    bridge    local
 
 ## Network 생성 및 확인
 ```bash
-$ docker network create test-network
+docker network create test-network
 ```
 
 ## Container 에 Network 연결
@@ -30,22 +30,20 @@ Docker Container 끼리 이름으로 통신할 수 있는 Virtual Network 생성
 app-network 라는 이름으로 네트워크를 생성. (예. wordpress 와 mysql 이 통신할 네트워크를 생성)
 
 ```bash
-$docker network create [OPTIONS] NETWORK
-
-$docker network create app-network           
+docker network create [OPTIONS] NETWORK
+docker network create app-network           
 ```
 
 기존의 Container 에 Network 를 추가. 아래 예는 mysql 이름의 Container 에 Network 를 추가
 
 ```bash
-$docker network connect [OPTIONS] NETWORK CONTAINER
-
-$docker network connect app-network mysql   
+docker network connect [OPTIONS] NETWORK CONTAINER
+docker network connect app-network mysql   
 ```
 
 --network 옵션을 사용하여 네트워크에 속하게 만드는 법.
 아래 예는 워드프레스를 app-network 에 속하게 하고 mysql 을 이름으로 접근한다.
 
 ```bash
-$docker run -d -p 8080:80 --network=app-network -e WORDPRESS_DB_HOST=mysql -e WORDPRESS_DB_NAME=wp -e WORDPRESS_DB_USER=wp -e WORDPRESS_DB_PASSWORD=wp wordpress
+docker run -d -p 8080:80 --network=app-network -e WORDPRESS_DB_HOST=mysql -e WORDPRESS_DB_NAME=wp -e WORDPRESS_DB_USER=wp -e WORDPRESS_DB_PASSWORD=wp wordpress
 ```
