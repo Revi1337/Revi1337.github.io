@@ -9,24 +9,34 @@ ul#explorer-ul {
 .page {
   & article {
     & > h1 {
-      font-size: 2.3rem;
+      font-size: 2.4rem;
     }
 
     & > h2 {
-      color: rgb(255, 177, 61);
-      font-size: 1.8rem;
+      //color: rgb(255, 177, 61);
+      font-size: 1.9rem;
       margin-top: 4rem;
     }
 
     & > h3 {
-      color: rgb(87, 214, 161);
-      font-size: 1.5rem;
+      //color: rgb(87, 214, 161);
+      font-size: 1.6rem;
       margin-top: 3rem;
     }
 
+    h2::after,
+    h3::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: .1px;
+      background-color: var(--dark);
+      margin-top: 10px;
+    }
+
     & > h4, h5, h6 {
-      color: rgb(210,105,30);
-      font-size: 1.12rem;
+      //color: rgb(210,105,30);
+      font-size: 1.4rem;
       margin-top: 2rem;
     }
 
@@ -57,3 +67,66 @@ ul#explorer-ul {
     }
   }
 }
+
+
+
+
+//@use "./base.scss";
+//@use "./variables.scss" as *;
+//
+//ul#explorer-ul {
+//  min-height: 550px;
+//}
+//
+//// h 태그 크기 및 색
+//.page {
+//  & article {
+//    & > h1 {
+//      font-size: 2.3rem;
+//    }
+//
+//    & > h2 {
+//      color: rgb(255, 177, 61);
+//      font-size: 1.8rem;
+//      margin-top: 4rem;
+//    }
+//
+//    & > h3 {
+//      color: rgb(87, 214, 161);
+//      font-size: 1.5rem;
+//      margin-top: 3rem;
+//    }
+//
+//    & > h4, h5, h6 {
+//      color: rgb(210,105,30);
+//      font-size: 1.12rem;
+//      margin-top: 2rem;
+//    }
+//
+//    // h 태그 아래 또다른 h 태그면 마진을 적게
+//    h1, h2, h3, h4, h5, h6 {
+//      margin-bottom: 0;
+//      & + h1,
+//      & + h2,
+//      & + h3,
+//      & + h4,
+//      & + h5,
+//      & + h6 {
+//        margin-top: 1.3rem;
+//      }
+//    }
+//  }
+//}
+//
+//// left, right 사이드바 길이, 패딩, 마진
+//.page {
+//  & > #quartz-body {
+//    & .sidebar.left {
+//      left: calc(calc(100vw - $pageWidth) / 2 - $sidePanelWidth - 30px);
+//      padding: 0;
+//    }
+//    & .sidebar.right {
+//      right: calc(calc(calc(100vw - $pageWidth) / 2 - $sidePanelWidth) - 120px);
+//    }
+//  }
+//}
