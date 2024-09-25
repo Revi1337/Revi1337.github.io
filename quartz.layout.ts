@@ -134,14 +134,13 @@ export const defaultContentPageLayout: PageLayout = {
 
           // (Root) Docker
           "Docker": 9000,
-          "Docker/Docker": 9100,
+          "Docker/WhatIsDocker": 9100,
+          "Docker/DockerBaseCommand": 9200,
           "Docker/DockerVolume": 9200,
           "Docker/DockerNetwork": 9300,
-          "Docker/DockerImage": 9400,
-          "Docker/DockerCompose": 9500,
-          "Docker/run_exec": 9600,
-          "Docker/ps,stop,rm,rmi,logs,images": 9700,
-          "Docker/DockerCheetSheet": 9800,
+          "Docker/DockerCompose": 9400,
+          "Docker/DockerBuild": 9500,
+          "Docker/DockerCheetSheet": 9600,
           "Docker/forbidden_access_permission": 9901,
 
           // Tools

@@ -1,5 +1,6 @@
 ---
 title: Docker 란
+tags: ['docker']
 ---
 
 오늘 낮에 친구가 "아니 도대체 도커는 왜 쓰는거임?" 라고 물었다. 나는  mysql, nginx  같은거 한번에 관리할 수 있고 설치도 따로 하지 않아도 된다고 대답했다. 평소에 도커를 너무나도 당연하게 사용해왔기 때문에 첨언할 내용이 생각나질 않았다. 따라서 Docker 가 Base 로 사용하는 Container 기술과 Docker 에 대한 이론적인 부분을 간단하게 적고자 한다.
@@ -20,7 +21,7 @@ Container 란 우리의 `Application` 을  `어떠한 환경이든 실행할 수
 
 > 워크로드의 이동성은 작업이나 데이터가 다른 시스템, 플랫폼 또는 환경으로 자유롭게 이동할 수 있는 능력(이식성)을 의미한다. 보통 워크로드의 이동성은 가상화 기술, 컨테이너화된 환경 등을 통해 구현될 수 있다.
 
-## Docker 란?
+## Docker 란
 Docker 는 앞서 설명한 Container 기술을 기반으로한 오픈소스 가상화 플랫폼이다. Docker 를 통해  `Container` 기술을 사용하고 이러한 Container 들을 관리할 수 있다.
 
 > 위키백과에서는 **도커**(Docker) 는 [리눅스](https://ko.wikipedia.org/wiki/%EB%A6%AC%EB%88%85%EC%8A%A4 "리눅스")의 [응용 프로그램](https://ko.wikipedia.org/wiki/%EC%9D%91%EC%9A%A9_%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4 "응용 소프트웨어")들을 프로세스 격리 기술들을 사용해 컨테이너로 실행하고 관리하는 [오픈 소스](https://ko.wikipedia.org/wiki/%EC%98%A4%ED%94%88_%EC%86%8C%EC%8A%A4 "오픈 소스") 프로젝트라고 설명하고 있다.

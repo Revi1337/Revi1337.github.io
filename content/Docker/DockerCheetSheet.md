@@ -6,15 +6,15 @@
 $docker run [OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]
 ```
 
-| flag      | description |
-|-----------|-------------|
+| flag      | description                        |
+| --------- | ---------------------------------- |
 | -d        | --network 실행 (Detached Mode)       |
-| -p        | 호스트와 컨테이너의 포트를 연결       |
-| -v        | 호스트와 컨테이너의 디렉터리를 연결       |
-| -e        | 컨테이너 내에서 사용할 환경변수 설정       |
-| --name    | 컨테이너 이름 설정       |
-| --rm      | 프로세시 종료시 컨테이너 자동 제거       |
-| --network | -i, -t 를 동시에 사용한 것으로 터미널 입력을 위한 옵션       |
+| -p        | 호스트와 컨테이너의 포트를 연결                  |
+| -v        | 호스트와 컨테이너의 디렉터리를 연결                |
+| -e        | 컨테이너 내에서 사용할 환경변수 설정               |
+| --name    | 컨테이너 이름 설정                         |
+| --rm      | 프로세시 종료시 컨테이너 자동 제거                |
+| --network | -i, -t 를 동시에 사용한 것으로 터미널 입력을 위한 옵션 |
 
 * ubuntu 20.04 컨테이너 생성하고 실행.
 * run 명령어를 사용하면 사용할 이미지가 저장되어 있는지 확인하고 없다면 다운로드(pull) 한 후, 컨테이너를 생성(create) 하고 시작(Start)한다.
@@ -50,9 +50,11 @@ $docker run -d -p 3306:3306 -e MYSQL_ALLOW_EMPTY_PASSWORD=true --name mysql mysq
 * exec: run 명령어와 달리 실행중인 도커 컨테이너에 접속할때 사용하며 컨테이너 안에 ssh server 등을 설치하지않고 exec 명령어로 접속한다.
 * mysql 라는 이름의 컨테이너를 실행함과 동시에  mysql 바이너리를 실행 (키보드입력을 위해 -it 옵션추가)
 * 추가적으로 wordpress 를 위한 셋팅.
+
 ```bash 
 $docker exec -it mysql mysql
 ```
+
 ```txt
 create database wp CHARACTER SET utf8;
 grant all privileges on wp.* to wp@'%' identified by 'wp';
@@ -205,3 +207,4 @@ $docker run -p 50000:80  -v "D:\docker-prac\dummy:/usr/share/nginx/html" nginx:l
 ```bash
 $docker run --rm -v D:\docker-prac\dummy\hello.php:/app/hello.php php:7 php /app/hello.php
 ```
+

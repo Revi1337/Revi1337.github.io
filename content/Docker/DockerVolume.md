@@ -1,8 +1,9 @@
 ---
 title: Docker Volume
+tags: ['docker']
 ---
 
-## volume
+## Volume
 -v 옵션을 통한 Volume 설정
 
 **(1)**
