@@ -9,7 +9,7 @@ tags: ['docker', 'troubleshoot']
 우선 `관리자 권한` 으로 Powershell 을 켜서 아래 커맨드를 쳐서 확인해준다. 만약 커맨드의 결과값에서 `시작포트` 와 `끝 포트` 사이의 값에 사용하고자하는 Port 가 포함되어있으면 forbidden by its access permission 오류가 발생한다.
 
 ```powershell
-netsh interface ipv4 show excludedportrange protocol=tcp
+> netsh interface ipv4 show excludedportrange protocol=tcp
 ```
 
 ## 해결방법
