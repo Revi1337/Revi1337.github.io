@@ -54,6 +54,23 @@ ul#explorer-ul {
       }
     }
   }
+
+  img {
+    margin: -0.4rem 0 1rem;
+  }
+
+  pre {
+    margin: -0.4rem 0 1rem;
+  }
+
+  figure {
+    pre {
+      margin-bottom: 40px;
+      & + p img {
+        margin-bottom: 10px;
+      }
+    }
+  }
 }
 
 // left, right 사이드바 길이, 패딩, 마진
