@@ -73,14 +73,14 @@ docker-compose up
 ```
 
 
-하지만 상단의 커맨드는 터미널을 빠져나오지 못하고 계속 점유하고 있는 상태가 되기 떄문에, `-d` (Detach Mode) 옵션을 주어 컨테이너가 백그라운드에서 실행되도록 할 수 있다.
+하지만 상단의 커맨드는 터미널을 빠져나오지 못하고 계속 점유하고 있는 상태가 되기 때문에, `-d` (Detach Mode) 옵션을 주어 컨테이너가 백그라운드에서 실행되도록 할 수 있다.
 
 ```bash
 docker-compose up -d
 ```
 
 
-앞서 `healthcheck` 와 `depends-on` 설정으로 mysql-rdb 헬스체크 후, redis-cache 가 수행되도록 순서를 지정해주었기 떄문에, mysql, redis 순으로 컨테이너가 올라가는것을 확인할 수 있다.
+앞서 `healthcheck` 와 `depends-on` 설정으로 mysql-rdb 헬스체크 후, redis-cache 가 수행되도록 순서를 지정해주었기 때문에, mysql, redis 순으로 컨테이너가 올라가는것을 확인할 수 있다.
 
 ![](Docker/images/Pasted%20image%2020240925123614.png)
 
@@ -96,9 +96,7 @@ docker-compose -f Docker/docker-compose.yml up -d
 
 ```bash
 docker-compose up mysql-rdb -d 
-
 # 혹은
-
 docker-compose up service1 service2 service3 -d
 ```
 
