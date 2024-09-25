@@ -116,9 +116,9 @@ export const defaultContentPageLayout: PageLayout = {
           // (Root) Spring
           "Spring": 8000,
           "Boot": 8050,
-          "Actuator": 8051,
-          "Prometheus": 8052,
-          "Grafana": 8053,
+          "Spring/Boot/Actuator": 8051,
+          "Spring/Boot/Prometheus": 8052,
+          "Spring/Boot/Grafana": 8053,
           "MVC": 8100,
           "Spring/MVC/Filter": 8102,
           "Spring/MVC/Interceptor": 8103,
