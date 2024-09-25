@@ -1,5 +1,6 @@
 ---
 title: forbidden access permission
+tags: ['docker', 'troubleshoot']
 ---
 
 평소와 같이 Redis 를 Docker 로 띄우는데 갑자기 `docker an attempt was made to access a socket in a way forbidden by its access permission` 라는 Error 가 던져졌다. 참고로 컨테이너에서 외부에 노출되는 포트는 `6379` 였다.
