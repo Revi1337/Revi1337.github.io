@@ -30,7 +30,7 @@ services:
       MYSQL_PASSWORD: 1234  
       MYSQL_ROOT_PASSWORD: 1234  
     healthcheck:                                              # 서비스 Container 가 정상인지 확인할 수 있는 설정들을 하위에 명시  
-      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ] # 서비스 Container 가 정상인지 확인할 수 있는 명령을 명시 (index 0 에는 항상 )
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ] # 서비스 Container 가 정상인지 확인할 수 있는 명령을 명시
       timeout: 20s                                            # healthcheck 시간 제한을 설정하는 데 사용. 20초를 초과하면 해당 검사는 실패로 간주  
       retries: 10                                             # healthcheck 가 연속으로 10번 실패할 때만 컨테이너를 비정상 상태로 간주하거나, 재시작 정책을 실행.  
   
