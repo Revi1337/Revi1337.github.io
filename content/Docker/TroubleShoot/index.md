@@ -1,3 +1,3 @@
 ---
-title: TroubleShooting
+title: TroubleShoot
 ---
