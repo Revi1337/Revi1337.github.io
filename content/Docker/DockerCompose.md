@@ -96,7 +96,6 @@ docker-compose -f Docker/docker-compose.yml up -d
 
 ```bash
 docker-compose up mysql-rdb -d 
-# 혹은
 docker-compose up service1 service2 service3 -d
 ```
 
