@@ -58,7 +58,7 @@ export const defaultContentPageLayout: PageLayout = {
         const nameOrderMap: Record<string, number> = {
           // 겹치는 디렉터리의 우선순위
           "Analyze": -2,
-          "TroubleShooting": -1,
+          "TroubleShoot": -1,
 
           // (Root) Language
           "Language": 1000,
