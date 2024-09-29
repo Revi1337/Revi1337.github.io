@@ -123,7 +123,49 @@ public class TestScheduler {
 ```
 
 
-더 자세한 내용은 `@Scheduled` 어노테이션 Docs 를 보면 된다.
+코드는 매우 간단하다. 작업을 수행할 주기를 Cron Expression 에 맞게 작성해주면 된다. 아래 코드는 5초마다 로그를 찍는 작업을 나타낸 것이다.
+
+```java
+@Slf4j  
+@Configuration  
+public class TestScheduler {  
+  
+    private final AtomicInteger atomicInteger = new AtomicInteger(0);  
+  
+    @Scheduled(cron = "*/5 * * * * *")  
+    public void cron() {  
+        Thread currentThread = Thread.currentThread();  
+        String methodName = currentThread.getStackTrace()[1].getMethodName();  
+        log.info("Method {} Invoked {}th, Date : {}", methodName, atomicInteger.incrementAndGet(), LocalDateTime.now());  
+    }  
+}
+```
+
+![](Spring/images/Pasted%20image%2020240930003823.png)
+
+
+추가적으로 @Scheduled 의 속성들 중 String 값을 갖는 속성들은 스프링 `SpEL(SPring Expression Language)` 을 사용하여 cron 과 같은 설정을 외부로 분리하여 유연하게 관리할 수 있다. 아래 예시는 application.yml 혹은 properties 로부터 `schedule.cron.expression` 설정을 가져와 cron 값으로 사용할건데, 만약 설정이 되어있지 않다면 Default 로 `*/3 * * * * *` 값을 사용할 것이라는 의미이다.
+
+```java
+@Slf4j  
+@Configuration  
+public class TestScheduler {  
+  
+    private final AtomicInteger atomicInteger = new AtomicInteger(0);  
+  
+    @Scheduled(cron = "${schedule.cron.expression:*/3 * * * * *}")  
+    public void cron() {  
+        Thread currentThread = Thread.currentThread();  
+        String methodName = currentThread.getStackTrace()[1].getMethodName();  
+        log.info("Method {} Invoked {}th, Date : {}", methodName, atomicInteger.incrementAndGet(), LocalDateTime.now());  
+    }  
+}
+```
+
+![](Spring/images/Pasted%20image%2020240930005021.png)
+
+
+Cron 에 대한 더 자세한 내용은 `@Scheduled` 어노테이션 Docs 를 보면 된다.
 
 ![](Spring/images/Pasted%20image%2020240929234609.png)
 
@@ -133,16 +175,3 @@ public class TestScheduler {
 `TaskScheduler` Bean 이 없거나, `SchedulingConfigurer` 로 직접 스케줄러를 설정해주지 않으면, Main Thread 는 별도의 Thread 를 만들어 `Single Thread` 환경에서 모든 스케줄링을 관리하게 된다. 아래 사진의 `scheduling-1` 가 Main Thread 가 스케줄링을 위해 만든 별도의 Thread 이다. 관련 내용은 [다음 포스팅](Spring/SchedulingThread )에서 언급할 예정이다.
 
 ![](Spring/images/Pasted%20image%2020240929232937.png)
-
-
-
-```plantuml-ascii 
-Bob -> Alice : hello 
-Alice -> Wonderland: hello 
-Wonderland -> next: hello
-next -> Last: hello 
-Last -> next: hello 
-next -> Wonderland : hello 
-Wonderland -> Alice : hello 
-Alice -> Bob: hello 
-```
