@@ -1,5 +1,6 @@
 ---
 title: docker-compose 를 통한 로컬 개발환경 설정
+tags: ['docker', 'docker-compose', 'redis', 'mysql', 'spring']
 ---
 
 `docker-compose` 를 통해 로컬 개발 환경을 설정해보자. 기본적으로 `SpringBoot` 을 사용할 것이고 `MySQL`, `Redis` 를 컨테이너로 올려 SpringBoot 에서 사용할 예정이다. 이걸 인프라라고 말하기도 부끄럽지만, 구성도를 그려보자면 아래와 같이 나타낼 수 있다.

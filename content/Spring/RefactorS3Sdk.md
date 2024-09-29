@@ -1,5 +1,6 @@
 ---
 title: 중복되는 코드를 객체지향적으로 해결하기
+tags: ['spring', 'refactor', 'oop']
 ---
 
 ```java

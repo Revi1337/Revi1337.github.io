@@ -1,5 +1,5 @@
 ---
-title: Scheduling
+title: Scheduling 의 주의점
 tags: ['scheduling', 'thread', 'async']
 ---
 
