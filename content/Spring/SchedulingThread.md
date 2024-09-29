@@ -1,5 +1,5 @@
 ---
-title: Scheduling 의 주의점
+title: Scheduling 의 스레드 설정
 tags: ['scheduling', 'thread', 'async']
 ---
 
