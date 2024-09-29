@@ -7,11 +7,11 @@ const Content: QuartzComponent = (props: QuartzComponentProps) => {
   const content = htmlToJsx(fileData.filePath!, tree)
   const classes: string[] = fileData.frontmatter?.cssclasses ?? []
   const classString = ["popover-hint", ...classes].join(" ")
-  const GithubComments = GithubComment()
+  // const GithubComments = GithubComment()
   return (
     <div>
       <article className={classString}>{content}</article>
-      <GithubComments {...props} />
+      {/*<GithubComments {...props} />*/}
     </div>
   )
 }

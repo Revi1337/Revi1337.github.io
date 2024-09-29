@@ -9,7 +9,7 @@ import * as Plugin from "./quartz/plugins"
 const config: QuartzConfig = {
   configuration: {
     pageTitle: "🪴 REVI1337",
-    enableSPA: false, // spa 를 false 로 해야지, comments 남길 수 있음!
+    enableSPA: true, // spa 를 false 로 해야지, comments 남길 수 있음!
     enablePopovers: true,
     analytics: {
       provider: "plausible",
