@@ -1,5 +1,5 @@
 ---
-title: Scheduling 의 간단한 사용법
+title: Scheduling 간단한 사용법
 tags: ['scheduling']
 ---
 
