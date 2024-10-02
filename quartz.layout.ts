@@ -139,6 +139,7 @@ export const defaultContentPageLayout: PageLayout = {
           "Spring/Scheduling": 8803,
           "Spring/SchedulingThread": 8804,
           "Spring/QueryTransactionLog": 8805,
+          "Spring/UpsertQuery": 8806,
 
           // (Root) Docker
           "Docker": 9000,
