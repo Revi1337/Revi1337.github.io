@@ -138,6 +138,7 @@ export const defaultContentPageLayout: PageLayout = {
           "Spring/RefactorS3Sdk": 8802,
           "Spring/Scheduling": 8803,
           "Spring/SchedulingThread": 8804,
+          "Spring/QueryTransactionLog": 8805,
 
           // (Root) Docker
           "Docker": 9000,
