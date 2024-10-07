@@ -1,5 +1,5 @@
 ---
-title: Query Profiling
+title: Profiling
 tags: ['database', 'profiling']
 ---
 
