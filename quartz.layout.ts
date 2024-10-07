@@ -102,13 +102,17 @@ export const defaultContentPageLayout: PageLayout = {
           "ComputerScience/ComputerArchitecture/LittleEndian_BigEndian": 5208,
           "Network": 5300, // EntryPoint
           "Database": 5400, // EntryPoint
-          "ComputerScience/Database/SQLEngine": 5402,
-          "ComputerScience/Database/Select": 5403,
-          "ComputerScience/Database/Like": 5404,
-          "ComputerScience/Database/OrderBy": 5405,
-          "ComputerScience/Database/Grouping_Aggregate": 5406,
-          "ComputerScience/Database/Join": 5407,
-          "Redis": 5401,
+          "Redis": 5500,
+          "ComputerScience/Database/DataModeling": 5801,
+          "ComputerScience/Database/SQLEngine": 5802,
+          "ComputerScience/Database/Select": 5803,
+          "ComputerScience/Database/Like": 5804,
+          "ComputerScience/Database/OrderBy": 5805,
+          "ComputerScience/Database/Grouping_Aggregate": 5806,
+          "ComputerScience/Database/Join": 5807,
+          "ComputerScience/Database/QueryProfiling": 5820,
+          "ComputerScience/Database/DummyData": 5821,
+          "ComputerScience/Database/CopyTable": 5822,
 
           // (Root) DesignPattern
           "DesignPattern": 7000,

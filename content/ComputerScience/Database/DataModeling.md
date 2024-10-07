@@ -1,5 +1,6 @@
 ---
 title: Data Modeling
+tags: ['database', 'data-modeling']
 ---
 
 ## Data Modeling
