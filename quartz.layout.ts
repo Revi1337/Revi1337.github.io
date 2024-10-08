@@ -149,11 +149,11 @@ export const defaultContentPageLayout: PageLayout = {
           "Docker": 9000,
           "Docker/WhatIsDocker": 9100,
           "Docker/DockerBaseCommand": 9200,
-          "Docker/DockerVolume": 9200,
-          "Docker/DockerNetwork": 9300,
-          "Docker/DockerCompose": 9400,
-          "Docker/DockerBuild": 9500,
-          "Docker/DockerCheetSheet": 9600,
+          "Docker/DockerVolume": 9300,
+          "Docker/DockerNetwork": 9400,
+          "Docker/DockerCompose": 9500,
+          "Docker/DockerBuild": 9600,
+          "Docker/DockerCheetSheet": 9700,
           "Docker/forbidden_access_permission": 9901,
 
           // Tools
