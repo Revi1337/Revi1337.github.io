@@ -139,7 +139,7 @@ export const defaultContentPageLayout: PageLayout = {
           "QueryDSL": 8500,
           "Cloud": 8600,
           "Spring/docker-local-config": 8801,
-          "Spring/RefactorS3Sdk": 8802,
+          "Spring/RefactoringS3Upload": 8802,
           "Spring/Scheduling": 8803,
           "Spring/SchedulingThread": 8804,
           "Spring/QueryTransactionLog": 8805,
