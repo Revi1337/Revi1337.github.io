@@ -122,7 +122,7 @@ public class RequestCacheHandlerExecutionChain implements RequestCacheHandler {
 
 또한, `RequestCacheHandlerExecutionChain` 가 RequestCacheHandler 를 구현하도록 만든 이유는 다음과 같습니다.
 
--  RequestCacheHandlerExecutionChain 자체가 하나의 캐싱전략이 될 수 있습니다. 따라서 확장과 유지보수에 큰 이점을 갖게됩니다.
+-  RequestCacheHandlerExecutionChain 자체가 하나의 캐싱전략이 될 수 있습니다. 따라서 확장과 유지보수에 큰 이점을 갖게됩니다. 지금보니 Composite 패턴으로도 활용될 수 있을것 같습니다.
 
 ## 설정 
 현재 진행하고 있는 프로젝트에서는 기존의 캐싱전략을 ThrottlingAspect 라는 이름으로 사용하고 있습니다. 해당 Aspect 에서는 앞서 만든 `RequestCacheHandlerExecutionChain` 를 주입받아 사용할 것입니다. 따라서 아래와 같이 설정파일을 만들어 줄 수 있습니다.
