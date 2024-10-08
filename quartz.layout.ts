@@ -130,6 +130,7 @@ export const defaultContentPageLayout: PageLayout = {
           "DataAccess": 8200,
           "Spring/DataAccess/Connection": 8201,
           "Spring/DataAccess/Connection_Pool": 8202,
+          "Spring/DataAccess/ScriptUtilsMechanism": 8203,
           "JPA": 8300,
           "Spring/JPA/@ColumnDefault": 8304,
           "Spring/JPA/@DynamicInsert_@DynamicUpdate": 8305,
