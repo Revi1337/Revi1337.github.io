@@ -220,4 +220,4 @@ public class ThrottlingAspect {
 ## 마치며
 디자인패턴을 공부하고 거의 9 달동안 Spring Project 들의 중요 구현체들을 까보며 분석하고 로컬 저장소에 기술하는 습관을 들였더니, Spring Project 들에 녹아들어있는 수많은 디자인 패턴들과 추상화가 엄청 놀랍다고 느껴졌습니다. 저또한 그 과정을 통해 코드를 보는 시야야 조금은 넓어진 것 같아서 좋습니다.
 
-해당 해턴은 `DispatcherServlet` 의 `doDispatch` 안에 있는 `HandlerExecutionChain` 을 보며 감명을 받아 적게 되었습니다.
+해당 포스팅은 `DispatcherServlet` 의 `doDispatch` 안에 있는 `HandlerExecutionChain` 을 응용하며 작성했습니다.
