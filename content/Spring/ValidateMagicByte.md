@@ -26,21 +26,7 @@ File Signature는 파일 형식을 식별하기 위해 `파일의 헤더 부분�
 > 파일 유형별 File Signature 에 대한 정보는 [wiki](https://en.wikipedia.org/wiki/List_of_file_signatures) 에서 확인할 수 있습니다.
 
 ## Magic Byte 관련 구현
-이제 Java 로 파일업로드에 허용하고 싶은 파일에 대한 `Magic Byte (Byte Pattern)` 을 명시해주고 코드를 작성해주면 됩니다. 
-### 고려한 부분
-제가 개인적으로 고려한 부분들은 다음과 같습니다. 
-
-**Enum 으로 구현**
-
-- 허용 가능한 파일 타입들은 매번 새로운 인스턴스로 생성하지 않아도 됩니다. 그 이유는 각 `파일에 대한 Magic Byte 는 Immutable` 하기 때문입니다. 따라서 `Enum` 으로 정의해주는게 바랍직하다고 판단했습니다.
-
-**Skip Index 설정**
-
-- 필드변수에는 `partialOffsets` 이 있습니다. 해당 정보는 검증하지 않아도 되는 Index 들을 `from, to` 형태로 나타낸 것입니다. 예를 들어 JPEG(EXIF) 의 Magic Byte 인 `FF D8 FF E1 ?? ?? 45 78 69 66 00 00` 가 있다면 ?? 가 검증하지 않아도 되는 값을 말하며 `{4,6}` 로 설정해줄 수 있습니다. 하지만 아래 코드에서는 ?? 가 `\x90`  로 대입된것을 볼 수 있습니다. Byte Array 에서는 ?? 를 사용할 수 없기 때문에 `x86 Assembly` 에서 아무 작업도 하지 않고 다른 명령어로 넘어가는 `NOP(No Operation)` 명령어를 나타내는 `\x90` 을 명시해주었습니다.
-
-**Immutable ByteArray**
-
-- 필드변수인 magicByte, partialOffsets 값을 외부로부터 변경될 수 있도록 깊은복사를 사용하였습니다.
+이제 Java 로 파일업로드에 허용하고 싶은 파일에 대한 `Magic Byte (Byte Pattern)` 을 명시해주고 코드를 작성해주면 됩니다.
 
 ```java
 @RequiredArgsConstructor  
@@ -118,6 +104,21 @@ public enum SupportAttachmentType {
     }  
 }
 ```
+
+### 고려한 부분
+제가 개인적으로 고려한 부분들은 다음과 같습니다. 
+
+**Enum 으로 구현**
+
+- 허용 가능한 파일 타입들은 매번 새로운 인스턴스로 생성하지 않아도 됩니다. 그 이유는 각 `파일에 대한 Magic Byte 는 Immutable` 하기 때문입니다. 따라서 `Enum` 으로 정의해주는게 바랍직하다고 판단했습니다.
+
+**Skip Index 설정**
+
+- 필드변수에는 `partialOffsets` 이 있습니다. 해당 정보는 검증하지 않아도 되는 Index 들을 `from, to` 형태로 나타낸 것입니다. 예를 들어 JPEG(EXIF) 의 Magic Byte 인 `FF D8 FF E1 ?? ?? 45 78 69 66 00 00` 가 있다면 ?? 가 검증하지 않아도 되는 값을 말하며 `{4,6}` 로 설정해줄 수 있습니다. 하지만 아래 코드에서는 ?? 가 `\x90`  로 대입된것을 볼 수 있습니다. Byte Array 에서는 ?? 를 사용할 수 없기 때문에 `x86 Assembly` 에서 아무 작업도 하지 않고 다른 명령어로 넘어가는 `NOP(No Operation)` 명령어를 나타내는 `\x90` 을 명시해주었습니다.
+
+**Immutable ByteArray**
+
+- 필드변수인 magicByte, partialOffsets 값을 외부로부터 변경될 수 있도록 깊은복사를 사용하였습니다.
 
 ## 검증 Util 클래스 작성
 이제 `SupportAttachmentType` 를 검증해줄 수 있는 Util 성 클래스를 작성해줍니다. 검증 클래스를 분리한 이유는 SRP 때문입니다.
