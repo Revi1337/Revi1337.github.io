@@ -140,11 +140,12 @@ export const defaultContentPageLayout: PageLayout = {
           "QueryDSL": 8500,
           "Cloud": 8600,
           "Spring/docker-local-config": 8801,
-          "Spring/RefactoringS3Upload": 8802,
-          "Spring/Scheduling": 8803,
-          "Spring/SchedulingThread": 8804,
-          "Spring/QueryTransactionLog": 8805,
-          "Spring/UpsertQuery": 8806,
+          "Spring/Scheduling": 8802,
+          "Spring/SchedulingThread": 8803,
+          "Spring/QueryTransactionLog": 8804,
+          "Spring/UpsertQuery": 8805,
+          "Spring/RefactoringS3Upload": 8806,
+          "Spring/RefactorWithChainOfResponsibility": 8807,
 
           // (Root) Docker
           "Docker": 9000,
