@@ -1,5 +1,5 @@
 ---
-title: schema.sql & data.sql 상세한 동작 원리
+title: ScriptUtils 의 매우 상세한 동작 원리
 tags: ['spring', 'data.sql', 'schema.sql']
 ---
 
