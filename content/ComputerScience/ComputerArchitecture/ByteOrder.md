@@ -1,5 +1,5 @@
 ---
-title: Little Endian & Big Endian
+title: ByteOrder
 tags: ["computer_architecture"]
 ---
 
