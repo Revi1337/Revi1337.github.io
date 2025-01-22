@@ -64,9 +64,12 @@ export const defaultContentPageLayout: PageLayout = {
           "Language": 1000,
           "Java": 1100,
           "Python": 1200,
+          "Language/Python/1_Sequence_NonSequence": 1201,
+          "Language/Python/2_Iterable_Iterator": 1202,
+          "Language/Python/4_Scope": 1250,
+          "Language/Python/99_PyInstaller": 1298,
+          "Language/Python/100_Deploy-PyPI": 1299,
           "Bash": 1300,
-          "Language/Python/PyInstaller": 1298,
-          "Language/Python/Deploy-PyPI": 1299,
 
           // (Root) Algorithm
           // "Algorithm": 2000,
