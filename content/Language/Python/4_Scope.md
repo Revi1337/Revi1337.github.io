@@ -503,3 +503,14 @@ outer_func()
 | :------: | :----------------------------------: | :--------------------------------------------------: | :------------------------------------: | :------------------------------------------------------------------------------: |
 |  global  |   Global Scope (Global Namespace)    |      현재 함수 내에서 전역 변수(글로벌 스코프)를 참조 및 수정 가능하게 만듦.      |        함수 내부 (로컬 스코프에서만 사용 가능)         | - 전역 변수 이름과 동일한 로컬 변수가 있는 경우, 로컬 변수를 참조하지 않음.  <br>- 오직 글로벌 스코프에 선언된 변수에만 적용 가능. |
 | nonlocal | Enclosing Scope (Enclosing Namespace | 현재 함수 내에서 상위 함수의 로컬 변수(Enclosing Scope)를 참조 및 수정 가능. | 중첩 함수 내부 (Nested Function, 가령 Closure) |   - Enclosing Scope가 없는 경우 사용 시 SyntaxError 발생.<br>- 글로벌 스코프에 선언된 변수에는 적용 불가능.   |
+
+## Reference
+
+전문가를 위한 파이썬 (교재)
+
+[Real Python](https://realpython.com/python-namespaces-scope/#variable-scope)
+
+[Real Python](https://realpython.com/python-scope-legb-rule/)
+
+[Why am I getting an UnboundLocalError when the variable has a value?](https://docs.python.org/2/faq/programming.html#why-am-i-getting-an-unboundlocalerror-when-the-variable-has-a-value) 
+
