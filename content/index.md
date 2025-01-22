@@ -1,8 +1,9 @@
 ---
 title: REVI1337
-description: '왜? Why? 为什么？'
+description: '와이! 와이!! 와이!!!'
 ---
 
+[//]: # (description: '왜? Why? 为什么？')
 [//]: # (description: '"왜?" 로부터 모든 것이 시작된다.')
 [//]: # (description: '"왜?" 가 모든 것의 시작이다.')
 
