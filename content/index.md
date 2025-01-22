@@ -1,6 +1,9 @@
 ---
 title: REVI1337
+description: '"왜?" 로부터 모든 것이 시작된다.'
 ---
+
+[//]: # (description: '"왜?" 가 모든 것의 시작이다.')
 
 <div class="container"> <div class="image-container"> <img src="https://revi1337.com/static/icon.png" alt="이미지 설명"> </div> <div class="list-container"> <ul> <li>개인소개 1</li> <li>개인소개 2</li> <li>개인소개 3</li> <li>개인소개 3</li> <li>개인소개 3</li> <li>개인소개 3</li> <li>개인소개 3</li> <li>개인소개 3</li> </ul> </div> </div> <style> .container { display: flex; padding: 30px } .image-container { width: 280px; display: flex; justify-content: center; align-items: center; } .list-container { width: 600px; display: flex; flex-direction: column; justify-content: space-around; } img { width: 100%; height: auto; margin-bottom: 0 !important;} </style>
 
