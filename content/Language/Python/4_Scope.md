@@ -4,7 +4,7 @@ tags: ['python']
 ---
 
 ## 들어가며
-모든 프로그래밍 언어에서는 변수가 유효한 범위를 의미하는 Scope 가 굉장히 중요합니다. 하지만 파이썬에서 Scope 를 이해하기 위해서는 Python 의 Namespace 에 대해 먼저 알 필요가 있습니다. 따라서 이번 포스팅에서는 `Python Namespace`, Namespace 에 따른 `Scope`, 인터프리터가 변수를 추적하는 `REGB Rule`, 그리고 상위 Scope 의 변수 값을 변경 및 재할당하게 해주는 `nonlocal` 과 `global` 키워드에 대해 알아보려 합니다.
+모든 프로그래밍 언어에서는 변수가 유효한 범위를 의미하는 Scope 가 굉장히 중요합니다. 하지만 파이썬에서 Scope 를 이해하기 위해서는 Python 의 Namespace 에 대해 먼저 알 필요가 있습니다. 따라서 이번 포스팅에서는 `Python Namespace`, Namespace 에 따른 `Scope`, 인터프리터가 변수를 추적하는 `LEGB Rule`, 그리고 상위 Scope 의 변수 값을 변경 및 재할당하게 해주는 `nonlocal` 과 `global` 키워드에 대해 알아보려 합니다.
 
 ## Namespace
 Python 에서 Namespace 는 `Name 과 객체의 매핑` 을 저장하는 공간(컨테이너) 을 말합니다. Name 과 객체가 매핑되어 있기 때문에 Namespace 는 `dictionary` 데이터 타입으로 이루어져 있습니다. 또한, Mutable 하기 때문에 Namespace 의 내용을 바꿀 수 있습니다. 파이썬에서는 아래와 같이 4가지 Namespace 가 존재합니다.
@@ -308,7 +308,7 @@ print(var) # global var
 `Scope`와 관련된 키워드로는 `nonlocal`과 `global`이 있습니다. 이 두 키워드는 모두 상위 Scope에 선언된 변수를 변경하거나 참조할 수 있게 도와준다는 공통점이 있지만, `변경하려는 변수가 위치하는 Scope에 따라 다르게 동작` 합니다.
 
 ### global
-`global` 키워드는 REGB Rule 과 관계없이 `Global Scope == Global Namespace` 에서 선언된 변수를 변경하거나 참조할 때 사용되는 키워드입니다.
+`global` 키워드는 LEGB Rule 과 관계없이 `Global Scope == Global Namespace` 에서 선언된 변수를 변경하거나 참조할 때 사용되는 키워드입니다.
 
 Global Scope 과 Local Scope(정확히 outer_func 의 Local Scope) 에 모두 var 이라는 변수를 선언했습니다. 이 상태로 코드를 실행하게 된다면 `LEGB Rule` 에 의하여  `outer_func Local Scope variable` 라는 결과가 출력되게 될 것입니다.
 
@@ -442,7 +442,7 @@ outer_func()
 > - 이로 인해 함수 내부의 print(var)가 외부 변수를 참조하지 못하고 초기화되지 않은 Local Scope 변수를 참조하려다가 UnboundLocalError 가 발생하게 되는 것입니다.
 
 ### nonlocal    
-`nonlocal` 키워드는 REGB Rule 과 관계없이 `Enclosing Scope 의 변수를 Local Scope 로 가져와 참조하거나 수정할때 사용되는 키워드`입니다. 즉, Nested Function 과 같은 형태에서 inner_func 에서 outer_func 의 Local Scope 에 있는 변수에 접근하거나 변경하고자 할때 사용합니다.
+`nonlocal` 키워드는 LEGB Rule 과 관계없이 `Enclosing Scope 의 변수를 Local Scope 로 가져와 참조하거나 수정할때 사용되는 키워드`입니다. 즉, Nested Function 과 같은 형태에서 inner_func 에서 outer_func 의 Local Scope 에 있는 변수에 접근하거나 변경하고자 할때 사용합니다.
 
 아래와 같은 같이 enclosing scope 의 var 를 참조만 하는 경우에는 nonlocal 키워드를 쓰든 안쓰든 동일하게 `outer_func Local Scope variable` 가 출력되게 됩니다. `LEGB Rule` 로 인해 otuer_func 의 var 가 출력되기 때문이죠.
 
