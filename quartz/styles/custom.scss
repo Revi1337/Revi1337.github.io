@@ -1,6 +1,24 @@
 @use "./base.scss";
 @use "./variables.scss" as *;
 
+//@font-face {
+//  font-family: 'SUIT-Regular';
+//  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+//  font-weight: 200;
+//  font-style: italic;
+//}
+
+//:root {
+//  --headerFont: "SUIT-Regular" !important;
+//  --bodyFont: "SUIT-Regular" !important;
+//  --codeFont: "SUIT-Regular" !important;
+//}
+
+* {
+  font-weight: 500;
+}
+
+
 ul#explorer-ul {
   min-height: 550px;
 }
