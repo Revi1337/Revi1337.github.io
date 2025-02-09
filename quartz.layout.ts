@@ -92,7 +92,7 @@ export const defaultContentPageLayout: PageLayout = {
           "ComputerScience": 5000, // EntryPoint
           "DataStructure": 5100, // EntryPoint
           "ComputerScience/DataStructure/Array": 5101,
-          "ComputerScience/DataStructure/asdf": 5102,
+          "ComputerScience/DataStructure/Heap": 5102,
           "ComputerScience/DataStructure/Graph": 5103,
           "ComputerScience/DataStructure/Tree": 5104,
           "ComputerScience/DataStructure/SpanningTree": 5105,
