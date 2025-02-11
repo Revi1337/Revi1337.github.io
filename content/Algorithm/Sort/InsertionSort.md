@@ -133,9 +133,9 @@ def insertion_sort(arr):
 
 **단점**
 
-1.  평균, 최악의 경우 `O(N²)` 의 시간 복잡도를 갖기 때문에 정렬하고자 하는 원소의 개수가 많아질수록 성능이 저하됩니다.
+1. 평균, 최악의 경우 `O(N²)` 의 시간 복잡도를 갖기 때문에 정렬하고자 하는 원소의 개수가 많아질수록 성능이 저하됩니다.
 2. 동일한 값을 가지는 원소들의 상대적인 순서가 변경될 수 있는 `불안정 정렬(Unstable Sort)` 입니다.
-3.  `최적화된 코드를 사용하지 않으면` 데이터가 이미 정렬되어 있더라도, 여전히 매번 비교 작업을 수행하므로 `O(N²)` 의 시간 복잡도를 갖습니다.
+3. `최적화된 코드를 사용하지 않으면` 데이터가 이미 정렬되어 있더라도, 여전히 매번 비교 작업을 수행하므로 `O(N²)` 의 시간 복잡도를 갖습니다.
 
 ## Reference
 [제자리 정렬](https://lifework-archive-reservoir.tistory.com/365), [안정 정렬 & 불안정 정렬](https://velog.io/@good159897/%EC%95%88%EC%A0%95-%EC%A0%95%EB%A0%AC-VS-%EB%B6%88%EC%95%88%EC%A0%95-%EC%A0%95%EB%A0%AC-%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%9D%B8%ED%84%B0%EB%B7%B0), [삽입 정렬 시간복잡도](https://www.daleseo.com/sort-insertion/), [삽입 정렬](https://gmlwjd9405.github.io/2018/05/06/algorithm-insertion-sort.html)
