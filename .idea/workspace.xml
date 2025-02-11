@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="283b94bf-5028-497f-92a5-3572fe5ed7aa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz.layout.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz.layout.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Algorithm/Sort/SelectionSort.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/Algorithm/Sort/SelectionSort.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +63,7 @@
       <updated>1739106659558</updated>
       <workItem from="1739106660523" duration="5300000" />
       <workItem from="1739179758388" duration="36000" />
-      <workItem from="1739269511707" duration="2524000" />
+      <workItem from="1739269511707" duration="3062000" />
     </task>
     <servers />
   </component>
