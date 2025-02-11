@@ -87,6 +87,8 @@ export const defaultContentPageLayout: PageLayout = {
           "Algorithm/SlidingWindow": 2006,
           "Algorithm/BackTracking": 2008,
           "Algorithm/Dijkstra": 2009,
+          "Algorithm/Sort/SelectionSort": 2501,
+          "Algorithm/Sort/HeapSort": 2502,
 
           // (Root) ComputerScience
           "ComputerScience": 5000, // EntryPoint
