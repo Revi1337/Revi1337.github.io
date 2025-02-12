@@ -89,7 +89,8 @@ export const defaultContentPageLayout: PageLayout = {
           "Algorithm/Dijkstra": 2009,
           "Algorithm/Sort/InsertionSort": 2501,
           "Algorithm/Sort/SelectionSort": 2502,
-          "Algorithm/Sort/HeapSort": 2503,
+          "Algorithm/Sort/BubbleSort": 2503,
+          "Algorithm/Sort/HeapSort": 2504,
 
           // (Root) ComputerScience
           "ComputerScience": 5000, // EntryPoint
