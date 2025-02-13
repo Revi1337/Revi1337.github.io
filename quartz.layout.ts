@@ -63,6 +63,12 @@ export const defaultContentPageLayout: PageLayout = {
           // (Root) Language
           "Language": 1000,
           "Java": 1100,
+          "Language/Java/1_CallByValue_CallByReference": 1101,
+          "Language/Java/2_JDK_JRE": 1102,
+          "Language/Java/3_Identity_Equality": 1103,
+          "Language/Java/4_String": 1104,
+          "Language/Java/5_StringConstantPool": 1105,
+          "Language/Java/6_StringBuilder_StringBuffer": 1106,
           "Python": 1200,
           "Language/Python/1_Sequence_NonSequence": 1201,
           "Language/Python/2_Iterable_Iterator": 1202,
