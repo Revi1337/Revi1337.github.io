@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="283b94bf-5028-497f-92a5-3572fe5ed7aa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Language/Java/5_StringConstantPool.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz.layout.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz.layout.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Language/Java/4_String_StringBuilder_StringBuffer.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/Language/Java/4_String_StringBuilder_StringBuffer.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quartz.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +69,7 @@
       <workItem from="1739345444169" duration="1119000" />
       <workItem from="1739464689920" duration="2168000" />
       <workItem from="1739503218947" duration="2000" />
-      <workItem from="1739544937689" duration="426000" />
+      <workItem from="1739544937689" duration="881000" />
     </task>
     <servers />
   </component>

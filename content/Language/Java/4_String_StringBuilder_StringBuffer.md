@@ -3,11 +3,11 @@ title: String & StringBuilder & StringBuffer
 tags: ['language', 'java']
 ---
 
-> [!question] 문자열은 기본 데이터 유형인가요? ^quote-of-the-day
+> [!question] 문자열은 기본 데이터 유형인가요?
 > - 문자열은 기본 데이터 유형(Primitive Data Type) 이 아닙니다.
 > - 기본 데이터 유형은 정수, 실수, 문자, 불리언 등과 같은 간단한 데이터를 나타내는 유형입니다.
 > - 문자열은 여러 문자로 구성된 데이터이며, Java 에서는 문자열 을 다루기 위해 String 클래스를 제공합니다.
-
+^quote-of-the-day
 
 > [!question] Java에서 문자열을 조작하기 위한 클래스는 어떤것들이 있나요? 그들 사이의 차이점은 무엇인가요?
 > - Java 에서 문자열을 조작하기 위해 주로 사용되는 클래스에는 String & StringBuilder & StringBuffer 가 있습니다. 
