@@ -51,11 +51,11 @@ tags: ['language', 'java']
 
 > [!question] String 인스턴스를 만드는 방식은 몇가지가 있나요?
 > - 2가지가 있습니다. 문자열 리터럴 방식 혹은 new String() 을 통해 String 인스턴스를 만들어 줄 수 있습니다.
-> - 리터럴 방식은 더블 쿼트"" 로 묵시적인 String 인스턴스를 만들고, Heap 영역의 [String Constant Pool](#^what-is-string-constant-pool) 에 저장됩니다.
+> - 리터럴 방식은 더블 쿼트"" 로 묵시적인 String 인스턴스를 만들고, Heap 영역의 [String Constant Pool](Language/Java/4_String_StringBuilder_StringBuffer.md#^what-is-string-constant-pool) 에 저장됩니다.
 > - new String() 은 명시적으로 새로운 인스턴스를 만들고, Heap 영역에 저장됩니다.
 
 ^how-many-string-make
-[String Constant Pool](#^what-is-string-constant-pool)
+
 
 > [!question] 문자열 리터럴 방식과 new String() 방식은 어떤 차이가 있나요?
 > - 결론적으로 메모리 효율성에 차이가 있습니다.
@@ -177,4 +177,5 @@ public class LoopStringMain {
 
 ![](Language/Java/images/Pasted%20image%2020250214154528.png)
 
-[asdfsdf](#^what-is-string-constant-pool)
+[String Constant Pool](Language/Java/4_String_StringBuilder_StringBuffer.md#^what-is-string-constant-pool)
+
