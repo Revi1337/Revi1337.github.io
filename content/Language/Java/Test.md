@@ -1,5 +1,5 @@
 ---
-title: String
+title: Test
 tags: ['language', 'java']
 ---
 
@@ -38,7 +38,7 @@ public final class String
 
 1. `String string = "문자열"` 
 	- 리터럴 방식이며 `""` 로 String 인스턴스를 생성합니다.
-	- Java 실행 시, Class 에 문자열 리터럴이 있으면 `String Constant Pool` 에 동일한 `"문자열"` 이 있는지 확인합니다. 만약 이미 있다면, 재사용되며, 없으면 새로운 String 인스턴스가 생성되어 `String Constant Pool 에 저장`됩니다.
+	- Java 실행 시, Class 에 문자열 리터럴이 있으면 `String Constant Pool` 에 동일한 `"문자열"` 이 있는지 확인합니다. 만약 이미 있다면 재사용되며, 없으면 새로운 String 인스턴스가 생성되어 `String Constant Pool 에 저장`됩니다.
 	- 이러한 최적화를 통해 불필요한 메모리 사용을 줄일 수 있습니다.
 
 2. `String string = new String("문자열")`
