@@ -7,6 +7,7 @@ tags: ['language', 'java']
 > - 문자열은 기본 데이터 유형(Primitive Data Type) 이 아닙니다.
 > - 기본 데이터 유형은 정수, 실수, 문자, 불리언 등과 같은 간단한 데이터를 나타내는 유형입니다.
 > - 문자열은 여러 문자로 구성된 데이터이며, Java 에서는 문자열 을 다루기 위해 String 클래스를 제공합니다.
+
 ^is-string-primitive
 
 
@@ -29,11 +30,13 @@ tags: ['language', 'java']
 > - 변경이 불가능한 Immutable 객체이므로, 한번 생성된 문자열을 변경할 수 없습니다. String 클래스에서 제공하는 변경 메서드를 취하거나 연산을 하면 새로운 String 객체를 반환하기 때문에 멀티 스레드 환경에서 ThreadSafe 하게 동작합니다.
 > - 문자열 연산이 많다면, StringBuilder 또는 StringBuffer 를 사용하는 것이 더 효율적입니다.
 > - String 객체는 Thread Safe 하다. 여러 스레드에서 동시에 특정 String 객체를 참조하더라도 안전하다.
+
 ^what-is-string-class
 
 
 > [!question] 왜 String Class 는 Immutable 로 설계되었을까요?
 > String Constant Pool 에 있는 String 인스턴스 값이 중간에 변경되면, 같은 문자열을 참조하는 모든 객체의 값도 함께 변경되는 Side Effect 가 발생할 수 있기 때문입니다.
+
 ^why-string-immutable
 
 
@@ -42,6 +45,7 @@ tags: ['language', 'java']
 > - 자바에서 char 타입은 2Byte 로 고정되어 있기 때문에, 영문자, 숫자 등 1Byte 로 표현할 수 있는 문자에 대해 불필요하게 Byte 를 사용하게 됩니다.
 > - 하지만 byte[]를 사용하면, 영어 또는 숫자로만 구성된 경우 1Byte 만 사용하고, 그 외의 문자들은 2Byte 로 사용할 수 있습니다.
 > - 따라서 메모리를 더 효율적으로 사용할 수 있습니다.
+
 ^why-string-field-changed
 
 
@@ -49,6 +53,7 @@ tags: ['language', 'java']
 > - 2가지가 있습니다. 문자열 리터럴 방식 혹은 new String() 을 통해 String 인스턴스를 만들어 줄 수 있습니다.
 > - 리터럴 방식은 더블 쿼트"" 로 묵시적인 String 인스턴스를 만들고, Heap 영역의 [String Constant Pool](#^what-is-string-constant-pool) 에 저장됩니다.
 > - new String() 은 명시적으로 새로운 인스턴스를 만들고, Heap 영역에 저장됩니다.
+
 ^how-many-string-make
 
 
@@ -62,6 +67,7 @@ tags: ['language', 'java']
 > [!question] StringBuilder 와 StringBuffer 에는 어떤 메서드가 있나요?
 > - StringBuilder 와 StringBuffer 모두 AbstractStringBuilder 를 구현하고 있어 append(), insert(), delete() 메서드를 제공합니다.
 > - append() 메서드는 맨 뒤에 새로운 문자 및 문자열을 추가할 수 있고, insert() 와 delete() 는 offset 기반으로 특정 위치에 문자를 추가하고, 삭제할 수 있습니다.
+
 ^diff-between-builder-buffer
 
 
@@ -71,6 +77,7 @@ tags: ['language', 'java']
 > - 이것은 곧 StringBuffer 는 스레드간의 동기화가 필요하고, StringBuilder 는 필요없다는 것을 의미합니다.
 > - 실제로 StringBuffer 의 대부분의 메서드에는 synchronized 키워드가 달려있어, 스레드간의 동기화(Lock 을 걸고 해제하는 과정) 과정에서 오버헤드가 발생하여 성능이 떨어질 수 있습니다. 
 > - 하지만 StringBuilder 는 이러한 동기화 과정이 없기 때문에 성능상 더 이점이 있습니다.
+
 ^diff-between-builder-buffer
 
 
@@ -80,6 +87,7 @@ tags: ['language', 'java']
 > - String은 불변객체이기 때문에 문자열의 생성 시 String Constant Pool 에 저장된 리터럴을 재사용할 수 있습니다.
 > - 소스코드에 문자열 자체를 선언하거나 String.intern()[](#^what-is-intern) 메서드를 사용한 경우에만 Pool 에 저장되게 됩니다.
 > - new String() 혹은 동적(계산) 으로 할당된 문자열은 Pool 에 저장되지 않습니다.
+
 ^what-is-string-constant-pool
 
 
@@ -87,6 +95,7 @@ tags: ['language', 'java']
 > - 동적으로 생성된 문자열을 String Constant Pool 에 직접적으로 넣어주는 메서드입니다.
 > - intern 메서드는 String Constant Pool 에 해당 문자열이 있는지 검증하고 없으면 Pool 에 저장한 후 주소값을 반환하고, 있으면 기존 Pool 에 있는 주소값을 반환합니다.
 > - Pool 은 GC 의 대상이 아니기 때문에, 애플리케이션이 종료될때까지 계속 메모리에 남아있습니다. 이는 메모리 릭 발생 가능성을 높이기 때문에 해당 메서드는 사용하지 않는 것이 권장됩니다. 
+
 ^what-is-intern
 
 
@@ -94,6 +103,7 @@ tags: ['language', 'java']
 > - 만약 동일성 비교인 == 를 사용하면 String Constant Pool 의 영향을 받기 때문입니다. 
 > - 동일한 문자열 리터럴을 사용하는 경우 같은 참조값을 가지므로 동일성 비교에 성공하지만, 문자열 리터럴과 **new String()** 을 비교하면 같은 문자열이라해도 참조값이 달라 동일성 비교에 실패하게 됩니다.
 > - 따라서 문자열 비교에는 꼭 equals() 를 사용해야 합니다.
+
 ^why-string-comp-equals
 
 
@@ -101,6 +111,7 @@ tags: ['language', 'java']
 > - 어떠한 경우에도 equals() 로 동등성 비교를 해야합니다.
 > - 만약 두 문자열을 비교하는 메서드가 있다고 가정한다면, 매개변수로 들어오는 두개의 String 타입이 문자열 리터럴인지, new String() 으로 만들어진 객체인지 판단이 불가능하게 됩니다.
 > - 따라서 그 어떠한 경우에도 문자열 비교에는 동등성 비교를 해야 합니다.
+
 ^why-string-comp-equals2
 
 
