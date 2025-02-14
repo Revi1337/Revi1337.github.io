@@ -63,16 +63,22 @@
   }
 
   &[data-callout="success"] {
-    --color: #09ad7a;
-    --border: #09ad7144;
-    --bg: #09ad7110;
+    //--color: #09ad7a;
+    //--border: #09ad7144;
+    //--bg: #09ad7110;
+    --color: #dba642;
+    --border: #dba64244;
+    --bg: #dba64210;
     --callout-icon: var(--callout-icon-success);
   }
 
   &[data-callout="question"] {
-    --color: #dba642;
-    --border: #dba64244;
-    --bg: #dba64210;
+    //--color: #dba642;
+    //--border: #dba64244;
+    //--bg: #dba64210;
+    --color: #09ad7a;
+    --border: #09ad7144;
+    --bg: #09ad7110;
     --callout-icon: var(--callout-icon-question);
   }
 
