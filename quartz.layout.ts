@@ -67,7 +67,6 @@ export const defaultContentPageLayout: PageLayout = {
           "Language/Java/2_JDK_JRE": 1102,
           "Language/Java/3_Identity_Equality": 1103,
           "Language/Java/4_String_StringBuilder_StringBuffer": 1104,
-          "Language/Java/5_StringConstantPool": 1105,
           "Python": 1200,
           "Language/Python/1_Sequence_NonSequence": 1201,
           "Language/Python/2_Iterable_Iterator": 1202,
