@@ -133,8 +133,8 @@ export const defaultContentPageLayout: PageLayout = {
           "Spring": 8000,
 
           "Cache": 8025,
-          "Spring/Boot/1_SpringCacheAbstraction": 8026,
-          "Spring/Boot/2_RedisCacheManagerCaching": 8027,
+          "Spring/Cache/1_SpringCacheAbstraction": 8026,
+          "Spring/Cache/2_RedisCacheManagerCaching": 8027,
 
           "Boot": 8050,
           "Spring/Boot/Actuator": 8051,
