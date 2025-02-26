@@ -131,26 +131,38 @@ export const defaultContentPageLayout: PageLayout = {
 
           // (Root) Spring
           "Spring": 8000,
+
+          "Cache": 8025,
+          "Spring/Boot/1_SpringCacheAbstraction": 8026,
+          "Spring/Boot/2_RedisCacheManagerCaching": 8027,
+
           "Boot": 8050,
           "Spring/Boot/Actuator": 8051,
           "Spring/Boot/Prometheus": 8052,
           "Spring/Boot/Grafana": 8053,
+
           "MVC": 8100,
           "Spring/MVC/Filter": 8102,
           "Spring/MVC/Interceptor": 8103,
           "Spring/MVC/@RequestPart": 8104,
+
           "DataAccess": 8200,
           "Spring/DataAccess/Connection": 8201,
           "Spring/DataAccess/Connection_Pool": 8202,
           "Spring/DataAccess/ScriptUtilsMechanism": 8203,
+
           "JPA": 8300,
           "Spring/JPA/@ColumnDefault": 8304,
           "Spring/JPA/@DynamicInsert_@DynamicUpdate": 8305,
           "Spring/JPA/CascadeRemove_OrphanRemoval": 8306,
+
           "DataJPA": 8400,
           "Spring/DataJPA/Multiple_Pageable": 8401,
+
           "QueryDSL": 8500,
+
           "Cloud": 8600,
+
           "Spring/docker-local-config": 8801,
           "Spring/Scheduling": 8802,
           "Spring/SchedulingThread": 8803,
