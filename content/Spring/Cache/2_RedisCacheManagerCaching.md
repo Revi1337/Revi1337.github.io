@@ -123,7 +123,7 @@ public class RedisCacheManagerConfiguration {
 
 	private RedisCacheConfiguration defaultConfiguration() {  
         return RedisCacheConfiguration.defaultCacheConfig()  
-                 .computePrefixWith(cacheName -> String.format("onsquad:%s", cacheName)) // "onsquad:cacheName:key" 형태로 Redis 에 저장됩니다.  
+                 .computePrefixWith(cacheName -> String.format(DEFAULT_KEY_FORMAT, cacheName)) // "onsquad:cacheName:key" 형태로 Redis 에 저장됩니다.  
 //                .prefixCacheNameWith("onsquad:") // "onsquad:cacheName::key" 형태로 Redis 에 저장됩니다.  
                 .serializeKeysWith(fromSerializer(new StringRedisSerializer()))  
                 .serializeValuesWith(fromSerializer(new GenericJackson2JsonRedisSerializer()));  
