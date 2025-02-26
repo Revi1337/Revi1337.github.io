@@ -146,7 +146,7 @@ public CrewStatisticDomainDto getStatisticById(Long crewId) {
 ```
 
 
-요청을 찌른 후, 결과가 잘 캐싱된 것을 확인할 수 있고, 12초 후 만료시간이 지나 사라진것을 알 수 있습니다. 또한, Value 를 GenericJackson2JsonRedisSerializer 로 직렬화했기 때문에 Human Readable 해진 것을 알 수 있습니다. 마지막으로 `::` 문자가 사용되지 않고 `:` 하나만 사용되어 일관성을 지키고 있는것을 확인할 수 있습니다.
+요청을 찌른 후, 결과가 잘 캐싱된 것을 확인할 수 있고, 12초 후 만료시간이 지나 사라진것을 알 수 있습니다. 또한, Value 를 GenericJackson2JsonRedisSerializer 로 직렬화했기 때문에 Human Readable 해진 것을 알 수 있습니다. 마지막으로 `::` 문자가 사용되지 않고 `:` 하나만 사용되어 일관성을 지키고 있는것을 확인할 수 있습니다.
 
 ```bash
 127.0.0.1:6379> keys *
@@ -163,7 +163,7 @@ public CrewStatisticDomainDto getStatisticById(Long crewId) {
 ![](Spring/Cache/images/Pasted%20image%2020250226213826.png)
 
 
-하지만 `.computePrefixWith(CacheKeyPrefix)` 는 내부적으로 `CacheKeyPrefix.prefixed` 를 호출하지 않기 때문에
+하지만 `.computePrefixWith(CacheKeyPrefix)` 는 `.prefixCacheNameWith(String)` 와 달리 내부적으로 `CacheKeyPrefix.prefixed` 를 호출하지 않기 때문에
 
 ![](Spring/Cache/images/Pasted%20image%2020250226222224.png)
 
