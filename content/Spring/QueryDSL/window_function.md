@@ -346,4 +346,3 @@ https://www.baeldung.com/blaze-persistence-tutorial
 https://www.inflearn.com/chats/912845/%EB%A7%8C%EB%A3%8C%EB%90%9C-%EB%A9%94%EC%84%9C%EB%93%9C-fetchresult-blaze-persistence-%EC%84%B8%ED%8C%85-%EA%B4%80%EB%A0%A8-%EA%B8%80-%EA%B3%B5%EC%9C%A0%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4
 
 https://persistence.blazebit.com/documentation/1.6/core/manual/en_US/#subquery-in-from-clause
-

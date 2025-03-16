@@ -14,6 +14,7 @@ Spring 에서 더미 데이터를 넣어주는 방법에는 아래와 같이 5�
 
 해당 포스팅에서는 `5번. ScriptUtils 를 통한 더미데이터 추가` 에 대한 상세과정을 분석해보려고 합니다.
 
+
 ## ScriptUtils
  `ScriptUtils` 는 `resources` 하위에 `schema.sql` 혹은 `data.sql` 을 명시해주었을때 해당 스크립트를 실행시켜주는 클래스입니다. 실제로 properties 에 `spring.sql.init.mode=always` 를 설정하고 resources 하위에 `schema.sql` 과 `data.sql` 을 작성하면
 

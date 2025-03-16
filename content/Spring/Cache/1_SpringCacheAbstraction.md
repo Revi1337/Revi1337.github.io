@@ -3,8 +3,22 @@ title: Spring Cache 추상화와 기본 캐싱
 tags: ['spring', 'cache']
 ---
 
-## Spring Cache Abstraction
-스프링에서는 `org.spring.framework.cache.Cache` 그리고 `org.springframework.cache.CacheManager` 를 사용하여 캐시 구현 기술에 종속되지 않도록 추상화된 서비스를 제공하고 있습니다. 그렇기 때문에 환경이 바뀌거나 적용할 캐시 기술을 변경하여도 애플리케이션 코드에 영향을 주지 않습니다.
+## Spring Cache
+스프링에서는 `org.springframework.cache.Cache` 그리고 `org.springframework.cache.CacheManager` 를 사용하여 캐시 구현 기술에 종속되지 않도록 추상화된 서비스를 제공하고 있습니다. 그렇기 때문에 환경이 바뀌거나 적용할 캐시 기술을 변경하여도 애플리케이션 코드에 영향을 주지 않습니다.
+
+### Cache
+`org.springframework.cache.Cache` 는 Spring 에서 `캐시 기능을 추상화` 한 인터페이스입니다. Spring 애플리케이션에서의 모든 캐시는 해당 인터페이스를 통해 접근할 수 있습니다.
+
+![](Spring/Cache/images/Pasted%20image%2020250227202927.png)
+
+
+Spring 에서 제공하는 Cache 의 구현체 여러가지가 존재합니다.
+
+Cache 인터페이스의 구현체 중 하나인 ConcurrentMapCache 를 예로 들겠습니다. `Car` 이라는 캐시가 있으면
+
+![](Spring/Cache/images/Pasted%20image%2020250227230548.png)
+
+### CacheManager
 
 ## Spring Cache 설정
 ### @EnableCaching 추가

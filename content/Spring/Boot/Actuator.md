@@ -1196,4 +1196,3 @@ revi1337@B3-B35T SpringBoot % curl localhost:8083/actuator -s | jq
 ...
 ```
 
-

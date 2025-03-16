@@ -1,8 +1,9 @@
 ---
 title: Multiple Pageable
+tags: ['jpa', 'data_jpa']
 ---
 
-Spring Data JPA 에서는 페이징처리에서 사용되는 Pageable 인스턴스와 해당 인스턴스의 디폴트 값을 변경할 수 있는 @PageableDefault 어노테이션을 제공한다.
+Spring Data JPA 에서는 페이징처리에서 사용되는 Pageable 인스턴스와 해당 인스턴스의 디폴트 값을 설정 및 변경할 수 있는 @PageableDefault 어노테이션을 제공한다.
 
 ```java
 @GetMapping("/comments")  
@@ -16,21 +17,21 @@ public ResponseEntity<RestResponse<List<CommentsResponse>>> findComments(
 
 위와같이 HandlerMethod 에서 @PageableDefault 를 사용하여 Pageable 인스턴스의 디폴트값을 변경할 수 있는 이유는 내부적으로 @PageableDefault 를 해석하기 위한 `PageableHandlerMethodArgumentResolver` 가 사용되기 때문이다.
 
-## Classes 의존관계도
+## Class 의존관계도
 PageableHandlerMethodArgumentResolver 와 관련된 클래스에는 아래와 같다.
 
-1. PageableArgumentResolver, 
+1. PageableArgumentResolver
 2. PageableHandlerMethodArgumentResolverSupport
 3. PageableHandlerMethodArgumentResolverCustomizer
 4. SortHandlerMethodArgumentResolver  (범위 밖이므로 나중에 다뤄보기로 한다.)
 
-**PageableHandlerMethodArgumentResolverSupport**
-
-- PageableHandlerMethodArgumentResolver 가 extends 하고 있는 클래스이며, WebRequest 로부터 페이징 정보를 만들기위한 메서드를 제공한다.
-
 **PageableArgumentResolver**
 
 - HandlerMethodArgumentResolver 를 extends 한 interface 이며, PageableHandlerMethodArgumentResolver 가 implement 한다.
+
+**PageableHandlerMethodArgumentResolverSupport**
+
+- PageableHandlerMethodArgumentResolver 가 extends 하고 있는 추상 클래스이며, WebRequest 로부터 페이징 정보를 만들기위한 메서드를 제공한다.
 
 **PageableHandlerMethodArgumentResolverCustomizer**
 
@@ -39,7 +40,7 @@ PageableHandlerMethodArgumentResolver 와 관련된 클래스에는 아래와 �
 ![](Spring/DataJPA/images/Pasted%20image%2020240628223106.png)
 
 ## @PageableDefault 원리
-PageableHandlerMethodArgumentResolver 에서는 WebRequest 로부터 Page 파라미터와 Size 파라미터를 통해 page 와 pageSize 를 가져오고  SortHandlerMethodArgumentResolver 를 통해 정렬조건을 가져온 후, Pageable 인스턴스를 만들어서 리턴하게 된다.
+PageableHandlerMethodArgumentResolver 에서는 WebRequest 로부터 Page 파라미터와 Size 파라미터를 통해 page 와 pageSize 를 가져오고 SortHandlerMethodArgumentResolver 를 통해 정렬조건을 가져온 후, Pageable 인스턴스를 만들어서 리턴하게 된다.
 
 ![](Spring/DataJPA/images/Pasted%20image%2020240628221747.png)
 
@@ -108,3 +109,4 @@ $curl -G "localhost:8083/api/v1/crew/comments" --data-urlencode "crewName=크루
 ## Reference
 [Spring DataJPA Web Support](https://docs.spring.io/spring-data/jpa/reference/repositories/core-extensions.html#core.web.basic)
 [DataJPA Paging](https://gunju-ko.github.io/spring/2018/05/01/Spring-Data-JPA-Paging.html)
+

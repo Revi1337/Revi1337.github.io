@@ -104,13 +104,13 @@ public class CrewParticipantJdbcRepository {
   
     public CrewParticipant upsertCrewParticipant(Long crewId, Long memberId, LocalDateTime now) {  
         String sql = "INSERT INTO crew_participant (crew_id, member_id, request_at)" +  
-                " VALUES (:crew_id, :member_id, :request_at) ON DUPLICATE KEY UPDATE request_at = :request_at";  
+        " VALUES (:crewId, :memberId, :now) ON DUPLICATE KEY UPDATE request_at = :now";  
   
-        KeyHolder generatedKeyHolder = new GeneratedKeyHolder();  
-        SqlParameterSource mapSqlParameterSource = new MapSqlParameterSource()  
-                .addValue("crew_id", crewId)  
-                .addValue("member_id", memberId)  
-                .addValue("request_at", now);  
+		KeyHolder generatedKeyHolder = new GeneratedKeyHolder();  
+		SqlParameterSource mapSqlParameterSource = new MapSqlParameterSource()  
+		        .addValue("crewId", crewId)  
+		        .addValue("memberId", memberId)  
+		        .addValue("now", now);
   
         int influenced = namedParameterJdbcTemplate.update(sql, mapSqlParameterSource, generatedKeyHolder);  
   

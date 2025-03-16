@@ -6,7 +6,24 @@
   <component name="ChangeListManager">
     <list default="true" id="283b94bf-5028-497f-92a5-3572fe5ed7aa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Spring/Boot/Actuator.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/Spring/Boot/Actuator.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Spring/Boot/Prometheus.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/Spring/Boot/Prometheus.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Spring/Boot/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/Spring/Boot/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Spring/Cache/1_SpringCacheAbstraction.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/Spring/Cache/1_SpringCacheAbstraction.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/content/Spring/Cache/2_RedisCacheManagerCaching.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/Spring/Cache/2_RedisCacheManagerCaching.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Spring/Cloud/S3_SDK.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/Spring/Cloud/S3_SDK.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Spring/DataAccess/Connection.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/Spring/DataAccess/Connection.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Spring/DataAccess/Connection_Pool.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/Spring/DataAccess/Connection_Pool.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Spring/DataAccess/ScriptUtilsMechanism.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/Spring/DataAccess/ScriptUtilsMechanism.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Spring/DataJPA/Multiple_Pageable.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/Spring/DataJPA/Multiple_Pageable.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Spring/JPA/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/Spring/JPA/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Spring/QueryDSL/window_function.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/Spring/QueryDSL/window_function.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Spring/QueryTransactionLog.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/Spring/QueryTransactionLog.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Spring/RefactorWithChainOfResponsibility.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/Spring/RefactorWithChainOfResponsibility.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Spring/Scheduling.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/Spring/Scheduling.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Spring/SchedulingThread.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/Spring/SchedulingThread.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Spring/UpsertQuery.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/Spring/UpsertQuery.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Spring/ValidateMagicByte.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/Spring/ValidateMagicByte.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +87,9 @@
       <workItem from="1739503218947" duration="2000" />
       <workItem from="1739544937689" duration="5251000" />
       <workItem from="1740578323786" duration="230000" />
-      <workItem from="1740578561800" duration="1125000" />
+      <workItem from="1740578561800" duration="1917000" />
+      <workItem from="1741104595171" duration="407000" />
+      <workItem from="1742150308563" duration="136000" />
     </task>
     <servers />
   </component>

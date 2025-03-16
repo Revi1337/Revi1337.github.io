@@ -1,32 +1,28 @@
 ---
-title: Whitelist 기반 MagicByte 필터링 구현
+title: Whitelist기반 Magic Number로 업로드 필터링 구현
 tags: ['spring', 'magic-byte', 'secure-coding']
 ---
 
 ## 들어가며
-어떤 프로젝트라도 보통은 이미지를 업로드하는 로직이 꼭 들어가곤 합니다. 물론 제가 지금 진행하고 있는 프로젝트도 마찬가지구요. 이번 포스팅에서는 파일의 `Magic Byte` 를 검증하여 특정 파일만 `Whitelist` 기반으로 허용하는 방법을 다뤄보고자 합니다.
+어떤 프로젝트라도 보통은 이미지를 업로드하는 로직이 꼭 들어가곤 합니다. 물론 제가 지금 진행하고 있는 프로젝트도 마찬가지구요. 이번 포스팅에서는 파일의 `Magic Number` 를 검증하여 특정 파일만 `Whitelist` 기반으로 허용하는 방법을 다뤄보고자 합니다.
 
-물론 S3 를 이용한다면, `버킷 정책` 에서 업로드할 수 있는 파일들만 `WhiteList` 기반으로 제한시킬 수 있습니다. 또한, 스프링을 사용한다면 아래와 같은 코드로 MIME 타입을 판단할 수도 있습니다. 하지만 아래의 코드는 `이름을 포함한 경로를 기반으로 파일의 MIME 타입을 추론` 하기 때문에 신뢰성이 떨어집니다.
+물론 S3 를 이용한다면, `버킷 정책` 에서 업로드할 수 있는 파일들만 `WhiteList` 기반으로 제한시킬 수 있습니다. 또한, 스프링을 사용한다면 아래와 같은 코드로 MIME 타입을 판단할 수도 있습니다. `Files.probeContentType()` 메서드는 파일 시그니처를 우선적으로 사용하여 MIME 타입을 결정합니다.
 
 ```java
 MediaType mediaType = MediaType.parseMediaType(Files.probeContentType(Paths.get(imageName)));
 ```
 
-이러한 생각을 하게 된 이유는 진로를 개발로 전향하기 전, Web 관련 CTF 에서 파일 업로드 문제를 여럿 풀어본적 있었고, 이런 경험으로 통해 `파일 확장자`와 `MIME 타입을 통해 파일을 검증`하는건 `의미가 별로 없다`고 생각되었기 때문입니다.
 
-## File Signature & Magic Byte
-Magic Byte와 File Signature는 파일 업로드 시 허용된 형식만을 받기 위한 `Whitelist` 기반의 파일 검증에 중요한 역할을 합니다. 해당 방식은 파일 확장자만을 검증하는 것보다 보안성이 높아, 악의적인 파일 업로드를 방지하는 데 유용합니다.
+## Magic Number
+`Magic Number` 는 파일의 가장 앞부분에 위치한 몇개의 `특정 Byte Pattern` 의미하며, `파일 시그니처` 라고 불리웁니다. 예를 들어, PNG 파일은 `\x89\x50\x4e\x47\x0d\x0a\x1a\x0a`라는 Magic Number(File Signature)를 가지고 있으며, 이를 통해 해당 파일이 PNG 형식임을 알 수 있습니다.
 
-### File Signature
-File Signature는 파일 형식을 식별하기 위해 `파일의 헤더 부분에 저장된 고유한 값`입니다. 파일 형식은 `파일 확장자만으로는 신뢰할 수 없기 때문`에, 이 `File Signature`를 통해 실제 파일의 형식을 판별하는 것이 바람직합니다.
+Magic Number 및 File Signature는 파일 업로드 시 허용된 형식만을 받기 위한 `Whitelist` 기반의 파일 검증에 중요한 역할을 합니다. 해당 방식은 파일 확장자만을 검증하는 것보다 보안성이 높아, 악의적인 파일 업로드를 방지하는 데 유용합니다.
 
-### Magic Byte
-`Magic Byte` 는 파일의 가장 앞부분에 위치한 `특정 Byte Pattern` 의미하며, `파일 시그니처의 일부` 라고 할 수 있습니다. 예를 들어, PNG 파일은 `\x89\x50\x4e\x47\x0d\x0a\x1a\x0a`라는 Magic Byte를 가지고 있으며, 이를 통해 해당 파일이 PNG 형식임을 알 수 있습니다.
 
 > 파일 유형별 File Signature 에 대한 정보는 [wiki](https://en.wikipedia.org/wiki/List_of_file_signatures) 에서 확인할 수 있습니다.
 
-## Magic Byte 관련 구현
-이제 Java 로 파일업로드에 허용하고 싶은 파일에 대한 `Magic Byte (Byte Pattern)` 을 명시해주고 코드를 작성해주면 됩니다.
+## Magic Number 관련 구현
+이제 Java 로 파일업로드에 허용하고 싶은 파일에 대한 `Magic Number (Byte Pattern)` 을 명시해주고 코드를 작성해주면 됩니다. 
 
 ```java
 @RequiredArgsConstructor  
@@ -110,21 +106,18 @@ public enum SupportAttachmentType {
 
 **Enum 으로 구현**
 
-- 허용 가능한 파일 타입들은 매번 새로운 인스턴스로 생성하지 않아도 됩니다. 그 이유는 각 `파일에 대한 Magic Byte 는 Immutable` 하기 때문입니다. 따라서 `Enum` 으로 정의해주는게 바랍직하다고 판단했습니다.
+- 허용 가능한 파일 타입들은 매번 새로운 인스턴스로 생성하지 않아도 됩니다. 그 이유는 각 `파일에 대한 Magic Number 는 Immutable` 하기 때문입니다. 따라서 `Enum` 으로 정의해주는게 바랍직하다고 판단했습니다.
 
 **Skip Index 설정**
 
-- 필드변수에는 `partialOffsets` 이 있습니다. 해당 정보는 검증하지 않아도 되는 Index 들을 `from, to` 형태로 나타낸 것입니다. 예를 들어 JPEG(EXIF) 의 Magic Byte 인 `FF D8 FF E1 ?? ?? 45 78 69 66 00 00` 가 있다면 ?? 가 검증하지 않아도 되는 값을 말하며 `{4,6}` 로 설정해줄 수 있습니다. 하지만 아래 코드에서는 ?? 가 `\x90`  로 대입된것을 볼 수 있습니다. Byte Array 에서는 ?? 를 사용할 수 없기 때문에 `x86 Assembly` 에서 아무 작업도 하지 않고 다른 명령어로 넘어가는 `NOP(No Operation)` 명령어를 나타내는 `\x90` 을 명시해주었습니다.
+- 필드변수에는 `partialOffsets` 이 있습니다. 해당 정보는 검증하지 않아도 되는 Index 들을 `from, to` 형태로 나타낸 것입니다. 예를 들어 JPEG(EXIF) 의 Magic Number 인 `FF D8 FF E1 ?? ?? 45 78 69 66 00 00` 가 있다면 ?? 가 검증하지 않아도 되는 값을 말하며 `{4,6}` 로 설정해줄 수 있습니다. 하지만 아래 코드에서는 ?? 가 `\x90`  로 대입된것을 볼 수 있습니다. Byte Array 에서는 ?? 를 사용할 수 없기 때문에 `x86 Assembly` 에서 아무 작업도 하지 않고 다른 명령어로 넘어가는 `NOP(No Operation)` 명령어를 나타내는 `\x90` 을 명시해주었습니다.
 
-**Immutable ByteArray**
-
-- 필드변수인 magicByte, partialOffsets 값을 외부로부터 변경될 수 있도록 깊은복사를 사용하였습니다.
 
 ## 검증 Util 클래스 작성
 이제 `SupportAttachmentType` 를 검증해줄 수 있는 Util 성 클래스를 작성해줍니다. 검증 클래스를 분리한 이유는 SRP 때문입니다.
 
-- **SupportAttachmentType** : File 의 MagicByte 와 Offset 을 정의하고, File 이 해당 타입인지 검사하는 역할을 합니다. 
-- **AttachmentMagicByteValidator** :  SupportAttachmentType 을 사용하여 실제로 File 의 Magic Byte 를 검증하는 유틸리티 클래스입니다.
+- **SupportAttachmentType** : File 의 Magic Number 와 Offset 을 정의하고, File 이 해당 타입인지 검사하는 역할을 합니다. 
+- **AttachmentMagicByteValidator** :  SupportAttachmentType 을 사용하여 실제로 File 의 Magic Number를 검증하는 유틸리티 클래스입니다.
 
 ```java
 public abstract class AttachmentMagicByteValidator {  
@@ -235,6 +228,7 @@ class AttachmentMagicByteValidatorTest {
 }
 ```
 
+
 ### 실패하는 테스트
 허용하지 않는 타입은 GIF 에 대해 테스트를 해보면 검증에 실패하는것을 확인할 수 있습니다.
 
@@ -258,10 +252,12 @@ class AttachmentMagicByteValidatorTest {
 }
 ```
 
+
 ### 테스트 결과
 모든 테스트가 정상적으로 통과하는 것을 확인할 수 있습니다.
 
 ![](Spring/images/Pasted%20image%2020241009034530.png)
 
 ## 마치며
-직접 MagicByte 를 검증하는 로직을 작성해보니 매우 어려웠습니다. 특히나 검증하지 않아도되는 부분들을 직접 구현해야한다는게 좀 어려웠습니다. 이래서 라이브러리를 쓰는건가..? 라는 생각이 들었습니다. 그래도 공격자입장에서만 생각하다가 방어하는 입장에서 생각해보고 이를 구현해보니 매우 좋았던 경험이었습니다.
+직접 Magic Number 를 검증하는 로직을 작성해보니 매우 어려웠습니다. 특히나 검증하지 않아도되는 부분들을 직접 구현해야한다는게 좀 어려웠습니다. 이래서 빌트인 메서드를 사용하나..? 라는 생각이 들었습니다.
+

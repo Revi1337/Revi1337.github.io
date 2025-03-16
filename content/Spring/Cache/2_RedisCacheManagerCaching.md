@@ -1,5 +1,5 @@
 ---
-title: RedisCacheManager 를 이용한 캐싱
+title: RedisCacheManager 를 이용한 캐싱
 tags: ['spring', 'cache', 'redis']
 ---
 
@@ -79,7 +79,7 @@ CacheKeyPrefix.simple() 은 prefix 를 사용하지 않고, cacheName 을 prefix
 
 ![](Spring/Cache/images/Pasted%20image%2020250226213128.png)
 
-## 커스텀 RedisCacheManager
+## Custom RedisCacheManager
 앞에 결과처럼 Key 중간에 이상한 `::` 라는 문자가 포함되어 있는 것을 볼 수 있었습니다. 하지만 저는 일관성 있게 `:` 문자 하나로 구분자를 사용하고 싶고, Key 앞에 Prefix 로 현재 프로젝트의 이름을 디폴트로 설정해주고 싶습니다. 그리고 Key 에 TTL 도 걸어주고 싶습니다. 이러한 경우에 RedisCacheManager 를 직접 설정하고 Bean 으로 등록해주면 됩니다.
 
 ### Configuration
@@ -176,4 +176,5 @@ public CrewStatisticDomainDto getStatisticById(Long crewId) {
 포스팅에 사용된 Breakpoint 목록입니다.
 
 ![](Spring/Cache/images/Pasted%20image%2020250226224524.png)
+
 

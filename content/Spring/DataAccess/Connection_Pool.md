@@ -51,7 +51,7 @@ Spring 에서 기본으로 제공하는 `DataSource` 는 크게 `HikariDataSourc
 ![](Spring/DataAccess/images/Pasted%20image%2020240814141347.png)
 
 > [!note]
-> DataSource 의 구현체들은 객체를 생성할 때 한번만 URL, USER, PASSWORD 를 지정해주면 된다. 이는 설정과 사용을 분리시킴으로서, 후에 변경이 발생했을 떄 유연하게 대처할 수 있게 된다.
+> DataSource 의 구현체들은 객체를 생성할 때, 딱 한번만 URL, USER, PASSWORD 를 지정해주면 된다. 이는 설정과 사용을 분리시킴으로서, 후에 변경이 발생했을 떄 유연하게 대처할 수 있게 된다.
 
 ### HikariDataSource
 HikariDataSource 은 Spring 에서 기본으로 채택하고있는 DataSource 이다. `getConnection()` 을 하게 되면 `Hikari Connection Pool` 에서 Connection 을 가져오게 된다. 또한, HikariDataSource 는 내부적으로 Connection Pool 에서 Connection 을 가져오기 때문에, Pool 에 생성 및 보관할 수 있는 `최대 Connection 개수(Pool Size)`와 `Pool 이름`을 지정할 수 있다.
@@ -183,3 +183,4 @@ public class ConnectionTest {
 3. HikariDataSource 는 Connection Pool 에서 Connection 을 관리하고, Pool 에서 Connection 을 가져온다.
 	- Application 이 시작될때 Pool Size 만큼 Connection 들을 미리 생성하고 Pool 에 저장시킨다.
 4. DriverManagerDataSource 는 Connection 을 매번 새롭게 가져온다.
+

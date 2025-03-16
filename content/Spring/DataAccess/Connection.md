@@ -1,14 +1,14 @@
 ---
 title: Connection
-tags: ['data_access', 'connection', 'drivermanager']
+tags: ['data_access', 'connection', 'DriverManager']
 ---
 
 Database 에 SQL 을 전송하기 위해서는 먼저 Database 에 접근하여 Connection 을 얻어와야한다. Connection 연결에 성공한 데이터베이스에서는 해당 커넥션에 맞는 Session 을 생성하여 보관하게 된다.
 
 ## DriverManager
-DriverManager 는 자바의 `java.sql` 에서 제공하며 실제적으로 SQL 을 전송하기 전에 필요한 DB Connection 을 얻어오는 역할을 한다. DriverManager 로 부터 Connection 을 가져오려면 DB 접속에 필요한 `url`, `username`, `password` 정보가 필요하다.
+DriverManager 는 자바의 `java.sql` 에서 제공하며, 라이브러리에 등록된 Driver 들을 관리하고 SQL 을 전송하기 위해 필요한 데이터베이스 Connection 을 얻어오는 역할을 한다. DriverManager 로 부터 Connection 을 가져오려면 DB 접속에 필요한 `url`, `username`, `password` 정보가 필요하다.
 
-DB 와의 Connection 을 가져올때마다 Checked 예외인 `SQLException` 를 던지게 된다. 커넥션을 연결할 때마다 try catch 로 잡아줄 순 없으므로, Connection 을 얻어오는 역할만 수행하는 Uitl 성 클래스로 분리해주는게 좋다.
+DB 와의 Connection 을 가져올때마다 Checked 예외인 `SQLException` 를 던지게 된다. 커넥션을 연결할 때마다 try catch 로 잡아줄 순 없으므로, Connection 을 얻어오는 역할만 수행하는 Util 성 클래스로 분리해주는게 좋다.
 
 ```java
 public class DBConnectionUtil {  
@@ -61,13 +61,19 @@ dependencies {
 }
 ```
 
+### Driver 의 URL 판단 기준
+DrvierManager 는 내부적으로 등록된 Driver 들을 순회하며 `JDBC URL 주소` 와 연결할 수 있는 Driver 를 찾는다. 여기서는 H2 와 연결할 수 있는 Driver 를 통해 커넥션을 맺고, 그 결과로 Connection을 반환하게 된다.
 
-때문에 DrvierManager 는 내부적으로 H2 Driver 를 사용하여 H2 와 커넥션을 맺고 그 결과를 반환해준다.
-
+**DriverManger**
 ![](Spring/DataAccess/images/Pasted%20image%2020240814150653.png)
 
+
+Driver 들이 JDBC URL 주소와 연결할 수 있는지는 각각의 Driver 들이 판단한게 된다. H2 Driver 와 같은 경우에는 입력으로 들어온 JDBC URL 의 접두사가 `jdbc:h2` 로 시작하면 자신이 처리할 수 있다고 판단하게 된다.
+
+**org.h2.Driver (java.sql.Driver 을 구현한 구현체)**
+![](Spring/DataAccess/images/Pasted%20image%2020240907005451.png)
 ## Connection
-Connection 은 DriverManager 가 DB 와 커넥션을 맺고 반환한 Interface 이다. 이 Connection 은 `Transaction Commit, Rollback`, `Query 생성 및 실행 (Statement)`  등과 같이 실제적으로 DB 에 어떠한 명령을 실행할 수 있게 해준다.
+Connection 은 DriverManager 가 DB 와 커넥션을 맺고 반환한 Interface 이다. 이 Connection 은 `Transaction Commit, Rollback`, SQL 을 날릴 수 있게 해주는 `Statement` 를 생성할 수 있게 해준다.
 
 ![](Spring/DataAccess/images/Pasted%20image%2020240814152440.png)
 
@@ -154,5 +160,7 @@ class DBConnectionUtilTest {
 ## 정리
 1. DriverManager 는 DB 와 커넥션을 맺고 Connection 인스턴스를 반환한다.
 	- DriverManager 는 내부적으로 Driver 구현체(H2 Driver, MySQL Driver) 들을 사용하여 Driver 에 맞는 Connection 구현체를 반환한다. 
-2. DriverManager 를 통해 매번 Connection 을 얻어오는 방법보다는 미리 Connection 들을 연결하고, 이들을 모아둔 Connection Pool 이라는 개념을 사용하여 성능 저하 문제를 예방한다.
+	- H2 Driver 가 구현한 Connection 은 JdbcConnection 이며, MySQL Driver 가 구현한 Connection 은 ConnectionImpl 이다.
+1. DriverManager 를 통해 매번 Connection 을 얻어오는 방법보다는 미리 Connection 들을 연결하고, 이들을 모아둔 Connection Pool 이라는 개념을 사용하여 성능 저하 문제를 예방한다.
+
 
