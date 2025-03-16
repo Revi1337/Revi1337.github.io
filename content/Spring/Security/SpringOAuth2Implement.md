@@ -1,6 +1,7 @@
 ---
-title: OAuth2 인증 인가 프로세스 구현
-tags: ['spring', 'oauth2']
+title: 스파게티 코드로 구현하는 OAuth2 인증 인가 프로세스
+tags: ['oauth2']
+date: 2025-03-12
 ---
 
 ## 들어가며

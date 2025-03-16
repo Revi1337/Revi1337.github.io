@@ -1,6 +1,7 @@
 ---
 title: OAuth2 인가코드를 꼭 Frontend가 받아야할까?
-tags: ['spring', 'oauth2']
+tags: ['oauth2']
+date: 2025-03-13
 ---
 
 ## 들어가며

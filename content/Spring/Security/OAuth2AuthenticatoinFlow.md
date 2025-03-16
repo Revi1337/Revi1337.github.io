@@ -1,6 +1,8 @@
 ---
 title: 기본적인 OAuth2 인증 인가 프로세스
-tags: ['oauth2']
+tags:
+  - oauth2
+date: 2025-03-15
 ---
 
 ## 들어가며

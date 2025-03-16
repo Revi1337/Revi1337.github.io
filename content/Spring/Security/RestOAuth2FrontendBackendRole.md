@@ -1,6 +1,8 @@
 ---
 title: 프론트와 백엔드는 OAuth2 인증을 어디까지 처리해야할까?
-tags: ['spring', 'oauth2']
+tags:
+  - oauth2
+date: 2025-03-14
 ---
 
 ## 들어가며

@@ -1,6 +1,7 @@
 ---
-title: OAuth2 인증 인가 프로세스 코드 리팩토링
-tags: ['spring', 'oauth2', 'refactor']
+title: 스파게티 코드 OAuth2 인가 프로세스 리팩토링
+tags: ['oauth2']
+date: 2025-03-11
 ---
 
 ## 들어가며
