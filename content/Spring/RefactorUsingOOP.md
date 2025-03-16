@@ -1,6 +1,6 @@
 ---
 title: Redis와 ExpiringMap을 활용한 확장 가능한 중복요청 방지 캐시 설계
-tags: ['redis', 'expiring-map', 'design-pattern', 'oop']
+tags: ['redis', 'expiring-map', 'oop']
 ---
 
 
