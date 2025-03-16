@@ -5,7 +5,7 @@ date: 2025-03-11
 ---
 
 ## 들어가며
-안녕하세요. [이전 포스팅](Spring/Security/SpringOAuth2Implement.md) 에서는 Client 가 Frontend 와 Backend 로 분리된 환경에서 Frontend 의 역할을 최소화함과 동시에 백엔드에서 맡아야 하는 `Authorization Code Grant` 방식의 OAuth2 인증 기능을 스파게티 코드로 구현한 내용을 다뤘습니다. 이번 포스팅에서는 이전 포스팅을 기반으로 코드를 리팩토링하는 시간을 갖어보려 합니다.
+안녕하세요. [이전 포스팅](Spring/Security/SpringOAuth2Implement.md) 에서는 Client 가 Frontend 와 Backend 로 분리된 환경에서 Frontend 의 역할을 최소화함과 동시에 백엔드에서 맡아야 하는 `Authorization Code Grant` 방식의 OAuth2 인증 기능을 스파게티 코드로 구현한 내용을 다뤘습니다. 이번 포스팅에서는 이전 포스팅을 기반으로 코드를 리팩토링하는 시간을 가져보려 합니다.
 
 ### 전제 조건
 이번 포스팅에서도 이전 포스팅과 같은 상황을 가정합니다.
