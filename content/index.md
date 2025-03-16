@@ -27,7 +27,6 @@ description: '와이! 와이!! 와이!!!'
 | <br>![Solved.ac프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=revi1337)<br> | <br>![revi1337's tryhackme stats](https://raw.githubusercontent.com/Revi1337/Revi1337/main/assets/thm_propic.png)<br><br><img src="https://www.hackthebox.com/badge/image/1002993" width="248.01" height="57"> |
 |                                                                                     |                                                                                                                                                                                                                |
 
-# Projects
 
 ## OnSquad (2024.4 ~ ING)[Github](https://github.com/Revi1337/onsquad-server)
 
