@@ -161,6 +161,13 @@ export const defaultContentPageLayout: PageLayout = {
 
           "QueryDSL": 8500,
 
+          "Security": 8550,
+          "Spring/Security/OAuth2AuthenticatoinFlow": 8551,
+          "Spring/Security/RestOAuth2FrontendBackendRole": 8552,
+          "Spring/Security/WhyNotAuthCodeReceiveInFrontend": 8553,
+          "Spring/Security/SpringOAuth2Implement": 8554,
+          "Spring/Security/SpringOAuth2ImplementRefactor": 8555,
+
           "Cloud": 8600,
 
           "Spring/docker-local-config": 8801,
@@ -170,7 +177,9 @@ export const defaultContentPageLayout: PageLayout = {
           "Spring/UpsertQuery": 8805,
           "Spring/ValidateMagicByte": 8806,
           "Spring/RefactoringS3Upload": 8807,
-          "Spring/RefactorWithChainOfResponsibility": 8808,
+          "Spring/RefactorUsingOOP": 8808,
+          "Spring/JsonField_Deserializer": 8809,
+
 
           // (Root) Docker
           "Docker": 9000,
