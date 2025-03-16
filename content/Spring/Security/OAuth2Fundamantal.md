@@ -1,6 +1,6 @@
 ---
 title: OAuth2 기본 개념
-tags: ['spring', 'oauth2']
+tags: ['spring']
 ---
 
 ## 들어가며

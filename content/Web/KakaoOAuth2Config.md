@@ -1,6 +1,6 @@
 ---
 title: Kakao OAuth2 설정
-tags: ['web', 'security', 'oauth2']
+tags: ['web', 'security']
 ---
 
 ## 들어가며

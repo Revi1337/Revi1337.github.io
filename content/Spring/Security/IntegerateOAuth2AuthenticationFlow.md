@@ -1,6 +1,6 @@
 ---
 title: 통합환경에서의 OAuth2 인증 인가 프로세스
-tags: ['spring', 'oauth2']
+tags: ['spring']
 ---
 
 ## 들어가며
