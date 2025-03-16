@@ -1,5 +1,5 @@
 ---
-title: RedisCacheManager 를 이용한 캐싱
+title: RedisCacheManager를 이용한 캐싱
 tags: ['spring', 'cache', 'redis']
 ---
 
