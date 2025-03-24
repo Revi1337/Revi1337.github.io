@@ -200,6 +200,12 @@ export const defaultContentPageLayout: PageLayout = {
 
           // Settings
           "Settings": 11000,
+
+          // Performance
+          "Performance": 12000,
+
+          // Wireshark
+          "Wireshark": 13000,
         }
 
         let orderA = 0
