@@ -1,5 +1,10 @@
+---
+title: Redis vs Caffeine
+tags: ['spring', 'cache', 'redis', 'caffeine']  
+---
+
 ## 다건 캐싱
-CaffieneCacheManager
+CaffeineCacheManager
 
 ![](Spring/Cache/images/Pasted%20image%2020250324023506.png)
 
@@ -27,7 +32,7 @@ RedisCacheManager
 
 
 ## 단건 캐싱
-CaffieneCacheManager
+CaffeineCacheManager
 
 ![](Spring/Cache/images/Pasted%20image%2020250324024326.png)
 
@@ -54,3 +59,5 @@ RedisCacheManager
 | **Avg Bytes**          | 652.0                    | 652.0                 |
 
 
+
+작성중...

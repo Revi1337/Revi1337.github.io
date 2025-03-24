@@ -135,6 +135,9 @@ export const defaultContentPageLayout: PageLayout = {
           "Cache": 8025,
           "Spring/Cache/1_SpringCacheAbstraction": 8026,
           "Spring/Cache/2_RedisCacheManagerCaching": 8027,
+          "Spring/Cache/ImplementRedisCacheWithAOP": 8028,
+          "Spring/Cache/4_IsReallyNeedRedis": 8029,
+          "Spring/Cache/5_RedisVSCaffeine": 8030,
 
           "Boot": 8050,
           "Spring/Boot/Actuator": 8051,
@@ -194,7 +197,6 @@ export const defaultContentPageLayout: PageLayout = {
 
           // Tools
           "Tools": 10000,
-          "IntelliJ": 11000,
           "PyCharm": 12000,
           "Tools/PyCharm/PycharmChangeAnaconda": 12001,
 
