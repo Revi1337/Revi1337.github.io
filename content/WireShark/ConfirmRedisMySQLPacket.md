@@ -1,5 +1,5 @@
 ---
-title: Spring 이 보내는 Redis & MySQL 패킷 확인
+title: Redis & MySQL 패킷 확인
 tags: ['network', 'wireshark', 'spring', 'redis', 'mysql', 'ssl/tls']
 ---
 
