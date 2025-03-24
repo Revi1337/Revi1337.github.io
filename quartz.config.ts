@@ -22,9 +22,9 @@ const config: QuartzConfig = {
       fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
-        header: "Gothic A1",
-        body: "Gothic A1",
-        code: "ui-sans-serif",
+        header: "42dot Sans",
+        body: "42dot Sans",
+        code: "JetBrains Mono",
         // header: "Schibsted Grotesk",
         // body: "Source Sans Pro",
         // code: "IBM Plex Mono",
