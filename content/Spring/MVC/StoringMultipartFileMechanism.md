@@ -68,6 +68,4 @@ RequestMapppingHandlerAdapter#invokeHandlerMethod (여기서 HandlerMethodArgume
 				
 					
 					
-						
-	
-	
+System.out.println(System.getProperty("java.io.tmpdir"));
