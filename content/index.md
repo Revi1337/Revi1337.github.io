@@ -33,7 +33,7 @@ description: '와이! 와이!! 와이!!!'
 - 같은 관심사를 가진 사람들이 모여 소통할 수 있는 공간을 제공하며, 소그룹을 형성하여 더 깊은 대화를 나눌 수 있는 커뮤니티 프로젝트입니다.
 - 공백기가 조금 있었지만, 2024년 4월부터 시작하여 현재까지 끊임없이 리팩토링을 해오고 있으며 현재 테스트코드만 작성하면 됩니다.
 
-[직접 구현한 캐싱 어노테이션을 이용하여 공지사항 조회 평균 응답 시간을 98.2% 개선한 경험](https://revi1337.com/Spring/Cache/ImplementRedisCacheWithAOP)
+[직접 구현한 캐싱 어노테이션을 이용하여 공지사항 조회 평균 응답 시간을 74.9% 개선한 경험](https://revi1337.com/Spring/Cache/ImplementRedisCacheWithAOP)
 
 [파일의 Magic Number(File Signature)를 직접 검사하여 불필요한 S3요청을 해소하려했던 도전](https://revi1337.com/Spring/ValidateMagicByte)
 
