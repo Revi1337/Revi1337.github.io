@@ -183,30 +183,40 @@ export const defaultContentPageLayout: PageLayout = {
           "Spring/RefactorUsingOOP": 8808,
           "Spring/JsonField_Deserializer": 8809,
 
-
           // (Root) Docker
           "Docker": 9000,
-          "Docker/WhatIsDocker": 9100,
-          "Docker/DockerBaseCommand": 9200,
-          "Docker/DockerVolume": 9300,
-          "Docker/DockerNetwork": 9400,
-          "Docker/DockerCompose": 9500,
-          "Docker/DockerBuild": 9600,
-          "Docker/DockerCheetSheet": 9700,
-          "Docker/forbidden_access_permission": 9901,
+          "Docker/WhatIsDocker": 9010,
+          "Docker/DockerBaseCommand": 9020,
+          "Docker/DockerVolume": 9030,
+          "Docker/DockerNetwork": 9040,
+          "Docker/DockerCompose": 9050,
+          "Docker/DockerBuild": 9060,
+          "Docker/DockerCheetSheet": 9070,
+          "Docker/forbidden_access_permission": 9081,
 
-          // Tools
+          // (Root) AWS
+          "AWS": 9500,
+          "AWS/1_S3BucketForWebHosting": 9501,
+          "AWS/2_S3ConnectDomain": 9502,
+          "AWS/3_HostedS3_Domain_HTTPS": 9503,
+          "AWS/4_S3BucketForBackend": 9504,
+          "AWS/5_S3BucketCloudFrontForBackend": 9505,
+          "AWS/8_EC2ConnectDomain": 9506,
+          "AWS/20_AwsDomainBuy": 9507,
+
+
+          // (Root) Tools
           "Tools": 10000,
           "PyCharm": 12000,
           "Tools/PyCharm/PycharmChangeAnaconda": 12001,
 
-          // Settings
+          // (Root) Settings
           "Settings": 11000,
 
-          // Performance
+          // (Root) Performance
           "Performance": 12000,
 
-          // Wireshark
+          // (Root) Wireshark
           "WireShark": 13000,
         }
 
