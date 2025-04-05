@@ -1,6 +1,6 @@
 ---
 title: S3로 호스팅한 정적 사이트에 도메인과 HTTPS 적용
-tags: ['aws', 's3', 'cloudfront', 'domain', 'https']
+tags: ['aws', 's3', 'acm', 'cloudfront', 'route_53', 'https']
 ---
 
 
@@ -10,7 +10,7 @@ tags: ['aws', 's3', 'cloudfront', 'domain', 'https']
 > AWS에서 도메인을 구입했다고 가정합니다. [AWS 도메인 구매와 호스팅 영역 기본 설정](AWS/20_AwsDomainBuy.md)
 
 
-## Certificate Manager 인증서 요청
+## ACM 인증서 요청
 먼저, CloudFront에 연결할 사설 도메인에 HTTPS를 적용하려면 해당 도메인에 대한 SSL 인증서를 먼저 발급받아야 합니다. `Certificate Manager` 에 들어가서 인증서를 요청합니다.
 
 >[!warn] 현재 Region이 미국 버지니아 북부여야 합니다.

@@ -1,6 +1,6 @@
 ---
 title: AWS 도메인 구입과 호스팅 영역 기본 설정
-tags: ['aws', 'domain']
+tags: ['aws', 'route_53']
 ---
 
 ## 들어가며

@@ -1,6 +1,6 @@
 ---
-title: S3 도메인 연결
-tags: ['aws', 's3', 'domain']
+title: S3 개인 도메인 적용
+tags: ['aws', 's3', 'route_53']
 ---
 
 ## 들어가며

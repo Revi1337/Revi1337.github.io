@@ -198,11 +198,12 @@ export const defaultContentPageLayout: PageLayout = {
           "AWS": 9500,
           "AWS/1_S3BucketForWebHosting": 9501,
           "AWS/2_S3ConnectDomain": 9502,
-          "AWS/3_HostedS3_Domain_HTTPS": 9503,
+          "AWS/3_HostedS3_Domain_Https": 9503,
           "AWS/4_S3BucketForBackend": 9504,
           "AWS/5_S3BucketCloudFrontForBackend": 9505,
           "AWS/8_EC2ConnectDomain": 9506,
-          "AWS/20_AwsDomainBuy": 9507,
+          "AWS/9_EC2SupplyHttps": 9507,
+          "AWS/20_AwsDomainBuy": 9508,
 
 
           // (Root) Tools

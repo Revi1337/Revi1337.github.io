@@ -6,6 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="283b94bf-5028-497f-92a5-3572fe5ed7aa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/AWS/20_AwsDomainBuy.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/AWS/20_AwsDomainBuy.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/AWS/2_S3ConnectDomain.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/AWS/2_S3ConnectDomain.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/AWS/3_HostedS3_Domain_HTTPS.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/AWS/3_HostedS3_Domain_Https.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/AWS/8_EC2ConnectDomain.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/AWS/8_EC2ConnectDomain.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quartz.layout.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz.layout.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +79,8 @@
       <workItem from="1742150308563" duration="6641000" />
       <workItem from="1742838068873" duration="3917000" />
       <workItem from="1743752155914" duration="664000" />
-      <workItem from="1743790280692" duration="2709000" />
+      <workItem from="1743790280692" duration="3329000" />
+      <workItem from="1743850894155" duration="177000" />
     </task>
     <servers />
   </component>
