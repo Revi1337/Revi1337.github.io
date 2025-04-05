@@ -1,5 +1,5 @@
 ---
-title: EC2 개인 도메인에 HTTPS 적용
+title: EC2 개인 도메인에 HTTPS적용
 tags: ['aws', ec2', 'route_53', 'load_balancer', 'acm', 'https']
 ---
 

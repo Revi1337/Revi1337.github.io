@@ -1,5 +1,5 @@
 ---
-title: S3로 호스팅한 정적 사이트에 도메인과 HTTPS 적용
+title: S3로 호스팅한 정적 사이트에 도메인과 HTTPS적용
 tags: ['aws', 's3', 'acm', 'cloudfront', 'route_53', 'https']
 ---
 
