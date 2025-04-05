@@ -1,5 +1,5 @@
 ---
-title: Backend S3생성 및 설정
+title: Backend S3 생성 및 설정
 tags: ['aws', 's3']
 ---
 ## 들어가며

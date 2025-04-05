@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="283b94bf-5028-497f-92a5-3572fe5ed7aa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz.layout.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz.layout.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/AWS/4_S3BucketForBackend.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/AWS/4_S3BucketForBackend.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/AWS/6_EC2.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/AWS/6_EC2.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +78,7 @@
       <workItem from="1743752155914" duration="664000" />
       <workItem from="1743790280692" duration="3329000" />
       <workItem from="1743850894155" duration="1645000" />
-      <workItem from="1743874005358" duration="103000" />
+      <workItem from="1743874005358" duration="356000" />
     </task>
     <servers />
   </component>
