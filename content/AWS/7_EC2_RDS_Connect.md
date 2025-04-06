@@ -53,7 +53,7 @@ EC2와 RDS를 연동하려면 EC2 인스턴스와 동일한 `VPC`를 사용해�
 ![](AWS/images/Pasted%20image%2020250406165535.png)
 
 
-그와 반대로 허용하지 않는 Public IP 혹은 Public IP 대역는 RDS 에 접근이 불가능한 것을 알 수 있습니다.
+그와 반대로 허용하지 않는 Public IP 혹은 Public IP 대역은 RDS 에 접근이 불가능한 것을 알 수 있습니다.
 
 ![](AWS/images/Pasted%20image%2020250406165633.png)
 

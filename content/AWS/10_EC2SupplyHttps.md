@@ -7,7 +7,7 @@ tags: ['aws', ec2', 'route_53', 'load_balancer', 'acm', 'https']
 ## 들어가며
 안녕하세요. 이번 시간에는 ACM, Load Balancer를 통해 개인 도메인을 입한 EC2에 HTTPS 를 적용하는 시간을 가져보려합니다.
 
-> 해당 포스팅은 AWS에서 개인 도메인을 구입했고, 이미 EC2에 개인 도메인을 입힌 상황을 가정합니다. AWS 도메인 구입과 스팅 영역 설정은 [AWS 도메인 구매와 호스팅 영역 기본 설정](AWS/20_AwsDomainBuy.md) 에서 볼 수 있고, EC2 에 도메인을 다는 것은 [EC2에 도메인 적용](AWS/8_EC2ConnectDomain.md) 에서 볼 수 있습니다.
+> 해당 포스팅은 AWS에서 개인 도메인을 구입했고, 이미 EC2에 개인 도메인을 입힌 상황을 가정합니다. AWS 도메인 구입과 스팅 영역 설정은 [AWS 도메인 구매와 호스팅 영역 기본 설정](AWS/20_AwsDomainBuy.md) 에서 볼 수 있고, EC2 에 도메인을 다는 것은 [EC2에 도메인 적용](AWS/9_EC2ConnectDomain.md) 에서 볼 수 있습니다.
 
 
 ## ACM 인증서 요청
