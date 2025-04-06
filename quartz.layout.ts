@@ -202,6 +202,7 @@ export const defaultContentPageLayout: PageLayout = {
           "AWS/4_S3BucketForBackend": 9504,
           "AWS/5_S3BucketCloudFrontForBackend": 9505,
           "AWS/6_EC2": 9506,
+          "AWS/7_EC2_RDS_Connect": 9507,
           "AWS/8_EC2ConnectDomain": 9508,
           "AWS/9_EC2SupplyHttps": 9509,
           "AWS/11_RDS": 9511,

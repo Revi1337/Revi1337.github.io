@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="283b94bf-5028-497f-92a5-3572fe5ed7aa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/AWS/11_RDS.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/AWS/11_RDS.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quartz.layout.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz.layout.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -79,7 +80,8 @@
       <workItem from="1743850894155" duration="1645000" />
       <workItem from="1743874005358" duration="387000" />
       <workItem from="1743874511376" duration="630000" />
-      <workItem from="1743912418808" duration="29000" />
+      <workItem from="1743912418808" duration="477000" />
+      <workItem from="1743926707557" duration="37000" />
     </task>
     <servers />
   </component>
