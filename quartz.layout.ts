@@ -204,6 +204,7 @@ export const defaultContentPageLayout: PageLayout = {
           "AWS/6_EC2": 9506,
           "AWS/8_EC2ConnectDomain": 9508,
           "AWS/9_EC2SupplyHttps": 9509,
+          "AWS/11_RDS": 9511,
           "AWS/20_AwsDomainBuy": 9520,
 
 
