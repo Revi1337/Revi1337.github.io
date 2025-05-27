@@ -1,43 +1,167 @@
 @use "./base.scss";
 @use "./variables.scss" as *;
 
-//@font-face {
-//  font-family: 'SUIT-Regular';
-//  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
-//  font-weight: 200;
-//  font-style: italic;
-//}
-
-//:root {
-//  --headerFont: "SUIT-Regular" !important;
-//  --bodyFont: "SUIT-Regular" !important;
-//  --codeFont: "SUIT-Regular" !important;
-//}
-
 * {
   font-weight: 500;
 }
-
 
 ul#explorer-ul {
   min-height: 550px;
 }
 
-// h 태그 크기 및 색
+// Search Bar (search.scss 9 라인 Overwrite)
+.search {
+  & > #search-icon {
+    background-color: var(--highlight);
+  }
+}
+
+// Explorer h1 타이틀에 text-decoration 설정 (Explorer.tsx)
+// Table Of Contents h3 타이틀에 text-decoration 설정 (TableOfContents.tsx)
+// Recent Notes h3 타이틀에 text-decoration 설정 (RecentNotes.tsx)
+.explorer > button > h1,
+.toc > button > h3,
+.recent-notes > h3 {
+  border-bottom: 1.5px solid currentColor;
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+// File Explorer 디렉터리가 아닌, 파일일때 li 태그 색 & Align (ExplorerNode.tsx)
+.file-container {
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  user-select: none;
+
+  & div > a.file-document {
+    color: var(--dark);
+    opacity: .75;
+    line-height: 1.5rem;
+    display: inline-block;
+  }
+
+  & div > a.file-document:hover {
+    color: var(--tertiary);
+  }
+}
+
+// ============ 해시 태그 ==============
+.tags { // 모든 .tags 에
+  & a.tag-link {
+    &::before {
+      content: ""; // 해시태그 # 제거 (base.scss 96 라인 Overwrite)
+    }
+  }
+}
+
+.page-header { // page-header 내부
+  & .tags { // .tags 는 왼쪽 정렬
+    justify-self: start;
+    &::before { // 그리고 Tags 문자열 추가
+      content: "Tags:";
+      font-weight: bold;
+      color: var(--darkgray);
+      align-self: center;
+    }
+  }
+
+  & a.internal.tag-link { // 각 해시태그를 화살표 방향으로 만든다.
+    padding: 0.1rem 0.6rem 0.1rem 1rem;
+    margin: 0 0.1rem;
+    background-color: var(--highlight);
+    clip-path: polygon(
+                    0% 50%,
+                    15% 0%,
+                    100% 0%,
+                    100% 100%,
+                    15% 100%
+    );
+    text-decoration: none;
+    display: inline-block;
+  }
+}
+
+.section-li { // 태그 페이지 grid
+  & .section {
+    display: grid;
+    grid-template-columns: 1fr 5fr 4fr;
+    align-items: center;
+    gap: 1rem;
+
+    & .meta {
+      min-width: 90px;
+      margin: 0;
+      font-size: 0.875rem;
+      color: var(--gray);
+    }
+
+    & .desc {
+      .desc {
+        margin: 0;
+      }
+    }
+
+    & .tags {
+      display: flex;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 0.2rem;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+  }
+}
+// ==================================
+
+
+// Article 내부 외부링크 text-underline 설정 (base.scss 79 라인 라인을 일부 Overwrite)
+article {
+  a.external {
+    text-decoration: none;
+    font-weight: 700;
+    &:hover {
+      text-decoration: underline;
+      color: inherit !important;
+    }
+  }
+}
+
+// code background 색 변경 (base.scss 422 라인 Overwrite)
+code {
+  background: var(--highlight);
+}
+
+// h 태그 색 지정. (base.scss 278 라인 Overwrite)
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+thead {
+  color: var(--darkgray);
+}
+
+// page 클래스 내부 h 태그 크기 및 조정
 .page {
+  & h1.article-title { // 게시글 상단 제목 h1 태그 font 설정
+    font-size: 2.26rem;
+    font-weight: 700;
+  }
+
   & article {
     & > h1 {
       font-size: 2.4rem;
     }
 
     & > h2 {
-      //color: rgb(255, 177, 61);
       font-size: 2.0rem;
       margin-top: 4rem;
     }
 
     & > h3 {
-      //color: rgb(87, 214, 161);
       font-size: 1.7rem;
       margin-top: 3rem;
     }
@@ -54,13 +178,11 @@ ul#explorer-ul {
     }
 
     & > h4, h5, h6 {
-      //color: rgb(210,105,30);
       font-size: 1.4rem;
       margin-top: 2rem;
     }
 
-    // h 태그 아래 또다른 h 태그면 마진을 적게
-    h1, h2, h3, h4, h5, h6 {
+    h1, h2, h3, h4, h5, h6 { // h 태그 아래 또다른 h 태그면 마진을 적게
       margin-bottom: 0;
       & + h1,
       & + h2,
@@ -104,65 +226,3 @@ ul#explorer-ul {
   }
 }
 
-
-
-
-//@use "./base.scss";
-//@use "./variables.scss" as *;
-//
-//ul#explorer-ul {
-//  min-height: 550px;
-//}
-//
-//// h 태그 크기 및 색
-//.page {
-//  & article {
-//    & > h1 {
-//      font-size: 2.3rem;
-//    }
-//
-//    & > h2 {
-//      color: rgb(255, 177, 61);
-//      font-size: 1.8rem;
-//      margin-top: 4rem;
-//    }
-//
-//    & > h3 {
-//      color: rgb(87, 214, 161);
-//      font-size: 1.5rem;
-//      margin-top: 3rem;
-//    }
-//
-//    & > h4, h5, h6 {
-//      color: rgb(210,105,30);
-//      font-size: 1.12rem;
-//      margin-top: 2rem;
-//    }
-//
-//    // h 태그 아래 또다른 h 태그면 마진을 적게
-//    h1, h2, h3, h4, h5, h6 {
-//      margin-bottom: 0;
-//      & + h1,
-//      & + h2,
-//      & + h3,
-//      & + h4,
-//      & + h5,
-//      & + h6 {
-//        margin-top: 1.3rem;
-//      }
-//    }
-//  }
-//}
-//
-//// left, right 사이드바 길이, 패딩, 마진
-//.page {
-//  & > #quartz-body {
-//    & .sidebar.left {
-//      left: calc(calc(100vw - $pageWidth) / 2 - $sidePanelWidth - 30px);
-//      padding: 0;
-//    }
-//    & .sidebar.right {
-//      right: calc(calc(calc(100vw - $pageWidth) / 2 - $sidePanelWidth) - 120px);
-//    }
-//  }
-//}

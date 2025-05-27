@@ -6,6 +6,7 @@ import { ComponentProps } from "preact/compat"
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
+  // header: [Component.NavBar()],
   footer: Component.Footer({
     links: {
       GitHub: "https://github.com/Revi1337",
