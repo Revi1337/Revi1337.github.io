@@ -1,138 +1,11 @@
-@use "./base.scss";
+@use "./base.scss" as *;
 @use "./variables.scss" as *;
 
 * {
   font-weight: 500;
 }
 
-ul#explorer-ul {
-  min-height: 550px;
-}
-
-// Search Bar (search.scss 9 라인 Overwrite)
-.search {
-  & > #search-icon {
-    background-color: var(--highlight);
-  }
-}
-
-// Explorer h1 타이틀에 text-decoration 설정 (Explorer.tsx)
-// Table Of Contents h3 타이틀에 text-decoration 설정 (TableOfContents.tsx)
-// Recent Notes h3 타이틀에 text-decoration 설정 (RecentNotes.tsx)
-.explorer > button > h1,
-.toc > button > h3,
-.recent-notes > h3 {
-  border-bottom: 1.5px solid currentColor;
-  display: inline-block;
-  padding-bottom: 4px;
-}
-
-// File Explorer 디렉터리가 아닌, 파일일때 li 태그 색 & Align (ExplorerNode.tsx)
-.file-container {
-  flex-direction: row;
-  display: flex;
-  align-items: center;
-  user-select: none;
-
-  & div > a.file-document {
-    color: var(--dark);
-    opacity: .75;
-    line-height: 1.5rem;
-    display: inline-block;
-  }
-
-  & div > a.file-document:hover {
-    color: var(--tertiary);
-  }
-}
-
-// ============ 해시 태그 ==============
-.tags { // 모든 .tags 에
-  & a.tag-link {
-    &::before {
-      content: ""; // 해시태그 # 제거 (base.scss 96 라인 Overwrite)
-    }
-  }
-}
-
-.page-header { // page-header 내부
-  & .tags { // .tags 는 왼쪽 정렬
-    justify-self: start;
-    &::before { // 그리고 Tags 문자열 추가
-      content: "Tags:";
-      font-weight: bold;
-      color: var(--darkgray);
-      align-self: center;
-    }
-  }
-
-  & a.internal.tag-link { // 각 해시태그를 화살표 방향으로 만든다.
-    padding: 0.1rem 0.6rem 0.1rem 1rem;
-    margin: 0 0.1rem;
-    background-color: var(--highlight);
-    clip-path: polygon(
-                    0% 50%,
-                    15% 0%,
-                    100% 0%,
-                    100% 100%,
-                    15% 100%
-    );
-    text-decoration: none;
-    display: inline-block;
-  }
-}
-
-.section-li { // 태그 페이지 grid
-  & .section {
-    display: grid;
-    grid-template-columns: 1fr 5fr 4fr;
-    align-items: center;
-    gap: 1rem;
-
-    & .meta {
-      min-width: 90px;
-      margin: 0;
-      font-size: 0.875rem;
-      color: var(--gray);
-    }
-
-    & .desc {
-      .desc {
-        margin: 0;
-      }
-    }
-
-    & .tags {
-      display: flex;
-      justify-content: flex-end;
-      flex-wrap: wrap;
-      gap: 0.2rem;
-      padding: 0;
-      margin: 0;
-      list-style: none;
-    }
-  }
-}
-// ==================================
-
-
-// Article 내부 외부링크 text-underline 설정 (base.scss 79 라인 라인을 일부 Overwrite)
-article {
-  a.external {
-    text-decoration: none;
-    font-weight: 700;
-    &:hover {
-      text-decoration: underline;
-      color: inherit !important;
-    }
-  }
-}
-
-// code background 색 변경 (base.scss 422 라인 Overwrite)
-code {
-  background: var(--highlight);
-}
-
+// ================= ROOT ===================
 // h 태그 색 지정. (base.scss 278 라인 Overwrite)
 h1,
 h2,
@@ -144,14 +17,46 @@ thead {
   color: var(--darkgray);
 }
 
-// page 클래스 내부 h 태그 크기 및 조정
-.page {
-  & h1.article-title { // 게시글 상단 제목 h1 태그 font 설정
+// ============= 게시글 제목 & 내용 & 푸터 =============
+code {
+  border-color: var(--nuxt) !important;
+}
+
+.center {
+
+  // 싱글 code block background 색 변경 (base.scss 422 라인 Overwrite)
+  code:not(pre code) {            // pre > code 가 아닌것들 선택
+    background: var(--highlight);
+    html[saved-theme="dark"] & {
+      color: var(--nuxt);
+    }
+  }
+
+  // 게시글 제목
+  .page-header .popover-hint .article-title {
     font-size: 2.26rem;
     font-weight: 700;
   }
 
-  & article {
+  // 게시글 내용
+  article.popover-hint {
+
+    html[saved-theme="dark"] & {
+      p,
+      ul,
+      text,
+      a,
+      tr,
+      td,
+      li,
+      ol,
+      ul,
+      .katex,
+      .math {
+        color: var(--gray);
+      }
+    }
+
     & > h1 {
       font-size: 2.4rem;
     }
@@ -182,7 +87,8 @@ thead {
       margin-top: 2rem;
     }
 
-    h1, h2, h3, h4, h5, h6 { // h 태그 아래 또다른 h 태그면 마진을 적게
+    // h 태그 아래 또다른 h 태그면 마진을 적게
+    h1, h2, h3, h4, h5, h6 {
       margin-bottom: 0;
       & + h1,
       & + h2,
@@ -193,36 +99,187 @@ thead {
         margin-top: 1.3rem;
       }
     }
-  }
 
-  p img {
-    margin-top: -0.4px;
-  }
+    // 외부링크 text-underline 설정 (base.scss 79 라인 라인을 일부 Overwrite)
+    a.external {
+      text-decoration: none;
+      font-weight: 700;
 
-  p pre {
-    margin-top: -0.4px;
-  }
+      html[saved-theme="dark"] & {
+        color: var(--darkgray) !important;
+      }
 
-  figure {
-    pre {
-      margin-bottom: 2.5rem;
-      & + p img {
-        margin-bottom: 10px;
+      &:hover {
+        text-decoration: underline;
+        color: inherit !important;
+
+        html[saved-theme="dark"] & { // 여기는 다크모드일때만 동작.
+          color: var(--nuxt) !important;
+        }
       }
     }
   }
 }
 
-// left, right 사이드바 길이, 패딩, 마진
-.page {
-  & > #quartz-body {
-    & .sidebar.left {
-      left: calc(calc(100vw - $pageWidth) / 2 - $sidePanelWidth - 30px);
-      padding: 0;
-    }
-    & .sidebar.right {
-      right: calc(calc(calc(100vw - $pageWidth) / 2 - $sidePanelWidth) - 120px);
+p img {
+  margin-top: -0.4px;
+}
+
+p pre {
+  margin-top: -0.4px;
+}
+
+figure {
+  pre {
+    margin-bottom: 2.5rem;
+    & + p img {
+      margin-bottom: 10px;
     }
   }
 }
 
+// ================ SearchBar ================
+// 백그라운드 색 변경 search.scss 9 라인 Overwrite
+.search {
+  & > .search-button {
+    background-color: var(--highlight);
+  }
+}
+// ================ Explorer =================
+// h2 타이틀에 text-decoration
+.explorer > button > h2 {
+  border-bottom: 1.5px solid currentColor;
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+// 현재 클릭된 문서 Focus
+.explorer-content {
+  margin-top: 0.5rem;
+  & li > a {
+    line-height: 1.7rem;
+    &.active {
+      font-weight: 900;
+      color: var(--darkgray) !important;
+    }
+  }
+}
+
+.explorer-content {
+  ul {
+    margin: 0.1rem 0;
+
+    li > a {
+      line-height: 1.7rem;
+
+      &.active {
+        html[saved-theme="dark"] & {        // dark mode 에서만 클릭 액션 적용.
+          color: var(--nuxt) !important;
+        }
+      }
+    }
+  }
+
+  .folder-outer > ul {
+    html[saved-theme="dark"] & {            // dark mode 에서만 왼쪽 Line 적용
+      border-left: 1px solid var(--nuxt);
+    }
+  }
+}
+
+// =========== Table Of Contents ===========
+//  h3 타이틀에 text-decoration 설정
+.toc > button > h3 {
+  border-bottom: 1.5px solid currentColor;
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+// ============= Recent Notes ==============
+// h3 타이틀에 text-decoration 설정
+.recent-notes > h3 {
+  border-bottom: 1.5px solid currentColor;
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+//=========== PageList & TagList ============
+.tags {                                     // 모든 .tags 에
+  & a.tag-link {
+    &::before {                             // # 문자 제거 (base.scss 96 라인 Overwrite)
+      content: "";
+    }
+
+    html[saved-theme="dark"] & {
+      border: 1px solid var(--nuxt);
+    }
+  }
+}
+
+.page-header {                              // page-header 내부
+  & .tags {                                 // .tags 는 왼쪽 정렬
+    justify-self: start;
+    &::before {                             // 그리고 Tags 문자열 추가
+      content: "Tags:";
+      font-weight: bold;
+      color: var(--darkgray);
+      align-self: center;
+    }
+  }
+
+  & a.internal.tag-link { // 여기서 각 해시태그들을 화살표 방향으로 만들어야하는데, 씨이이이발 이건 어케하는건데? 백엔드는 질질 짠다.
+    //margin: 0 0.1rem;
+    //background-color: var(--highlight);
+    //padding: 0.1rem 0.6rem 0.1rem 1rem;
+    //text-decoration: none;
+    //display: inline-block;
+    //clip-path: polygon(
+    //                0% 50%,
+    //                15% 0%,
+    //                100% 0%,
+    //                100% 100%,
+    //                15% 100%
+    //);
+  }
+}
+
+// 태그 페이지 grid 설정
+.section-li {
+  & .section {
+    display: grid;
+    grid-template-columns: 1fr 5fr 4fr;
+    align-items: center;
+    gap: 1rem;
+
+    & .meta {
+      min-width: 90px;
+      margin: 0;
+      font-size: 0.875rem;
+      color: var(--gray);
+    }
+
+    & .desc {
+      .desc {
+        margin: 0;
+      }
+    }
+
+    & .tags {
+      display: flex;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 0.2rem;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+  }
+}
+
+// -------------- Comment Candidates --------------
+//// 다크모드에서 class 속성이 없는 blockquote 왼쪽 border 설정
+//blockquote:not([class]) {
+//  html[saved-theme="dark"] & {
+//    border-left: 3px solid var(--nuxt) !important;
+//  }
+//}

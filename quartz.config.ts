@@ -8,13 +8,14 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "REVI1337", //"🪴 REVI1337",
+    pageTitle: "REVI1337",
+    pageTitleSuffix: "",
     enableSPA: true, // spa 를 false 로 해야지, comments 남길 수 있음!
     enablePopovers: true,
     analytics: {
       provider: "plausible",
     },
-    locale: "ko-KR",
+    locale: "en-US",
     baseUrl: "Revi1337.github.io",
     ignorePatterns: ["private", "templates", ".obsidian", "**.excalidraw.md", "SSAFY", "interview", 'Excalidraw', 'woowa', 'Test.md'],
     defaultDateType: "created",
@@ -35,16 +36,17 @@ const config: QuartzConfig = {
           dark: "#1B183E", // dark: "#2b2b2b",
           secondary: "#39227a", // secondary: "#284b63",
           tertiary: "#84a59d",
-          highlight: "rgba(143, 159, 169, 0.15)", // "rgba(57, 34, 122, .1)" (Candidate)
+          highlight: "rgba(143, 159, 169, 0.15)", // "rgba(57, 34, 122, .1)"
+          textHighlight: "#fff23688",
         },
         darkMode: {
-          light: "#151518",
+          light: "#020617",
           lightgray: "#393639",
-          gray: "#646464",
-          darkgray: "#d4d4d4",
+          gray: "#E2E8F1",
+          darkgray: "#ffffff",
           dark: "#ebebec",
-          secondary: "#7b97aa",
-          tertiary: "#84a59d",
+          secondary: "#ffffff",
+          tertiary: "#00dc82",
           highlight: "rgba(143, 159, 169, 0.15)",
           textHighlight: "#b3aa0288",
         },
@@ -57,7 +59,6 @@ const config: QuartzConfig = {
       Plugin.CreatedModifiedDate({
         priority: ["frontmatter", "git", "filesystem"],
       }),
-      Plugin.Latex({ renderEngine: "katex" }),
       Plugin.SyntaxHighlighting({
         theme: {
           light: "github-light",
@@ -72,9 +73,10 @@ const config: QuartzConfig = {
         markdownLinkResolution: "absolute",
         openLinksInNewTab: false,
         lazyLoad: true,
-        externalLinkIcon: true
+        externalLinkIcon: false
       }),
       Plugin.Description(),
+      Plugin.Latex({ renderEngine: "katex" }),
     ],
     filters: [Plugin.RemoveDrafts()],
     emitters: [
@@ -90,9 +92,7 @@ const config: QuartzConfig = {
       Plugin.Assets(),
       Plugin.Static(),
       Plugin.Favicon(),
-      Plugin.NotFoundPage(),
-      // Comment out CustomOgImages to speed up build time
-      Plugin.CustomOgImages(),
+      Plugin.NotFoundPage()
     ],
   },
 }

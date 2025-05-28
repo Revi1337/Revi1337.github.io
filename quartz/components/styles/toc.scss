@@ -1,15 +1,17 @@
-@function str-repeat($string, $times) {
-  @if $times == 0 {
-    @return $string;
+@use "../../styles/variables.scss" as *;
+
+.toc {
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+  min-height: 1.4rem;
+  flex: 0 0.5 auto;
+  &:has(button.toc-header.collapsed) {
+    flex: 0 1 1.4rem;
   }
-  $result: "";
-  @for $i from 1 through $times {
-    $result: $result + $string;
-  }
-  @return $result;
 }
 
-button#toc {
+button.toc-header {
   background-color: transparent;
   border: none;
   text-align: left;
@@ -49,8 +51,8 @@ ul.toc-content.overflow {
     color: var(--dark);
     opacity: 0.35;
     transition:
-      0.5s ease opacity,
-      0.3s ease color;
+            0.5s ease opacity,
+            0.3s ease color;
     &.in-view {
       opacity: 0.75;
     }
@@ -58,7 +60,7 @@ ul.toc-content.overflow {
 
   @for $i from 0 through 6 {
     & .depth-#{$i} {
-      padding-left: calc(1.35rem * #{$i});
+      padding-left: calc(1rem * #{$i});
     }
   }
 }

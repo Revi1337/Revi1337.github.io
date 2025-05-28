@@ -5,153 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="283b94bf-5028-497f-92a5-3572fe5ed7aa" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/dependabot.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/dependabot.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/ci.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/ci.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/advanced/creating components.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/advanced/creating components.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/advanced/making plugins.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/advanced/making plugins.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/authoring content.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/authoring content.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/configuration.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/configuration.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/features/Docker Support.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/features/Docker Support.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/features/RSS Feed.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/features/RSS Feed.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/features/backlinks.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/features/backlinks.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/features/breadcrumbs.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/features/breadcrumbs.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/features/explorer.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/features/explorer.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/features/folder and tag listings.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/features/folder and tag listings.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/features/graph view.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/features/graph view.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/features/upcoming features.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/features/upcoming features.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/hosting.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/hosting.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/layout.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/layout.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/plugins/ContentIndex.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/plugins/ContentIndex.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/plugins/CreatedModifiedDate.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/plugins/CreatedModifiedDate.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/plugins/FolderPage.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/plugins/FolderPage.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/plugins/Frontmatter.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/plugins/Frontmatter.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/plugins/Latex.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/plugins/Latex.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/plugins/ObsidianFlavoredMarkdown.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/plugins/ObsidianFlavoredMarkdown.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/plugins/TagPage.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/plugins/TagPage.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/setting up your GitHub repository.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/setting up your GitHub repository.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/showcase.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/showcase.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/globals.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/globals.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/Date_backup.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/ExplorerNode_backup.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/Explorer_backup.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/TableOfContents_backup.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/quartz.config_backup.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/quartz.layout_backup.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/quartz.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz.config.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quartz.layout.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz.layout.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/bootstrap-cli.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/bootstrap-cli.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/bootstrap-worker.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/bootstrap-worker.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/build.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/build.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/cfg.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/cfg.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/cli/args.js" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/cli/args.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/cli/handlers.js" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/cli/handlers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/components/Backlinks.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/components/Backlinks.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/components/Breadcrumbs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/components/Breadcrumbs.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/components/ContentMeta.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/components/ContentMeta.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/components/Darkmode.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/components/Darkmode.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/components/Date.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/components/Date.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/components/DesktopOnly.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/components/DesktopOnly.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quartz/components/Explorer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/components/Explorer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/components/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/components/Footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/components/Graph.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/components/Graph.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quartz/components/ExplorerNode.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/quartz/components/Head.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/components/Head.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/components/MobileOnly.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/components/MobileOnly.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/components/PageList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/components/PageList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/components/PageTitle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/components/PageTitle.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/components/Search.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/components/Search.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quartz/components/TableOfContents.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/components/TableOfContents.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/components/TagList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/components/TagList.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quartz/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/components/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/components/pages/Content.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/components/pages/Content.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/components/pages/FolderContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/components/pages/FolderContent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/components/pages/TagContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/components/pages/TagContent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/components/renderPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/components/renderPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/components/scripts/callout.inline.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/components/scripts/callout.inline.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/components/scripts/clipboard.inline.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/components/scripts/clipboard.inline.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/components/scripts/darkmode.inline.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/components/scripts/darkmode.inline.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/components/scripts/explorer.inline.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/components/scripts/explorer.inline.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/components/scripts/graph.inline.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/components/scripts/graph.inline.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/components/scripts/popover.inline.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/components/scripts/popover.inline.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/components/scripts/search.inline.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/components/scripts/search.inline.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/components/scripts/spa.inline.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/components/scripts/spa.inline.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/components/scripts/toc.inline.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/components/scripts/toc.inline.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/components/scripts/util.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/components/scripts/util.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/components/styles/backlinks.scss" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/components/styles/backlinks.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/components/styles/contentMeta.scss" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/components/styles/contentMeta.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/components/styles/darkmode.scss" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/components/styles/darkmode.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/components/styles/explorer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/components/styles/explorer.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/components/styles/graph.scss" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/components/styles/graph.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/components/styles/legacyToc.scss" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/components/styles/legacyToc.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/components/styles/listPage.scss" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/components/styles/listPage.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/components/styles/popover.scss" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/components/styles/popover.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/components/styles/search.scss" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/components/styles/search.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quartz/components/styles/toc.scss" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/components/styles/toc.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/components/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/components/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/i18n/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/i18n/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/i18n/locales/ar-SA.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/i18n/locales/ar-SA.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/i18n/locales/ca-ES.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/i18n/locales/ca-ES.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/i18n/locales/de-DE.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/i18n/locales/de-DE.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/i18n/locales/definition.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/i18n/locales/definition.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/i18n/locales/en-GB.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/i18n/locales/en-GB.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/i18n/locales/en-US.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/i18n/locales/en-US.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/i18n/locales/es-ES.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/i18n/locales/es-ES.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/i18n/locales/fa-IR.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/i18n/locales/fa-IR.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/i18n/locales/fr-FR.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/i18n/locales/fr-FR.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/i18n/locales/hu-HU.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/i18n/locales/hu-HU.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/i18n/locales/it-IT.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/i18n/locales/it-IT.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/i18n/locales/ja-JP.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/i18n/locales/ja-JP.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/i18n/locales/ko-KR.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/i18n/locales/ko-KR.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/i18n/locales/nl-NL.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/i18n/locales/nl-NL.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/i18n/locales/pl-PL.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/i18n/locales/pl-PL.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/i18n/locales/pt-BR.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/i18n/locales/pt-BR.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/i18n/locales/ro-RO.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/i18n/locales/ro-RO.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/i18n/locales/ru-RU.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/i18n/locales/ru-RU.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/i18n/locales/uk-UA.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/i18n/locales/uk-UA.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/i18n/locales/vi-VN.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/i18n/locales/vi-VN.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/i18n/locales/zh-CN.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/i18n/locales/zh-CN.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/plugins/emitters/404.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/plugins/emitters/404.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/plugins/emitters/aliases.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/plugins/emitters/aliases.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/plugins/emitters/assets.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/plugins/emitters/assets.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/plugins/emitters/cname.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/plugins/emitters/cname.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/plugins/emitters/componentResources.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/plugins/emitters/componentResources.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/plugins/emitters/contentPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/plugins/emitters/contentPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/plugins/emitters/folderPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/plugins/emitters/folderPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/plugins/emitters/helpers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/plugins/emitters/helpers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/plugins/emitters/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/plugins/emitters/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/plugins/emitters/static.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/plugins/emitters/static.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/plugins/emitters/tagPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/plugins/emitters/tagPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/plugins/filters/draft.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/plugins/filters/draft.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/plugins/filters/explicit.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/plugins/filters/explicit.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/plugins/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/plugins/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/plugins/transformers/citations.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/plugins/transformers/citations.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/plugins/transformers/description.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/plugins/transformers/description.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/plugins/transformers/frontmatter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/plugins/transformers/frontmatter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/plugins/transformers/gfm.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/plugins/transformers/gfm.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/plugins/transformers/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/plugins/transformers/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/plugins/transformers/lastmod.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/plugins/transformers/lastmod.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/plugins/transformers/latex.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/plugins/transformers/latex.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quartz/plugins/transformers/links.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/plugins/transformers/links.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/plugins/transformers/ofm.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/plugins/transformers/ofm.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/plugins/transformers/oxhugofm.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/plugins/transformers/oxhugofm.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/plugins/transformers/syntax.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/plugins/transformers/syntax.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/plugins/transformers/toc.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/plugins/transformers/toc.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/plugins/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/plugins/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/plugins/vfile.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/plugins/vfile.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/processors/emit.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/processors/emit.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/processors/parse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/processors/parse.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quartz/styles/base.scss" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/styles/base.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/styles/callouts.scss" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/styles/callouts.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quartz/styles/custom.scss" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/styles/custom.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quartz/styles/variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/styles/variables.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/util/ctx.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/util/ctx.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/util/escape.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/util/escape.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/util/log.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/util/log.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/util/path.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/util/path.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/util/path.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/util/path.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/util/resources.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/util/resources.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/util/theme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/util/theme.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz/worker.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/worker.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,22 +48,22 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "before-upgrade",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/revi1337/github-blog/backup",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "project.propVCSSupport.Mappings",
-    "ts.external.directory.path": "/Users/revi1337/github-blog/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;v4&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/revi1337/github-blog/backup&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.Mappings&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/revi1337/github-blog/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/backup" />
@@ -237,7 +109,8 @@
       <workItem from="1743964656391" duration="169000" />
       <workItem from="1744280600991" duration="161000" />
       <workItem from="1748265073552" duration="29334000" />
-      <workItem from="1748318032330" duration="34517000" />
+      <workItem from="1748318032330" duration="32971000" />
+      <workItem from="1748446360672" duration="8667000" />
     </task>
     <servers />
   </component>

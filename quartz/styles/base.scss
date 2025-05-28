@@ -91,7 +91,7 @@ a {
   color: var(--secondary);
 
   &:hover {
-    color: var(--tertiary) !important;
+    color: var(--tertiary);
   }
 
   &.internal {
@@ -100,6 +100,15 @@ a {
     padding: 0 0.1rem;
     border-radius: 5px;
     line-height: 1.4rem;
+
+    &.broken {
+      color: var(--secondary);
+      opacity: 0.5;
+      transition: opacity 0.2s ease;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
 
     &:has(> img) {
       background-color: transparent;
@@ -190,8 +199,8 @@ a {
     }
 
     @media all and not ($desktop) {
-      padding: 0 1rem;
-    }
+    padding: 0 1rem;
+  }
     @media all and ($mobile) {
       margin: 0 auto;
     }
@@ -221,6 +230,7 @@ a {
         padding-top: 2rem;
       }
     }
+
     & .sidebar.right {
       grid-area: grid-sidebar-right;
       margin-right: 0;
@@ -230,19 +240,19 @@ a {
         margin-right: inherit;
       }
       @media all and not ($desktop) {
-        position: initial;
-        height: unset;
-        width: 100%;
-        flex-direction: row;
-        padding: 0;
-        & > * {
-          flex: 1;
-          max-height: 24rem;
-        }
-        & > .toc {
-          display: none;
-        }
+      position: initial;
+      height: unset;
+      width: 100%;
+      flex-direction: row;
+      padding: 0;
+      & > * {
+        flex: 1;
+        max-height: 24rem;
       }
+      & > .toc {
+        display: none;
+      }
+    }
     }
     & .page-header,
     & .page-footer {
@@ -418,7 +428,6 @@ figure[data-rehype-pretty-code-figure] {
 
   & > pre {
     padding: 0;
-    margin-bottom: 2.5rem;
   }
 }
 
@@ -492,8 +501,7 @@ code {
 tbody,
 li,
 p {
-  //line-height: 1.8rem;
-  line-height: 1.7rem;
+  line-height: 1.6rem;
 }
 
 .table-container {
@@ -569,7 +577,7 @@ div:has(> .overflow) {
 
 ul.overflow,
 ol.overflow {
-  max-height: 400px;
+  max-height: 100%;
   overflow-y: auto;
   width: 100%;
   margin-bottom: 0;
