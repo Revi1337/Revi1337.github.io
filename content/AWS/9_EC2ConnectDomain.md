@@ -1,6 +1,6 @@
 ---
 title: EC2 개인 도메인 적용
-tags: ['aws', ec2', 'route_53']
+tags: ['aws', 'ec2', 'route_53']
 ---
 
 ## 들어가며
