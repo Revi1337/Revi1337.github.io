@@ -40,3 +40,5 @@ Tree 는 추상화된 구조인데 내부적으로 LinkedList 같은 자료구�
 
 ## Index 의 단점
 - 인덱스를 사용하면 `탐색 효율이 증가`하는 장점과는 반대로, 데이터의 변경`CUD(Insert, Update, Delete)`. 즉, DML 쿼리를 사용할때 드는 비용이 증가한다.
+
+## Multi Column Index

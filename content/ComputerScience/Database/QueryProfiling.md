@@ -97,4 +97,3 @@ show profile mem for query 13;
 
 ## 마치며
 성능 테스트에 있어 항상 Profiling 의 duration 정보만 봐왔었는데, 다른 Keyword 로 다른 정보를 볼 수 있다는것이 무척 신기했습니다. Keyword 에 대한 상세정보는 알아보지 못했지만, 필요할 경우 다시 작성해야겠습니다.
-

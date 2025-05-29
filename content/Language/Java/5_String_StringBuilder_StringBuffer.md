@@ -11,19 +11,6 @@ tags: ['language', 'java']
 ^is-string-primitive
 
 
-> [!question] Java에서 문자열을 조작하기 위한 클래스는 어떤것들이 있나요? 그들 사이의 차이점은 무엇인가요?
-> - Java 에서 문자열을 조작하기 위해 주로 사용되는 클래스에는 String & StringBuilder & StringBuffer 가 있습니다. 
-> - 이들 클래스는 문자열을 생성, 조작, 비교하는 데 사용됩니다.
-> <br>
-> - String 은 변경이 불가능한 Immutable 한 객체이며, StringBuilder & StringBuffer 는 변경이 가능한 Mutable 한 객체인 점에서 차이가 있습니다.
->   <br>
-> - String은 변경 불가능한(Immutable) 클래스로, 문자열의 수정이 필요하지 않은 경우에 주로 사용됩니다. 따라서 String 클래스에서 제공하는 변경 메서드를 취하면 새로운 String 객체를 반환하게 됩니다.
->   <br>
-> - StringBuilder 과 StringBuffer는 변경 가능한(Mutable) 클래스로, 문자열의 동적인 수정이 필요한 경우에 사용됩니다. StringBuilder는 단일 스레드 환경에서 사용되며, StringBuffer는 멀티스레드 환경에서 사용된다는 차이점이 있습니다.
-> - StringBuffer는 동기화를 지원하여 스레드 안전성(thread-safe)을 제공합니다.
-
-
-
 > [!question] String Class 는 뭔가요? 
 > - String 클래스는 문자열을 다루기 위한 Java 의 대표적인 클래스입니다.
 > - 내부적으로 문자 배열(char[])(`Java 9 이상은 바이트 배열(byte[])`) 을 사용하여 문자열 데이터를 저장하고 관리합니다.
@@ -51,7 +38,7 @@ tags: ['language', 'java']
 
 > [!question] String 인스턴스를 만드는 방식은 몇가지가 있나요?
 > - 2가지가 있습니다. 문자열 리터럴 방식 혹은 new String() 을 통해 String 인스턴스를 만들어 줄 수 있습니다.
-> - 리터럴 방식은 더블 쿼트"" 로 묵시적인 String 인스턴스를 만들고, Heap 영역의 [String Constant Pool](Language/Java/4_String_StringBuilder_StringBuffer.md#^what-is-string-constant-pool) 에 저장됩니다.
+> - 리터럴 방식은 더블 쿼트"" 로 묵시적인 String 인스턴스를 만들고, Heap 영역의 [String Constant Pool](Language/Java/5_String_StringBuilder_StringBuffer.md#^what-is-string-constant-pool) 에 저장됩니다.
 > - new String() 은 명시적으로 새로운 인스턴스를 만들고, Heap 영역에 저장됩니다.
 
 ^how-many-string-make
@@ -61,31 +48,15 @@ tags: ['language', 'java']
 > - 결론적으로 메모리 효율성에 차이가 있습니다.
 > - 문자열 리터럴 방식은 Class 로드 시, Class 에 문자열 리터럴이 있으면 String Constant Pool 에 동일한 "문자열" 이 있는지 확인합니다. 만약 이미 있다면 재사용되며, 없으면 새로운 String 인스턴스가 생성되어 Heap 영역의 String Constant Pool 에 저장됩니다. 이러한 최적화를 통해 불필요한 메모리 사용을 줄일 수 있습니다.
 > - new String() 방식은 매번 새로운 String 인스턴스를 만들어 Heap 영역에 저장됩니다. 별도의 최적화가 진행되지 않기 때문에 메모리 효율성이 떨어집니다.
+
 ^diff-between-literal-new
-
-
-> [!question] StringBuilder 와 StringBuffer 에는 어떤 메서드가 있나요?
-> - StringBuilder 와 StringBuffer 모두 AbstractStringBuilder 를 구현하고 있어 append(), insert(), delete() 메서드를 제공합니다.
-> - append() 메서드는 맨 뒤에 새로운 문자 및 문자열을 추가할 수 있고, insert() 와 delete() 는 offset 기반으로 특정 위치에 문자를 추가하고, 삭제할 수 있습니다.
-
-^diff-between-builder-buffer
-
-
-> [!question] StringBuilder 와 StringBuffer 중 어떤 것이 더 성능이 좋나요? 그렇다면 왜 더 좋나요? 
-> - StringBuilder 가 더 성능이 좋습니다.
-> - StringBuilder 는 단일스레드 환경에서 사용하며, StringBuffer 는 멀티스레드 환경에서 사용됩니다.
-> - 이것은 곧 StringBuffer 는 스레드간의 동기화가 필요하고, StringBuilder 는 필요없다는 것을 의미합니다.
-> - 실제로 StringBuffer 의 대부분의 메서드에는 synchronized 키워드가 달려있어, 스레드간의 동기화(Lock 을 걸고 해제하는 과정) 과정에서 오버헤드가 발생하여 성능이 떨어질 수 있습니다. 
-> - 하지만 StringBuilder 는 이러한 동기화 과정이 없기 때문에 성능상 더 이점이 있습니다.
-
-^diff-between-builder-buffer
 
 
 >[!question] String Constant Pool 이 뭔가요?
 > - String Constant Pool 은 문자열 리터럴을 저장하는 독립된 영역입니다.
 > - Hashtable 자료구조로 이루어져 있으며 JVM - Perm/Metaspace 영역에 존재합니다.
 > - String은 불변객체이기 때문에 문자열의 생성 시 String Constant Pool 에 저장된 리터럴을 재사용할 수 있습니다.
-> - 소스코드에 문자열 자체를 선언하거나 String.intern()[](#^what-is-intern) 메서드를 사용한 경우에만 Pool 에 저장되게 됩니다.
+> - 소스코드에 문자열 자체를 선언하거나 [String.intern()](#^what-is-intern) 메서드를 사용한 경우에만 Pool 에 저장되게 됩니다.
 > - new String() 혹은 동적(계산) 으로 할당된 문자열은 Pool 에 저장되지 않습니다.
 
 ^what-is-string-constant-pool
@@ -113,6 +84,35 @@ tags: ['language', 'java']
 > - 따라서 그 어떠한 경우에도 문자열 비교에는 동등성 비교를 해야 합니다.
 
 ^why-string-comp-equals2
+
+
+> [!question] StringBuilder 와 StringBuffer 에는 어떤 메서드가 있나요?
+> - StringBuilder 와 StringBuffer 모두 AbstractStringBuilder 를 구현하고 있어 append(), insert(), delete() 메서드를 제공합니다.
+> - append() 메서드는 맨 뒤에 새로운 문자 및 문자열을 추가할 수 있고, insert() 와 delete() 는 offset 기반으로 특정 위치에 문자를 추가하고, 삭제할 수 있습니다.
+
+^diff-between-builder-buffer
+
+
+> [!question] StringBuilder 와 StringBuffer 중 어떤 것이 더 성능이 좋나요? 그렇다면 왜 더 좋나요? 
+> - StringBuilder 가 더 성능이 좋습니다.
+> - StringBuilder 는 단일스레드 환경에서 사용하며, StringBuffer 는 멀티스레드 환경에서 사용됩니다.
+> - 이것은 곧 StringBuffer 는 스레드간의 동기화가 필요하고, StringBuilder 는 필요없다는 것을 의미합니다.
+> - 실제로 StringBuffer 의 대부분의 메서드에는 synchronized 키워드가 달려있어, 스레드간의 동기화(Lock 을 걸고 해제하는 과정) 과정에서 오버헤드가 발생하여 성능이 떨어질 수 있습니다. 
+> - 하지만 StringBuilder 는 이러한 동기화 과정이 없기 때문에 성능상 더 이점이 있습니다.
+
+^diff-between-builder-buffer
+
+
+> [!question] Java에서 문자열을 조작하기 위한 클래스는 어떤것들이 있나요? 그들 사이의 차이점은 무엇인가요?
+> - Java 에서 문자열을 조작하기 위해 주로 사용되는 클래스에는 String & StringBuilder & StringBuffer 가 있습니다. 이 클래스들은 문자열을 생성, 조작, 비교하는 데 사용됩니다.
+> <br>
+> - String 은 변경이 불가능한 Immutable 한 객체이며, StringBuilder & StringBuffer 는 변경이 가능한 Mutable 한 객체인 점에서 차이가 있습니다.
+>   <br>
+> - String은 변경 불가능한(Immutable) 클래스이기 때문에, 문자열의 수정이 필요하지 않은 경우에 주로 사용됩니다. String 클래스에서 제공하는 변경 메서드를 취하면 새로운 String 객체를 반환하게 됩니다.
+>   <br>
+> - StringBuilder 과 StringBuffer는 변경 가능한(Mutable) 클래스로, 문자열의 동적인 수정이 필요한 경우에 사용됩니다. StringBuilder는 단일 스레드 환경에서 사용되며, StringBuffer는 멀티스레드 환경에서 사용된다는 차이점이 있습니다.
+> - StringBuffer는 동기화를 지원하여 스레드 안전성(thread-safe)을 제공합니다.
+
 
 
 > [!question] Java 에서 반복문을 사용하지 않고 + 혹은 += 연산자로 문자열 Concatenation 을 진행할 때, 버전별 최적화 방식에 대해 설명해주세요.
@@ -176,6 +176,4 @@ public class LoopStringMain {
 `JDK 25`  
 
 ![](Language/Java/images/Pasted%20image%2020250214154528.png)
-
-[String Constant Pool](Language/Java/4_String_StringBuilder_StringBuffer.md#^what-is-string-constant-pool)
 

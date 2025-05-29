@@ -274,3 +274,11 @@ words = [word for word in test_iterator]
 - `__next__()` 메서드를 구현하고, `__iter__()` 메서드를 통해 자기 자신을 반환하는 객체를 의미합니다.
 - Stream 데이터처럼 요소를 하나씩 순차적으로 반환하며, 끝에 도달하면 `StopIteration` 예외를 발생시킵니다.
 - 현재 상태를 기억하며, 한 번 반환된 값은 다시 반환되지 않습니다.
+
+## Reference
+[geeksforgeeks][https://www.geeksforgeeks.org/difference-between-iterator-vs-generator/]
+
+[이터레이터와 제너레이터](https://mingrammer.com/translation-iterators-vs-generators/)
+
+[Iterable & Iterator & Generator](https://emjayahn.github.io/2019/07/15/iterator-generator/)
+

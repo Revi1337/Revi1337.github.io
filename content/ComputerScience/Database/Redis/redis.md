@@ -1,3 +1,9 @@
+---
+title: Redis
+tags: ['redis']
+---
+
+
 ## Redis
 Redis 는 Remote Dictionary Server 의 약자이며 다수의 서버를 사용하는 분상환경의 서버가 공통으로 사용할 수 있는 key: value 형태의 HashTable 구조라고 보면 된다.
 ## Redis 의 특징

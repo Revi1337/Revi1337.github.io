@@ -64,3 +64,6 @@ Sequence 한 자료형과 Non Sequence 한 자료형을 표로 정리하면 아�
 | **인덱싱/슬라이싱 가능** | O                       | X                    |
 | **반복 가능**       | O                       | O                    |
 | **예시**          | list, tuple, str, range | set, dict            |
+
+## Reference
+[Python Document](https://docs.python.org/3/glossary.html#term-sequence)

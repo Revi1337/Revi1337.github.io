@@ -52,7 +52,7 @@ Heap 에서 사용되는 연산은 세가지가 있습니다.
 2. pop : 이미 힙 구조를 가진 배열에서 `가장 작거나 가장 큰 값 (index 0) 을 제거하는 연산` 을 말합니다.
 3. heapfiy : 배열(완전 이진 트리)을 구성하는 `특정 Node 를 Root 로 하는 SubTree 전체가 Heap 속성을 만족하도록 조정하는 과정 및 연산` (매우 중요)
 
-### heappush
+### 원소 추가 (push)
 "Heap 에 Push" 한다는 것은 `이미 Heap 구조를 가진 배열(완전 이진 트리) 끝에 새로운 Node 를 추가하는 것` 을 의미합니다. 해당 연산은 아래와 같은 프로세스로 동작합니다. 참고로 뒤에 설명하겠지만 해당 연산은 `O(Log N)` 시간복잡도를 가집니다.
 
 1. Heap 구조를 가진 배열(완전 이진 트리)의 끝에 새로운 Node 를 추가합니다.
@@ -109,7 +109,7 @@ def heappush(heap, node):
             break
 ```
 
-### heappop
+### 원소 제거 (pop)
 "Heap 에 원소를 Pop" 한다는 것은 `이미 Heap 구조를 가진 배열(완전 이진 트리)의 Root Node(index 0)` 를 삭제하는 것을 의미합니다. 이전에 최소 힙을 구성했으므로 index 0 에는 가장 작은 Node 가 위치할텐데, 해당 Node 를 pop 해주는 것입니다. 해당 연산은 아래와 같은 프로세스로 동작합니다. 뒤에 설명하겠지만 해당 연산도 `O(Log N)` 시간복잡도를 가집니다.
 
 1. Root Node 를 삭제합니다.
@@ -129,7 +129,7 @@ Node 를 교환했기 때문에, 최소힙 Node 는 Heap 의 맨 마지막에 �
 
 ![](ComputerScience/DataStructure/images/Pasted%20image%2020250203152437.png)
 
-#### heapify
+#### 힙화 (heapify)
 이제 Heap 을 재구성할 차례입니다. Heap 은 재구성한다는 것은 `특정 Node 를 Root 로 하는 SubTree 전체가 Heap 속성을 만족하도록 조정하는 과정` 이며 이것을 `힙화(Heapify)` 라고 합니다. Heapify 는 Heap 을 구현함에 있어 매우 중요한 내용입니다. 왜냐하면 `Heap 에서 원소를 pop 하고 Heap 을 재구성하는데도 사용`되고, `Heap 구조가 깨져있는 일반적인 1차원 배열을 한번에 Heap 구조로 만드는데도 사용`되기 때문입니다. 참고로 특정 Node 에서 시작하는 Heapify 에 걸리는 시간 복잡도는 `O(Log N)` 입니다.
 
 Heapify 는 다음과 같은 프로세스로 진행되게 됩니다.
