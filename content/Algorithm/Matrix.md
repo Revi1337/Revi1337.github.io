@@ -77,7 +77,7 @@ solution(
 
 이게 matrix1 의 행과 matrix2 의 열을 곱해주면 된다.
 
-![](Algorithm/images/Pasted%20image%2020240710223147.png)
+![](Algorithm/Sort/images/Pasted%20image%2020240710223147.png)
 
 ```python
 def solution(arr1, arr2):  

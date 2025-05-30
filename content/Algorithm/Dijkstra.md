@@ -1,6 +1,6 @@
 ---
 title: Dijkstra
-tags: ['algorithm', 'shortest-distance', 'dijkstra']
+tags: ['algorithm', 'dijkstra']
 ---
 
 ## Dijkstra  Algorithm

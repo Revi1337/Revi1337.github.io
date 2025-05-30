@@ -1,6 +1,6 @@
 ---
 title: Euclidean
-tags: ["algorithm", "math", "euclidean"]
+tags: ['algorithm', 'math', 'euclidean']
 ---
 
 ### 유클리드 호제법

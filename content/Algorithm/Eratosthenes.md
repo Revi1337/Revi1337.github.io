@@ -1,6 +1,6 @@
 ---
 title: Sieve of Eratosthenes
-tags: ["algorithm", "math", "eratosthenes"]
+tags: ['algorithm', 'math', 'eratosthenes']
 ---
 
 ### 에라토스테네스의 체
