@@ -105,7 +105,7 @@ Find 연산은 특정 노드가 속한 집합의 대표원소(루트노드)를 �
 
 
 ## Implemention
-Union Find 를 코드로 구현하면 다음과 같이 구현할 수 있습니다. 설명은 Comment 로 남겨두겠습니다.
+파이썬으로 Union Find 는 다음과 같이 구현할 수 있습니다. 설명은 Comment 로 남겨두겠습니다.
 
 ```python
 def solution(mx_node, edges, s1, s2):  
