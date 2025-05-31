@@ -20,7 +20,7 @@ tags: ['algorithm', 'prefix-sum', 'range-sum']
 ### Index 1 Base
 1차원 배열의 `누적합` 을 구할때는 주로 `Index 1 Base` 를 사용합니다. Index 1 Base 누적합 배열은 `누적합 배열의 Index 0 은 비워두고 Index 1 부터 저장`하는 방식입니다.
 
-- 기존 arr 크기가 N 이라면, 누적합 배열의 크기는 (N + 1) 만큼 0 으로 초기화합니다. `psum = [0] * (N + 1))
+- 기존 arr 크기가 N 이라면, 누적합 배열의 크기는 (N + 1) 만큼 0 으로 초기화합니다. `psum = [0] * (N + 1)`
 - arr 을 인덱스 1 ~ (N + 1) 까지 순회하며 `psum[idx] = psum[idx - 1] + arr[idx - 1]` 를 진행합니다.
 
 ![](Algorithm/images/Pasted%20image%2020240524182905.png)
