@@ -7,7 +7,7 @@ tags: ['algorithm', 'prefix-sum', 'range-sum']
 누적합(Prefix sum)은 배열의 시작점(보통 인덱스 0 또는 1)부터 특정 인덱스까지의 원소의 합을 말합니다. 예를 들어, 배열이 `A = [a₀, a₁, ..., aₙ]` 일 때, 인덱스 `i` 까지의 누적합 `S[i]` 는 다음과 같이 표현할 수 있습니다.
 
 - Index 0 Base : `S[i] = a₀ + a₁ + ... + aᵢ `
-- Index 1 Base : `S[i] = a₁ + a₂ + ... + aᵢ` 
+- Index 1 Base : `S[i] = a₁ + a₂ + ... + aᵢ`
 
 
 누적합 배열을 미리 구해두면, 배열의 특정 `구간합(Range sum)`을 `O(1)`이라는 매우 빠른 시간 복잡도로 계산할 수 있습니다.
@@ -18,7 +18,7 @@ tags: ['algorithm', 'prefix-sum', 'range-sum']
 
 ## 1D Array Prefix sum
 ### Index 1 Base
-1차원 배열의 `누적합` 을 구할때는 주로 `Index 1 Base` 를 사용합니다. Index 1 Base 누적합 배열은 `누적합 배열의 Index 0 은 비워두고 Index 1 부터 저장`하는 방식입니다. 
+1차원 배열의 `누적합` 을 구할때는 주로 `Index 1 Base` 를 사용합니다. Index 1 Base 누적합 배열은 `누적합 배열의 Index 0 은 비워두고 Index 1 부터 저장`하는 방식입니다.
 
 - 기존 arr 크기가 N 이라면, 누적합 배열의 크기는 (N + 1) 만큼 0 으로 초기화합니다. `psum = [0] * (N + 1)`
 - arr 을 인덱스 1 ~ (N + 1) 까지 순회하며 `psum[idx] = psum[idx - 1] + arr[idx - 1]` 를 진행합니다.
@@ -41,7 +41,7 @@ print(solution([13, 19, 28, 23, 11, 25, 10, 20, 12, 24]))
 
 
 ### Index 0 Base
-Index 0 Base 누적합 배열은 `누적합 배열의 Index 0 부터 저장`하는 방식입니다. 
+Index 0 Base 누적합 배열은 `누적합 배열의 Index 0 부터 저장`하는 방식입니다.
 
 - 기존 arr 크기가 N 이라면, 누적합 배열의 크기도 N 만큼 0 으로 초기화합니다. `psum = [0] * N`
 - 누적합 배열의 Index 0 을 arr[0] 값으로 초기화 시킵니다. `psum[0] = arr[0]`
@@ -100,12 +100,12 @@ print(solution([13, 19, 28, 23, 11, 25, 10, 20, 12, 24], 3, 5))
 
 
 #### Index 0 Base 엣지 케이스
-Index 0 Base 누적합 배열에서 `연속된 구간 N ~ J` 의 구간합을 구하고 싶다면 `psum[J] - psum[N - 1]` 를 해주면 됩니다. 아래 예시처럼 `arr[3] ~ arr[5]` 의 구간합을 구하려면  `prefix_sum[5] - prefix_sum[2]` 를 계산하면 됩니다.
+Index 0 Base 누적합 배열에서 `연속된 구간 N ~ J` 의 구간합을 구하고 싶다면 `psum[J] - psum[N - 1]` 를 해주면 됩니다. 아래 예시처럼 `arr[3] ~ arr[5]` 의 구간합을 구하려면  `psum[5] - psum[2]` 를 계산하면 됩니다.
 
 ![](Algorithm/images/Pasted%20image%2020250531173042.png)
 
 
-계산 과정은 아래 그림을 보면 이해할 수 있을것입니다.
+계산 과정은 아래 그림을 보면 이해할 수 있습니다.
 
 ![](Algorithm/images/Pasted%20image%2020250531172734.png)
 
@@ -132,7 +132,6 @@ print(solution([13, 19, 28, 23, 11, 25, 10, 20, 12, 24], 3, 5))
 - 하지만 `psum[0 - 1]`는 `psum[-1]`. 즉, 파이썬에서 psum 배열의 맨 마지막 원소를 말하기 때문에 arr 배열의 원소를 모두 더한 값을 참조하게 되어 이상한 값이 출력되게 됩니다.
 
 ![](Algorithm/images/Pasted%20image%2020250531174437.png)
-^why-not-use-0-base
 
 
 이를 해결하기 위해 추가적인 예외처리 혹은 분기처리가 들어가기 때문에 효율적이지 않습니다.
@@ -155,45 +154,57 @@ print(solution([13, 19, 28, 23, 11, 25, 10, 20, 12, 24], 0, 3))
 
 
 ## 2D Prefix sum
-우선 2차원 배열의 누적합을 모두 구하게되면 아래와 같이 나오게 된다. row 와 col padding 이 1개 씩 들어가있는것을 볼 수 있는데, 경계값에 대한 예외를 처리하지 않게하기 위함이다.
+2차원 배열의 누적합은 1차원보다 조금 더 복잡합니다. 우선 2차원 배열 `arr`에 대한 누적합을 저장할 2차원 배열 `psum`이 필요합니다.
+
+- 만약 `arr`의 크기가 `N x M`이라면, 누적합 배열 `psum`의 크기는 `(N + 1) x (M + 1)`로 생성합니다.
+- 이렇게 `+1`씩 늘리는 이유는 `인덱스 경계 처리를 간단하게 하기 위해서`입니다. 0행과 0열은 모두 0으로 초기화해두고, 계산 시 자연스럽게 누적이 가능하도록 합니다.
+
+![](Algorithm/images/Pasted%20image%2020250531225552.png)
+
+
+2차원 배열의 누적합은 `(1 ~ N) x (1 ~ M)` 범위에서 이중 반복문을 통해 구합니다. 현재 좌표가 `(row, col)`일 때 `psum[row][col]`은 `arr[row - 1][col - 1]`까지의 누적합을 의미하며, 아래 공식을 따릅니다.
+
+```python
+psum[row][col] = psum[row - 1][col] + psum[row][col - 1]
+                   - psum[row - 1][col - 1]
+                   + arr[row - 1][col - 1]
+```
+
+
+결과적으로, arr 의 각 좌표에 대한 누적합은 아래와 같이 나오게 됩니다.
 
 ![](Algorithm/images/Pasted%20image%2020240524203942.png)
 
-### version 1
-2차원 배열에서 `arr[row][col]` 까지의 누적합을 구하고 싶다면 `psum[row + 1][col + 1]` 까지 구하면 되며, 이를 식으로 나타내면 아래와 같다.
 
-> [!note] 왜 row, col 에 1 을 더해주나?
-> 누적합 배열을 처음 초기활때 기존 arr 의 row 와 col 보다 1 씩 크게 만들어주었기 때문.
+이해를 위해 `psum[4][3]` 예시를 보겠습니다.
 
-```python
-row, col = row + 1, col + 1
-
-psum[row][col] = psum[row - 1][col] + psum[row][col - 1] - psum[row - 1][col - 1] + arr[row - 1][col - 1]
-```
-
-마찬가지로 `arr[3][2]` 까지의 누적합을 구하고 싶다면 `psum[4][3]` 을 보면 된다. 
+- `psum[4][3]`은 `arr[3][2]`까지의 전체 누적합을 의미합니다.
+- `psum[4][3] = psum[3][3] + psum[4][2] - psum[3][2] + arr[3][2]` 입니다.
+- 바로 위 수식은 아래 그림에서 순서대로`파랑 = 빨강 + 초록 - 갈색 + arr[3][2]` 에 해당합니다.
+- 빨강과 초록을 더하면 갈색 영역(중복 영역)이 두 번 더해지므로 한 번 빼주고, 마지막에 현재 위치인 `arr[3][2]` 값을 더해주는 원리입니다.
 
 ![](Algorithm/images/Pasted%20image%2020240524224127.png)
 
-좀 더 보기 쉽게 그려보자면 아래와 같다. `psum[4 - 1][3]` 와 `psum[4][3 - 1]` 을 더하면 `psum[4 - 1][3 - 1]` 부분이 한번 더 더해지기 때문에 갈색 부분을 한번 빼주는 것이다. 여기까지가 `psum[row - 1][col - 1]` 값이고, 이제 원본 배열의 `arr[row - 1][col - 1]` 위치의 원소를 더하면 `psum[row][col]` 이 완성되는 것이다.
+
+더 풀어서 그려볼 수 있습니다. `psum[3][3]` 과 `psum[4][2]` 을 더하면 `psum[3][2]` 부분이 한번 더 더해지기 때문에 갈색 부분을 한번 빼주는 것입니다. 이제 원본 배열의 `arr[3][2]` 값을 더해주면, `psum[4][3]`, 즉 `arr[3][2]`까지의 누적합이 완성됩니다.
 
 ![](Algorithm/images/Pasted%20image%2020240524205341.png)
 
 ![](Algorithm/images/Pasted%20image%2020240524210857.png)
 
-아래와 같은 코드로 구현할 수 있다. hightlight 된 부분이 앞에서 자세히 설명한 부분이다.
 
-```python {6-9}
+코드로는 다음과 같이 구현할 수 있습니다.
+
+```python
 def solution(arr):  
-    row_length, col_length = len(arr), len(arr[0])  
-    prefix_sum = [[0] * (col_length + 1) for _ in range(row_length + 1)]  
-    for row in range(1, row_length + 1):  
-        for col in range(1, col_length + 1):  
-            prefix_sum[row][col] = prefix_sum[row - 1][col] \  
-                                   + prefix_sum[row][col - 1] \  
-                                   - prefix_sum[row - 1][col - 1] \  
-                                   + arr[row - 1][col - 1]  
-    return prefix_sum  
+    N, M = len(arr), len(arr[0])  
+    psum = [[0] * (M + 1) for _ in range(N + 1)]  
+    for row in range(1, N + 1):  
+        for col in range(1, M + 1):  
+            psum[row][col] = psum[row - 1][col] + psum[row][col - 1] \  
+                               - psum[row - 1][col - 1] \  
+                               + arr[row - 1][col - 1]  
+    return psum
   
 print(  
     solution(  
@@ -207,49 +218,46 @@ print(
 )
 ```
 
-### 연속된 구간합
-2차원 배열에서 `arr[r1][c1] ~ arr[r2][c2]` 의 구간합을 구하고 싶다면 `psum[r1 + 1][c1 + 1] ~ psum[r2 + 1][c2 + 1]` 구간을 살펴보면 된다. 이를 식으로 표현하면 아래와 같이 나타낼 수 있다.
 
-> [!note] 왜 r1, c1, r2, c2 에 1을 더해주나?
-> 처음 누적합을 구할 때 row, col 에 padding 을 1 씩 주었기 때문.
+### Range sum
+2차원 배열에서 구간합을 구하려면 앞서 구한 누적합 배열을 이용하면 됩니다. 구간합은 아래 공식을 따릅니다.
 
 ```python
-# arr[r1][c1] ~ arr[r2][c2] 까지의 구간합은?
-
-r1, c1 = r1 + 1, c1 + 1   # arr 과 psum 의 크기를 맞추기 위해 1 을 더해줌
-r2, c2 = r2 + 1, c2 + 1   # arr 과 psum 의 크기를 맞추기 위해 1 을 더해줌
-
-psum[r2][c2] - psum[r2][c1 - 1] - psum[r1 - 1][c2] + psum[r1 - 1][c1 - 1]
+# 만약, arr[r1][c1] ~ arr[r2][c2] 까지의 구간합을 구한다면
+psum[r2 + 1][c2 + 1] - psum[r1][c2 + 1] - psum[r2 + 1][c1] + psum[r1][c1]
 ```
 
-마찬가지로 `arr[2][2] ~ arr[3][3]` 까지의 구간합을 구하고 싶다면, `psum[3][3] ~ psum[4][4]` 을 보면 된다.
+
+예로 `arr[2][2] ~ arr[3][3]` 까지의 구한다면, 다음 공식을 수행하면 됩니다.
+
+```python
+psum[4][4] - psum[2][4] - psum[4][2] + psum[2][2]
+```
 
 ![](Algorithm/images/Pasted%20image%2020240524221112.png)
 
-누적합을 구할때와 비슷하게, 초록색부분과 갈색부분을 빼주면 보라색부분이 한번 더 빼지기 때문에, 이를 보충하기 위해 보라색 부분을 한번 더해주는 것이다.
+
+누적합을 구할때와 비슷하게, 초록색부분과 갈색부분을 빼주면 보라색부분이 한번 더 빼지기 때문에, 이를 보충하기 위해 보라색 부분을 한번 더해줍니다.
 
 ![](Algorithm/images/Pasted%20image%2020240524221414.png)
 
-코드로 표현하면 아래와 같이 나타낼 수 있다.
 
-```python {11-12, 14-17}
+코드로는 다음과 같이 구현할 수 있습니다.
+
+```python
 def solution(arr, prolog, epilog):  
-    row_length, col_length = len(arr), len(arr[0])  
-    prefix_sum = [[0] * (col_length + 1) for _ in range(row_length + 1)]  
-    for row in range(1, row_length + 1):  
-        for col in range(1, col_length + 1):  
-            prefix_sum[row][col] = prefix_sum[row - 1][col] \  
-                                   + prefix_sum[row][col - 1] \  
-                                   - prefix_sum[row - 1][col - 1] \  
-                                   + arr[row - 1][col - 1]  
+    N, M = len(arr), len(arr[0])  
+    psum = [[0] * (M + 1) for _ in range(N + 1)]  
+    for row in range(1, N + 1):  
+        for col in range(1, M + 1):  
+            psum[row][col] = psum[row - 1][col] + psum[row][col - 1] \  
+                               - psum[row - 1][col - 1] \  
+                               + arr[row - 1][col - 1]  
   
-    st_row, st_col = prolog[0] + 1, prolog[1] + 1  
-    end_row, end_col = epilog[0] + 1, epilog[1] + 1  
+    r1, c1 = prolog  
+    r2, c2 = epilog  
   
-    return prefix_sum[end_row][end_col] \  
-        - prefix_sum[end_row][st_col - 1] \  
-        - prefix_sum[st_row - 1][end_col] \  
-        + prefix_sum[st_row - 1][st_col - 1]  
+    return psum[r2 + 1][c2 + 1] - psum[r1][c2 + 1] - psum[r2 + 1][c1] + psum[r1][c1]
   
 print(  
     solution(  
@@ -264,4 +272,3 @@ print(
     )
 )
 ```
-
