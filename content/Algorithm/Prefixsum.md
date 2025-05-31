@@ -7,7 +7,7 @@ tags: ['algorithm', 'prefix-sum', 'range-sum']
 누적합(Prefix sum)은 배열의 시작점(보통 인덱스 0 또는 1)부터 특정 인덱스까지의 원소의 합을 말합니다. 예를 들어, 배열이 `A = [a₀, a₁, ..., aₙ]` 일 때, 인덱스 `i` 까지의 누적합 `S[i]` 는 다음과 같이 표현할 수 있습니다.
 
 - Index 0 Base : `S[i] = a₀ + a₁ + ... + aᵢ `
-- Index 1 Base : `S[i] = a₁ + a₂ + ... + aᵢ`
+- Index 1 Base : `S[i] = a₁ + a₂ + ... + aᵢ` 
 
 
 누적합 배열을 미리 구해두면, 배열의 특정 `구간합(Range sum)`을 `O(1)`이라는 매우 빠른 시간 복잡도로 계산할 수 있습니다.
@@ -18,7 +18,7 @@ tags: ['algorithm', 'prefix-sum', 'range-sum']
 
 ## 1D Array Prefix sum
 ### Index 1 Base
-1차원 배열의 `누적합` 을 구할때는 주로 `Index 1 Base` 를 사용합니다. Index 1 Base 누적합 배열은 `누적합 배열의 Index 0 은 비워두고 Index 1 부터 저장`하는 방식입니다.
+1차원 배열의 `누적합` 을 구할때는 주로 `Index 1 Base` 를 사용합니다. Index 1 Base 누적합 배열은 `누적합 배열의 Index 0 은 비워두고 Index 1 부터 저장`하는 방식입니다. 
 
 - 기존 arr 크기가 N 이라면, 누적합 배열의 크기는 (N + 1) 만큼 0 으로 초기화합니다. `psum = [0] * (N + 1)`
 - arr 을 인덱스 1 ~ (N + 1) 까지 순회하며 `psum[idx] = psum[idx - 1] + arr[idx - 1]` 를 진행합니다.
@@ -41,7 +41,7 @@ print(solution([13, 19, 28, 23, 11, 25, 10, 20, 12, 24]))
 
 
 ### Index 0 Base
-Index 0 Base 누적합 배열은 `누적합 배열의 Index 0 부터 저장`하는 방식입니다.
+Index 0 Base 누적합 배열은 `누적합 배열의 Index 0 부터 저장`하는 방식입니다. 
 
 - 기존 arr 크기가 N 이라면, 누적합 배열의 크기도 N 만큼 0 으로 초기화합니다. `psum = [0] * N`
 - 누적합 배열의 Index 0 을 arr[0] 값으로 초기화 시킵니다. `psum[0] = arr[0]`
@@ -171,7 +171,7 @@ row, col = row + 1, col + 1
 psum[row][col] = psum[row - 1][col] + psum[row][col - 1] - psum[row - 1][col - 1] + arr[row - 1][col - 1]
 ```
 
-마찬가지로 `arr[3][2]` 까지의 누적합을 구하고 싶다면 `psum[4][3]` 을 보면 된다.
+마찬가지로 `arr[3][2]` 까지의 누적합을 구하고 싶다면 `psum[4][3]` 을 보면 된다. 
 
 ![](Algorithm/images/Pasted%20image%2020240524224127.png)
 
