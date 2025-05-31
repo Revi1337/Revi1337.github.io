@@ -1,34 +1,32 @@
 ---
-title: Prefix Sum
-tags: ['algorithm', 'prefix-sum']
+title: Prefix sum
+tags: ['algorithm', 'prefix-sum', 'range-sum']
 ---
 
-## 누적합이란
-누적합(Prefix Sum)이란 **나열된 수의 누적된 합**을 말한다. 다시 말해, 수열 A[n] 이 있을때 `A[0] ~ A[1]` 구간의 합, `A[0] ~ A[2]` 구간의 합, `A[0] ~ A[3]` 구간의 합, ... `A[0] ~ A[n - 1]` 구간의 합과 같이, index 0 부터 각 index 까지의 합을 `누적합` 이라고 한다. 따라서 누적합의 각 요소는 해당 index 까지의 `부분합`(Partial Sum) 을 의미한다.
+## Prefix sum
+누적합(Prefix sum)은 배열의 시작점(보통 인덱스 0 또는 1)부터 특정 인덱스까지의 원소의 합을 말합니다. 예를 들어, 배열이 `A = [a₀, a₁, ..., aₙ]` 일 때, 인덱스 `i` 까지의 누적합 `S[i]` 는 다음과 같이 표현할 수 있습니다.
 
-## 1차원 배열 누적합
-1차원 배열의 `누적합` 을 구하는 방법에는 2가지가 있다. 문제마다 상황이 다르겠지만. `version2` 과 같이 구현하면 index out of range 와 같은 예외를 생각하지 않아도 되어 더 좋은것 같다.
-### version 1
-첫번째 방법은 매우 간단하다. prefix_sum 배열을 arr 크기만큼 만들어 누적합을 구해주면 된다. 단, 처음에 `prefix_sum` 의 `index 0` 을 arr[0] 으로 초기화시켜주는 작업이 필요하다.
+- Index 0 Base : `S[i] = a₀ + a₁ + ... + aᵢ `
+- Index 1 Base : `S[i] = a₁ + a₂ + ... + aᵢ`
 
-![](Algorithm/images/Pasted%20image%2020240524180958.png)
 
-```python {4, 6}
-def solution(arr):  
-    length = len(arr)  
-    psum = [0] * length  
-    psum[0] = arr[0]  
-    for idx in range(1, length):  
-        psum[idx] = psum[idx - 1] + arr[idx]  
-    return psum  
-  
-print(solution([13, 19, 28, 23, 11, 25, 10, 20, 12, 24]))
-```
+누적합 배열을 미리 구해두면, 배열의 특정 `구간합(Range sum)`을 `O(1)`이라는 매우 빠른 시간 복잡도로 계산할 수 있습니다.
 
-### version 2
-두번째방법은 prefix_sum 배열을 `arr + 1` 크기만큼 만들어 누적합을 구하는 방법이다. 이는 prefix_sum 의 `index 0` 을 비워두고 index 1 부터 누적합을 채워가는 방법이다.
+> [!note] Prefix sum & Range sum
+> 누적합과 구간합은 모두 배열이나 리스트의 원소들을 활용하여 합을 계산하는 기법이지만, 계산 방식과 목적이 다릅니다. 누적합은 각 인덱스까지의 합을 미리 계산하여 저장하는 반면, 구간합은 특정 구간의 합을 계산하는 데 사용됩니다. 즉, 누적합은 구간합을 계산하는 데 필요한 기반을 제공하며, 구간합은 누적합을 활용하여 특정 구간의 합을 빠르게 계산하는 데 사용됩니다.
+
+
+## 1D Array Prefix sum
+### Index 1 Base
+1차원 배열의 `누적합` 을 구할때는 주로 `Index 1 Base` 를 사용합니다. Index 1 Base 누적합 배열은 `누적합 배열의 Index 0 은 비워두고 Index 1 부터 저장`하는 방식입니다.
+
+- 기존 arr 크기가 N 이라면, 누적합 배열의 크기는 (N + 1) 만큼 0 으로 초기화합니다. `psum = [0] * (N + 1))
+- arr 을 인덱스 1 ~ (N + 1) 까지 순회하며 `psum[idx] = psum[idx - 1] + arr[idx - 1]` 를 진행합니다.
 
 ![](Algorithm/images/Pasted%20image%2020240524182905.png)
+
+
+코드로는 다음과 같이 구현할 수 있습니다.
 
 ```python {3,5}
 def solution(arr):  
@@ -41,16 +39,78 @@ def solution(arr):
 print(solution([13, 19, 28, 23, 11, 25, 10, 20, 12, 24]))
 ```
 
-### 연속된 구간합
-만약 `연속된 구간 N ~ J` 까지의 구간합을 구하고 싶다면 `prefix_sum[J] - prefix_sum[N - 1]` 를 해주면 된다. 아래 그림의 예시처럼 `arr[3] ~ arr[5]` 의 구간합을 구하고 싶다면  `prefix_sum[5] - prefix_sum[3 - 1]` 를 해주면 된다.
 
-![](Algorithm/images/Pasted%20image%2020240524190416.png)
+### Index 0 Base
+Index 0 Base 누적합 배열은 `누적합 배열의 Index 0 부터 저장`하는 방식입니다.
 
-아래 과정을 보면 이해가 가능할 것이다.
+- 기존 arr 크기가 N 이라면, 누적합 배열의 크기도 N 만큼 0 으로 초기화합니다. `psum = [0] * N`
+- 누적합 배열의 Index 0 을 arr[0] 값으로 초기화 시킵니다. `psum[0] = arr[0]`
+- arr 을 인덱스 1 ~ N 까지 순회하며 `psum[idx] = psum[idx - 1] + arr[idx]` 를 진행합니다.
 
-![](Algorithm/images/Pasted%20image%2020240524190452.png)
+![](Algorithm/images/Pasted%20image%2020240524180958.png)
 
-이를 코드로 구현하면 아래와같이 나타낼 수 있다. prefix_sum 배열만 구해놓으면 할게 없다.
+
+코드로는 다음과 같이 구현할 수 있습니다.
+
+```python {4, 6}
+def solution(arr):  
+    length = len(arr)  
+    psum = [0] * length  
+    psum[0] = arr[0]  
+    for idx in range(1, length):  
+        psum[idx] = psum[idx - 1] + arr[idx]  
+
+    return psum  
+  
+print(solution([13, 19, 28, 23, 11, 25, 10, 20, 12, 24]))
+```
+
+
+#### Index 0 Base 는 잘 사용 X
+하지만 Index 0 Base 누적합 배열은 잘 사용하지 않습니다. 이는 이 누적합 배열을 이용하여 배열의 특정 구간의 구간합을 구할 때 시작 구간이 Index 0 이면, 인덱스 범위를 벗어나 예외가 발생하기 때문입니다. (`파이썬에서는 -1 인덱스. 즉, 누적합 배열의 맨 뒤의 값을 참조하게 됩니다.`) 따라서 시작 구간이 Index 0 을 포함한 구간의 합을 구할 때 `예외처리 혹은 분기처리가 필요`합니다.
+
+해당 예외 케이스에 대한 부분은 [Index 0 Base Range Sum 을 잘 사용하지 않는 이유](#^why-not-use-0-base)를 참고하면 됩니다.
+
+
+### Range sum
+#### Index 1 Base
+Index 1 Base 누적합 배열에서 `연속된 구간 N ~ J` 의 구간합을 구하고 싶다면 `psum[J + 1] - psum[N]` 를 해주면 됩니다. 아래 그림의 예시처럼 `arr[3] ~ arr[5]` 의 구간합을 구하려면  `prefix_sum[6] - prefix_sum[3]` 를 계산하면 됩니다.
+
+![](Algorithm/images/Pasted%20image%2020250531164810.png)
+
+
+계산 과정은 아래 그림을 보면 이해할 수 있을것입니다.
+
+![](Algorithm/images/Pasted%20image%2020250531164905.png)
+
+
+코드로는 다음과 같이 구현할 수 있습니다. 누적합 배열 psum 만 구해놓으면 딱히 할게 없습니다.
+
+```python {7}
+def solution(arr, prolog, epilog):  
+    length = len(arr)  
+    psum = [0] * (length + 1)  
+    for idx in range(1, length + 1):  
+        psum[idx] = psum[idx - 1] + arr[idx - 1]  
+  
+    return psum[epilog + 1] - psum[prolog]  
+  
+print(solution([13, 19, 28, 23, 11, 25, 10, 20, 12, 24], 3, 5))
+```
+
+
+#### Index 0 Base 엣지 케이스
+Index 0 Base 누적합 배열에서 `연속된 구간 N ~ J` 의 구간합을 구하고 싶다면 `psum[J] - psum[N - 1]` 를 해주면 됩니다. 아래 예시처럼 `arr[3] ~ arr[5]` 의 구간합을 구하려면  `prefix_sum[5] - prefix_sum[2]` 를 계산하면 됩니다.
+
+![](Algorithm/images/Pasted%20image%2020250531173042.png)
+
+
+계산 과정은 아래 그림을 보면 이해할 수 있을것입니다.
+
+![](Algorithm/images/Pasted%20image%2020250531172734.png)
+
+
+코드로는 다음과 같이 구현할 수 있습니다. 마찬가지로 psum 만 구해놓으면 딱히 할게 없습니다.
 
 ```python {8}
 def solution(arr, prolog, epilog):  
@@ -65,7 +125,36 @@ def solution(arr, prolog, epilog):
 print(solution([13, 19, 28, 23, 11, 25, 10, 20, 12, 24], 3, 5))
 ```
 
-## 2차원 배열 누적합
+
+앞서 Index 0 Base 누적합 배열은 잘 사용하지 않는다고 언급하였습니다. arr 배열의 `0 ~ 3` 의 구간합을 구하는 경우를 봐보겠습니다.
+
+- arr 0 ~ 3 의 구간합을 구하려면 `psum[3] - psum[0 - 1]` 을 수행하면 됩니다.
+- 하지만 `psum[0 - 1]`는 `psum[-1]`. 즉, 파이썬에서 psum 배열의 맨 마지막 원소를 말하기 때문에 arr 배열의 원소를 모두 더한 값을 참조하게 되어 이상한 값이 출력되게 됩니다.
+
+![](Algorithm/images/Pasted%20image%2020250531174437.png)
+^why-not-use-0-base
+
+
+이를 해결하기 위해 추가적인 예외처리 혹은 분기처리가 들어가기 때문에 효율적이지 않습니다.
+
+```python {8,9,10}
+def solution(arr, prolog, epilog):  
+    length = len(arr)  
+    psum = [0] * length  
+    psum[0] = arr[0]  
+    for idx in range(1, length):  
+        psum[idx] = psum[idx - 1] + arr[idx]  
+  
+    if prolog == 0:  
+        return psum[epilog]  
+    return psum[epilog] - psum[prolog - 1]  
+  
+  
+print(solution([13, 19, 28, 23, 11, 25, 10, 20, 12, 24], 0, 3))
+```
+
+
+## 2D Prefix sum
 우선 2차원 배열의 누적합을 모두 구하게되면 아래와 같이 나오게 된다. row 와 col padding 이 1개 씩 들어가있는것을 볼 수 있는데, 경계값에 대한 예외를 처리하지 않게하기 위함이다.
 
 ![](Algorithm/images/Pasted%20image%2020240524203942.png)
@@ -82,7 +171,7 @@ row, col = row + 1, col + 1
 psum[row][col] = psum[row - 1][col] + psum[row][col - 1] - psum[row - 1][col - 1] + arr[row - 1][col - 1]
 ```
 
-마찬가지로 `arr[3][2]` 까지의 누적합을 구하고 싶다면 `psum[4][3]` 을 보면 된다. 
+마찬가지로 `arr[3][2]` 까지의 누적합을 구하고 싶다면 `psum[4][3]` 을 보면 된다.
 
 ![](Algorithm/images/Pasted%20image%2020240524224127.png)
 
@@ -175,3 +264,4 @@ print(
     )
 )
 ```
+
