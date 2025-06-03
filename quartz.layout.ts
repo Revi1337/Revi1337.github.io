@@ -56,12 +56,12 @@ export const sortFn: Options["sortFn"] = (a, b) => {
     "ComputerScience/DataStructure/MinimumCostTree": 5106,
 
     "Computer Architecture": 5200, // EntryPoint
-    "ComputerScience/ComputerArchitecture/Roadmap": 5201,
     "ComputerScience/ComputerArchitecture/Compiler_Interpreter": 5204,
     "ComputerScience/ComputerArchitecture/Data": 5205,
-    "ComputerScience/ComputerArchitecture/Cpu": 5206,
-    "ComputerScience/ComputerArchitecture/Memory": 5207,
-    "ComputerScience/ComputerArchitecture/ByteOrder": 5208,
+    "ComputerScience/ComputerArchitecture/ByteOrder": 5206,
+    "ComputerScience/ComputerArchitecture/Operand": 5207,
+    "ComputerScience/ComputerArchitecture/Cpu": 5208,
+    "ComputerScience/ComputerArchitecture/Memory": 5209,
 
     "Operating System": 5300, // EntryPoint
 
