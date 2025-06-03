@@ -12,7 +12,7 @@ tags: ["computer_architecture"]
 
 ![](ComputerScience/ComputerArchitecture/images/Pasted%20image%2020241218133801.png)
 
-> [!note] 
+> [!note]
 > 연산에 사용될 데이터 자체보다 연산에 필요한 데이터가 저장된 위치(주소)가 훨씬 더 많이 저장됩니다. 그래서 operand 필드를 "주소필드" 라고 부르기도 합니다.
 
 
@@ -106,7 +106,7 @@ Effective Address는 `연산에 사용할 실제 데이터가 저장된 위치`�
 > 쉽게 말해, 명령어 주소 지정 방식은 "명령어가 사용할 데이터가 어디에 있는지를 알려주는 규칙"이라고 이해하면 됩니다.
 
 
-**직접 주소 지정 방식**
+#### 직접 주소 지정 방식
 - Direct Addressing Mode 라고 불립니다.
 - Operand 필드에 `유효주소(Effective Address)` 를 직접 명시하는 방법입니다.
 - 유효주소(Effective Address) 를 표현할 수 있는 크기가 연산 코드의 비트 수만큼 줄어드는 단점이 있습니다.
@@ -114,7 +114,7 @@ Effective Address는 `연산에 사용할 실제 데이터가 저장된 위치`�
 ![](ComputerScience/ComputerArchitecture/images/Pasted%20image%2020241218224526.png)
 
 
-**간접 주소 지정 방식**
+#### 간접 주소 지정 방식
 - Indirect Addressing Mode 라고 불립니다.
 - 직접 주소 지정 방식의 단점 (유효주소를 표현할 수 있는 크기가 연산 코드의 비트 수만큼 줄어드는 것)을 보완하기 위해 고안된 방법입니다.
 - Operand 필드에 `유효주소(Effective Address)의 주소` 를 명시하는 방법입니다.
@@ -126,7 +126,7 @@ Effective Address는 `연산에 사용할 실제 데이터가 저장된 위치`�
 ![](ComputerScience/ComputerArchitecture/images/Pasted%20image%2020241218225401.png)
 
 
-**레지스터 주소 지정 방식**
+#### 레지스터 주소 지정 방식
 - Register Addressing Mode 라고 불립니다.
 - 연산에 사용할 데이터가 저장된 `레지스터`를 명시하는 방법입니다.
 
@@ -136,7 +136,7 @@ Effective Address는 `연산에 사용할 실제 데이터가 저장된 위치`�
 ![](ComputerScience/ComputerArchitecture/images/Pasted%20image%2020241218225638.png)
 
 
-**레지스터 간접 주소 지정 방식**
+#### 레지스터 간접 주소 지정 방식
 - Register Indirect Addressing Mode 라고 불립니다.
 - 연산에 사용할 `데이터를 메모리에 저장해두고, 그 주소를 저장한 레지스터를 Operand 에 명시`하는 방법입니다.
 
