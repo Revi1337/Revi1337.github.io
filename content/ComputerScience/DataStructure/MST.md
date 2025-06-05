@@ -1,5 +1,5 @@
 ---
-title: Minimum Cost Spanning Tree
+title: MST
 tags: ["datastructure"]
 ---
 

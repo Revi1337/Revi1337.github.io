@@ -54,7 +54,7 @@ export const sortFn: Options["sortFn"] = (a, b) => {
     "ComputerScience/DataStructure/Graph": 5104,
     "ComputerScience/DataStructure/Tree": 5105,
     "ComputerScience/DataStructure/SpanningTree": 5106,
-    "ComputerScience/DataStructure/MinimumCostTree": 5107,
+    "ComputerScience/DataStructure/MST": 5107,
 
     "Computer Architecture": 5200, // EntryPoint
     "ComputerScience/ComputerArchitecture/Compiler_Interpreter": 5204,
