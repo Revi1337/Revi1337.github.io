@@ -30,7 +30,7 @@ tags: ["datastructure"]
 3. `add(6)` 을 하게 되면 동적 배열의 초기 사이즈가 넘게 됩니다. 따라서 배열을 확장하는 Resizing 과정이 수행됩니다. 기존동적 배열의 크기를 N 이라고 가정한다면
 	1. `N + (N / 2)`  크기만큼 새로운 메모리를 할당하고(Java 기준 Resize 크기는 1.5 배입니다) 기존 데이터를 복사 및 저장합니다.
 	2. Resizing 자주 발생하지 않으므로  평균적으로는 `O(1)` 의 빠른 삽입 성능을 유지할 수 있습니다. 하지만 Resizing 이 발생한다면 `O(N)` 만큼의 시간복잡도가 소요됩니다.
-
+ 
 ![](ComputerScience/DataStructure/images/Pasted%20image%2020250604153741.png)
 
 
@@ -58,7 +58,7 @@ tags: ["datastructure"]
 
 
 #### Insert Last
-동적 배열의 `끝에 데이터의 삽입` 하는 경우, 평균적으로 O(1)의 시간복잡도를 가집니다. 구체적으로 `Resizing 이 발생하지 않으면 O(1), Resizing 이 발생하면 O(N)`의 시간복잡도를 갖습니다.
+동적 배열의 `끝에 데이터의 삽입` 하는 경우, 평균적으로 O(1)의 시간복잡도를 가집니다. 구체적으로 `Resizing 이 발생하지 않으면 O(1), Resizing 이 발생하면 O(N)`의 시간복잡도를 갖습니다. 
 
 예를 들어, Resizing 이 일어나지 않는다는 것을 가정하고 동적 배열의 끝에 `10`이라는 원소를 삽입하고자 할 때 다음과 같은 절차로 동작합니다.
 
@@ -98,7 +98,7 @@ tags: ["datastructure"]
 ![](ComputerScience/DataStructure/images/Pasted%20image%2020250604224234.png)
 
 
-%%
+%% 
 # 배열
 배열 또는 순차 리스트는 `Index`  와 `Value` 의 쌍으로 구현된 데이터 타입이다.  이러한 배열은 `연속적인 메모리 공간` 을 차지하기 때문에 저장 공간의 낭비가 발생할 수 있는 단점이 있다.
 
@@ -128,7 +128,7 @@ tags: ["datastructure"]
 
 배열 데이터에 접근할 때는 `임의 접근 방법` 으로 배열의 모든 위치에 있는 데이터를 한번에 접근할 수 있다. 따라서 데이터에 접근하기 위한 시간 복잡도는 `O(1)` 이다.
 
-## 맨 뒤에 값을 삽입
+## 맨 뒤에 값을 삽입 
 
 배열의 맨 뒤에 값을 넣는 방법은 기존 데이터들의 위치가 변경되지 않기 때문에 `O(1)` 의 시간 복잡도를 갖는다.
 
@@ -204,7 +204,7 @@ def solution(datas):
 ```
 
 ### Uniq 값 추출
-입력값이 `모두 숫자`일때 앞서 소개한 [Duplicate 제거](ComputerScience/DataStructure/Array.md#Duplicate%20제거) 와 비슷한 방법으로 유일값을 추출할 수 있다.
+ 입력값이 `모두 숫자`일때 앞서 소개한 [Duplicate 제거](ComputerScience/DataStructure/Array.md#Duplicate%20제거) 와 비슷한 방법으로 유일값을 추출할 수 있다.
 
 ```python {9}
 def solution(datas):  

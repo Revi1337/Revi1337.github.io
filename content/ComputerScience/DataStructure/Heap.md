@@ -11,6 +11,7 @@ Heap 은 `우선순위 큐(Priority Queue)를 효율적으로 구현하기 위�
 > [!note] 느슨한 정렬 (반정렬)
 > Heap 은 완전히 정렬된 상태는 아니지만 정렬이 안된 것도 아닙니다. 이러한 상태를 느슨한 정렬 또는 반정렬 상태라고 합니다.
 
+
 ### Complete Binary Tree
 `완전 이진 트리(Complete Binary Tree)` 는 다음과 같은 조건을 만족하는 이진 트리(Binary Tree) 를 의미합니다.
 
@@ -18,6 +19,7 @@ Heap 은 `우선순위 큐(Priority Queue)를 효율적으로 구현하기 위�
 2. 트리를 구성하는 Node 는 왼쪽에서 오른쪽 방향으로 채워져야 합니다. (특정 Node 가 오른쪽 자식을 갖고 있다면, 왼쪽 자식도 갖고 있어야 합니다.)
 
 ![](ComputerScience/DataStructure/images/Pasted%20image%2020250202151533.png)
+
 
 ### 배열로 표현한 완전 이진 트리
 완전 이진 트리는 1차원 배열로 표현할 수 있습니다. 현재 Node 가 idx 라고 가정했을 때, 자식 노드를 알 수 있는 계산식은 다음과 같습니다.

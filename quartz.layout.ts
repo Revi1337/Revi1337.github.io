@@ -49,11 +49,12 @@ export const sortFn: Options["sortFn"] = (a, b) => {
 
     "DataStructure": 5100, // EntryPoint
     "ComputerScience/DataStructure/Array": 5101,
-    "ComputerScience/DataStructure/Heap": 5102,
-    "ComputerScience/DataStructure/Graph": 5103,
-    "ComputerScience/DataStructure/Tree": 5104,
-    "ComputerScience/DataStructure/SpanningTree": 5105,
-    "ComputerScience/DataStructure/MinimumCostTree": 5106,
+    "ComputerScience/DataStructure/LinkedList": 5102,
+    "ComputerScience/DataStructure/Heap": 5103,
+    "ComputerScience/DataStructure/Graph": 5104,
+    "ComputerScience/DataStructure/Tree": 5105,
+    "ComputerScience/DataStructure/SpanningTree": 5106,
+    "ComputerScience/DataStructure/MinimumCostTree": 5107,
 
     "Computer Architecture": 5200, // EntryPoint
     "ComputerScience/ComputerArchitecture/Compiler_Interpreter": 5204,
