@@ -49,7 +49,7 @@ LinkedList 는 `메모리 상에서는 데이터가 불연속적으로 저장`�
 ![](ComputerScience/DataStructure/images/Pasted%20image%2020250605171909.png)
 
 
-`삽입 위치의 이전 노드의 next 포인터`를 새로 생성한 노드를 가리키도록 변경합니다. 이어서 `새로 생성한 노드의 next 포인터`를 원래 삽입 위치에 있던 노드(즉, 이전 노드가 가리키고 있던 노드)로 지정합니다.
+`삽입 위치의 이전 노드의 next 포인터`를 새로 생성한 노드를 가리키도록 변경합니다. 이어서 `새로 생성한 노드의 next 포인터`를 원래 삽입 위치에 있던 노드(즉, 이전 노드가 가리키고 있던 노드)로 지정합니다. 
 ![](ComputerScience/DataStructure/images/Pasted%20image%2020250605171937.png)
 
 
