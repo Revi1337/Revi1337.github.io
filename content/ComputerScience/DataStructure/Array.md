@@ -98,6 +98,11 @@ tags: ["datastructure"]
 ![](ComputerScience/DataStructure/images/Pasted%20image%2020250604224234.png)
 
 
+## Reference
+[김희성님 유튜브](https://www.youtube.com/watch?v=sPUvJOgODmI&list=PLHOy1E8axXrfJJtDIXIOQBmWRPwM-GxSf&index=1)
+
+
+
 %% 
 # 배열
 배열 또는 순차 리스트는 `Index`  와 `Value` 의 쌍으로 구현된 데이터 타입이다.  이러한 배열은 `연속적인 메모리 공간` 을 차지하기 때문에 저장 공간의 낭비가 발생할 수 있는 단점이 있다.

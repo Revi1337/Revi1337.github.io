@@ -26,3 +26,7 @@ tags: ["datastructure"]
 > 그림 상 Add First(8) 에서 10이 한 칸 밀리는 것처럼 보이지만, 10이 저장된 위치가 변경되는 것은 아님에 유의해야 합니다.
 
 ![](ComputerScience/DataStructure/images/Pasted%20image%2020250607001642.png)
+
+
+## Reference
+[김희성님 유튜브](https://www.youtube.com/watch?v=sPUvJOgODmI&list=PLHOy1E8axXrfJJtDIXIOQBmWRPwM-GxSf&index=1)

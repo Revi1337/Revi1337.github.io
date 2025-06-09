@@ -52,7 +52,7 @@ export const sortFn: Options["sortFn"] = (a, b) => {
     "ComputerScience/DataStructure/LinkedList": 5102,
     "ComputerScience/DataStructure/Stack": 5103,
     "ComputerScience/DataStructure/Queue": 5104,
-    "ComputerScience/DataStructure/Hash": 5105,
+    "ComputerScience/DataStructure/HashTable": 5105,
     "ComputerScience/DataStructure/Heap": 5106,
     "ComputerScience/DataStructure/Graph": 5107,
     "ComputerScience/DataStructure/Tree": 5108,

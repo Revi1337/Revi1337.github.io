@@ -72,3 +72,6 @@ LinkedList 는 `메모리 상에서는 데이터가 불연속적으로 저장`�
 
 ![](ComputerScience/DataStructure/images/Pasted%20image%2020250605174610.png)
 
+
+## Reference
+[김희성님 유튜브](https://www.youtube.com/watch?v=sPUvJOgODmI&list=PLHOy1E8axXrfJJtDIXIOQBmWRPwM-GxSf&index=1)

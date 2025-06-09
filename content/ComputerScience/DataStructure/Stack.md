@@ -22,3 +22,6 @@ tags: ["datastructure"]
 - 서로를 향해 확장되므로, 메모리 부족이나 충돌이 발생할 수 있는 구조입니다.
 
 ![](ComputerScience/DataStructure/images/Pasted%20image%2020250607013907.png)
+
+## Reference
+[김희성님 유튜브](https://www.youtube.com/watch?v=sPUvJOgODmI&list=PLHOy1E8axXrfJJtDIXIOQBmWRPwM-GxSf&index=1)
