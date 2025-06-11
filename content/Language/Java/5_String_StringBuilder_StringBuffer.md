@@ -10,7 +10,6 @@ tags: ['language', 'java']
 
 ^is-string-primitive
 
-
 > [!question] String Class 는 뭔가요? 
 > - String 클래스는 문자열을 다루기 위한 Java 의 대표적인 클래스입니다.
 > - 내부적으로 문자 배열(char[])(`Java 9 이상은 바이트 배열(byte[])`) 을 사용하여 문자열 데이터를 저장하고 관리합니다.

@@ -24,8 +24,9 @@ export const sortFn: Options["sortFn"] = (a, b) => {
     "Language/Python/1_Sequence_NonSequence": 1201,
     "Language/Python/2_Iterable_Iterator": 1202,
     "Language/Python/4_Scope": 1250,
-    "Language/Python/99_PyInstaller": 1298,
-    "Language/Python/100_Deploy-PyPI": 1299,
+    "Language/Python/99_PyInstaller": 1295,
+    "Language/Python/100_Deploy-PyPI": 1296,
+    "Language/Python/101_Scapy": 1297,
     "Bash": 1300,
 
     // (Root) Algorithm

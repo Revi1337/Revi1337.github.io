@@ -1,6 +1,6 @@
 ---
 title: PyInstaller
-tags: ['python']
+tags: ['python', 'install']
 ---
 
 해당 포스팅에서는 `pyinstaller` 로 특정한 파이썬 파일을 `exe` 파일로 생성하는 방법을 알아본다.
