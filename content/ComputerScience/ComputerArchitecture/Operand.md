@@ -12,7 +12,7 @@ tags: ["computer_architecture"]
 
 ![](ComputerScience/ComputerArchitecture/images/Pasted%20image%2020241218133801.png)
 
-> [!note]
+> [!note] 
 > 연산에 사용될 데이터 자체보다 연산에 필요한 데이터가 저장된 위치(주소)가 훨씬 더 많이 저장됩니다. 그래서 operand 필드를 "주소필드" 라고 부르기도 합니다.
 
 

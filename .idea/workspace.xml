@@ -6,6 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="283b94bf-5028-497f-92a5-3572fe5ed7aa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/ComputerScience/ComputerArchitecture/Cpu.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/ComputerScience/ComputerArchitecture/Cpu.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/ComputerScience/ComputerArchitecture/Excalidraw/interview-computer_architecture.excalidraw.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/ComputerScience/ComputerArchitecture/Excalidraw/interview-computer_architecture.excalidraw.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/ComputerScience/ComputerArchitecture/Memory.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/ComputerScience/ComputerArchitecture/Memory.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/ComputerScience/ComputerArchitecture/Operand.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/ComputerScience/ComputerArchitecture/Operand.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quartz.layout.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz.layout.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,6 +113,7 @@
       <workItem from="1749455646071" duration="478000" />
       <workItem from="1749580694867" duration="4416000" />
       <workItem from="1749617318489" duration="209000" />
+      <workItem from="1749928446208" duration="74000" />
     </task>
     <servers />
   </component>

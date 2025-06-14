@@ -68,6 +68,8 @@ export const sortFn: Options["sortFn"] = (a, b) => {
     "ComputerScience/ComputerArchitecture/Operand": 5207,
     "ComputerScience/ComputerArchitecture/Cpu": 5208,
     "ComputerScience/ComputerArchitecture/Memory": 5209,
+    "ComputerScience/ComputerArchitecture/RAM": 5210,
+    "ComputerScience/ComputerArchitecture/Cache_Memory": 5211,
 
     "Operating System": 5300, // EntryPoint
 
