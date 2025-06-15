@@ -1,5 +1,5 @@
 ---
-title: String & StringBuilder & StringBuffer
+title: StringBuilder & StringBuffer
 tags: ['language', 'java']
 ---
 
