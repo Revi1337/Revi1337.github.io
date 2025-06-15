@@ -1,5 +1,5 @@
 ---
-title: Call By Value & Call By Reference
+title: Call By Value & Reference
 tags: ['language', 'java']
 ---
 

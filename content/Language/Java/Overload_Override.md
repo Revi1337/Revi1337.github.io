@@ -1,5 +1,5 @@
 ---
-title: Overriding & Overloading
+title: Override & Overload
 tags: ['language', 'java']
 ---
 

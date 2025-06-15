@@ -37,7 +37,7 @@ tags: ['language', 'java']
 
 > [!question] String 인스턴스를 만드는 방식은 몇가지가 있나요?
 > - 2가지가 있습니다. 문자열 리터럴 방식 혹은 new String() 을 통해 String 인스턴스를 만들어 줄 수 있습니다.
-> - 리터럴 방식은 더블 쿼트"" 로 묵시적인 String 인스턴스를 만들고, Heap 영역의 [String Constant Pool](Language/Java/5_String_StringBuilder_StringBuffer.md#^what-is-string-constant-pool) 에 저장됩니다.
+> - 리터럴 방식은 더블 쿼트"" 로 묵시적인 String 인스턴스를 만들고, Heap 영역의 [String Constant Pool](Language/Java/String.md#^what-is-string-constant-pool) 에 저장됩니다.
 > - new String() 은 명시적으로 새로운 인스턴스를 만들고, Heap 영역에 저장됩니다.
 
 ^how-many-string-make
