@@ -1,6 +1,6 @@
 ---
 title: Install Scapy
-tags: ['python', 'install']
+tags: ['python', 'install', 'scapy']
 ---
 
 ## Install
