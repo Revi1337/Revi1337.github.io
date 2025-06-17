@@ -40,7 +40,7 @@ Loading은 Class Loading의 첫 번째 단계로, 컴파일된 `.class` 파일�
 
 - 패키지명을 포함한 클래스의 `FQCN`(Fully Qualified Class Name), `인스턴스 변수 정보`, `상위 클래스 정보(바로 위)`, 그리고 `클래스/인터페이스/열거형(enum) 여부` 등의 메타데이터가 JVM의 Method Area에 저장됩니다.
 
-자바의 클래스 로딩은 위에서 아래로 위임되는 3계층의 ClassLoader Delegation 구조에 따라 이루어집니다. 클래스로더의 클래스 로딩 순서는 [Parent Delegation Model](Language/Java/JVM.md#Parent%20Delegation%20Model) 에서 설명합니다.
+자바의 클래스 로딩은 위에서 아래로 위임되는 3계층의 ClassLoader Delegation 구조에 따라 이루어집니다. 클래스로더의 클래스 로딩 순서는 [Parent Delegation Model](Language/Java/JVM#Parent%20Delegation%20Model) 에서 설명합니다.
 
 ![](Language/Java/images/Pasted%20image%2020250616162946.png)
 
