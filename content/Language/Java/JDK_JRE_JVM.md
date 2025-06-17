@@ -23,7 +23,7 @@ tags: ['language', 'java']
 > - JRE 를 설치하면 자동으로 같이 설치되는 프로그램입니다.
 > - JVM 은 Java Virtual Machine 의 약어이며 Java 로 만들어진 프로그램을 실행하기 위한 가상 머신입니다.
 > - JVM 의 가장 큰 기능은 컴파일된 ByteCode(.class) 를 해석하고 실행하는 것입니다.
-> - 이는 Java 가 OS 와 독립적으로 Java 프로그램을 실행할 수 있도록 해주는 역할을 합니다.
+> - 이는 Java 가 OS 와 독립적으로 Java 프로그램을 실행할 수 있도록 하는 역할을 합니다.
 
 ^what-is-jvm
 
