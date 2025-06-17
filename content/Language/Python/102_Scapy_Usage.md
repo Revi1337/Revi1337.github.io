@@ -3,6 +3,7 @@ title: Scapy Usage
 tags: ['python', 'scapy']
 ---
 
+## Usage
 
 ```python
 >>> ip = IP(src="172.30.1.78", dst="172.30.1.78")
@@ -16,3 +17,7 @@ Finished sending 1 packets
 *
 Received 2 packets, got 1 answers, remaining 0 packets
 ```
+
+
+## Reference
+https://onestepcloser.tistory.com/120
