@@ -266,6 +266,7 @@ Native Method Interface(JNI)는 자바 코드에서 C/C++로 작성된 네이티
 ### Native Method Library
 Native Method Library는 JNI를 통해 호출되는 네이티브 메서드의 실제 구현체가 포함된 라이브러리입니다. 일반적으로 C/C++로 작성된 .dll(Windows) 또는 .so(Linux) 파일 형태로 제공됩니다.
 
+
 ## Reference
 
 [Oracle Java Garbage Collection Basics](https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/gc01/index.html) [JVM Architecture, 제대로 이해하기](https://gngsn.tistory.com/252) [클래스 로더(Class Loader)의 기능과 역할](https://nooblette.tistory.com/entry/Java-%ED%81%B4%EB%9E%98%EC%8A%A4-%EB%A1%9C%EB%8D%94Class-Loader%EC%9D%98-%EA%B8%B0%EB%8A%A5%EA%B3%BC-%EC%97%AD%ED%95%A0) [JVM의 클래스 로더란?](https://steady-coding.tistory.com/593) [JVM의 \<init> 및 \<clinit> 메소드](https://recordsoflife.tistory.com/1072) [JVM 구성요소 - 클래스로더](https://velog.io/@jifrozen/JVM-%EA%B5%AC%EC%84%B1%EC%9A%94%EC%86%8C-1-%ED%81%B4%EB%9E%98%EC%8A%A4-%EB%A1%9C%EB%8D%94#%EB%B6%80%ED%8A%B8%EC%8A%A4%ED%8A%B8%EB%9E%A9-%ED%81%B4%EB%9E%98%EC%8A%A4-%EB%A1%9C%EB%8D%94-bootstrap-class-loader-) [Class Loader in JVM](https://connie.tistory.com/10)
