@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="283b94bf-5028-497f-92a5-3572fe5ed7aa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Language/Python/101_Scapy_Usage.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/Language/Python/102_Scapy_Usage.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz.layout.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz.layout.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Language/Python/101_Scapy.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/Language/Python/101_Scapy.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +111,7 @@
       <workItem from="1749617318489" duration="209000" />
       <workItem from="1749928446208" duration="115000" />
       <workItem from="1750003304142" duration="1521000" />
-      <workItem from="1750163522924" duration="1440000" />
+      <workItem from="1750163522924" duration="4372000" />
     </task>
     <servers />
   </component>
