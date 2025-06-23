@@ -1,6 +1,6 @@
 ---
 title: REVI1337
-description: '와이! 와이!! 와이!!!'
+description: '모든 것에는 이유가 있습니다.'
 ---
 
 <div class="container"> 

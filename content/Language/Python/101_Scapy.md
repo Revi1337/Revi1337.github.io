@@ -62,8 +62,8 @@ pip3 install PyX cryptography
 `TexLive` 또는 `MikTeX`가 설치되어 있지 않다는 로그가 출력되는 경우, 시스템에 따라 적절한 LaTeX 배포판을 설치해야 합니다.
 
 - `TexLive` 또는 `MikTeX`: Scapy가 네트워크 패킷을 시각화할 때 사용하는 외부 LaTeX 기반 실행 파일입니다.
-    - mac : TexLive 사용
-    - Windows: MikTex 사용
+	- mac : TexLive 사용
+	- Windows: MikTex 사용
 
 ```bash {2}
 revi1337@B3-B35T Algorithm % scapy
