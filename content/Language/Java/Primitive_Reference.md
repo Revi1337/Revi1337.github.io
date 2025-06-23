@@ -94,7 +94,6 @@ public class JvmResearch {
 ![](Language/Java/images/Pasted%20image%2020250624002444.png)
 
 
-
 ## Reference
 [Primitive Type vs Reference Type](https://velog.io/@wkdwoo/Primitive-type%EC%9B%90%EC%8B%9C%ED%83%80%EC%9E%85-vs.-Reference-type%EC%B0%B8%EC%A1%B0%ED%83%80%EC%9E%85)
 
