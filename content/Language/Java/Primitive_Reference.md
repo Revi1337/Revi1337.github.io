@@ -36,20 +36,14 @@ public class JvmResearch {
 1. `bipush` → 리터럴 값을 Operand Stack에 푸시
 2. `istore_N` → Stack에서 pop하여 Local Variable Array의 인덱스 N에 저장
 
-
 `bipush 10 & istore_1`
 
-![](Language/Java/images/Pasted%20image%2020250623163305.png)
+<img src="Language/Java/images/Pasted%20image%2020250623163305.png" style="width:500px; height:auto;">
 
 
 `bipush 20 & istore_2`
 
-![](Language/Java/images/Pasted%20image%2020250623163305.png)
-
-
-`bipush 20 & istore_2`
-
-![](Language/Java/images/Pasted%20image%2020250623163404.png)
+<img src="Language/Java/images/Pasted%20image%2020250623163305.png" style="width:500px; height:auto;">
 
 
 ## Reference Type
