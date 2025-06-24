@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="283b94bf-5028-497f-92a5-3572fe5ed7aa" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Language/Java/Identity_Equality.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/Language/Java/Identity_Equality.md" afterDir="false" />
-    </list>
+    <list default="true" id="283b94bf-5028-497f-92a5-3572fe5ed7aa" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -117,7 +114,7 @@
       <workItem from="1750666742761" duration="42000" />
       <workItem from="1750697360774" duration="196000" />
       <workItem from="1750699532035" duration="2941000" />
-      <workItem from="1750786077443" duration="855000" />
+      <workItem from="1750786077443" duration="946000" />
     </task>
     <servers />
   </component>

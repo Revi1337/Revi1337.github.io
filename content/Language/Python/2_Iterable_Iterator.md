@@ -276,7 +276,7 @@ words = [word for word in test_iterator]
 - 현재 상태를 기억하며, 한 번 반환된 값은 다시 반환되지 않습니다.
 
 ## Reference
-[geeksforgeeks][https://www.geeksforgeeks.org/difference-between-iterator-vs-generator/]
+[geeksforgeeks](https://www.geeksforgeeks.org/difference-between-iterator-vs-generator/)
 
 [이터레이터와 제너레이터](https://mingrammer.com/translation-iterators-vs-generators/)
 
