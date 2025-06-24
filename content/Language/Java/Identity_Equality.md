@@ -4,7 +4,7 @@ tags: ['language', 'java']
 ---
 
 ## Identity
-동일성(Identity)은 두 객체가 `정확히 같은 객체인지를 판단`하는 개념입니다. 이는 두 변수가 참조하고 있는 객체의 메모리 주소가 동일한지를 비교하여, 같으면 같은 인스턴스(두 객체가 동일하다)라고 얘기할 수 있습니다.
+동일성(Identity)은 두 객체가 `정확히 같은 객체인지를 판단`하는 개념입니다. 이는 두 변수가 참조하고 있는 객체의 메모리 주소가 동일한지를 비교하여, 같으면 같은 인스턴스(두 객체가 동일하다)라고 말합니다.
 
 - `==` 연산자를 사용하여 객체의 동일성을 비교합니다.
 - `==` 연산자는 기본형에서는 값 자체를 비교하고, 참조형에서는 동일성(메모리 주소)를 비교합니다.
@@ -29,7 +29,7 @@ public class IdentityAndEquality {
 
 
 ## Equality
-동등성(Equality)은 두 객체가 `동일한 정보(내용)를 갖고 있는지를 판단`하는 개념입니다. 두 변수가 참조하고 있는 객체의 주소가 서로 다르더라도 내용만 같으면 두 객체는 동등하다고 얘기할 수 있습니다.
+동등성(Equality)은 두 객체가 `동일한 정보(내용)를 갖고 있는지를 판단`하는 개념입니다. 두 변수가 참조하고 있는 객체의 주소가 서로 다르더라도 내용만 같으면 두 객체는 동등하다고 말합니다.
 
 - `.equals()` 메서드를 사용하여 객체의 동등성을 비교합니다.
 - `.equals()` 메서드는 오버라이딩하지 않으면 기본적으로 `==` 연산자와 동일하게 동일성(Identity)를 비교합니다.
@@ -43,24 +43,24 @@ public class IdentityAndEquality {
 따라서, `equals()` 메서드를 오버라이딩하지 않으면 두 객체가 같은 메모리 주소를 참조하고 있는지를 비교하는 동일성 비교만 수행됩니다.
 
 ```java
-public class IdentityAndEquality {  
-  
-    static class DummyObject {  
-  
-        private final String name;  
-  
-        public DummyObject(String name) {  
-            this.name = name;  
-        }  
-    }  
-  
-    public static void main(String[] args) {  
-        DummyObject obj1 = new DummyObject("object1");  
-        DummyObject obj2 = new DummyObject("object1");  
-  
-        System.out.println(obj1 == obj2); // false  
-        System.out.println(obj1.equals(obj2)); // false  
-    }  
+public class IdentityAndEquality {
+
+	static class DummyObject {
+
+		private final String name;
+
+		public DummyObject(String name) {
+			this.name = name;
+		}
+	}
+
+	public static void main(String[] args) {
+		DummyObject obj1 = new DummyObject("object1");
+		DummyObject obj2 = new DummyObject("object1");
+
+		System.out.println(obj1 == obj2); // false  
+		System.out.println(obj1.equals(obj2)); // false  
+	}
 }
 ```
 
@@ -70,36 +70,36 @@ public class IdentityAndEquality {
 > hashCode()는 equals()와 항상 함께 오버라이딩해야 HashSet, HashMap 등에서 예상대로 작동합니다. hashCode 에 대한 내용은 나중에 다루겠습니다.
 
 ```java
-public class IdentityAndEquality {  
-  
-    static class DummyObject {  
-  
-        private final String name;  
-  
-        public DummyObject(String name) {  
-            this.name = name;  
-        }  
-  
-        @Override  
-        public boolean equals(Object o) {  
-            if (this == o) return true;  
-            if (!(o instanceof DummyObject that)) return false;  
-            return Objects.equals(name, that.name);  
-        }  
-  
-        @Override  
-        public int hashCode() {  
-            return Objects.hashCode(name);  
-        }  
-    }  
-  
-    public static void main(String[] args) {  
-        DummyObject obj1 = new DummyObject("object1");  
-        DummyObject obj2 = new DummyObject("object1");  
-  
-        System.out.println(obj1 == obj2); // false  
-        System.out.println(obj1.equals(obj2)); // true  
-    }  
+public class IdentityAndEquality {
+
+	static class DummyObject {
+
+		private final String name;
+
+		public DummyObject(String name) {
+			this.name = name;
+		}
+
+		@Override
+		public boolean equals(Object o) {
+			if (this == o) return true;
+			if (!(o instanceof DummyObject that)) return false;
+			return Objects.equals(name, that.name);
+		}
+
+		@Override
+		public int hashCode() {
+			return Objects.hashCode(name);
+		}
+	}
+
+	public static void main(String[] args) {
+		DummyObject obj1 = new DummyObject("object1");
+		DummyObject obj2 = new DummyObject("object1");
+
+		System.out.println(obj1 == obj2); // false  
+		System.out.println(obj1.equals(obj2)); // true  
+	}
 }
 ```
 
