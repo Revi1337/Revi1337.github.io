@@ -43,24 +43,24 @@ public class IdentityAndEquality {
 따라서, `equals()` 메서드를 오버라이딩하지 않으면 두 객체가 같은 메모리 주소를 참조하고 있는지를 비교하는 동일성 비교만 수행됩니다.
 
 ```java
-public class IdentityAndEquality {
-
-	static class DummyObject {
-
-		private final String name;
-
-		public DummyObject(String name) {
-			this.name = name;
-		}
-	}
-
-	public static void main(String[] args) {
-		DummyObject obj1 = new DummyObject("object1");
-		DummyObject obj2 = new DummyObject("object1");
-
-		System.out.println(obj1 == obj2); // false  
-		System.out.println(obj1.equals(obj2)); // false  
-	}
+public class IdentityAndEquality {  
+  
+    static class DummyObject {  
+  
+        private final String name;  
+  
+        public DummyObject(String name) {  
+            this.name = name;  
+        }  
+    }  
+  
+    public static void main(String[] args) {  
+        DummyObject obj1 = new DummyObject("object1");  
+        DummyObject obj2 = new DummyObject("object1");  
+  
+        System.out.println(obj1 == obj2); // false  
+        System.out.println(obj1.equals(obj2)); // false  
+    }  
 }
 ```
 
@@ -70,36 +70,36 @@ public class IdentityAndEquality {
 > hashCode()는 equals()와 항상 함께 오버라이딩해야 HashSet, HashMap 등에서 예상대로 작동합니다. hashCode 에 대한 내용은 나중에 다루겠습니다.
 
 ```java
-public class IdentityAndEquality {
-
-	static class DummyObject {
-
-		private final String name;
-
-		public DummyObject(String name) {
-			this.name = name;
-		}
-
-		@Override
-		public boolean equals(Object o) {
-			if (this == o) return true;
-			if (!(o instanceof DummyObject that)) return false;
-			return Objects.equals(name, that.name);
-		}
-
-		@Override
-		public int hashCode() {
-			return Objects.hashCode(name);
-		}
-	}
-
-	public static void main(String[] args) {
-		DummyObject obj1 = new DummyObject("object1");
-		DummyObject obj2 = new DummyObject("object1");
-
-		System.out.println(obj1 == obj2); // false  
-		System.out.println(obj1.equals(obj2)); // true  
-	}
+public class IdentityAndEquality {  
+  
+    static class DummyObject {
+  
+        private final String name;  
+  
+        public DummyObject(String name) {  
+            this.name = name;  
+        }  
+  
+        @Override  
+        public boolean equals(Object o) {  
+            if (this == o) return true;  
+            if (!(o instanceof DummyObject that)) return false;  
+            return Objects.equals(name, that.name);  
+        }  
+  
+        @Override  
+        public int hashCode() {  
+            return Objects.hashCode(name);  
+        }  
+    }  
+  
+    public static void main(String[] args) {  
+        DummyObject obj1 = new DummyObject("object1");  
+        DummyObject obj2 = new DummyObject("object1");  
+  
+        System.out.println(obj1 == obj2); // false  
+        System.out.println(obj1.equals(obj2)); // true  
+    }  
 }
 ```
 
