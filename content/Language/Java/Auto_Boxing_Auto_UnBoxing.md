@@ -18,7 +18,7 @@ public class BoxUnBoxExample {
 
 
 ## UnBoxing
-언박싱(UnBoxing)은 Wrapper 클래스를 기본 타입으로 변환하는 동작을 말합니다.
+`언박싱(UnBoxing)`은 Wrapper 클래스 객체에서 값을 꺼내 기본형 타입으로 변환하는 것을 의미합니다.
 
 ```java
 public class BoxUnBoxExample {  
