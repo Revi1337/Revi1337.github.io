@@ -72,7 +72,7 @@ public class IdentityAndEquality {
 ```java
 public class IdentityAndEquality {  
   
-    static class DummyObject {
+    static class DummyObject {  
   
         private final String name;  
   

@@ -4,11 +4,11 @@ tags: ['language', 'java']
 ---
 
 ## Override
-`Overriding`은 부모 클래스나 인터페이스에 존재하는 메서드를 자식 클래스에서 필요에 따라 재정의하는 것을 말합니다.
+`Override`는 부모 클래스나 인터페이스에 존재하는 메서드를 자식 클래스에서 필요에 따라 재정의하는 것을 말합니다.
 
 - 필수는 아니지만, 오버라이딩한 메서드 위에는 `@Override` 어노테이션을 붙이는 것이 좋습니다.
 	- 컴파일러가 정확히 오버라이딩되었는지 검증하며 오타나 시그니처 불일치 시 컴파일 오류를 발생시켜 실수를 방지할 수 있습니다.
-- Overriding한 메서드는 `동적 바인딩(Dynamic Binding)`이 적용되어 런타임에 실제 객체의 타입을 보고 호출할 메서드를 결정합니다.
+- Override한 메서드는 `동적 바인딩(Dynamic Binding)`이 적용되어 런타임에 실제 객체의 타입을 보고 호출할 메서드를 결정합니다.
 
 >[!note] 동적 바인딩(Dynamic Binding)
 > - 동적 바인딩은 Override에 적용되는 개념이며 런타임에 실제 객체의 타입을 보고 호출할 메서드를 결정하는 것을 말합니다.
@@ -77,7 +77,7 @@ public class ChildTestObject extends TestObject {
 >[!note] 정적 바인딩(Static Binding)
 > 정적 바인딩은 Overload에서 적용되는 개념이며 런타임 시점이 아닌 컴파일 시점에 호출할 메서드가 결정되는것을 말합니다.
 
-> 엄밀히 말하면 Overloading은 일반적으로 컴파일 타임 다형성(Compile-Time Polymorphism)이라고도 불리지만, 실행 시점에서 동적으로 결정되는 것이 아니기 때문에 진정한 의미의 다형성(런타임 다형성)과는 구분되기도 합니다.
+> 엄밀히 말하면 Overload은 일반적으로 컴파일 타임 다형성(Compile-Time Polymorphism)이라고도 불리지만, 실행 시점에서 동적으로 결정되는 것이 아니기 때문에 진정한 의미의 다형성(런타임 다형성)과는 구분되기도 합니다.
 
 
 - `int add(int a, int b)`는 기본이되는 메서드입니다.
@@ -182,7 +182,7 @@ double add(double a, int b)       // Method Signature: add(double, int)
 ^what-is-method-signature
 
 
-## Reference
+## Reference 
 [가상함수와 동적 바인딩](https://plas.tistory.com/29)
 
 [적정 바인딩과 동적 바인딩](https://hyunsb.tistory.com/58)
