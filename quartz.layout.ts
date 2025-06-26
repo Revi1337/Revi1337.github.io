@@ -25,6 +25,7 @@ export const sortFn: Options["sortFn"] = (a, b) => {
     "Language/Java/Overload_Override": 1107,
     "Language/Java/String": 1108,
     "Language/Java/StringBuilder_StringBuffer": 1109,
+    "Language/Java/Serialize_DeSerialize": 1110,
     "Python": 1200,
     "Language/Python/1_Sequence_NonSequence": 1201,
     "Language/Python/2_Iterable_Iterator": 1202,

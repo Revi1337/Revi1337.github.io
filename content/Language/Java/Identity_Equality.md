@@ -139,4 +139,3 @@ public class IdentityAndEquality {
 [List 내부 구조 탐험 (4)](https://blog.naver.com/gomets_journey/223319509902)
 
 [동일성과 동등성](https://steady-coding.tistory.com/534)
-
