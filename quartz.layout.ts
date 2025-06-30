@@ -47,6 +47,7 @@ export const sortFn: Options["sortFn"] = (a, b) => {
     "Algorithm/BackTracking": 2008,
     "Algorithm/UnionFind": 2010,
     "Algorithm/Dijkstra": 2011,
+    "Algorithm/BellmanFord": 2012,
     "Algorithm/Sort/InsertionSort": 2501,
     "Algorithm/Sort/SelectionSort": 2502,
     "Algorithm/Sort/BubbleSort": 2503,

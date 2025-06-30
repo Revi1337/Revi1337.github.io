@@ -8,6 +8,7 @@ Sliding Window 알고리즘은 배열이나 리스트와 같은 연속된 데이
 
 > Sliding Window 는 컴퓨터 네트워크 프로토콜에서 유래되었다.
 
+
 ## Two Pointer 와의 관계
 
 |   Algorithm    | 탐색 구간 |           Pointer 이동 (Left, Right)            |
