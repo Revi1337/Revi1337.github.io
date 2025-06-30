@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="283b94bf-5028-497f-92a5-3572fe5ed7aa" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/content/Algorithm/Dijkstra.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/Algorithm/Dijkstra.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Algorithm/Excalidraw/prefixsum.excalidraw.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/Algorithm/Excalidraw/prefixsum.excalidraw.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Algorithm/Prefixsum.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/Algorithm/Prefixsum.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Algorithm/SlidingWindow.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/Algorithm/SlidingWindow.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz.layout.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz.layout.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +121,7 @@
       <workItem from="1750867280844" duration="141000" />
       <workItem from="1750868060686" duration="5376000" />
       <workItem from="1750958346359" duration="116000" />
-      <workItem from="1751274473920" duration="66000" />
+      <workItem from="1751274473920" duration="492000" />
     </task>
     <servers />
   </component>
