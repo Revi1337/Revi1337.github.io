@@ -120,6 +120,7 @@ StartsWith는 특정 문자열로 시작하는 단어가 트라이에 존재하�
 
 1. 우선 각 문자를 따라 마지막 노드인 `R`노드까지 내려갑니다. 
 2. `R` 노드에 종료 표시(`terminal`)가 없더라도, 경로 자체가 존재하기 때문에 `True`를 반환하게 됩니다.
+
 ![](ComputerScience/DataStructure/images/Pasted%20image%2020250705182844.png)
 
 >  반대로 Search("STR")를 수행하면 False가 반환됩니다. Search는 마지막 노드(R)에 Terminal 표시가 되어 있는지 여부를 확인하기 때문입니다.
