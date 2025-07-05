@@ -153,11 +153,8 @@ class Node:
     def has_not_child(self, ch) -> bool:  
         return ch not in self.__children  
   
-    def has_any_child(self) -> bool:  
-        return bool(self.__children)  
-  
     def has_not_any_child(self) -> bool:  
-        return not self.has_any_child()  
+        return not self.__children  
   
     def is_terminal(self) -> bool:  
         return self.__is_terminal  
@@ -200,34 +197,25 @@ class Trie:
   
         curr.release_terminal()  
   
-        while removal:  
-            parent, ch = removal.pop()  
-            current = parent.get_child(ch)  
-            if current.has_any_child() or current.is_terminal():  
-                break  
-            parent.erase_child_hardly(ch)  
+    def erase_recursive(self, word) -> bool:  
+        w_depth = len(word)  
   
-        return True  
-
-	def erase_recursive(self, word) -> bool:  
-
-		def _erase(depth, curr) -> bool:  
-		    if depth == len(word):  
-		        if not curr.is_terminal():  
-		            raise KeyError("Word doesnt exist")  
-		        curr.release_terminal()  
-		        return curr.has_not_any_child()  
-		  
-		    ch = word[depth]  
-		    child = curr.get_child(ch)  
-		    if child is None:  
-		        raise KeyError("Word doesnt exist")  
-		    if _erase(depth + 1, child):  
-		        curr.erase_child_hardly(ch)  
-
-			return curr.has_not_any_child() and curr.is_not_terminal()  
+        def _erase(depth, curr) -> bool:  
+            if depth == w_depth:  
+                if not curr.is_terminal():  
+                    raise KeyError("Word doesnt exist")  
+                curr.release_terminal()  
+                return curr.has_not_any_child()  
   
-		return _erase(0, self._root)
+            ch = word[depth]  
+            child = curr.get_child(ch)  
+            if child is None:  
+                raise KeyError("Word doesnt exist")  
+            if _erase(depth + 1, child):  
+                curr.erase_child_hardly(ch)  
+            return curr.has_not_any_child() and curr.is_not_terminal()  
+  
+        return _erase(0, self._root)  
   
     def starts_with(self, prefix) -> bool:  
         curr = self._root  
@@ -236,7 +224,6 @@ class Trie:
                 return False  
             curr = curr.get_child(ch)  
         return True  
-  
   
 trie = Trie()  
 trie.insert('string')  
