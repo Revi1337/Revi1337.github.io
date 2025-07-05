@@ -40,7 +40,7 @@ Insert는 트라이에 문자열을 삽입하는 연산입니다. 각 문자를 
 6. `G`: N 노드의 자식 중에 `G` 노드는 없습니다. 따라서 `G` 노드를 생성하고 `N`의 자식으로 추가합니다.
 	- 마지막 문자이므로, 해당 노드에 `terminal = True`로 표시합니다.
 
-![](ComputerScience/DataStructure/images/Pasted%20image%2020250705021926.png)
+![](ComputerScience/DataStructure/images/Pasted%20image%2020250705224310.png)
 
 
 STRIP 문자열을 트라이에 삽입하겠습니다.
@@ -52,7 +52,7 @@ STRIP 문자열을 트라이에 삽입하겠습니다.
 5. `P`: I 노드의 자식 중에 `P` 노드가 존재하지 않으므로 새로 생성하여 추가합니다. 
 	- 마지막 문자이므로 `terminal = True`로 표시합니다.
 
-![](ComputerScience/DataStructure/images/Pasted%20image%2020250705022000.png)
+![](ComputerScience/DataStructure/images/Pasted%20image%2020250705224331.png)
 
 
 EVERY 문자열을 트라이에 삽입하겠습니다.
@@ -64,7 +64,7 @@ EVERY 문자열을 트라이에 삽입하겠습니다.
 5. `Y` : R 노드의 자식 중에 `Y` 노드가 존재하지 않으므로 새로 생성하여 추가합니다.
     - 마지막 문자이므로 해당 노드에 `terminal = True`로 표시합니다.
 
-![](ComputerScience/DataStructure/images/Pasted%20image%2020250705022023.png)
+![](ComputerScience/DataStructure/images/Pasted%20image%2020250705224353.png)
 
 
 마지막 문자열 EVE 문자열을 트라이에 삽입하겠습니다.
@@ -74,7 +74,7 @@ EVERY 문자열을 트라이에 삽입하겠습니다.
 3. `E` : V 노드의 자식 중에 `E` 노드는 존재하지 않으므로 새로 생성하여 추가합니다.
     - 마지막 문자이므로 해당 노드에 `terminal = True`로 표시합니다.
 
-![](ComputerScience/DataStructure/images/Pasted%20image%2020250705170903.png)
+![](ComputerScience/DataStructure/images/Pasted%20image%2020250705224438.png)
 
 
 ### Search
