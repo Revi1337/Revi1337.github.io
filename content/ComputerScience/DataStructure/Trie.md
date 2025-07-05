@@ -1,6 +1,6 @@
 ---
 title: Trie
-tags: ['algorithm', 'trie']
+tags: ["datastructure"]
 ---
 
 ## Trie
