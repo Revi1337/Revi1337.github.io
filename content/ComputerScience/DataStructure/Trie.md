@@ -246,3 +246,5 @@ print(trie.starts_with('str'))
 [트라이 자료구조 파이썬](https://velog.io/@cjkangme/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%8A%B8%EB%9D%BC%EC%9D%B4Trie-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%8C%8C%EC%9D%B4%EC%8D%AC)
 
 [트라이에 대한 개념과 활용법](https://frtt0608.tistory.com/115)
+
+[위키독스: 트라이](https://wikidocs.net/263277)
