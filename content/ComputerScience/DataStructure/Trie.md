@@ -178,7 +178,7 @@ class Trie:
             curr = curr.get_child(ch)  
         curr.mark_terminal()  
   
-    def contains(self, word) -> bool:  
+    def search(self, word) -> bool:  
         curr = self._root  
         for ch in word:  
             if curr.has_not_child(ch):  
@@ -229,10 +229,10 @@ trie = Trie()
 trie.insert('string')  
 trie.insert('stri')  
 trie.insert('david')  
-print(trie.contains('string'), trie.contains('stri'), trie.contains('david'), sep='\n', end='\n\n')  
+print(trie.search('string'), trie.search('stri'), trie.search('david'), sep='\n', end='\n\n')  
   
 trie.erase('stri')  
-print(trie.contains('string'), trie.contains('stri'), sep = '\n\n')  
+print(trie.search('string'), trie.search('stri'), sep = '\n\n')  
   
 print(trie.starts_with('str'))
 ```
