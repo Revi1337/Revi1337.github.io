@@ -169,10 +169,10 @@ class Node:
   
 class Trie:  
     def __init__(self):  
-        self._root = Node()  
+        self.__root = Node()  
   
     def insert(self, word) -> None:  
-        curr = self._root  
+        curr = self.__root  
         for ch in word:  
             if curr.has_not_child(ch):  
                 curr.set_child(ch)  
@@ -180,7 +180,7 @@ class Trie:
         curr.mark_terminal()  
   
     def search(self, word) -> bool:  
-        curr = self._root  
+        curr = self.__root  
         for ch in word:  
             if curr.has_not_child(ch):  
                 return False  
@@ -189,7 +189,7 @@ class Trie:
   
     def erase(self, word) -> bool:  
         removal = []  
-        curr = self._root  
+        curr = self.__root  
         for ch in word:  
             if curr.has_not_child(ch):  
                 return False  
@@ -216,10 +216,10 @@ class Trie:
                 curr.erase_child_hardly(ch)  
             return curr.has_not_any_child() and curr.is_not_terminal()  
   
-        return _erase(0, self._root)  
+        return _erase(0, self.__root)  
   
     def starts_with(self, prefix) -> bool:  
-        curr = self._root  
+        curr = self.__root  
         for ch in prefix:  
             if curr.has_not_child(ch):  
                 return False  
