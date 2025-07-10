@@ -82,10 +82,8 @@ tags: ["datastructure"]
 - [이진 탐색 트리 (Binary Search Tree : BST)](ComputerScience/DataStructure/BST.md)
 	- `왼쪽 < 부모 < 오른쪽` 또는 `왼쪽 > 부모 > 오른쪽` 자식의 관계를 만족하는 이진트리입니다.
 	- 정렬된 데이터를 트리 형태로 구성하여 탐색, 삽입, 삭제 연산을 효율적으로 수행할 수 있습니다.
-	- 단, 트리가 불균형해질 경우 최악의 경우 탐색, 삽입, 삭제에 `O(N)`이 걸릴 수 있습니다.
-		- 이를 해결하기 위해  `AVL`, `RB Tree(Red-Black Tree)` 와 같은 균형 이진 트리가 도입되었습니다.
-		- 최악의 경우에도 탐색, 삽입, 삭제에 `O(log N)`을 보장합니다.
-		  ![](ComputerScience/DataStructure/images/Pasted%20image%2020250711001039.png)
+	- 단, 트리가 불균형해질 경우 최악의 경우 탐색, 삽입, 삭제에 `O(N)`이 걸릴 수 있습니다. 이를 해결하기 위해  `AVL`, `RB Tree(Red-Black Tree)` 와 같은 균형 이진 트리가 도입되었고, 최악의 경우에도 탐색, 삽입, 삭제에 `O(log N)`을 보장합니다.
+	  ![](ComputerScience/DataStructure/images/Pasted%20image%2020250711001039.png)
 
 <br>
 
@@ -207,7 +205,7 @@ Binary Search Tree (BST : 이진 탐색 트리) 정렬되어있는 이진트리�
 
 [트리의 기초](https://velog.io/@kjh107704/%ED%8A%B8%EB%A6%AC-%ED%8A%B8%EB%A6%AC%EC%9D%98-%EA%B8%B0%EC%B4%88)
 
-[트리는 방향 그래프인가? 무방향 그래프인가](https://dev-sia.tistory.com/25)
+[트리는 방향 그래프인가? 무방향 그래프인가](https://dev-sia.tistory.com/25)
 
 [Trees (트리 자료구조)](https://cdragon.tistory.com/entry/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0%EC%99%80-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-Trees#2.%20Binary%20trees%20(%EC%9D%B4%EC%A7%84%20%ED%8A%B8%EB%A6%AC)-1)
 
