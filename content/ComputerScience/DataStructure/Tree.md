@@ -41,7 +41,7 @@ tags: ["datastructure"]
 트리를 균형 상태를 기준으로 분류하면 `균형 트리(Balanced Tree)`와 `불균형 트리(UnBalanced Tree)`로 나눌 수 있습니다.
 
 - `균형 트리(Balanced Tree)`는 각 노드를 루트노드로 하는 모든 서브트리의 높이 차이가 일정 범위 내로 유지되는 트리를 말합니다.
-	- 일반적으로는 각 노드의 왼쪽과 오른쪽 서브트리 `높이 차이가 1이하인 경우를 균형 상태`로 봅니다. 
+	- 일반적으로는 각 노드의 왼쪽과 오른쪽 서브트리 `높이 차이가 1이하인 경우를 균형 상태`로 봅니다.
 	- 탐색, 삽입, 삭제 연산에서 최악의 경우에도 `O(log N)`을 보장합니다.
 - `불균형 트리(Unbalanced Tree)`는 서브트리의 높이가 한쪽으로 크게 치우쳐 트리 구조가 비정상적으로 편향된 트리를 말합니다.
 	- 이로 인해 트리의 깊이가 불필요하게 증가하고, 연산 성능이 최악의 경우 `O(N)`까지 저하될 수 있습니다.
@@ -55,49 +55,51 @@ tags: ["datastructure"]
 ### 자식 수에 따른 분류
 각 노드가 가질 수 있는 자식의 수를 기준으로 `m-ary 트리`, `완전 m-ary 트리`, `전 m-ary 트리`, `포화 m-ary 트리`로 나눌 수 있습니다.
 
-- `m-ary 트리 (m-진 트리)`는 각 노드가 최대 m개의 자식을 가질 수 있는 트리를 말합니다. 
+- `m-ary 트리 (m-진 트리)`는 각 노드가 최대 m개의 자식을 가질 수 있는 트리를 말합니다.
 	- 이진 트리 (Binary Tree)는 각 노드가 최대 2개의 자식(왼쪽, 오른쪽)만 가질 수 있는 트리를 말합니다.
 	- 삼진 트리 (3-ary Tree) 는 각 노드가 최대 3개의 자식만 기질 수 있는 트리를 말합니다.
-	![](ComputerScience/DataStructure/images/Pasted%20image%2020250710011846.png)
+	  ![](ComputerScience/DataStructure/images/Pasted%20image%2020250710011846.png)
 
 
 - `완전 m-ary 트리 (Complete m-ary Tree)`는 노드들이 왼쪽부터 순서대로 채워지는 `m-ary 트리`로, 마지막 레벨을 제외한 모든 레벨이 노드로 완전히 채워져 있고, 마지막 레벨은 왼쪽부터 순차적으로 노드가 채워진 트리를 말합니다.
 	- 완전 이진 트리(Complete Binary Tree)는 이진 트리 중에서도 마지막 레벨의 노드들이 왼쪽부터 순서대로 채워져 있으며, 그 위에 모든 레벨은 노드로 완전히 채워진 트리를 말합니다.
-	![](ComputerScience/DataStructure/images/Pasted%20image%2020250710015308.png)
+	  ![](ComputerScience/DataStructure/images/Pasted%20image%2020250710015308.png)
 
 
 - `전 m-ary 트리 (Fully m-ary 트리)`는 모든 노드가 0개 또는 m개의 자식을 갖는 트리를 말합니다.
 	- 전 이진 트리(Fully Binary Tree)는 모든 노드가 0개 또는 2개의 자식을 갖는 트리를 말합니다.
-	![](ComputerScience/DataStructure/images/Pasted%20image%2020250710020808.png)
+	  ![](ComputerScience/DataStructure/images/Pasted%20image%2020250710020808.png)
 
 
 - `포화 m-ary 트리 (Perfect m-ary 트리)`는 모든 노드가 정확히 m개의 자식을 가지고, 모든 리프 노드가 동일한 깊이(Depth)에 존재하는 m-ary 트리를 말합니다. 쉽게 말해, `전 m-ary 트리`이면서 `완전 m-ary 트리`를 만족하는 트리를 말합니다.
 	- 포화 이진 트리(Perfect Binary Tree)는 모든 노드가 정확히 2개의 자식을 가지며, 모든 리프 노드가 같은 깊이에 있는 이진 트리를 말합니다.
-	![](ComputerScience/DataStructure/images/Pasted%20image%2020250710022145.png)
+	  ![](ComputerScience/DataStructure/images/Pasted%20image%2020250710022145.png)
 
 
 ### 노드의 순서 및 위치에 따른 분류
 노드의 상대적 위치나 삽입 규칙, 순서 제약 조건에 따라 다음과 같이 분류할 수 있습니다.
 
-1. [이진 탐색 트리 (Binary Search Tree : BST)](ComputerScience/DataStructure/BST.md)
+- [이진 탐색 트리 (Binary Search Tree : BST)](ComputerScience/DataStructure/BST.md)
 	- `왼쪽 < 부모 < 오른쪽` 또는 `왼쪽 > 부모 > 오른쪽` 자식의 관계를 만족하는 이진트리입니다.
 	- 정렬된 데이터를 트리 형태로 구성하여 탐색, 삽입, 삭제 연산을 효율적으로 수행할 수 있습니다.
 	- 단, 트리가 불균형해질 경우 최악의 경우 탐색, 삽입, 삭제에 `O(N)`이 걸릴 수 있습니다.
 		- 이를 해결하기 위해  `AVL`, `RB Tree(Red-Black Tree)` 와 같은 균형 이진 트리가 도입되었습니다.
 		- 최악의 경우에도 탐색, 삽입, 삭제에 `O(log N)`을 보장합니다.
-	![](ComputerScience/DataStructure/images/Pasted%20image%2020250711001039.png)
+		  ![](ComputerScience/DataStructure/images/Pasted%20image%2020250711001039.png)
 
 
-2. [힙 (Heap)](ComputerScience/DataStructure/Heap.md)
+
+- [힙 (Heap)](ComputerScience/DataStructure/Heap.md)
 	- `완전 이진 트리 기반`으로, 부모 노드가 자식보다 크거나(최대 힙) 작거나(최소 힙) 해야 합니다.
 	- 주로 우선 순위 큐 구현 및 힙 정렬에 사용되며, 최댓값/최솟값을 빠르게 찾아낼 수 있습니다.
-	![](ComputerScience/DataStructure/images/Pasted%20image%2020250711001212.png)
+	  ![](ComputerScience/DataStructure/images/Pasted%20image%2020250711001212.png)
 
 
-3. [트라이 (Trie)](ComputerScience/DataStructure/Trie.md)
+
+- [트라이 (Trie)](ComputerScience/DataStructure/Trie.md)
 	- 문자열 검색을 위한 트리로, 노드 간의 순서가 중요하며 루트부터 경로를 따라가며 문자를 구성합니다.
 	- 주로 접두어 검색이나 자동완성 기능 등에 사용됩니다.
-	![](ComputerScience/DataStructure/images/Pasted%20image%2020250711001315.png)
+	  ![](ComputerScience/DataStructure/images/Pasted%20image%2020250711001315.png)
 
 
 ## Reference
@@ -219,4 +221,4 @@ Binary Search Tree (BST : 이진 탐색 트리) 정렬되어있는 이진트리�
 
 [이진트리의 종류](https://hsc-tech.tistory.com/7)
 
- %%
+%%
