@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="283b94bf-5028-497f-92a5-3572fe5ed7aa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/ComputerScience/DataStructure/Trie.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/ComputerScience/DataStructure/Trie.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/ComputerScience/DataStructure/Array.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/ComputerScience/DataStructure/Array.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/ComputerScience/DataStructure/Excalidraw/Heap.excalidraw.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/ComputerScience/DataStructure/Excalidraw/Heap.excalidraw.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/ComputerScience/DataStructure/Excalidraw/Tree.excalidraw.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/ComputerScience/DataStructure/Excalidraw/Tree.excalidraw.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/ComputerScience/DataStructure/Excalidraw/Trie.excalidraw.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/ComputerScience/DataStructure/Excalidraw/Trie.excalidraw.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/ComputerScience/DataStructure/Tree.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/ComputerScience/DataStructure/Tree.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +132,9 @@
       <workItem from="1751723262278" duration="17000" />
       <workItem from="1751723338793" duration="16000" />
       <workItem from="1751723454441" duration="13000" />
-      <workItem from="1751724939502" duration="40000" />
+      <workItem from="1751724939502" duration="1086000" />
+      <workItem from="1751740448455" duration="15273000" />
+      <workItem from="1752161352333" duration="25000" />
     </task>
     <servers />
   </component>
