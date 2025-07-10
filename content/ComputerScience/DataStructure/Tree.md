@@ -87,14 +87,14 @@ tags: ["datastructure"]
 		- 최악의 경우에도 탐색, 삽입, 삭제에 `O(log N)`을 보장합니다.
 		  ![](ComputerScience/DataStructure/images/Pasted%20image%2020250711001039.png)
 
-
+<br>
 
 - [힙 (Heap)](ComputerScience/DataStructure/Heap.md)
 	- `완전 이진 트리 기반`으로, 부모 노드가 자식보다 크거나(최대 힙) 작거나(최소 힙) 해야 합니다.
 	- 주로 우선 순위 큐 구현 및 힙 정렬에 사용되며, 최댓값/최솟값을 빠르게 찾아낼 수 있습니다.
 	  ![](ComputerScience/DataStructure/images/Pasted%20image%2020250711001212.png)
 
-
+<br>
 
 - [트라이 (Trie)](ComputerScience/DataStructure/Trie.md)
 	- 문자열 검색을 위한 트리로, 노드 간의 순서가 중요하며 루트부터 경로를 따라가며 문자를 구성합니다.
