@@ -16,8 +16,8 @@ Binary Search Tree(BST: 이진 탐색 트리)는 이진 트리의 특별한 형�
 > 트리가 한쪽으로 치우칠 경우 삽입 & 삭제 & 탐색의 시간복잡도는 O(N)까지 나빠질 수 있습니다. 따라서 트리를 균형있게 유지하기 위해 BST의 한 종류인 Red-Black Tree 같은 균형 BST 를 사용합니다.
 
 > [!note] Ceiling & Floor
-> Ceiling : 트리 내에서 X 이상인 값 중 가장 작은 값을 말합니다.
-> Floor : 트리 내에서 X 이하인 값 중 가장 큰 값을 말합니다.
+> - Ceiling : 트리 내에서 X 이상인 값 중 가장 작은 값을 말합니다.
+> - Floor : 트리 내에서 X 이하인 값 중 가장 큰 값을 말합니다.
 
 ![](ComputerScience/DataStructure/images/Pasted%20image%2020250611033553.png)
 
