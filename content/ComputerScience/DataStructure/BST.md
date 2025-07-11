@@ -136,39 +136,40 @@ class BST:
             if curr == target:  
                 return True  
   
-            if curr.left is not None and target < curr:  
+            if target < curr:  
                 curr = curr.left  
-            elif curr.right is not None and target > curr:  
-                curr = curr.right  
             else:  
-                return False  
+                curr = curr.right  
   
         return False  
+  
     def ceil(self, value: int) -> Optional[int]:  
-        curr, target = self.root, Node(value)  
+        curr, target, ans = self.root, Node(value), None  
         while curr:  
             if curr == target:  
                 return curr.value  
   
             if target < curr:  
-                if curr.left is None or curr.left < target:  
-                    return curr.value  
+                ans = curr.value  
                 curr = curr.left  
             else:  
                 curr = curr.right  
   
+        return ans  
+  
     def floor(self, value: int) -> Optional[int]:  
-        curr, target = self.root, Node(value)  
+        curr, target, ans = self.root, Node(value), None  
         while curr:  
             if curr == target:  
                 return curr.value  
   
             if target > curr:  
-                if curr.right is None or curr.right > target:  
-                    return curr.value  
+                ans = curr.value  
                 curr = curr.right  
             else:  
                 curr = curr.left  
+  
+        return ans  
   
     def display(self) -> None:  
   
@@ -186,6 +187,7 @@ bst.display()
   
 print([bst.search(num) for num in (20, 15, 25, 10, 17, 21, 24, 31, 34, 32, 19, 16)], sep = ' ')  
 print(bst.ceil(13))  
+print(bst.floor(23))  
 print(bst.remove(25))  
 bst.display()
 ```
