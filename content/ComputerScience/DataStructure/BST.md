@@ -77,18 +77,18 @@ class BST:
             else:  
                 return  
   
-    def remove(self, value: int) -> bool:  
+    def remove(self, value: int) -> Optional[int]:  
         prev, curr, target = self.root, self.root, Node(value)  
         while curr:  
             if curr == target:  
                 break  
   
-            if curr.left is not None and target < curr:  
+            if target < curr:  
                 prev, curr = curr, curr.left  
-            elif curr.right is not None and target > curr:  
+            elif target > curr:  
                 prev, curr = curr, curr.right  
             else:  
-                return False  
+                return  
   
         is_root = curr == self.root  
   
@@ -128,7 +128,7 @@ class BST:
             else:  
                 prev.right = curr.right  
   
-        return True  
+        return curr.value  
   
     def search(self, value: int) -> bool:  
         curr, target = self.root, Node(value)  
