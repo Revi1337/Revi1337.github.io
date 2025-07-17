@@ -164,6 +164,14 @@ print(kruskal(
 ```
 
 
+결과는 아래와 같이 나오게 됩니다.
+
+```text
+# MST 를 구성하는 간선들, MST의 비용
+[[1, 3, 1], [2, 3, 1], [3, 5, 2], [1, 4, 4]], 8
+```
+
+
 ## Reference
 [크루스칼 알고리즘, 최소신장 트리(MST)](https://chanhuiseok.github.io/posts/algo-33/)
 
