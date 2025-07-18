@@ -49,6 +49,7 @@ export const sortFn: Options["sortFn"] = (a, b) => {
     "Algorithm/BellmanFord": 2011,
     "Algorithm/UnionFind": 2012,
     "Algorithm/Kruskal": 2013,
+    "Algorithm/Prim": 2014,
     "Algorithm/Sort/InsertionSort": 2501,
     "Algorithm/Sort/SelectionSort": 2502,
     "Algorithm/Sort/BubbleSort": 2503,
