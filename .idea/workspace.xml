@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="283b94bf-5028-497f-92a5-3572fe5ed7aa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Algorithm/Kruskal.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/Algorithm/Kruskal.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Algorithm/Prim.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/Algorithm/Prim.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +135,7 @@
       <workItem from="1752410565945" duration="1745000" />
       <workItem from="1752427986384" duration="949000" />
       <workItem from="1752772688422" duration="4322000" />
-      <workItem from="1752860167886" duration="763000" />
+      <workItem from="1752860167886" duration="2676000" />
     </task>
     <servers />
   </component>
