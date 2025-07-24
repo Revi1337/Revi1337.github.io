@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="283b94bf-5028-497f-92a5-3572fe5ed7aa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Algorithm/UnionFind.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/Algorithm/UnionFind.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Algorithm/Excalidraw/Kruskal.excalidraw.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/Algorithm/Excalidraw/Kruskal.excalidraw.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Algorithm/Prim.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/Algorithm/Prim.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quartz.layout.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz.layout.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +143,8 @@
       <workItem from="1753104598479" duration="636000" />
       <workItem from="1753112103321" duration="48000" />
       <workItem from="1753112700053" duration="3621000" />
-      <workItem from="1753253559864" duration="10000" />
+      <workItem from="1753253559864" duration="22000" />
+      <workItem from="1753341968752" duration="89000" />
     </task>
     <servers />
   </component>
