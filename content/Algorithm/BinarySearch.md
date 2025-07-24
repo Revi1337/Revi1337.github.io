@@ -17,9 +17,9 @@ tags: ['algorithm', 'binary_search']
 1. 시작 인덱스 `left`와 끝 인덱스 `right`를 설정합니다. (left = 0, right = len(arr) - 1)
 2. 중간 지점 `mid = (left + right) // 2`를 계산합니다.
 3. `arr[mid]` 값과 찾고자 하는 값 `target`을 비교하여 탐색 범위를 절반으로 줄입니다.
-    - `target == arr[mid]`인 경우: 값을 찾았으므로 `mid`를 반환합니다.
-    - `target < arr[mid]`인 경우: 탐색 대상이 왼쪽 구간에 있으므로 `right = mid - 1`로 이동합니다.
-    - `target > arr[mid]`인 경우: 탐색 대상이 오른쪽 구간에 있으므로 `left = mid + 1`로 이동합니다.
+	- `target == arr[mid]`인 경우: 값을 찾았으므로 `mid`를 반환합니다.
+	- `target < arr[mid]`인 경우: 탐색 대상이 왼쪽 구간에 있으므로 `right = mid - 1`로 이동합니다.
+	- `target > arr[mid]`인 경우: 탐색 대상이 오른쪽 구간에 있으므로 `left = mid + 1`로 이동합니다.
 4. 2,3 과정을 `left <= right` 조건을 만족하는 동안 반복합니다.
 
 > [!question] left <= right 동안 반복하는 이유
@@ -28,6 +28,7 @@ tags: ['algorithm', 'binary_search']
 > [!question] left & right 포인터가 mid +1 또는 mid - 1 로 움직이는 이유
 > 다음 left & right 포인터는 이전 mid 에 위치한 데이터가 정답의 후보가 될 수 있었냐 없었냐 여부를 기준으로 움직이게 됩니다. 현재 mid 에 위치한 값이 정답의 후보가 될 수 없으면, 다음 탐색 범위에서 제외시키기 위해 mid 기준 +1 또는 -1로 움직이게 됩니다.
 
+<br>
 
 정렬된 데이터를 기반으로 BinarySearch(5)를 구해보겠습니다. 가장 먼저 left, right 를 각각 0, 7로 설정합니다.
 
@@ -72,8 +73,8 @@ Lower Bound Search는 `찾고자 하는 값보다 크거나 같은 값 중`에�
 1. 시작 인덱스 `left`와 끝 인덱스 `right`를 설정합니다. 이때 `right = len(arr)`로 설정합니다.
 2. 중간 지점 `mid = (left + right) // 2`를 계산합니다.
 3. `arr[mid]`와 `target`을 비교해 탐색 범위를 반으로 줄입니다.
-    - `target <= arr[mid]`인 경우: mid는 정답 후보일 수 있으므로 `right = mid`로 이동합니다.
-    - `target > arr[mid]`인 경우: mid는 정답이 될 수 없으므로 `left = mid + 1`로 이동합니다.
+	- `target <= arr[mid]`인 경우: mid는 정답 후보일 수 있으므로 `right = mid`로 이동합니다.
+	- `target > arr[mid]`인 경우: mid는 정답이 될 수 없으므로 `left = mid + 1`로 이동합니다.
 4. 2,3 과정을 `left < right`인 동안 반복합니다.
 5. 반복 종료 시 `left` 또는 `right`가 Lower Bound 결과를 가리킵니다.
 
@@ -86,6 +87,7 @@ Lower Bound Search는 `찾고자 하는 값보다 크거나 같은 값 중`에�
 > [!question] 초기 right = len(arr)로 설정하는 이유  
 > Lower Bound는 찾으려는 값이 존재하지 않아도, 그 값이 정렬을 유지하며 들어갈 수 있는 위치를 반환해야 합니다. 예를 들어 `[1, 3, 3, 6, 7]`에서 lower_bound(5)는 값 6의 인덱스 3을 반환합니다. 반면 lower_bound(10)은 배열에 10 이상 값이 없으므로 삽입 위치인 5를 반환해야 합니다. 이를 위해 right = len(arr)로 설정해, 배열 마지막 이후의 위치까지 고려하게 됩니다.
 
+<br>
 
 정렬된 데이터를 기반으로 LowerBound(11)를 구해보겠습니다. 가장 먼저 left, right 를 각각 0, 8로 설정합니다.
 
@@ -137,13 +139,14 @@ Upper Bound Search는 `찾고자 하는 값보다 큰 값 중`에서 가장 작�
 1. 시작 인덱스 `left`와 끝 인덱스 `right`를 설정합니다. 이때 `right = len(arr)`로 설정합니다.
 2. 중간 지점 `mid = (left + right) // 2`를 계산합니다.
 3. `arr[mid]`와 `target`을 비교해 탐색 범위를 반으로 줄입니다.
-    - `target < arr[mid]`인 경우: mid는 정답 후보일 수 있으므로 `right = mid`로 이동합니다.
-    - `target >= arr[mid]`인 경우: mid는 정답이 될 수 없으므로 `left = mid + 1`로 이동합니다.
+	- `target < arr[mid]`인 경우: mid는 정답 후보일 수 있으므로 `right = mid`로 이동합니다.
+	- `target >= arr[mid]`인 경우: mid는 정답이 될 수 없으므로 `left = mid + 1`로 이동합니다.
 4. 2,3 과정을 `left < right`인 동안 반복합니다.
 5. 반복 종료 시 `left` 또는 `right`가 Lower Bound 결과를 가리킵니다.
 
 > left < right 동안 반복하는 이유, right = mid가 되는 이유, 초기 right = len(arr)로 설정하는 이유는 Lower Bound 와 동일합니다.
 
+<br>
 
 정렬된 데이터를 기반으로 UpperBound(10)을 구해보겠습니다. 가장 먼저 left, right 를 각각 0, 8로 설정합니다.
 
@@ -187,7 +190,7 @@ Upper Bound Search는 `찾고자 하는 값보다 큰 값 중`에서 가장 작�
 ![](Algorithm/images/Pasted%20image%2020250724154903.png)
 
 
-## Implementation 
+## Implementation
 ```python
 def binary_search(arr, target):  
     arr.sort()  
