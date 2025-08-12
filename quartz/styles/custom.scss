@@ -181,8 +181,42 @@ figure {
   }
 
   .folder-outer > ul {
+    padding-left: 0;
+
     html[saved-theme="dark"] & {            // dark mode 에서만 왼쪽 Line 적용
       border-left: 1px solid var(--nuxt);
+    }
+
+    html[saved-theme="light"] & {            // light mode 에서만 왼쪽 Line 적용
+      border-left: 1px solid var(--darkgray);
+    }
+
+    li:has(div.folder-container) {
+      padding-left: 0.8rem;
+    }
+
+    > li:not(:has(> div.folder-container)) {
+      position: relative;
+      padding-left: 1rem;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0.65rem;
+        height: 1px;
+        //background-color: var(--nuxt);
+
+        html[saved-theme="dark"] & {            // dark mode 에서만 왼쪽 Line 적용
+          background-color: var(--nuxt);
+        }
+
+        html[saved-theme="light"] & {            // dark mode 에서만 왼쪽 Line 적용
+          background-color: var(--darkgray);
+        }
+      }
     }
   }
 }

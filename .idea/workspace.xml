@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="283b94bf-5028-497f-92a5-3572fe5ed7aa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quartz/styles/custom.scss" beforeDir="false" afterPath="$PROJECT_DIR$/quartz/styles/custom.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +145,7 @@
       <workItem from="1753112700053" duration="3621000" />
       <workItem from="1753253559864" duration="22000" />
       <workItem from="1753341968752" duration="2000000" />
-      <workItem from="1755016745946" duration="2762000" />
+      <workItem from="1755016745946" duration="8199000" />
     </task>
     <servers />
   </component>
