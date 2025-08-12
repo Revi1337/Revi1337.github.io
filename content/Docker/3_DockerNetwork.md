@@ -116,7 +116,7 @@ PING 10.0.0.3 (10.0.0.3) 56(84) bytes of data.
 6 packets transmitted, 6 received, 0% packet loss, time 5144ms
 ```
 
-![](Docker/images/Pasted%20image%2020250812033351.png)
+![](Docker/images/Pasted%20image%2020250813015205.png)
 
 
 `docker network inspect 네트워크이름 혹은 ID`를 통해 해당 네트워크에 속한 컨테이너들을 확인할 수 있습니다. 우분투 컨테이너가 도커 기본 브릿지 네트워크인 docker0 에 속한 것을 확인할 수 있습니다.
