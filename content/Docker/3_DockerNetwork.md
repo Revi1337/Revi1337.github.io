@@ -23,7 +23,7 @@ Bridge Network는 도커가 기본적으로 사용하는 네트워크 드라이�
 
 > ping, ifconfig 등의 커맨드가 없으면 apt update && apt install net-tools iputils-ping -y 를 하면 됩니다.
 
-```bash
+```bash {1, 6}
 docker run --name ubuntu-container -it ubuntu bash
 
 # ubuntu-container
@@ -54,7 +54,7 @@ docker run -d --name redis-container --network=test-bridge --ip=10.0.0.3 -p 6379
 
 우분투와 레디스 컨테이너는 서로 네트워크가 다르기 때문에 서로 통신할 수 없는 것을 확인할 수 있습니다.
 
-```bash {6}
+```bash {2}
 # ubuntu-container
 ping 10.0.0.3
 PING 10.0.0.3 (10.0.0.3) 56(84) bytes of data.
@@ -78,7 +78,7 @@ docker exec -it ubuntu-container bash
 
 우분투 컨테이너에 eth1라는 새로운 NIC가 생긴 것을 확인할 수 있고, `10.0.0.2` IP 를 할당받은 것을 확인할 수 있습니다.
 
-```bash {4,12}
+```bash {2, 4, 12}
 # ubuntu-container
 ifconfig
 eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 65535
@@ -101,7 +101,7 @@ eth1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 
 우분투 컨테이너와 레디스 컨테이너 모두 `test-bridge` 라는 네트워크에 속하기 때문에 통신이 가능해진 것을 확인할 수 있습니다.
 
-```bash {12}
+```bash {2, 12}
 # ubuntu-container
 ping 10.0.0.3
 PING 10.0.0.3 (10.0.0.3) 56(84) bytes of data.
@@ -166,7 +166,7 @@ Host Network는 컨테이너가 도커 호스트의 네트워크 스택을 직�
 
 도커 호스트인 Amacon EC2의 NIC와 IP 주소는 아래와 같습니다.
 
-```bash
+```bash {3}
 # Docker Host EC2 Linux
 ifconfig enX0 | grep inet
 	inet 172.31.46.39  netmask 255.255.240.0  broadcast 172.31.47.255
@@ -176,7 +176,7 @@ ifconfig enX0 | grep inet
 
 redis-host 컨테이너를 생성하고 Host 네트워크에 연결합니다. 도커 호스트인 EC2와 NIC와 IP주소가 동일한 것을 확인할 수 있습니다.
 
-```bash
+```bash {2, 3, 6}
 # redis-host Container
 docker run -d --name redis-host --network=host -it redis
 docker exec -it redis-host bash
@@ -189,12 +189,12 @@ ifconfig enX0 | grep inet
 
 ubuntu-host 컨테이너를 생성하고 Host 네트워크에 연결합니다. 마찬가지로 도커 호스트인 EC2와 NIC와 IP주소가 동일한 것을 확인할 수 있습니다.
 
-```bash
+```bash {2, 3, 7}
 # ubuntu-host Container
 docker run --name ubuntu-host --network=host ubuntu
 docker exec -it ubuntu-host bash
-apt update && apt install -y net-tools iputils-ping redis-tools
 
+apt update && apt install -y net-tools iputils-ping redis-tools
 ifconfig enX0 | grep inet
 	inet 172.31.46.39  netmask 255.255.240.0  broadcast 172.31.47.255
 	inet6 fe80::864:d1ff:fe6c:86bb  prefixlen 64  scopeid 0x20<link>
@@ -203,7 +203,7 @@ ifconfig enX0 | grep inet
 
 ubuntu-host 컨테이너에서 redis-host 컨테이너로 잘 연결되는 것을 확인할 수 있습니다. 또한 도커 호스트인 EC2에서도 redis-host 컨테이너로 잘 연결되는 것을 확인할 수 있습니다.
 
-```bash
+```bash {2, 7}
 # ubuntu-host Conatiner
 redis-cli ping
 PONG
@@ -220,7 +220,7 @@ PONG
 ## None
 None Network는 네트워크가 전혀 연결되지 않은 상태로 컨테이너를 실행하는 네트워크 모드입니다. 네트워크 인터페이스가 lo 밖에 없기 때문에, 외부와의 통신이 불가능합니다.
 
-```bash
+```bash {1}
 docker run --name ubuntu-none --network=none -it ubuntu bash
 
 apt update

@@ -19,7 +19,7 @@ docker volume create test-volume
 
 생성된 볼륨은 아래 명령으로 확인할 수 있습니다.
 
-```bash
+```bash {1}
 docker volume ls
 DRIVER    VOLUME NAME
 local     test-volume
@@ -61,7 +61,7 @@ docker run -d --name redis-volume -v test-volume:/data -p 6379:6379 redis:latest
 
 > Redis 컨테이너는 기본적으로 /data 디렉터리에 모든 데이터 파일(RDB 스냅샷, AOF 파일 등)을 저장합니다.
 
-```bash
+```bash {2, 5, 18, 21}
 # command 1
 for i in $(seq 1 10); do docker exec -it redis-volume redis-cli set test-key-$i test-value-$i; done
 
@@ -95,7 +95,7 @@ drwxr-xr-x 1 root  root  4096 Aug 12 15:17 ..
 
 [Run Container](Docker/4_DockerVolume.md#Run%20Container) 에서 상단 커맨드를 입력하였다면 아래 커맨드를 입력합니다.
 
-```bash
+```bash {1}
 file dump.rdb         
 dump.rdb: Redis RDB file, version 0012
 ```
@@ -118,7 +118,7 @@ docker stop redis-volume && docker rm redis-volume
 
 그리고 다시 [Run Container](Docker/4_DockerVolume.md#Run%20Container) 에서 진행했던 과정 그대로 수행하여 레디스 컨테이너를 다시 생성합니다.
 
-```bash
+```bash {1,5}
 docker run -d --name redis-volume -v $(pwd):/data -p 6379:6379 redis:latest
 
 or 
@@ -131,7 +131,7 @@ docker run -d --name redis-volume -v test-volume:/data -p 6379:6379 redis:latest
 
 > 레디스는 실행될 때, 자동으로 dump.rdb 파일을 읽어들입니다.
 
-```bash
+```bash {2, 9}
 # Command 1
 docker exec -it redis-volume ls -al /data      
 total 8
