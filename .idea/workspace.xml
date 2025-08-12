@@ -6,16 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="283b94bf-5028-497f-92a5-3572fe5ed7aa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Docker/DockerBaseCommand.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Docker/DockerBuild.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Docker/DockerCheetSheet.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Docker/DockerCompose.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Docker/DockerNetwork.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Docker/DockerVolume.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Docker/TroubleShoot/forbidden_access_permission.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Docker/TroubleShoot/index.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Docker/WhatIsDocker.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/quartz.layout.ts" beforeDir="false" afterPath="$PROJECT_DIR$/quartz.layout.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/Docker/3_DockerNetwork.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/Docker/3_DockerNetwork.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +34,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "v4",
     "kotlin-language-version-configured": "true",
@@ -153,7 +145,7 @@
       <workItem from="1753112700053" duration="3621000" />
       <workItem from="1753253559864" duration="22000" />
       <workItem from="1753341968752" duration="2000000" />
-      <workItem from="1755016745946" duration="329000" />
+      <workItem from="1755016745946" duration="589000" />
     </task>
     <servers />
   </component>

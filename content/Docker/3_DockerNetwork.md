@@ -21,6 +21,8 @@ Bridge Network는 도커가 기본적으로 사용하는 네트워크 드라이�
 
 우분투 컨테이너 내에서 네트워크 인터페이스 상태를 확인하면, 기본 브리지(bridge0) 네트워크 대역인 172.17.0.2로 할당된 것을 확인할 수 있습니다.
 
+> ping, ifconfig 등의 커맨드가 없으면 apt update && apt install net-tools iputils-ping -y 를 하면 됩니다.
+
 ```bash
 docker run --name ubuntu-container -it ubuntu bash
 
@@ -34,8 +36,6 @@ eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 65535
 	TX packets 0  bytes 0 (0.0 B)
 	TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ```
-
-> ping, ifconfig 등의 커맨드가 없으면 apt update && apt install net-tools iputils-ping -y 를 하면 됩니다.
 
 
 도커 브리지 네트워크 `test-bridge`를 서브넷 `10.0.0.0/24`, 게이트웨이 `10.0.0.1` 설정으로 새로 생성합니다.
