@@ -54,7 +54,7 @@ docker run -d --name redis-container --network=test-bridge --ip=10.0.0.3 -p 6379
 
 우분투와 레디스 컨테이너는 서로 네트워크가 다르기 때문에 서로 통신할 수 없는 것을 확인할 수 있습니다.
 
-```bash {2}
+```bash {2, 6}
 # ubuntu-container
 ping 10.0.0.3
 PING 10.0.0.3 (10.0.0.3) 56(84) bytes of data.
