@@ -160,13 +160,14 @@ export const sortFn: Options["sortFn"] = (a, b) => {
 
     // (Root) Docker
     "Docker": 9000,
-    "Docker/WhatIsDocker": 9010,
-    "Docker/DockerBaseCommand": 9020,
-    "Docker/DockerVolume": 9030,
-    "Docker/DockerNetwork": 9040,
-    "Docker/DockerCompose": 9050,
-    "Docker/DockerBuild": 9060,
-    "Docker/DockerCheetSheet": 9070,
+    "Docker/1_Docker": 9010,
+    "Docker/2_DockerBasicCommand": 9020,
+    "Docker/3_DockerNetwork": 9030,
+    "Docker/4_DockerVolume": 9040,
+    "Docker/5_DockerImage": 9050,
+    "Docker/10_DockerCompose": 9060,
+    "Docker/103_DockerRedis": 9070,
+    "Docker/104_DockerRedisSentinel": 9070,
     "Docker/forbidden_access_permission": 9081,
 
     // (Root) AWS
