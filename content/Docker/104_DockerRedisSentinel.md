@@ -75,116 +75,116 @@ HOST_IP=192.168.219.74
 
 **./docker-compose.yml**
 ```yml
-networks:
-  redis-net:
-    name: redis-net
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 172.25.0.0/16
-
-services:
-  redis-master:
-    image: redis:latest
-    container_name: "redis-master"
-    command: [ "sh", "-c", "chmod +x /usr/local/etc/init.sh && /usr/local/etc/init.sh ${HOST_IP}" ]
-    ports:
-      - "6379:6379"
-    volumes:
-      - ./nodes/master/init:/usr/local/etc
-      - ./nodes/master/data:/data
-    env_file:
-      - .env
-    networks:
-      redis-net:
-        ipv4_address: 172.25.0.2
-
-  redis-slave-1:
-    image: redis:latest
-    container_name: "redis-slave1"
-    command: [ "sh", "-c", "chmod +x /usr/local/etc/init.sh && /usr/local/etc/init.sh ${HOST_IP}" ]
-    ports:
-      - "6380:6379"
-    links:
-      - redis-master
-    volumes:
-      - ./nodes/slave-1/init:/usr/local/etc
-      - ./nodes/slave-1/data:/data
-    env_file:
-      - .env
-    networks:
-      redis-net:
-        ipv4_address: 172.25.0.3
-
-  redis-slave-2:
-    image: redis:latest
-    container_name: "redis-slave2"
-    command: [ "sh", "-c", "chmod +x /usr/local/etc/init.sh && /usr/local/etc/init.sh ${HOST_IP}" ]
-    ports:
-      - "6381:6379"
-    links:
-      - redis-master
-    volumes:
-      - ./nodes/slave-2/init:/usr/local/etc
-      - ./nodes/slave-2/data:/data
-    env_file:
-      - .env
-    networks:
-      redis-net:
-        ipv4_address: 172.25.0.4
-
-  sentinel-1:
-    image: redis:latest
-    container_name: "sentinel1"
-    command: [ "sh", "-c", "chmod +x /usr/local/etc/init.sh && /usr/local/etc/init.sh ${HOST_IP}" ]
-    ports:
-      - "5001:26379"
-    depends_on:
-      - redis-master
-      - redis-slave-1
-      - redis-slave-2
-    volumes:
-      - ./sentinels/sentinel-1/init:/usr/local/etc
-    env_file:
-      - .env
-    networks:
-      redis-net:
-        ipv4_address: 172.25.0.5
-
-  sentinel-2:
-    image: redis:latest
-    container_name: "sentinel2"
-    command: [ "sh", "-c", "chmod +x /usr/local/etc/init.sh && /usr/local/etc/init.sh ${HOST_IP}" ]
-    ports:
-      - "5002:26379"
-    depends_on:
-      - redis-master
-      - redis-slave-1
-      - redis-slave-2
-    volumes:
-      - ./sentinels/sentinel-2/init:/usr/local/etc
-    env_file:
-      - .env
-    networks:
-      redis-net:
-        ipv4_address: 172.25.0.6
-
-  sentinel-3:
-    image: redis:latest
-    container_name: "sentinel3"
-    command: [ "sh", "-c", "chmod +x /usr/local/etc/init.sh && /usr/local/etc/init.sh ${HOST_IP}" ]
-    ports:
-      - "5003:26379"
-    depends_on:
-      - redis-master
-      - redis-slave-1
-      - redis-slave-2
-    volumes:
-      - ./sentinels/sentinel-3/init:/usr/local/etc
-    env_file:
-      - .env
-    networks:
-      redis-net:
+networks:  
+  redis-net:  
+    name: redis-net  
+    driver: bridge  
+    ipam:  
+      config:  
+        - subnet: 172.25.0.0/16  
+  
+services:  
+  redis-master:  
+    image: redis:latest  
+    container_name: "redis-master"  
+    command: [ "sh", "-c", "chmod +x /usr/local/etc/init.sh && /usr/local/etc/init.sh ${HOST_IP}" ]  
+    ports:  
+      - "6379:6379"  
+    volumes:  
+      - ./nodes/master/init:/usr/local/etc  
+      - ./nodes/master/data:/data  
+    env_file:  
+      - .env  
+    networks:  
+      redis-net:  
+        ipv4_address: 172.25.0.2  
+  
+  redis-slave-1:  
+    image: redis:latest  
+    container_name: "redis-slave1"  
+    command: [ "sh", "-c", "chmod +x /usr/local/etc/init.sh && /usr/local/etc/init.sh ${HOST_IP}" ]  
+    ports:  
+      - "6380:6379"  
+    links:  
+      - redis-master  
+    volumes:  
+      - ./nodes/slave-1/init:/usr/local/etc  
+      - ./nodes/slave-1/data:/data  
+    env_file:  
+      - .env  
+    networks:  
+      redis-net:  
+        ipv4_address: 172.25.0.3  
+  
+  redis-slave-2:  
+    image: redis:latest  
+    container_name: "redis-slave2"  
+    command: [ "sh", "-c", "chmod +x /usr/local/etc/init.sh && /usr/local/etc/init.sh ${HOST_IP}" ]  
+    ports:  
+      - "6381:6379"  
+    links:  
+      - redis-master  
+    volumes:  
+      - ./nodes/slave-2/init:/usr/local/etc  
+      - ./nodes/slave-2/data:/data  
+    env_file:  
+      - .env  
+    networks:  
+      redis-net:  
+        ipv4_address: 172.25.0.4  
+  
+  sentinel-1:  
+    image: redis:latest  
+    container_name: "sentinel1"  
+    command: [ "sh", "-c", "chmod +x /usr/local/etc/init.sh && /usr/local/etc/init.sh ${HOST_IP}" ]  
+    ports:  
+      - "5001:26379"  
+    depends_on:  
+      - redis-master  
+      - redis-slave-1  
+      - redis-slave-2  
+    volumes:  
+      - ./sentinels/sentinel-1/init:/usr/local/etc  
+    env_file:  
+      - .env  
+    networks:  
+      redis-net:  
+        ipv4_address: 172.25.0.5  
+  
+  sentinel-2:  
+    image: redis:latest  
+    container_name: "sentinel2"  
+    command: [ "sh", "-c", "chmod +x /usr/local/etc/init.sh && /usr/local/etc/init.sh ${HOST_IP}" ]  
+    ports:  
+      - "5002:26379"  
+    depends_on:  
+      - redis-master  
+      - redis-slave-1  
+      - redis-slave-2  
+    volumes:  
+      - ./sentinels/sentinel-2/init:/usr/local/etc  
+    env_file:  
+      - .env  
+    networks:  
+      redis-net:  
+        ipv4_address: 172.25.0.6  
+  
+  sentinel-3:  
+    image: redis:latest  
+    container_name: "sentinel3"  
+    command: [ "sh", "-c", "chmod +x /usr/local/etc/init.sh && /usr/local/etc/init.sh ${HOST_IP}" ]  
+    ports:  
+      - "5003:26379"  
+    depends_on:  
+      - redis-master  
+      - redis-slave-1  
+      - redis-slave-2  
+    volumes:  
+      - ./sentinels/sentinel-3/init:/usr/local/etc  
+    env_file:  
+      - .env  
+    networks:  
+      redis-net:  
         ipv4_address: 172.25.0.7
 ```
 
@@ -513,42 +513,31 @@ sentinel notification-script mymaster /usr/local/etc/failover.sh
 
 
 ## Reference
-https://redis.io/docs/latest/operate/oss_and_stack/management/sentinel/#sentinel-reconfiguration-of-instances-outside-the-failover-procedure
+[Sentinel, Docker, NAT and possible issues](https://redis.io/docs/latest/operate/oss_and_stack/management/sentinel/#sentinel-docker-nat-and-possible-issues)
 
-https://rhgustmfrh.tistory.com/123
+[Redis Sentinel vs Redis Cluster: 고가용성과 확장성의 대결](# Redis Sentinel vs Redis Cluster: 고가용성과 확장성의 대결)
 
-https://coding-review.tistory.com/535
+[Redis Sentinel로 고가용성 유지하기](https://coding-review.tistory.com/535)
 
-https://co-de.tistory.com/15
+[Redis Sentinel 도커 배포하기](https://coding-review.tistory.com/533)
 
-https://coding-review.tistory.com/533
+[Redis 장애시 RDBMS의 연쇄적인 장애에 대응하기 위한 전략](https://coding-review.tistory.com/472)
 
-https://coding-review.tistory.com/472
+[Docker로 Redis Sentinel 구성하기](https://mag1c.tistory.com/569#heading-0)
 
-https://junhyunny.github.io/spring-boot/redis/replication-in-redis/
+[Redis HA(High availability)와 Sentinel](https://devbksheen.tistory.com/entry/%085-Redis-HAHigh-availability%EC%99%80-Sentinel)
 
-https://junhyunny.github.io/spring-boot/redis/failover-using-sentinel-for-redis/
+[Replication in Redis](https://junhyunny.github.io/spring-boot/redis/replication-in-redis/)
 
-https://stackoverflow.com/questions/70384566/warning-sentinel-was-not-able-to-save-the-new-configuration-on-disk-device
+[Failover Using Sentinel for Redis](https://junhyunny.github.io/spring-boot/redis/failover-using-sentinel-for-redis/)
 
-https://velog.io/@pjh612/Docker-compose%EB%A1%9C-Redis-cluster-%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0-%EB%8F%84%EC%BB%A4-%EC%99%B8%EB%B6%80%EC%97%90%EC%84%9C-%EC%A0%91%EC%86%8D-%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%88%ED%8C%85#announce-%EC%98%B5%EC%85%98%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0
+[RedisGate:Redis SENTINEL ANNOUNCE-IP, ANNOUNCE-PORT](https://redisgate.jp/redis/sentinel/sentinel_announce.php)
 
-https://redisgate.jp/redis/sentinel/sentinel_announce.php
+[RedisGate:Redis SENTINEL NOTIFICATION-SCRIPT Parameter](https://redisgate.jp/redis/sentinel/sentinel_notification.php)
 
-https://box0830.tistory.com/404
+[Sentinel was not able to save the new configuration on disk:Device or resource busy](https://stackoverflow.com/questions/70384566/warning-sentinel-was-not-able-to-save-the-new-configuration-on-disk-device)
 
-https://devbksheen.tistory.com/entry/%085-Redis-HAHigh-availability%EC%99%80-Sentinel
-
-https://coding-review.tistory.com/533
-
-https://github.com/redis/redis/issues/8507
-
-https://stackoverflow.com/questions/29377853/how-can-i-use-environment-variables-in-docker-compose
-
-https://mag1c.tistory.com/569#heading-0
-
-https://redisgate.jp/redis/sentinel/sentinel_notification.php
-
+[Sentinel host name support not working as expected](https://github.com/redis/redis/issues/8507)
 
 
 
@@ -588,171 +577,171 @@ https://redisgate.jp/redis/sentinel/sentinel_notification.php
 
 ## Docker Compose
 ```yml
-networks:
-  redis-net:
-    name: redis-net
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 172.25.0.0/16
-
-services:
-  redis-master:
-    image: redis:latest
-    container_name: "redis-master"
-    command: >
+networks:  
+  redis-net:  
+    name: redis-net  
+    driver: bridge  
+    ipam:  
+      config:  
+        - subnet: 172.25.0.0/16  
+  
+services:  
+  redis-master:  
+    image: redis:latest  
+    container_name: "redis-master"  
+    command: >  
       sh -c  
       "  
         sed -E -i 's/^(replica-announce-ip[[:space:]]+).*/\\1${HOST_IP}/' /usr/local/etc/redis.conf &&  
         cp /usr/local/etc/redis.conf /data/redis.conf &&  
         redis-server /data/redis.conf  
       "  
-    ports:
-      - "6379:6379"
-    volumes:
-      - ./nodes/master/init:/usr/local/etc
-      - ./nodes/master/data:/data
-    env_file:
-      - .env
-    networks:
-      redis-net:
-        ipv4_address: 172.25.0.2
-
-  redis-slave-1:
-    image: redis:latest
-    container_name: "redis-slave1"
-    command: >
+    ports:  
+      - "6379:6379"  
+    volumes:  
+      - ./nodes/master/init:/usr/local/etc  
+      - ./nodes/master/data:/data  
+    env_file:  
+      - .env  
+    networks:  
+      redis-net:  
+        ipv4_address: 172.25.0.2  
+  
+  redis-slave-1:  
+    image: redis:latest  
+    container_name: "redis-slave1"  
+    command: >  
       sh -c  
       "  
         sed -E -i -e 's/^(replicaof[[:space:]]+)[^[:space:]]+/\\1${HOST_IP}/' -e 's/^(replica-announce-ip[[:space:]]+).*/\\1${HOST_IP}/' /usr/local/etc/redis.conf &&  
         cp /usr/local/etc/redis.conf /data/redis.conf &&  
         redis-server /data/redis.conf  
       "  
-    ports:
-      - "6380:6379"
-    links:
-      - redis-master
-    volumes:
-      - ./nodes/slave-1/init:/usr/local/etc
-      - ./nodes/slave-1/data:/data
-    env_file:
-      - .env
-    networks:
-      redis-net:
-        ipv4_address: 172.25.0.3
-
-  redis-slave-2:
-    image: redis:latest
-    container_name: "redis-slave2"
-    command: >
+    ports:  
+      - "6380:6379"  
+    links:  
+      - redis-master  
+    volumes:  
+      - ./nodes/slave-1/init:/usr/local/etc  
+      - ./nodes/slave-1/data:/data  
+    env_file:  
+      - .env  
+    networks:  
+      redis-net:  
+        ipv4_address: 172.25.0.3  
+  
+  redis-slave-2:  
+    image: redis:latest  
+    container_name: "redis-slave2"  
+    command: >  
       sh -c  
       "  
         sed -E -i -e 's/^(replicaof[[:space:]]+)[^[:space:]]+/\\1${HOST_IP}/' -e 's/^(replica-announce-ip[[:space:]]+).*/\\1${HOST_IP}/' /usr/local/etc/redis.conf &&  
         cp /usr/local/etc/redis.conf /data/redis.conf &&  
         redis-server /data/redis.conf  
       "  
-    ports:
-      - "6381:6379"
-    links:
-      - redis-master
-    volumes:
-      - ./nodes/slave-2/init:/usr/local/etc
-      - ./nodes/slave-2/data:/data
-    env_file:
-      - .env
-    networks:
-      redis-net:
-        ipv4_address: 172.25.0.4
-
-  sentinel-1:
-    image: redis:latest
-    container_name: "sentinel1"
-    command: >
+    ports:  
+      - "6381:6379"  
+    links:  
+      - redis-master  
+    volumes:  
+      - ./nodes/slave-2/init:/usr/local/etc  
+      - ./nodes/slave-2/data:/data  
+    env_file:  
+      - .env  
+    networks:  
+      redis-net:  
+        ipv4_address: 172.25.0.4  
+  
+  sentinel-1:  
+    image: redis:latest  
+    container_name: "sentinel1"  
+    command: >  
       sh -c  
       "  
         (apt-get update && apt-get install -y curl) &  
         chmod +x /usr/local/etc/failover.sh &&  
         sed -E -i -e 's#(curl -s )[^:]+#\\1${HOST_IP}#' /usr/local/etc/failover.sh &&  
-
+        
         sed -E -i -e 's/^(sentinel monitor mymaster[[:space:]]+)[^[:space:]]+/\\1${HOST_IP}/' -e 's/^(sentinel announce-ip[[:space:]]+).*/\\1${HOST_IP}/' /usr/local/etc/sentinel.conf &&  
         mkdir -p /etc/redis && cat /usr/local/etc/sentinel.conf > /etc/redis/sentinel.conf &&  
         redis-sentinel /etc/redis/sentinel.conf  
       "  
-    ports:
-      - "5001:26379"
-    depends_on:
-      - redis-master
-      - redis-slave-1
-      - redis-slave-2
-    volumes:
-      - ./sentinels/sentinel-1/init:/usr/local/etc
-    env_file:
-      - .env
-    networks:
-      redis-net:
-        ipv4_address: 172.25.0.5
-
-  sentinel-2:
-    image: redis:latest
-    container_name: "sentinel2"
-    command: >
+    ports:  
+      - "5001:26379"  
+    depends_on:  
+      - redis-master  
+      - redis-slave-1  
+      - redis-slave-2  
+    volumes:  
+      - ./sentinels/sentinel-1/init:/usr/local/etc  
+    env_file:  
+      - .env  
+    networks:  
+      redis-net:  
+        ipv4_address: 172.25.0.5  
+  
+  sentinel-2:  
+    image: redis:latest  
+    container_name: "sentinel2"  
+    command: >  
       sh -c  
       "  
         (apt-get update && apt-get install -y curl) &  
         chmod +x /usr/local/etc/failover.sh &&  
         sed -E -i -e 's#(curl -s )[^:]+#\\1${HOST_IP}#' /usr/local/etc/failover.sh &&   
-
+        
         sed -E -i -e 's/^(sentinel monitor mymaster[[:space:]]+)[^[:space:]]+/\\1${HOST_IP}/' -e 's/^(sentinel announce-ip[[:space:]]+).*/\\1${HOST_IP}/' /usr/local/etc/sentinel.conf &&  
         mkdir -p /etc/redis && cat /usr/local/etc/sentinel.conf > /etc/redis/sentinel.conf &&  
         redis-sentinel /etc/redis/sentinel.conf  
       "  
-    ports:
-      - "5002:26379"
-    depends_on:
-      - redis-master
-      - redis-slave-1
-      - redis-slave-2
-    volumes:
-      - ./sentinels/sentinel-2/init:/usr/local/etc
-    env_file:
-      - .env
-    networks:
-      redis-net:
-        ipv4_address: 172.25.0.6
-
-  sentinel-3:
-    image: redis:latest
-    container_name: "sentinel3"
-    command: >
+    ports:  
+      - "5002:26379"  
+    depends_on:  
+      - redis-master  
+      - redis-slave-1  
+      - redis-slave-2  
+    volumes:  
+      - ./sentinels/sentinel-2/init:/usr/local/etc  
+    env_file:  
+      - .env  
+    networks:  
+      redis-net:  
+        ipv4_address: 172.25.0.6  
+  
+  sentinel-3:  
+    image: redis:latest  
+    container_name: "sentinel3"  
+    command: >  
       sh -c  
       "  
         (apt-get update && apt-get install -y curl) &  
         chmod +x /usr/local/etc/failover.sh &&  
         sed -E -i -e 's#(curl -s )[^:]+#\\1${HOST_IP}#' /usr/local/etc/failover.sh &&  
-
+        
         sed -E -i -e 's/^(sentinel monitor mymaster[[:space:]]+)[^[:space:]]+/\\1${HOST_IP}/' -e 's/^(sentinel announce-ip[[:space:]]+).*/\\1${HOST_IP}/' /usr/local/etc/sentinel.conf &&  
         mkdir -p /etc/redis && cat /usr/local/etc/sentinel.conf > /etc/redis/sentinel.conf &&  
         redis-sentinel /etc/redis/sentinel.conf  
       "  
-    ports:
-      - "5003:26379"
-    depends_on:
-      - redis-master
-      - redis-slave-1
-      - redis-slave-2
-    volumes:
-      - ./sentinels/sentinel-3/init:/usr/local/etc
-    env_file:
-      - .env
-    networks:
-      redis-net:
-        ipv4_address: 172.25.0.7
-
-
-
-
-
-
+    ports:  
+      - "5003:26379"  
+    depends_on:  
+      - redis-master  
+      - redis-slave-1  
+      - redis-slave-2  
+    volumes:  
+      - ./sentinels/sentinel-3/init:/usr/local/etc  
+    env_file:  
+      - .env  
+    networks:  
+      redis-net:  
+        ipv4_address: 172.25.0.7  
+  
+  
+  
+  
+  
+  
 ## cli 옵션으로 옵션들 전달. conf 파일들은 있어야하고, 비어있어야 함. 그리고 설정파일은 가장 맨앞에 명시해야 함. + env 로 로컬 IP 전달.  
 #networks:  
 #  redis-net:  
