@@ -1,5 +1,5 @@
 ---
-title: Docker Redis Sentinel
+title: Docker Redis Sentinel 
 tags: ['docker', 'docker-compose']
 ---
 
@@ -515,7 +515,7 @@ sentinel notification-script mymaster /usr/local/etc/failover.sh
 ## Reference
 [Sentinel, Docker, NAT and possible issues](https://redis.io/docs/latest/operate/oss_and_stack/management/sentinel/#sentinel-docker-nat-and-possible-issues)
 
-[Redis Sentinel vs Redis Cluster: 고가용성과 확장성의 대결](# Redis Sentinel vs Redis Cluster: 고가용성과 확장성의 대결)
+[Redis Sentinel vs Redis Cluster: 고가용성과 확장성의 대결](https://rhgustmfrh.tistory.com/123)
 
 [Redis Sentinel로 고가용성 유지하기](https://coding-review.tistory.com/535)
 
