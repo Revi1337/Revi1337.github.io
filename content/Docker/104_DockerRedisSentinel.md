@@ -13,50 +13,51 @@ tags: ['docker', 'docker-compose']
 ![](Docker/images/Pasted%20image%2020250904173453.png)
 
 
-## Structure
+## File Structure
 실습에 필요한 폴더 구조입니다. redis 폴더에서 `chmod -R 0777 .`  로 파일 쓰기 권한을 줘야 합니다.
 
 ```text
-redis
-├── .env
-├── docker-compose.yml
-├── nodes
-│   ├── master
-│   │   ├── data
-│   │   └── init
-│   │       ├── init.sh
-│   │       └── redis.conf
-│   ├── slave-1
-│   │   ├── data
-│   │   └── init
-│   │       ├── init.sh
-│   │       └── redis.conf
-│   └── slave-2
-│       ├── data
-│       └── init
-│           ├── init.sh
-│           └── redis.conf
-└── sentinels
-    ├── sentinel-1
-    │   └── init
-    │       ├── failover.sh
-    │       ├── init.sh
-    │       └── sentinel.conf
-    ├── sentinel-2
-    │   └── init
-    │       ├── failover.sh
-    │       ├── init.sh
-    │       └── sentinel.conf
-    └── sentinel-3
-        └── init
-            ├── failover.sh
-            ├── init.sh
-            └── sentinel.conf
+infrastructure
+└── redis
+	├── .env
+	├── docker-compose.yml
+	├── nodes
+	│   ├── master
+	│   │   ├── data
+	│   │   └── init
+	│   │       ├── init.sh
+	│   │       └── redis.conf
+	│   ├── slave-1
+	│   │   ├── data
+	│   │   └── init
+	│   │       ├── init.sh
+	│   │       └── redis.conf
+	│   └── slave-2
+	│       ├── data
+	│       └── init
+	│           ├── init.sh
+	│           └── redis.conf
+	└── sentinels
+	    ├── sentinel-1
+	    │   └── init
+	    │       ├── failover.sh
+	    │       ├── init.sh
+	    │       └── sentinel.conf
+	    ├── sentinel-2
+	    │   └── init
+	    │       ├── failover.sh
+	    │       ├── init.sh
+	    │       └── sentinel.conf
+	    └── sentinel-3
+	        └── init
+	            ├── failover.sh
+	            ├── init.sh
+	            └── sentinel.conf
 ```
 
 
 ## .env
-`.env` 파일에 본인 호스트 IP를 환경변수로 작성합니다. docker-compose.yml 에서 해당 환경변수를 이용합니다.
+`.env` 파일에 본인 호스트 IP를 환경변수로 작성합니다. docker-compose.yml 에서 해당 환경변수를 이용합니다. 
 
 ```text
 HOST_IP=192.168.219.74
@@ -73,7 +74,6 @@ HOST_IP=192.168.219.74
     - 따라서 모든 노드는 반드시 `replica-announce-ip`, `replica-announce-port`, `sentinel announce-ip`, `sentinel announce-port` 등을 설정하여, 외부(호스트)에서도 직접 접근할 수 있도록 구성해야 합니다.
     - 만약 이 설정을 생략하면, Spring은 도커 내부 IP를 받아오기 때문에 마스터 연결에 실패합니다.
 
-**./docker-compose.yml**
 ```yml
 networks:  
   redis-net:  
@@ -201,7 +201,7 @@ Master 노드는 Redis의 **Persistence 기능**을 모두 활성화하여 데�
     - AOF: appendonly 모드 활성화, 매초 디스크에 기록 (`appendfsync everysec`)
 - **기타**: BGSAVE 오류가 발생하더라도 쓰기를 중지하지 않음 (`stop-writes-on-bgsave-error no`)
 
-> 이러한 설정을 통해 Master는 안정적으로 데이터를 저장하며, 동시에 슬레이브 및 Sentinel이 올바르게 연결될 수 있습니다.
+> 이 설정을 통해 Master는 안정적으로 데이터를 저장하며, 동시에 슬레이브 및 Sentinel이 올바르게 연결될 수 있습니다.
 
 **./nodes/master/init/redis.conf**
 ```text {4-5}
@@ -538,519 +538,3 @@ sentinel notification-script mymaster /usr/local/etc/failover.sh
 [Sentinel was not able to save the new configuration on disk:Device or resource busy](https://stackoverflow.com/questions/70384566/warning-sentinel-was-not-able-to-save-the-new-configuration-on-disk-device)
 
 [Sentinel host name support not working as expected](https://github.com/redis/redis/issues/8507)
-
-
-
-%% # Redis Sentinel V1
-## Structure
-```text
-./redis
-├── docker-compose.yml
-├── nodes
-│   ├── master
-│   │   ├── data
-│   │   └── init
-│   │       └── redis.conf
-│   ├── slave-1
-│   │   ├── data
-│   │   └── init
-│   │       └── redis.conf
-│   └── slave-2
-│       ├── data
-│       └── init
-│           └── redis.conf
-└── sentinels
-    ├── sentinel-1
-    │   └── init
-    │       ├── failover.sh
-    │       └── sentinel.conf
-    ├── sentinel-2
-    │   └── init
-    │       ├── failover.sh
-    │       └── sentinel.conf
-    └── sentinel-3
-        └── init
-            ├── failover.sh
-            └── sentinel.conf
-```
-
-
-## Docker Compose
-```yml
-networks:  
-  redis-net:  
-    name: redis-net  
-    driver: bridge  
-    ipam:  
-      config:  
-        - subnet: 172.25.0.0/16  
-  
-services:  
-  redis-master:  
-    image: redis:latest  
-    container_name: "redis-master"  
-    command: >  
-      sh -c  
-      "  
-        sed -E -i 's/^(replica-announce-ip[[:space:]]+).*/\\1${HOST_IP}/' /usr/local/etc/redis.conf &&  
-        cp /usr/local/etc/redis.conf /data/redis.conf &&  
-        redis-server /data/redis.conf  
-      "  
-    ports:  
-      - "6379:6379"  
-    volumes:  
-      - ./nodes/master/init:/usr/local/etc  
-      - ./nodes/master/data:/data  
-    env_file:  
-      - .env  
-    networks:  
-      redis-net:  
-        ipv4_address: 172.25.0.2  
-  
-  redis-slave-1:  
-    image: redis:latest  
-    container_name: "redis-slave1"  
-    command: >  
-      sh -c  
-      "  
-        sed -E -i -e 's/^(replicaof[[:space:]]+)[^[:space:]]+/\\1${HOST_IP}/' -e 's/^(replica-announce-ip[[:space:]]+).*/\\1${HOST_IP}/' /usr/local/etc/redis.conf &&  
-        cp /usr/local/etc/redis.conf /data/redis.conf &&  
-        redis-server /data/redis.conf  
-      "  
-    ports:  
-      - "6380:6379"  
-    links:  
-      - redis-master  
-    volumes:  
-      - ./nodes/slave-1/init:/usr/local/etc  
-      - ./nodes/slave-1/data:/data  
-    env_file:  
-      - .env  
-    networks:  
-      redis-net:  
-        ipv4_address: 172.25.0.3  
-  
-  redis-slave-2:  
-    image: redis:latest  
-    container_name: "redis-slave2"  
-    command: >  
-      sh -c  
-      "  
-        sed -E -i -e 's/^(replicaof[[:space:]]+)[^[:space:]]+/\\1${HOST_IP}/' -e 's/^(replica-announce-ip[[:space:]]+).*/\\1${HOST_IP}/' /usr/local/etc/redis.conf &&  
-        cp /usr/local/etc/redis.conf /data/redis.conf &&  
-        redis-server /data/redis.conf  
-      "  
-    ports:  
-      - "6381:6379"  
-    links:  
-      - redis-master  
-    volumes:  
-      - ./nodes/slave-2/init:/usr/local/etc  
-      - ./nodes/slave-2/data:/data  
-    env_file:  
-      - .env  
-    networks:  
-      redis-net:  
-        ipv4_address: 172.25.0.4  
-  
-  sentinel-1:  
-    image: redis:latest  
-    container_name: "sentinel1"  
-    command: >  
-      sh -c  
-      "  
-        (apt-get update && apt-get install -y curl) &  
-        chmod +x /usr/local/etc/failover.sh &&  
-        sed -E -i -e 's#(curl -s )[^:]+#\\1${HOST_IP}#' /usr/local/etc/failover.sh &&  
-        
-        sed -E -i -e 's/^(sentinel monitor mymaster[[:space:]]+)[^[:space:]]+/\\1${HOST_IP}/' -e 's/^(sentinel announce-ip[[:space:]]+).*/\\1${HOST_IP}/' /usr/local/etc/sentinel.conf &&  
-        mkdir -p /etc/redis && cat /usr/local/etc/sentinel.conf > /etc/redis/sentinel.conf &&  
-        redis-sentinel /etc/redis/sentinel.conf  
-      "  
-    ports:  
-      - "5001:26379"  
-    depends_on:  
-      - redis-master  
-      - redis-slave-1  
-      - redis-slave-2  
-    volumes:  
-      - ./sentinels/sentinel-1/init:/usr/local/etc  
-    env_file:  
-      - .env  
-    networks:  
-      redis-net:  
-        ipv4_address: 172.25.0.5  
-  
-  sentinel-2:  
-    image: redis:latest  
-    container_name: "sentinel2"  
-    command: >  
-      sh -c  
-      "  
-        (apt-get update && apt-get install -y curl) &  
-        chmod +x /usr/local/etc/failover.sh &&  
-        sed -E -i -e 's#(curl -s )[^:]+#\\1${HOST_IP}#' /usr/local/etc/failover.sh &&   
-        
-        sed -E -i -e 's/^(sentinel monitor mymaster[[:space:]]+)[^[:space:]]+/\\1${HOST_IP}/' -e 's/^(sentinel announce-ip[[:space:]]+).*/\\1${HOST_IP}/' /usr/local/etc/sentinel.conf &&  
-        mkdir -p /etc/redis && cat /usr/local/etc/sentinel.conf > /etc/redis/sentinel.conf &&  
-        redis-sentinel /etc/redis/sentinel.conf  
-      "  
-    ports:  
-      - "5002:26379"  
-    depends_on:  
-      - redis-master  
-      - redis-slave-1  
-      - redis-slave-2  
-    volumes:  
-      - ./sentinels/sentinel-2/init:/usr/local/etc  
-    env_file:  
-      - .env  
-    networks:  
-      redis-net:  
-        ipv4_address: 172.25.0.6  
-  
-  sentinel-3:  
-    image: redis:latest  
-    container_name: "sentinel3"  
-    command: >  
-      sh -c  
-      "  
-        (apt-get update && apt-get install -y curl) &  
-        chmod +x /usr/local/etc/failover.sh &&  
-        sed -E -i -e 's#(curl -s )[^:]+#\\1${HOST_IP}#' /usr/local/etc/failover.sh &&  
-        
-        sed -E -i -e 's/^(sentinel monitor mymaster[[:space:]]+)[^[:space:]]+/\\1${HOST_IP}/' -e 's/^(sentinel announce-ip[[:space:]]+).*/\\1${HOST_IP}/' /usr/local/etc/sentinel.conf &&  
-        mkdir -p /etc/redis && cat /usr/local/etc/sentinel.conf > /etc/redis/sentinel.conf &&  
-        redis-sentinel /etc/redis/sentinel.conf  
-      "  
-    ports:  
-      - "5003:26379"  
-    depends_on:  
-      - redis-master  
-      - redis-slave-1  
-      - redis-slave-2  
-    volumes:  
-      - ./sentinels/sentinel-3/init:/usr/local/etc  
-    env_file:  
-      - .env  
-    networks:  
-      redis-net:  
-        ipv4_address: 172.25.0.7  
-  
-  
-  
-  
-  
-  
-## cli 옵션으로 옵션들 전달. conf 파일들은 있어야하고, 비어있어야 함. 그리고 설정파일은 가장 맨앞에 명시해야 함. + env 로 로컬 IP 전달.  
-#networks:  
-#  redis-net:  
-#    name: redis-net  
-#    driver: bridge  
-#    ipam:  
-#      config:  
-#        - subnet: 172.25.0.0/16  
-#  
-#services:  
-#  redis-master:  
-#    image: redis:latest  
-#    container_name: "redis-master"  
-#    command: >  
-#      redis-server  
-#      --port 6379  
-#      --bind 0.0.0.0  
-#      --protected-mode no  
-#      --replica-announce-ip ${HOST_IP}  
-#      --replica-announce-port 6379  
-#    ports:  
-#      - "6379:6379"  
-#    volumes:  
-#      - ./master/redis.conf:/etc/redis/redis.conf  
-#    env_file:  
-#      - .env  
-#    networks:  
-#      redis-net:  
-#        ipv4_address: 172.25.0.2  
-#  
-#  redis-slave-1:  
-#    image: redis:latest  
-#    container_name: "redis-slave1"  
-#    command: >  
-#      redis-server  
-#      --port 6379  
-#      --bind 0.0.0.0  
-#      --protected-mode no  
-#      --replicaof redis-master 6379  
-#      --replica-announce-ip ${HOST_IP}  
-#      --replica-announce-port 6380  
-#    ports:  
-#      - "6380:6379"  
-#    links:  
-#      - redis-master  
-#    volumes:  
-#      - ./slave-1/redis.conf:/etc/redis/redis.conf  
-#    env_file:  
-#      - .env  
-#    networks:  
-#      redis-net:  
-#        ipv4_address: 172.25.0.3  
-#  
-#  redis-slave-2:  
-#    image: redis:latest  
-#    container_name: "redis-slave2"  
-#    command: >  
-#      redis-server  
-#      --port 6379  
-#      --bind 0.0.0.0  
-#      --protected-mode no  
-#      --replicaof redis-master 6379  
-#      --replica-announce-ip ${HOST_IP}  
-#      --replica-announce-port 6381  
-#    ports:  
-#      - "6381:6379"  
-#    links:  
-#      - redis-master  
-#    volumes:  
-#      - ./slave-2/redis.conf:/etc/redis/redis.conf  
-#    env_file:  
-#      - .env  
-#    networks:  
-#      redis-net:  
-#        ipv4_address: 172.25.0.4  
-#  
-#  sentinel-1:  
-#    image: redis:latest  
-#    container_name: "sentinel1"  
-#    command: >  
-#      redis-sentinel  
-#      /etc/redis/sentinel.conf  
-#      --port 26379  
-#      --dir /tmp  
-#      --sentinel resolve-hostnames yes  
-#      --sentinel monitor mymaster ${HOST_IP} 6379 2  
-#      --sentinel down-after-milliseconds mymaster 5000  
-#      --sentinel announce-ip ${HOST_IP}  
-#      --sentinel announce-port 5001  
-#      --sentinel failover-timeout mymaster 500  
-#      --bind 0.0.0.0  
-#    ports:  
-#      - "5001:26379"  
-#    depends_on:  
-#      - redis-master  
-#      - redis-slave-1  
-#      - redis-slave-2  
-#    volumes:  
-#      - ./sentinel-1:/etc/redis  
-#    env_file:  
-#      - .env  
-#    networks:  
-#      redis-net:  
-#        ipv4_address: 172.25.0.5  
-#  
-#  sentinel-2:  
-#    image: redis:latest  
-#    container_name: "sentinel2"  
-#    command: >  
-#      redis-sentinel  
-#      /etc/redis/sentinel.conf  
-#      --port 26379  
-#      --dir /tmp  
-#      --sentinel resolve-hostnames yes  
-#      --sentinel monitor mymaster ${HOST_IP} 6379 2  
-#      --sentinel down-after-milliseconds mymaster 5000  
-#      --sentinel announce-ip ${HOST_IP}  
-#      --sentinel announce-port 5002  
-#      --sentinel failover-timeout mymaster 500  
-#      --bind 0.0.0.0  
-#    ports:  
-#      - "5002:26379"  
-#    depends_on:  
-#      - redis-master  
-#      - redis-slave-1  
-#      - redis-slave-2  
-#    volumes:  
-#      - ./sentinel-2:/etc/redis  
-#    env_file:  
-#      - .env  
-#    networks:  
-#      redis-net:  
-#        ipv4_address: 172.25.0.6  
-#  
-#  sentinel-3:  
-#    image: redis:latest  
-#    container_name: "sentinel3"  
-#    command: >  
-#      redis-sentinel  
-#      /etc/redis/sentinel.conf  
-#      --port 26379  
-#      --dir /tmp  
-#      --sentinel resolve-hostnames yes  
-#      --sentinel monitor mymaster ${HOST_IP} 6379 2  
-#      --sentinel down-after-milliseconds mymaster 5000  
-#      --sentinel announce-ip ${HOST_IP}  
-#      --sentinel announce-port 5003  
-#      --sentinel failover-timeout mymaster 500  
-#      --bind 0.0.0.0  
-#    ports:  
-#      - "5003:26379"  
-#    depends_on:  
-#      - redis-master  
-#      - redis-slave-1  
-#      - redis-slave-2  
-#    volumes:  
-#      - ./sentinel-3:/etc/redis  
-#    env_file:  
-#      - .env  
-#    networks:  
-#      redis-net:  
-#        ipv4_address: 172.25.0.7
-```
-
-## Nodes
-### Master
-**./nodes/master/init/redis.conf**
-```text
-port 6379  
-bind 0.0.0.0  
-protected-mode no  
-replica-announce-ip 192.168.219.74  
-replica-announce-port 6379  
-  
-dir /data  
-dbfilename backup.rdb  
-save 900 1  
-save 300 10  
-save 60 10000  
-stop-writes-on-bgsave-error no  
-  
-appendonly yes  
-appendfilename appendonly.aof  
-appendfsync everysec
-```
-
-
-### Slave1
-**./nodes/slave-1/init/redis.conf**
-```text
-port 6379  
-bind 0.0.0.0  
-protected-mode no  
-replicaof 192.168.219.74 6379  
-replica-announce-ip 192.168.219.74  
-replica-announce-port 6380  
-  
-dir /data  
-dbfilename backup.rdb  
-save 900 1  
-save 300 10  
-save 60 10000  
-stop-writes-on-bgsave-error no  
-  
-appendonly yes  
-appendfilename appendonly.aof  
-appendfsync everysec
-```
-
-### Slave2
-**./nodes/slave-2/init/redis.conf**
-```text
-port 6379  
-bind 0.0.0.0  
-protected-mode no  
-replicaof 192.168.219.74 6379  
-replica-announce-ip 192.168.219.74  
-replica-announce-port 6381  
-  
-dir /data  
-dbfilename backup.rdb  
-save 900 1  
-save 300 10  
-save 60 10000  
-stop-writes-on-bgsave-error no  
-  
-appendonly yes  
-appendfilename appendonly.aof  
-appendfsync everysec  
-  
-appendonly yes
-```
-
-
-
-## Sentinels
-Common
-
-**./sentinels/sentinel-N/init/failover.sh**
-```bash {11}
-#!/bin/bash  
-# $1: Event Type (+failover-end)  
-# $2: Master Name  
-# $3: Previous Master IP  
-# $4: Previous Master PORT  
-# $5: New Master IP  
-# $6: New Master PORT  
-  
-if [ "$1" == "+failover-end" ]; then  
-    echo '+failover-end EventListener Invoked'  
-    curl -s 192.168.219.74:8080/test > /dev/null 2>&1  
-    exit 0  
-fi
-```
-
-
-### Sentinel1
-**./sentinels/sentinel-1/init/sentinel.conf**
-```text {8-9}
-port 26379  
-dir "/tmp"  
-sentinel resolve-hostnames yes  
-sentinel monitor mymaster 192.168.219.74 6379 2  
-sentinel down-after-milliseconds mymaster 5000  
-sentinel failover-timeout mymaster 500  
-  
-sentinel announce-ip 192.168.219.74  
-sentinel announce-port 5001  
-  
-bind 0.0.0.0  
-  
-sentinel notification-script mymaster /usr/local/etc/failover.sh
-```
-
-
-### Sentinel2
-**./sentinels/sentinel-2/init/sentinel.conf**
-```text {8-9}
-port 26379  
-dir "/tmp"  
-sentinel resolve-hostnames yes  
-sentinel monitor mymaster 192.168.219.74 6379 2  
-sentinel down-after-milliseconds mymaster 5000  
-sentinel failover-timeout mymaster 500  
-  
-sentinel announce-ip 192.168.219.74  
-sentinel announce-port 5002  
-  
-bind 0.0.0.0  
-  
-sentinel notification-script mymaster /usr/local/etc/failover.sh
-```
-
-
-### Sentinel3
-**./sentinels/sentinel-3/init/sentinel.conf**
-```text {8-9}
-port 26379  
-dir "/tmp"  
-sentinel resolve-hostnames yes  
-sentinel monitor mymaster 192.168.219.74 6379 2  
-sentinel down-after-milliseconds mymaster 5000  
-sentinel failover-timeout mymaster 500  
-  
-sentinel announce-ip 192.168.219.74  
-sentinel announce-port 5003  
-  
-bind 0.0.0.0  
-  
-sentinel notification-script mymaster /usr/local/etc/failover.sh
-```
-%%
