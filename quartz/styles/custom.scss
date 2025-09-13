@@ -24,6 +24,10 @@ code {
 
 .center {
 
+  img {
+    margin-bottom: 35px;
+  }
+
   // 싱글 code block background 색 변경 (base.scss 422 라인 Overwrite)
   code:not(pre code) {            // pre > code 가 아닌것들 선택
     background: var(--highlight);
@@ -135,6 +139,12 @@ figure {
     & + p img {
       margin-bottom: 10px;
     }
+  }
+}
+
+figure[data-rehype-pretty-code-figure] {
+  & > pre {
+    margin-bottom: 60px;
   }
 }
 
