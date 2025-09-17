@@ -186,6 +186,8 @@ export const sortFn: Options["sortFn"] = (a, b) => {
     "AWS/9_EC2ConnectDomain": 9509,
     "AWS/10_EC2SupplyHttps": 9510,
     "AWS/11_RDS": 9511,
+    "AWS/12_CloudWatch": 9512,
+    "AWS/13_CloudWatchMetricAccessPolicy": 9513,
     "AWS/20_AwsDomainBuy": 9520,
 
 
