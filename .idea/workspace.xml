@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="283b94bf-5028-497f-92a5-3572fe5ed7aa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/AWS/13_CloudWatchMetricAccessPolicy.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/AWS/13_CloudWatchMetricAccessPolicy.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/AWS/12_CloudWatch.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/AWS/12_CloudWatch.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +143,8 @@
       <workItem from="1756975099625" duration="4000000" />
       <workItem from="1757705268666" duration="3817000" />
       <workItem from="1758104964800" duration="123000" />
-      <workItem from="1758105197042" duration="17000" />
+      <workItem from="1758105197042" duration="114000" />
+      <workItem from="1758105956749" duration="10000" />
     </task>
     <servers />
   </component>

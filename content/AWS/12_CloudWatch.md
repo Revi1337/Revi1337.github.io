@@ -1,5 +1,5 @@
 ---
-title: EC2에 CloudWatch 적용
+title: CloudWatch
 tags: ['aws', 'cloudwatch']
 ---
 
