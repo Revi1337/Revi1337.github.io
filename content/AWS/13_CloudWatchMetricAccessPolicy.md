@@ -1,5 +1,5 @@
 ---
-title: CloudWatch Metric Policy 연결
+title: CloudWatch Metric Policy 연결
 tags: ['aws', 'iam', 'cloudwatch']
 ---
 
